@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "584326991502",
+    "firebase_url": "https://citas-928dd.firebaseio.com",
+    "project_id": "citas-928dd",
+    "storage_bucket": "citas-928dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584326991502:android:54a416450411b298",
+        "android_client_info": {
+          "package_name": "com.example.antonio.doctab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584326991502-ukngosen589d2ljdmhsdm93ujp7gafu7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqO8PBF02Faq16a3Cjspa3p9tYkfQCoNA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
