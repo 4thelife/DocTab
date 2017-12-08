@@ -1,3 +1,69 @@
 <resources>
     <string name="app_name">DocTab</string>
+
+    <string name="action_sign_in_short">Register</string>
+    <string name="email">Email</string>
+    <string name="minimum_password">Contraseña demasiado corta, ingresa minimo 6 caracteres!</string>
+    <string name="auth_failed">Authentication fallida, verifica tu correo electronico and contraseña.</string>
+    <string name="change_email">Cambiar correo electronico</string>
+    <string name="change_password">Cambiar Contraseña</string>
+    <string name="send_password_reset_email">Enviar reinicio de contrasela al correo electronico</string>
+    <string name="remove_user">Borrar usuario</string>
+    <string name="new_pass">Nueva contraseña</string>
+    <string name="title_activity_profile">Firebase</string>
+    <string name="title_activity_login">Iniciar Sessión</string>
+    <string name="hint_email">Correo Electronico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_name">Nombre completo</string>
+    <string name="btn_login">Iniciar Sessión</string>
+    <string name="btn_link_to_register">No eres miembro? Registrate ahora!</string>
+    <string name="btn_link_to_login">Estas registrado?. Iniciar Sessión!</string>
+    <string name="title_activity_reset_password">ResetPasswordActivity</string>
+    <string name="btn_forgot_password">Olvidaste tu contraseña?</string>
+    <string name="btn_reset_password">Reiniciar contraseña</string>
+    <string name="btn_back"><![CDATA[<< Regresar]]></string>
+    <string name="hint_new_email">Nuevo correo electronico</string>
+    <string name="btn_change">Cambiar</string>
+    <string name="btn_send">Enviar</string>
+    <string name="btn_remove">Borrar</string>
+    <string name="btn_sign_out">Cerrar sessión</string>
+    <string name="lbl_forgot_password">Olvidaste tu contraseña?</string>
+    <string name="forgot_password_msg">Enviaremos un correo electronico con las instruccions para reinciar contraseña.</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+    <string name="title_activity_register">MainRegisterActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Opciones</string>
+    <string name="action_soporte">Soporte</string>
+    <string name="action_logout">Cerrar Sessión</string>
+
+    <!--Opciones del menu-->
+    <string name="default_item_menu_title_inicio">Inicio</string>
+    <string name="default_item_menu_title_administracion">Administración</string>
+    <string name="default_item_menu_title_usuarios">Usuarios</string>
+    <string name="default_item_menu_title_aretes_internos">Aretes Internos</string>
+    <string name="default_item_menu_title_cabezas">Cabezas</string>
+    <string name="default_item_menu_title_actividades">Actividades</string>
+    <string name="default_item_menu_title_checklist">CheckList</string>
+    <string name="default_item_menu_title_herrado">Herrado</string>
+    <string name="default_item_menu_title_desparacitado">Desparacitado</string>
+    <string name="default_item_menu_title_vacunado">Vacunado</string>
+
+    <!--Form subtitle-->
+    <string name="default_form_title_edit">Modificar</string>
+    <string name="default_form_title_new">Registrar</string>
+
+    <!--Titulos de la actividad-->
+    <string name="default_activity_title_usuarios">Usuarios</string>
+    <string name="default_activity_title_aretes_internos">Aretes Internos</string>
+    <string name="default_activity_title_cabezas">Cabezas</string>
+
+    <string name="default_loading_msg">Por favor espera un momento</string>
+    <string name="default_alert_dialog_aceptar">Aceptar</string>
+    <string name="default_alert_dialog_cancelar">Cancelar</string>
+    <string name="default_alert_dialog_si">Si</string>
+    <string name="default_alert_dialog_no">No</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

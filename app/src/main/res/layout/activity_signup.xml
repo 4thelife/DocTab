@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.antonio.doctab.LoginActivity">
+    tools:context="com.example.antonio.doctab.SignupActivity">
+
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -20,17 +22,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="108dp"
-            app:srcCompat="@drawable/logo" />
+            android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/etxt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:hint="Nombre" />
+        </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/edcorreo"
+            android:id="@+id/etxt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
@@ -41,46 +48,51 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/edcontra"
+            android:id="@+id/etxt_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:hint="Contraseña" />
+            android:hint="Contraseña"
+            android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
-
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_register"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
             android:background="@color/colorAccent"
             android:fontFamily="monospace"
-            android:text="@string/btn_login"
+            android:text="Registrar"
             android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
         <Button
-            android:id="@+id/btn_reset_password"
+            android:id="@+id/txt_login"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
             android:background="@null"
             android:fontFamily="monospace"
-            android:text="@string/btn_forgot_password"
+            android:text="O haz click aqui para logear"
             android:textAllCaps="false"
             android:textColor="@color/colorAccent" />
 
-        <Button
-            android:id="@+id/btn_signup"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
-            android:background="@null"
-            android:fontFamily="monospace"
-            android:text="@string/btn_link_to_register"
-            android:textAllCaps="false"
-            android:textColor="@color/colorAccent"
-            android:textSize="15dp" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="221dp"
+        android:layout_height="99dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nuevo_usuario" />
+
+
 </android.support.constraint.ConstraintLayout>
