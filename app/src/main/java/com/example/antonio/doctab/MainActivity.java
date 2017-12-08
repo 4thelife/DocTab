@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         //Obtiene la instancia compartida del objeto FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
     }
-    protected void onStart(){
+
+    protected void onStart() {
         super.onStart();
 
         /*Responde a los cambios de estato en la session*/
@@ -40,11 +40,17 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
-                   // Log.i(TAG, "SignupActivity");
-
                 }
             }
         };
 
+        mAuth.addAuthStateListener(mAuthListener);
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mAuthListener != null) mAuth.removeAuthStateListener(mAuthListener);
     }
 }
