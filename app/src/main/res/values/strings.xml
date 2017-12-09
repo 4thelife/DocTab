@@ -1,6 +1,29 @@
 <resources>
     <string name="app_name">DocTab</string>
 
+
+    <string name="nom_consul">Nombre del consultorio</string>
+    <string name="calle_consul">Calle</string>
+    <string name="num_ext_consul"># Exterior</string>
+    <string name="num_int_consul"># Interior</string>
+    <string name="colonia_consul">Colonia</string>
+    <string name="cp_consul">Código Postal</string>
+    <string name="tel_consul">Teléfono</string>
+    <string name="extension_consul">Extensión</string>
+    <string name="tel2_consul">Telefono 2</string>
+    <string name="extension2_consul">Extensión 2</string>
+    <string name="horario_consul">Horario</string>
+
+    <string name="dia0">Lunes</string>
+    <string name="dia1">Martes</string>
+    <string name="dia2">Miércoles</string>
+    <string name="dia3">Jueves</string>
+    <string name="dia4">Viernes</string>
+    <string name="dia5">Sábado</string>
+    <string name="dia6">Domingo</string>
+
+
+
     <string name="action_sign_in_short">Register</string>
     <string name="email">Email</string>
     <string name="minimum_password">Contraseña demasiado corta, ingresa minimo 6 caracteres!</string>
