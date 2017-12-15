@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
                 if (user != null) {
+
+                    Intent intent = new Intent(MainActivity.this,ActivityAccount.class);
+                    startActivity(intent);
+                    finish();
                     Toast.makeText(MainActivity.this, "Pendiente crear navigationDrawer", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);

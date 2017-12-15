@@ -23,6 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,13 +64,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:hint="@string/calle_consul"
-                    android:textSize="12sp" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -173,42 +167,6 @@
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:hint="@string/tel2_consul"
-                    android:inputType="phone"
-                    android:textSize="12sp" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:hint="@string/extension2_consul"
-                    android:inputType="phone"
-                    android:textSize="12sp" />
-
-            </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -222,6 +180,16 @@
                 android:fontFamily="monospace"
                 android:text="@string/horario_consul"
                 android:textAlignment="center" />
+
+          <Button
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Agregar Dia y hora de atención"
+              android:id="@+id/btn_nvoDia"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
 
         </LinearLayout>

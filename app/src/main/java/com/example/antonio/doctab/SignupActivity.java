@@ -22,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignupActivity extends AppCompatActivity {
 
     private EditText mNameField;
+    private EditText mAppatField;
+    private EditText mApmatField;
     private EditText mEmailFiedl;
     private EditText mPasswordField;
 
@@ -46,6 +48,8 @@ public class SignupActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mNameField = (EditText) findViewById(R.id.etxt_name);
+        mAppatField = (EditText)findViewById(R.id.etxt_appat);
+        mApmatField = (EditText)findViewById(R.id.etxt_apmat);
         mEmailFiedl = (EditText) findViewById(R.id.etxt_email);
         mPasswordField = (EditText) findViewById(R.id.etxt_password);
         mRegisterButton = (Button) findViewById(R.id.btn_register);
@@ -70,7 +74,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
-                    Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(SignupActivity.this, ActivityAccount.class);
                     startActivity(intent);
                     finish();
                 }
@@ -83,7 +87,8 @@ public class SignupActivity extends AppCompatActivity {
         final String name = mNameField.getText().toString().trim();
         final String email = mEmailFiedl.getText().toString().trim();
         final String password = mPasswordField.getText().toString().trim();
-
+        final String appat = mAppatField.getText().toString().trim();
+        final String apmat = mApmatField.getText().toString().trim();
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
             mProgress.setMessage("Por favor espere lo estamos registrando....");
             mProgress.show();
@@ -99,7 +104,10 @@ public class SignupActivity extends AppCompatActivity {
                                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
                                 DatabaseReference currentUserDB = mDatabase.child(mAuth.getCurrentUser().getUid());
                                 currentUserDB.child("name").setValue(name);
+                                currentUserDB.child("appat").setValue(appat);
+                                currentUserDB.child("apmat").setValue(apmat);
                                 currentUserDB.child("image").setValue("default");
+
                             } else
                                 Toast.makeText(SignupActivity.this, "Ha ocurrido un error al registrarse", Toast.LENGTH_SHORT).show();
 

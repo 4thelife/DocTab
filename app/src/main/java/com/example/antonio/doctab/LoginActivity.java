@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
                     Toast.makeText(LoginActivity.this, "Ahora estás logeado en " + firebaseAuth.getCurrentUser().getUid(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, ActivityAccount.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                     //mAuth.signOut();

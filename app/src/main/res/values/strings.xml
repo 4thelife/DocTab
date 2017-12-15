@@ -12,7 +12,7 @@
     <string name="extension_consul">Extensión</string>
     <string name="tel2_consul">Telefono 2</string>
     <string name="extension2_consul">Extensión 2</string>
-    <string name="horario_consul">Horario</string>
+    <string name="horario_consul">Horario de atención</string>
 
     <string name="dia0">Lunes</string>
     <string name="dia1">Martes</string>
@@ -21,7 +21,6 @@
     <string name="dia4">Viernes</string>
     <string name="dia5">Sábado</string>
     <string name="dia6">Domingo</string>
-
 
 
     <string name="action_sign_in_short">Register</string>

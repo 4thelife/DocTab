@@ -25,7 +25,8 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".ActivityAccount"></activity>
+        <activity android:name=".ActivityAccount" />
+        <activity android:name=".Activity_agregar_horario"></activity>
     </application>
 
 </manifest>
