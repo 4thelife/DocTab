@@ -39,12 +39,13 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/etxt_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:hint="Nombre(s)" />
+
+            <EditText
+                android:id="@+id/etxt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="Nombre y apellidos" />
         </android.support.design.widget.TextInputLayout>
 
 
@@ -57,26 +58,12 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <EditText
-                android:id="@+id/etxt_appat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:hint="Apellido paterno" />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_weight="1"></android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <EditText
-                android:id="@+id/etxt_apmat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:hint="Apellido materno" />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_weight="1"></android.support.design.widget.TextInputLayout>
         </LinearLayout>
 
 

@@ -28,8 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignupActivity extends AppCompatActivity {
 
     private EditText mNameField;
-    private EditText mAppatField;
-    private EditText mApmatField;
     private EditText mEmailFiedl;
     private EditText mPasswordField;
 
@@ -56,8 +54,6 @@ public class SignupActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mNameField = (EditText) findViewById(R.id.etxt_name);
-        mAppatField = (EditText)findViewById(R.id.etxt_appat);
-        mApmatField = (EditText)findViewById(R.id.etxt_apmat);
         mEmailFiedl = (EditText) findViewById(R.id.etxt_email);
         mPasswordField = (EditText) findViewById(R.id.etxt_password);
         mRegisterButton = (Button) findViewById(R.id.btn_register);
@@ -109,15 +105,7 @@ public class SignupActivity extends AppCompatActivity {
                             mProgress.dismiss();
                             if (task.isSuccessful()) {
 
-                                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
-                                DatabaseReference currentUserDB = mDatabase.child(mAuth.getCurrentUser().getUid());
-                                currentUserDB.child("name").setValue(name);
-
-
-
                                 Doctores doctor = new Doctores();
-
-
 
                                 doctor.setNombreCompleto(name);
                                 doctor.setCorreoElectronico(email);
@@ -131,11 +119,6 @@ public class SignupActivity extends AppCompatActivity {
 
                                 firebaseRegistroDoctor(doctor);
 
-
-
-
-
-
                             } else
                                 Toast.makeText(SignupActivity.this, "Ha ocurrido un error al registrarse", Toast.LENGTH_SHORT).show();
 
@@ -146,7 +129,7 @@ public class SignupActivity extends AppCompatActivity {
     }
     public void firebaseRegistroDoctor(final Doctores doctor){
 
-  /*obtiene la instancia como cliente*/
+  /*obtiene la instancia como Doctor*/
         final DatabaseReference dbDoctor =
                 FirebaseDatabase.getInstance().getReference()
                         .child(Constants.FB_KEY_MAIN_DOCTORES)
@@ -192,6 +175,7 @@ public class SignupActivity extends AppCompatActivity {
 
 
     }
+    //Este método manda un link al correo registrado para verificarlo *Falta el código para verificar *
     public void sentEmailVerification(){
         FirebaseUser user = mAuth.getCurrentUser();
 
