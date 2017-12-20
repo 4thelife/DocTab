@@ -6,9 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class ActivityAccount extends AppCompatActivity {
 
     Button nuevodia;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +28,6 @@ public class ActivityAccount extends AppCompatActivity {
             }
         });
     }
+
 
 }

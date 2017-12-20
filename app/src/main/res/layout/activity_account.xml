@@ -56,21 +56,23 @@
 
         </android.support.design.widget.TextInputLayout>
 
-        <LinearLayout
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="0dp"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:fontFamily="monospace"
+                android:hint="Calle"
+                android:textSize="12sp" />
 
-            </android.support.design.widget.TextInputLayout>
+        </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+
+        <android.support.design.widget.TextInputLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
@@ -78,20 +80,13 @@
                     android:fontFamily="monospace"
                     android:hint="@string/colonia_consul"
                     android:textSize="12sp" />
+        </android.support.design.widget.TextInputLayout>
 
-            </android.support.design.widget.TextInputLayout>
 
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
@@ -103,9 +98,8 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
@@ -117,9 +111,8 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
@@ -130,16 +123,13 @@
                     android:textSize="12sp" />
 
             </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+
+
 
             <android.support.design.widget.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
@@ -152,9 +142,8 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:layout_width="match_parent"
@@ -165,7 +154,6 @@
                     android:textSize="12sp" />
 
             </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
 
 
         <LinearLayout
@@ -194,7 +182,6 @@
 
         </LinearLayout>
     </LinearLayout>
-
 
 
 
