@@ -12,10 +12,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.antonio.doctab.Utils.Constants;
+import com.example.antonio.doctab.Utils.DateTimeUtils;
+import com.example.antonio.doctab.models.Doctores;
+import com.example.antonio.doctab.models.Usuarios;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,6 +39,8 @@ public class SignupActivity extends AppCompatActivity {
     private ProgressDialog mProgress;
     private TextView mTextLogin;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
+
 
     @Override
     protected void onStart() {
@@ -87,8 +95,10 @@ public class SignupActivity extends AppCompatActivity {
         final String name = mNameField.getText().toString().trim();
         final String email = mEmailFiedl.getText().toString().trim();
         final String password = mPasswordField.getText().toString().trim();
-        final String appat = mAppatField.getText().toString().trim();
-        final String apmat = mApmatField.getText().toString().trim();
+        final String tipoDeUsuario = "Doctor";
+
+
+
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
             mProgress.setMessage("Por favor espere lo estamos registrando....");
             mProgress.show();
@@ -98,15 +108,33 @@ public class SignupActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             mProgress.dismiss();
                             if (task.isSuccessful()) {
-                                mAuth.signInWithEmailAndPassword(email, password);
-                                //Toast.makeText(ActivityRegister.this, user_id, Toast.LENGTH_SHORT).show();
 
                                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
                                 DatabaseReference currentUserDB = mDatabase.child(mAuth.getCurrentUser().getUid());
                                 currentUserDB.child("name").setValue(name);
-                                currentUserDB.child("appat").setValue(appat);
-                                currentUserDB.child("apmat").setValue(apmat);
-                                currentUserDB.child("image").setValue("default");
+
+
+
+                                Doctores doctor = new Doctores();
+
+
+
+                                doctor.setNombreCompleto(name);
+                                doctor.setCorreoElectronico(email);
+
+                                doctor.setTipoDeUsuario(tipoDeUsuario);
+
+                                doctor.setFirebaseId(mAuth.getCurrentUser().getUid());
+                                doctor.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_INACTIVO);
+                                doctor.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
+                                doctor.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+                                firebaseRegistroDoctor(doctor);
+
+
+
+
+
 
                             } else
                                 Toast.makeText(SignupActivity.this, "Ha ocurrido un error al registrarse", Toast.LENGTH_SHORT).show();
@@ -115,5 +143,67 @@ public class SignupActivity extends AppCompatActivity {
                     });
         }
 
+    }
+    public void firebaseRegistroDoctor(final Doctores doctor){
+
+  /*obtiene la instancia como cliente*/
+        final DatabaseReference dbDoctor =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_DOCTORES)
+                        .child(doctor.getFirebaseId())
+                        .child(Constants.FB_KEY_ITEM_DOCTOR);
+
+                dbDoctor.setValue(doctor,new DatabaseReference.CompletionListener(){
+
+                    @Override
+                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                        if (databaseError == null){
+                            Usuarios usuario = new Usuarios();
+                            usuario.setFirebaseId(doctor.getFirebaseId());
+                            usuario.setTipoDeUsuario(doctor.getTipoDeUsuario());
+
+                            firebaseRegistroUsuario(usuario);
+
+
+
+                        }
+                    }
+                });
+
+
+
+    }
+
+    private void firebaseRegistroUsuario(Usuarios usuario) {
+
+        DatabaseReference dbUsuario =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_USUARIOS)
+                        .child(usuario.getFirebaseId());
+
+        dbUsuario.setValue(usuario, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if (databaseError == null){
+                    sentEmailVerification();
+                }
+            }
+        });
+
+
+    }
+    public void sentEmailVerification(){
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+
+                    Toast.makeText(getApplicationContext(),
+                            "Registrado correctamente...", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 }
