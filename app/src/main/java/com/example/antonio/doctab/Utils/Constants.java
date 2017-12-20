@@ -13,6 +13,8 @@ public class Constants {
     public static final String FB_KEY_ITEM_DOCTOR ="doctor";
     public static final String FB_KEY_ITEM_CONSULTORIOS = "consultorios";
     public static final String FB_KEY_ITEM_CONSULTORIO = "consultorio";
+    public static final String FB_KEY_ITEM_CONSULTORIO_HORARIOS ="horarios";
+
     public static final String FB_KEY_ITEM_CONSULTORIO_DIRECCION = "direccion";
     public static final String FB_KEY_ITEM_PERFILES_ACADEMICOS = "perfilesAcademicos";
     public static final String FB_KEY_ITEM_PERFIL_ACADEMICO = "perfilAcademico";
