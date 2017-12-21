@@ -63,15 +63,7 @@
 
     <!--Opciones del menu-->
     <string name="default_item_menu_title_inicio">Inicio</string>
-    <string name="default_item_menu_title_administracion">Administración</string>
-    <string name="default_item_menu_title_usuarios">Usuarios</string>
-    <string name="default_item_menu_title_aretes_internos">Aretes Internos</string>
-    <string name="default_item_menu_title_cabezas">Cabezas</string>
-    <string name="default_item_menu_title_actividades">Actividades</string>
-    <string name="default_item_menu_title_checklist">CheckList</string>
-    <string name="default_item_menu_title_herrado">Herrado</string>
-    <string name="default_item_menu_title_desparacitado">Desparacitado</string>
-    <string name="default_item_menu_title_vacunado">Vacunado</string>
+    <string name="default_item_menu_title_citas_doctor">Citas</string>
 
     <!--Form subtitle-->
     <string name="default_form_title_edit">Modificar</string>
