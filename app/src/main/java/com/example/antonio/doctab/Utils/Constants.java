@@ -1,5 +1,8 @@
 package com.example.antonio.doctab.Utils;
 
+
+import android.support.v4.app.Fragment;
+
 import com.example.antonio.doctab.R;
 
 import java.util.HashMap;
@@ -34,6 +37,13 @@ public class Constants {
     static {
         ITEM_FRAGMENT = new HashMap<>();
         ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_LISTADO_INICIO);
+    }
+
+    public static final HashMap<String, Fragment> TAG_FRAGMENT;
+
+    static {
+        TAG_FRAGMENT = new HashMap<>();
+        //TAG_FRAGMENT.put(FRAGMENT_LISTADO_INICIO, new ListadoInicioFragment());
     }
 
 

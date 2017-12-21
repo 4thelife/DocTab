@@ -3,6 +3,7 @@ package com.example.antonio.doctab;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -84,6 +85,8 @@ public class NavigationDrawerActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        this.closeAllFragment();
+
         switch (id) {
             case R.id.menu_item_inicio:
                 getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_inicio));
@@ -101,11 +104,20 @@ public class NavigationDrawerActivity extends AppCompatActivity
     private void openFragment(String tag) {
         try {
             FragmentTransaction mainFragment = getSupportFragmentManager().beginTransaction();
-            //mainFragment.replace(R.id.fragment_main_container, Constants.TAG_FRAGMENT.get(tag), tag);
+            mainFragment.replace(R.id.fragment_main_container, Constants.TAG_FRAGMENT.get(tag), tag);
             mainFragment.addToBackStack(tag);
             mainFragment.commit();
         } catch (Exception e) {
             Toast.makeText(this, "Debe implementrar + " + tag, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    /**
+     * Cierra todos los fragmentos actuales
+     **/
+    private void closeAllFragment() {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_main_container);
+        if (null != fragment)
+            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
     }
 }

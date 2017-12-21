@@ -8,4 +8,11 @@
     tools:context="com.example.antonio.doctab.NavigationDrawerActivity"
     tools:showIn="@layout/app_bar_navigation_drawer">
 
+    <FrameLayout
+        android:id="@+id/fragment_main_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@null" />
+
 </android.support.constraint.ConstraintLayout>
