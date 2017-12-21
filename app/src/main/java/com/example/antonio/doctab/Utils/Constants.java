@@ -4,6 +4,7 @@ package com.example.antonio.doctab.Utils;
 import android.support.v4.app.Fragment;
 
 import com.example.antonio.doctab.R;
+import com.example.antonio.doctab.fragments.ListadoInicioFragment;
 
 import java.util.HashMap;
 
@@ -20,17 +21,26 @@ public class Constants {
     public static final String FB_KEY_ITEM_DOCTOR = "doctor";
     public static final String FB_KEY_ITEM_CONSULTORIOS = "consultorios";
     public static final String FB_KEY_ITEM_CONSULTORIO_HORARIOS = "horarios";
-
     public static final String FB_KEY_ITEM_CONSULTORIO_DIRECCION = "direccion";
     public static final String FB_KEY_ITEM_PERFILES_ACADEMICOS = "perfilesAcademicos";
-
     public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
     public static final String FB_KEY_ITEM_TIPO_USUARIO = "tipoDeUsuario";
+
+    /**
+     * Key Extras
+     **/
+    public static final String KEY_MAIN_DECODE = "key_main_decode";
+    public static final String KEY_SESSION_USER = "key_session_users";
 
     /**
      * Fragmentos principales de lista
      **/
     public static final String FRAGMENT_LISTADO_INICIO = "fragment_listado_inicio";
+
+    /**
+     * Fragmentos segundarios
+     **/
+    public static final String FRAGMENT_INICIOS = "fragment_inicios";
 
     public static final HashMap<Integer, String> ITEM_FRAGMENT;
 
@@ -43,7 +53,7 @@ public class Constants {
 
     static {
         TAG_FRAGMENT = new HashMap<>();
-        //TAG_FRAGMENT.put(FRAGMENT_LISTADO_INICIO, new ListadoInicioFragment());
+        TAG_FRAGMENT.put(FRAGMENT_LISTADO_INICIO, new ListadoInicioFragment());
     }
 
 
