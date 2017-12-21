@@ -39,7 +39,6 @@ public class SignupActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
 
 
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -61,7 +60,7 @@ public class SignupActivity extends AppCompatActivity {
         mTextLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                Intent intent = new Intent(SignupActivity.this, NavigationDrawerActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -78,7 +77,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
-                    Intent intent = new Intent(SignupActivity.this, ActivityAccount.class);
+                    Intent intent = new Intent(SignupActivity.this, NavigationDrawerActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -92,8 +91,6 @@ public class SignupActivity extends AppCompatActivity {
         final String email = mEmailFiedl.getText().toString().trim();
         final String password = mPasswordField.getText().toString().trim();
         final String tipoDeUsuario = "Doctor";
-
-
 
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
             mProgress.setMessage("Por favor espere lo estamos registrando....");
@@ -127,7 +124,8 @@ public class SignupActivity extends AppCompatActivity {
         }
 
     }
-    public void firebaseRegistroDoctor(final Doctores doctor){
+
+    public void firebaseRegistroDoctor(final Doctores doctor) {
 
   /*obtiene la instancia como Doctor*/
         final DatabaseReference dbDoctor =
@@ -136,23 +134,19 @@ public class SignupActivity extends AppCompatActivity {
                         .child(doctor.getFirebaseId())
                         .child(Constants.FB_KEY_ITEM_DOCTOR);
 
-                dbDoctor.setValue(doctor,new DatabaseReference.CompletionListener(){
+        dbDoctor.setValue(doctor, new DatabaseReference.CompletionListener() {
 
-                    @Override
-                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                        if (databaseError == null){
-                            Usuarios usuario = new Usuarios();
-                            usuario.setFirebaseId(doctor.getFirebaseId());
-                            usuario.setTipoDeUsuario(doctor.getTipoDeUsuario());
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if (databaseError == null) {
+                    Usuarios usuario = new Usuarios();
+                    usuario.setFirebaseId(doctor.getFirebaseId());
+                    usuario.setTipoDeUsuario(doctor.getTipoDeUsuario());
 
-                            firebaseRegistroUsuario(usuario);
-
-
-
-                        }
-                    }
-                });
-
+                    firebaseRegistroUsuario(usuario);
+                }
+            }
+        });
 
 
     }
@@ -167,7 +161,7 @@ public class SignupActivity extends AppCompatActivity {
         dbUsuario.setValue(usuario, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                if (databaseError == null){
+                if (databaseError == null) {
                     sentEmailVerification();
                 }
             }
@@ -175,8 +169,9 @@ public class SignupActivity extends AppCompatActivity {
 
 
     }
+
     //Este método manda un link al correo registrado para verificarlo *Falta el código para verificar *
-    public void sentEmailVerification(){
+    public void sentEmailVerification() {
         FirebaseUser user = mAuth.getCurrentUser();
 
         user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
