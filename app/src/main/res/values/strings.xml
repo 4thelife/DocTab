@@ -64,6 +64,12 @@
     <!--Opciones del menu-->
     <string name="default_item_menu_title_inicio">Inicio</string>
     <string name="default_item_menu_title_citas_doctor">Citas</string>
+    <string name="default_item_menu_title_mensajes_doctor">Mensajes</string>
+    <string name="default_item_menu_title_consultorios_doctor">Mis Consultorios</string>
+    <string name="default_item_menu_title_perfil_doctor">Mi Perfil</string>
+    <string name="default_item_menu_title_citas_paciente">Citas</string>
+    <string name="default_item_menu_title_mensajes_paciente">Mensajes</string>
+    <string name="default_item_menu_title_perfil_paciente">Mi Perfil</string>
 
     <!--Form subtitle-->
     <string name="default_form_title_edit">Modificar</string>

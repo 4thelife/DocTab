@@ -90,7 +90,7 @@ public class SignupActivity extends AppCompatActivity {
         final String name = mNameField.getText().toString().trim();
         final String email = mEmailFiedl.getText().toString().trim();
         final String password = mPasswordField.getText().toString().trim();
-        final String tipoDeUsuario = "Doctor";
+        final String tipoDeUsuario = "doctores";
 
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
             mProgress.setMessage("Por favor espere lo estamos registrando....");

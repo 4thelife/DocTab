@@ -2,11 +2,9 @@ package com.example.antonio.doctab;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,10 +13,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.antonio.doctab.Utils.Constants;
+import com.example.antonio.doctab.models.Doctores;
+import com.example.antonio.doctab.models.Usuarios;
+import com.example.antonio.doctab.services.SharedPreferencesService;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -53,8 +62,51 @@ public class NavigationDrawerActivity extends AppCompatActivity
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        onPreRender();
+    }
+
+    private void onPreRender() {
+        onpreRenderHeaderData();
+    }
+
+    private void onpreRenderHeaderData() {
+        final Usuarios usuario = SharedPreferencesService.getUsuarioActual(getApplicationContext());
+
+        DatabaseReference dbUsuario =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(usuario.getTipoDeUsuario())
+                        .child(usuario.getFirebaseId());
+
+        dbUsuario.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                View header = navigationView.getHeaderView(0);
+                TextView txtNombrePerfil = header.findViewById(R.id.txt_nombre_perfil_header_navigation);
+                TextView txtEmail = header.findViewById(R.id.txt_email_perfil_header_navigation);
+
+                switch (usuario.getTipoDeUsuario()) {
+                    case Constants.FB_KEY_MAIN_DOCTORES:
+                        Doctores doctor = dataSnapshot.child(Constants.FB_KEY_ITEM_DOCTOR).getValue(Doctores.class);
+                        txtNombrePerfil.setText(doctor.getNombreCompleto());
+                        txtEmail.setText(doctor.getCorreoElectronico());
+                        break;
+                    case Constants.FB_KEY_MAIN_PACIENTES:
+                        break;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -96,7 +148,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -107,15 +159,31 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_inicio));
                 this.openFragment(Constants.ITEM_FRAGMENT.get(id));
                 break;
+            case R.id.menu_item_citas_doctor:
+                getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_citas_doctor));
+                this.openFragment(Constants.ITEM_FRAGMENT.get(id));
+                break;
+            case R.id.menu_item_mensajes_doctor:
+                getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_mensajes_doctor));
+                this.openFragment(Constants.ITEM_FRAGMENT.get(id));
+                break;
             case R.id.menu_item_consultorios_doctor:
-                getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_inicio));
+                getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_consultorios_doctor));
+                this.openFragment(Constants.ITEM_FRAGMENT.get(id));
+                break;
+            case R.id.menu_item_pacientes_doctor:
+                getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_citas_doctor));
+                this.openFragment(Constants.ITEM_FRAGMENT.get(id));
+                break;
+            case R.id.menu_item_perfil_doctor:
+                getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_perfil_doctor));
                 this.openFragment(Constants.ITEM_FRAGMENT.get(id));
                 break;
             default:
                 break;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

@@ -19,6 +19,7 @@ public class Constants {
     public static final String FB_KEY_ITEM_ESTATUS_ACTIVO = "activo";
     public static final String FB_KEY_ITEM_ESTATUS_ELIMINADO = "eliminado";
     public static final String FB_KEY_MAIN_DOCTORES = "doctores";
+    public static final String FB_KEY_MAIN_PACIENTES = "pacientes";
     public static final String FB_KEY_ITEM_DOCTOR = "doctor";
     public static final String FB_KEY_ITEM_CONSULTORIOS = "consultorios";
     public static final String FB_KEY_ITEM_CONSULTORIO_HORARIOS = "horarios";
@@ -26,12 +27,21 @@ public class Constants {
     public static final String FB_KEY_ITEM_PERFILES_ACADEMICOS = "perfilesAcademicos";
     public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
     public static final String FB_KEY_ITEM_TIPO_USUARIO = "tipoDeUsuario";
+    public static final String FB_KEY_ITEM_FIREBASE_ID = "firebaseId";
 
     /**
      * Key Extras
      **/
     public static final String KEY_MAIN_DECODE = "key_main_decode";
     public static final String KEY_SESSION_USER = "key_session_users";
+
+    /**
+     * Key Preferences
+     */
+    public static final String KEY_PREF_CREDENCIALS = "key_pref_credencials";
+    public static final String KEY_PREF_CREDENCIALS_TIPO_USUARIO = "key_pref_credencials_tipo_usuario";
+    public static final String KEY_PREF_CREDENCIALS_FIREBASE_ID = "key_pref_credencials_firebase_id";
+    public static final String KEY_PREF_CREDENCIALS_SESSION = "key_pref_credencials_session";
 
     /**
      * Fragmentos principales de lista

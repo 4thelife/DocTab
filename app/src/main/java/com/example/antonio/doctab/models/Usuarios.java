@@ -1,10 +1,12 @@
 package com.example.antonio.doctab.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Antonio on 19/12/2017.
  */
 
-public class Usuarios {
+public class Usuarios implements Serializable {
 
     private  String tipoDeUsuario;
     private String firebaseId;

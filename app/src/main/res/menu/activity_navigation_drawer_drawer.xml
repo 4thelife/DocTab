@@ -7,7 +7,7 @@
         <item
             android:id="@+id/menu_item_inicio"
             android:checked="true"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@android:drawable/btn_star"
             android:title="@string/default_item_menu_title_inicio" />
         <item
             android:id="@+id/menu_title_doctor"
@@ -48,12 +48,15 @@
                     android:checkableBehavior="single">
                     <item
                         android:id="@+id/menu_item_citas_paciente"
+                        android:icon="@mipmap/ic_event_black_48dp"
                         android:title="Citas" />
                     <item
                         android:id="@+id/menu_item_mensajes_paciente"
+                        android:icon="@mipmap/ic_message_black_48dp"
                         android:title="Mensajes" />
                     <item
                         android:id="@+id/menu_item_perfil_pacientes"
+                        android:icon="@mipmap/ic_perm_identity_black_48dp"
                         android:title="Mi Perfil" />
                 </group>
             </menu>
