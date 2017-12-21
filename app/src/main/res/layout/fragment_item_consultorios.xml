@@ -33,91 +33,50 @@
                     android:layout_marginBottom="70dp"
                     android:background="@null">
 
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Aqui va el nombre del consultorio"/>
 
                             <TextView
-                                android:id="@+id/textView2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="monospace"
-                                android:text="Información del Consultorio"
-                                android:textSize="18sp" />
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Nombre del consultorio" />
+                                android:text="la calle"/>
 
                             <TextView
-                                android:id="@+id/textView3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Dirección" />
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Calle" />
-
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="# Interior" />
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="# Exterior" />
-
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Colonia" />
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Código Postal" />
+                                android:text="numero"/>
 
 
                             <TextView
-                                android:id="@+id/textView5"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Contacto" />
+                                android:text="Telefono 1"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center">
 
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Telefono 1" />
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Eliminar"/>
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Editar"/>
+                            </LinearLayout>
 
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Telefono 2" />
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Extensión 1" />
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Extensión 2" />
 
                         </LinearLayout>
-                    </ScrollView>
 
                 </FrameLayout>
 
@@ -130,16 +89,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/btn_registrar_consultorio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="20dp"
-            android:background="@color/colorPrimary"
-            android:text="Guardar"
-            android:textColor="@color/bootstrap_brand_secondary_fill" />
 
     </RelativeLayout>
 </FrameLayout>
