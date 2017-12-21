@@ -40,22 +40,20 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/nombreConsultorio"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Aqui va el nombre del consultorio"/>
 
                             <TextView
+                                android:id="@+id/calleConsultorio"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="la calle"/>
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="numero"/>
-
 
                             <TextView
+                                android:id="@+id/telefono1Consultorio"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Telefono 1"/>
@@ -66,10 +64,12 @@
                                 android:gravity="center">
 
                                 <Button
+                                    android:id="@+id/btnEliminarConsultorio"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Eliminar"/>
                                 <Button
+                                    android:id="@+id/btnEditarConsultorio"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Editar"/>
