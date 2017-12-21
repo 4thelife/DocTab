@@ -3,6 +3,7 @@ package com.example.antonio.doctab;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class NavigationDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -97,5 +99,16 @@ public class NavigationDrawerActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void openFragment(String tag) {
+        try {
+            FragmentTransaction mainFragment = getSupportFragmentManager().beginTransaction();
+            //mainFragment.replace(R.id.fragment_main_container, Constants.TAG_FRAGMENT.get(tag), tag);
+            mainFragment.addToBackStack(tag);
+            mainFragment.commit();
+        } catch (Exception e) {
+            Toast.makeText(this, "Debe implementrar + " + tag, Toast.LENGTH_SHORT).show();
+        }
     }
 }

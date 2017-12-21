@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
 
 
-  private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
     private EditText textEmail;
     private EditText textPass;
     private Button btnRegister;
@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         textEmail = (EditText) findViewById(R.id.edcorreo);
         textPass = (EditText) findViewById(R.id.edcontra);
         btnRegister = (Button) findViewById(R.id.btn_login);
-        btnRegistrando=(Button)findViewById(R.id.btn_signup);
+        btnRegistrando = (Button) findViewById(R.id.btn_signup);
         mAuth = FirebaseAuth.getInstance();
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -50,9 +50,10 @@ public class LoginActivity extends AppCompatActivity {
         btnRegistrando.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this,SignupActivity.class);
+                Intent intent = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
                 startActivity(intent);
-                finish();}
+                finish();
+            }
         });
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -76,7 +77,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
     private void doLogin() {
         String email = textEmail.getText().toString().trim();
         String password = textPass.getText().toString().trim();
@@ -97,7 +97,6 @@ public class LoginActivity extends AppCompatActivity {
                     });
         }
     }
-
 
 
 }
