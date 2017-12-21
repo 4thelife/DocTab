@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (user != null) {
 
-                    Intent intent = new Intent(MainActivity.this,ActivityAccount.class);
+                    Intent intent = new Intent(MainActivity.this, NavigationDrawerActivity.class);
                     startActivity(intent);
                     finish();
                     Toast.makeText(MainActivity.this, "Pendiente crear navigationDrawer", Toast.LENGTH_SHORT).show();
