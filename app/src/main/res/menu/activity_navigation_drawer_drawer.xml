@@ -18,19 +18,24 @@
                     android:checkableBehavior="single">
                     <item
                         android:id="@+id/menu_item_citas_doctor"
+                        android:icon="@mipmap/ic_event_black_48dp"
                         android:title="Citas" />
                     <item
                         android:id="@+id/menu_item_mensajes_doctor"
+                        android:icon="@mipmap/ic_message_black_48dp"
                         android:title="Mensajes" />
                     <item
                         android:id="@+id/menu_item_consultorios_doctor"
+                        android:icon="@mipmap/ic_domain_black_48dp"
                         android:title="Mis consultorios" />
                     <item
                         android:id="@+id/menu_item_pacientes_doctor"
+                        android:icon="@mipmap/ic_folder_shared_black_48dp"
                         android:title="Mis pacientes" />
                     <item
                         android:id="@+id/menu_item_perfil_doctor"
-                        android:title="Mi Perfil" />
+                        android:icon="@mipmap/ic_perm_identity_black_48dp"
+                        android:title="Mis Datos" />
                 </group>
             </menu>
         </item>
