@@ -60,7 +60,7 @@ public class SignupActivity extends AppCompatActivity {
         mTextLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignupActivity.this, NavigationDrawerActivity.class);
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
