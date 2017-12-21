@@ -4,6 +4,7 @@ package com.example.antonio.doctab.Utils;
 import android.support.v4.app.Fragment;
 
 import com.example.antonio.doctab.R;
+import com.example.antonio.doctab.fragments.ListadoConsultoriosFragment;
 import com.example.antonio.doctab.fragments.ListadoInicioFragment;
 
 import java.util.HashMap;
@@ -36,6 +37,7 @@ public class Constants {
      * Fragmentos principales de lista
      **/
     public static final String FRAGMENT_LISTADO_INICIO = "fragment_listado_inicio";
+    public static final String FRAGMENT_LISTADO_CONSULTORIO = "fragment_listado_consultorio";
 
     /**
      * Fragmentos segundarios
@@ -47,6 +49,7 @@ public class Constants {
     static {
         ITEM_FRAGMENT = new HashMap<>();
         ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_LISTADO_INICIO);
+        ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIO);
     }
 
     public static final HashMap<String, Fragment> TAG_FRAGMENT;
@@ -54,6 +57,7 @@ public class Constants {
     static {
         TAG_FRAGMENT = new HashMap<>();
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_INICIO, new ListadoInicioFragment());
+        TAG_FRAGMENT.put(FRAGMENT_LISTADO_CONSULTORIO, new ListadoConsultoriosFragment());
     }
 
 
