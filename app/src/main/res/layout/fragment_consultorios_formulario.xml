@@ -54,39 +54,46 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:hint="Nombre del consultorio" />
 
                             <TextView
                                 android:id="@+id/textView3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:text="Dirección" />
 
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:hint="Calle" />
 
 
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:hint="# Interior" />
 
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:hint="# Exterior" />
 
 
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:hint="Colonia" />
 
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:hint="Código Postal" />
 
 
@@ -94,26 +101,31 @@
                                 android:id="@+id/textView5"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:text="Contacto" />
 
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:hint="Telefono 1" />
 
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:hint="Telefono 2" />
 
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:hint="Extensión 1" />
 
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="monospace"
                                 android:hint="Extensión 2" />
 
                         </LinearLayout>
@@ -138,6 +150,7 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
             android:background="@color/colorPrimary"
+            android:fontFamily="monospace"
             android:text="Guardar"
             android:textColor="@color/bootstrap_brand_secondary_fill" />
 

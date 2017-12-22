@@ -50,6 +50,7 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
             android:background="@color/colorPrimary"
+            android:fontFamily="monospace"
             android:text="REGISTRAR PACIENTE"
             android:textColor="@color/bootstrap_brand_secondary_fill" />
 
