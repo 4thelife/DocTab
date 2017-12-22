@@ -59,7 +59,7 @@ public class ListadoCitasDoctorFragment extends Fragment implements View.OnClick
         switch (v.getId()) {
             case R.id.btn_citas_doctor:
 
-                Toast.makeText(getContext(), "Estas en el fragmento Citas del doctor", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Estas en el fragmento Citas del doctor", Toast.LENGTH_SHORT).show();
 
                 /*DecodeExtraHelper extra = new DecodeExtraHelper();
 

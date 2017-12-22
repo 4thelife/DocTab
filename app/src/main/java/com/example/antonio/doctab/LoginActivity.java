@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
-                    Toast.makeText(LoginActivity.this, "Ahora estás logeado en " + firebaseAuth.getCurrentUser().getUid(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "Ahora estás logeado en " + firebaseAuth.getCurrentUser().getUid(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressDialog.dismiss();
                             if (task.isSuccessful()) {
-                                Toast.makeText(LoginActivity.this, "Inicio de sesión exitosa", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(LoginActivity.this, "Inicio de sesión exitosa", Toast.LENGTH_SHORT).show();
                             } else
                                 Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }

@@ -59,7 +59,7 @@ public class ListadoPacientesDoctorFragment extends Fragment implements View.OnC
         switch (v.getId()) {
             case R.id.btn_registrar_paciente_doctor:
 
-                Toast.makeText(getContext(), "Estas en el fragmento Pacientes del doctor", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Estas en el fragmento Pacientes del doctor", Toast.LENGTH_SHORT).show();
 
                 /*DecodeExtraHelper extra = new DecodeExtraHelper();
 
