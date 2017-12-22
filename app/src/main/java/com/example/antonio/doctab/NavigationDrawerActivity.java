@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.antonio.doctab.Utils.Constants;
+import com.example.antonio.doctab.fragments.interfaces.NavigationDrawerInterface;
+import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.models.Doctores;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
@@ -30,7 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class NavigationDrawerActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, NavigationDrawerInterface {
 
     private static final String TAG = NavigationDrawerActivity.class.getSimpleName();
 
@@ -206,5 +208,30 @@ public class NavigationDrawerActivity extends AppCompatActivity
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_main_container);
         if (null != fragment)
             getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+    }
+
+    @Override
+    public void showQuestion(String titulo, String mensage) {
+
+    }
+
+    @Override
+    public void setDecodeItem(DecodeItemHelper decodeItem) {
+
+    }
+
+    @Override
+    public void openExternalActivity(int action, Class<?> externalActivity) {
+
+    }
+
+    @Override
+    public void showProgressDialog() {
+
+    }
+
+    @Override
+    public void stopProgressDialog() {
+
     }
 }

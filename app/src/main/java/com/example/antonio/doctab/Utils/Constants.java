@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.fragments.ListadoConsultoriosFragment;
 import com.example.antonio.doctab.fragments.ListadoInicioFragment;
+import com.example.antonio.doctab.fragments.RegistroConsultoriosFragment;
 
 import java.util.HashMap;
 
@@ -14,6 +15,13 @@ import java.util.HashMap;
  */
 
 public class Constants {
+
+    /**
+     * Acciones generales
+     **/
+    public static final int ACCION_SIN_DEFINIR = 0;
+    public static final int ACCION_REGISTRAR = 1;
+    public static final int ACCION_EDITAR = 2;
 
     public static final String FB_KEY_ITEM_ESTATUS_INACTIVO = "inactivo";
     public static final String FB_KEY_ITEM_ESTATUS_ACTIVO = "activo";
@@ -53,6 +61,12 @@ public class Constants {
      * Fragmentos segundarios
      **/
     public static final String FRAGMENT_INICIOS = "fragment_inicios";
+    public static final String FRAGMENT_CONSULTORIOS = "fragment_consultorios";
+
+    /**
+     * Fragmentos de registros
+     **/
+    public static final String FRAGMENT_CONSULTORIOS_REGISTER = "fragment_consultorios_register";
 
     public static final HashMap<Integer, String> ITEM_FRAGMENT;
 
@@ -60,6 +74,7 @@ public class Constants {
         ITEM_FRAGMENT = new HashMap<>();
         ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_LISTADO_INICIO);
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIO);
+        ITEM_FRAGMENT.put(R.id.btn_registrar_consultorio, FRAGMENT_CONSULTORIOS_REGISTER);
     }
 
     public static final HashMap<String, Fragment> TAG_FRAGMENT;
@@ -68,6 +83,7 @@ public class Constants {
         TAG_FRAGMENT = new HashMap<>();
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_INICIO, new ListadoInicioFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_CONSULTORIO, new ListadoConsultoriosFragment());
+        TAG_FRAGMENT.put(FRAGMENT_CONSULTORIOS_REGISTER, new RegistroConsultoriosFragment());
     }
 
 

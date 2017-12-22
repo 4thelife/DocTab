@@ -30,7 +30,7 @@ public class ListadoConsultoriosFragment extends Fragment implements View.OnClic
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
-        btnRegistrar = (Button) view.findViewById(R.id.btn_registrar_consultorio);
+        btnRegistrar = view.findViewById(R.id.btn_registrar_consultorio);
         btnRegistrar.setOnClickListener(this);
 
         return view;
@@ -42,11 +42,10 @@ public class ListadoConsultoriosFragment extends Fragment implements View.OnClic
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction mainFragment = fragmentManager.beginTransaction();
-        //mainFragment.replace(R.id.listado_proveedores_container, new PromotoresFragment(), Constants.FRAGMENT_PROMOTORES);
+        mainFragment.replace(R.id.listado_consultorios_container, new ConsultoriosFragment(), Constants.FRAGMENT_CONSULTORIOS);
         mainFragment.commit();
 
-        //getActivity().setTitle(getString(R.string.default_item_menu_title_promotores));
-
+        getActivity().setTitle(getString(R.string.default_item_menu_title_consultorios_doctor));
     }
 
     @Override
