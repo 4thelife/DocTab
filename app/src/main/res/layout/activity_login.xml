@@ -29,23 +29,27 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/edcorreo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:hint="Correo" />
+
+            <EditText
+                android:id="@+id/edcorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="Correo"
+                android:inputType="textWebEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/edcontra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:hint="Contraseña" />
+
+            <EditText
+                android:id="@+id/edcontra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="Contraseña"
+                android:inputType="textWebPassword" />
         </android.support.design.widget.TextInputLayout>
 
 
