@@ -19,7 +19,7 @@ import com.example.antonio.doctab.models.Usuarios;
  * Created by jvier on 04/09/2017.
  */
 
-public class ListadoPacientesDoctorFragment extends Fragment implements View.OnClickListener {
+public class ListadoCitasDoctorFragment extends Fragment implements View.OnClickListener {
 
     private static Usuarios _SESSION_USER;
     private Button btnRegistrar;
@@ -27,11 +27,11 @@ public class ListadoPacientesDoctorFragment extends Fragment implements View.OnC
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_listado_pacientes_doctor, container, false);
+        View view = inflater.inflate(R.layout.fragment_listado_citas_doctor, container, false);
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
-        btnRegistrar = view.findViewById(R.id.btn_registrar_paciente_doctor);
+        btnRegistrar = view.findViewById(R.id.btn_citas_doctor);
         btnRegistrar.setOnClickListener(this);
 
         return view;
@@ -43,10 +43,10 @@ public class ListadoPacientesDoctorFragment extends Fragment implements View.OnC
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction mainFragment = fragmentManager.beginTransaction();
-        mainFragment.replace(R.id.listado_pacientes_doctor_container, new ConsultoriosFragment(), Constants.FRAGMENT_CONSULTORIOS);
+        mainFragment.replace(R.id.listado_citas_doctor_container, new ConsultoriosFragment(), Constants.FRAGMENT_CITAS_DOCTOR);
         mainFragment.commit();
 
-        getActivity().setTitle(getString(R.string.default_item_menu_title_pacientes_doctor));
+        getActivity().setTitle(getString(R.string.default_item_menu_title_citas_doctor));
     }
 
     @Override
@@ -57,9 +57,9 @@ public class ListadoPacientesDoctorFragment extends Fragment implements View.OnC
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_registrar_paciente_doctor:
+            case R.id.btn_citas_doctor:
 
-                Toast.makeText(getContext(), "Estas en el fragmento Pacientes del doctor", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Estas en el fragmento Citas del doctor", Toast.LENGTH_SHORT).show();
 
                 /*DecodeExtraHelper extra = new DecodeExtraHelper();
 

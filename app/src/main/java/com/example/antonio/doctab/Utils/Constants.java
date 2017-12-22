@@ -4,6 +4,7 @@ package com.example.antonio.doctab.Utils;
 import android.support.v4.app.Fragment;
 
 import com.example.antonio.doctab.R;
+import com.example.antonio.doctab.fragments.ListadoCitasDoctorFragment;
 import com.example.antonio.doctab.fragments.ListadoConsultoriosFragment;
 import com.example.antonio.doctab.fragments.ListadoInicioFragment;
 import com.example.antonio.doctab.fragments.ListadoPacientesDoctorFragment;
@@ -58,13 +59,14 @@ public class Constants {
     public static final String FRAGMENT_LISTADO_INICIO = "fragment_listado_inicio";
     public static final String FRAGMENT_LISTADO_CONSULTORIO = "fragment_listado_consultorio";
     public static final String FRAGMENT_LISTADO_PACIENTES_DOCTOR = "fragment_listado_pacientes_doctor";
-
+    public static final String FRAGMENT_LISTADO_CITAS_DOCTOR = "fragment_listado_citas_doctor";
 
     /**
      * Fragmentos segundarios
      **/
     public static final String FRAGMENT_INICIOS = "fragment_inicios";
     public static final String FRAGMENT_CONSULTORIOS = "fragment_consultorios";
+    public static final String FRAGMENT_CITAS_DOCTOR = "fragment_citas_doctor";
 
     /**
      * Fragmentos de registros
@@ -79,6 +81,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIO);
         ITEM_FRAGMENT.put(R.id.btn_registrar_consultorio, FRAGMENT_CONSULTORIOS_REGISTER);
         ITEM_FRAGMENT.put(R.id.menu_item_pacientes_doctor,FRAGMENT_LISTADO_PACIENTES_DOCTOR);
+        ITEM_FRAGMENT.put(R.id.menu_item_citas_doctor,FRAGMENT_LISTADO_CITAS_DOCTOR);
     }
 
     public static final HashMap<String, Fragment> TAG_FRAGMENT;
@@ -89,6 +92,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_CONSULTORIO, new ListadoConsultoriosFragment());
         TAG_FRAGMENT.put(FRAGMENT_CONSULTORIOS_REGISTER, new RegistroConsultoriosFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_PACIENTES_DOCTOR, new ListadoPacientesDoctorFragment());
+        TAG_FRAGMENT.put(FRAGMENT_LISTADO_CITAS_DOCTOR,new ListadoCitasDoctorFragment());
     }
 
 

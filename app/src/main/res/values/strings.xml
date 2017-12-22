@@ -70,6 +70,7 @@
     <string name="default_item_menu_title_citas_paciente">Citas</string>
     <string name="default_item_menu_title_mensajes_paciente">Mensajes</string>
     <string name="default_item_menu_title_perfil_paciente">Mi Perfil</string>
+    <string name="default_item_menu_title_pacientes_doctor">Mis Pacientes</string>
 
     <!--Form subtitle-->
     <string name="default_form_title_edit">Modificar</string>
