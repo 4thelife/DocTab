@@ -80,11 +80,10 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
+            android:background="@color/colorAccent"
             android:fontFamily="monospace"
             android:text="Registrar"
-            android:background="@color/colorAccent"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
-            />
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
         <Button
             android:id="@+id/txt_login"

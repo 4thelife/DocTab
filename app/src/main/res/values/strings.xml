@@ -38,10 +38,10 @@
     <string name="hint_password">Contraseña</string>
     <string name="hint_name">Nombre completo</string>
     <string name="btn_login">Iniciar Sessión</string>
-    <string name="btn_link_to_register">No eres miembro? Registrate ahora!</string>
-    <string name="btn_link_to_login">Estas registrado?. Iniciar Sessión!</string>
+    <string name="btn_link_to_register">¿No eres miembro? ¡Registrate ahora!</string>
+    <string name="btn_link_to_login">¿Estas registrado?. ¡Iniciar Sessión!</string>
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
-    <string name="btn_forgot_password">Olvidaste tu contraseña?</string>
+    <string name="btn_forgot_password">¿Olvidaste tu contraseña?</string>
     <string name="btn_reset_password">Reiniciar contraseña</string>
     <string name="btn_back"><![CDATA[<< Regresar]]></string>
     <string name="hint_new_email">Nuevo correo electronico</string>
@@ -49,7 +49,7 @@
     <string name="btn_send">Enviar</string>
     <string name="btn_remove">Borrar</string>
     <string name="btn_sign_out">Cerrar sessión</string>
-    <string name="lbl_forgot_password">Olvidaste tu contraseña?</string>
+    <string name="lbl_forgot_password">¿Olvidaste tu contraseña?</string>
     <string name="forgot_password_msg">Enviaremos un correo electronico con las instruccions para reinciar contraseña.</string>
     <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
     <string name="title_activity_register">MainRegisterActivity</string>
@@ -87,4 +87,5 @@
     <string name="default_alert_dialog_si">Si</string>
     <string name="default_alert_dialog_no">No</string>
     <string name="title_activity_maps">Map</string>
+
 </resources>

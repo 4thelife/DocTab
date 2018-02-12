@@ -5,42 +5,42 @@
     android:background="@null"
     android:orientation="vertical">
 
-
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
         android:orientation="vertical">
 
-            <!--Fragmento para traer el listado de clientes-->
+
+
+            <!--Fragmento para traer el listado de servicios que ofrece el doctor-->
             <FrameLayout
-                android:id="@+id/listado_citas_doctor_container"
+                android:id="@+id/listado_servicios_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="70dp"
-                android:background="@null" />
+
+                android:background="@null"/>
 
 
-    </LinearLayout>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/btn_citas_doctor"
+            android:id="@+id/btn_registrar_servicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_margin="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
             android:background="@color/colorPrimary"
             android:fontFamily="monospace"
-            android:text="CITAS DOCTOR"
+            android:text="AGREGAR SERVICIO"
             android:textColor="@color/bootstrap_brand_secondary_fill" />
 
     </RelativeLayout>
