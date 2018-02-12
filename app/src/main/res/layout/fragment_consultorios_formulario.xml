@@ -27,7 +27,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:text="Información del Consultorio"
+                    android:text="@string/form_title_consultorio"
                     android:textAlignment="center"
                     android:textSize="18sp" />
 
@@ -40,7 +40,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Nombre del consultorio" />
+                        android:hint="@string/form_nombre_consultorio" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/ed_num__consultorio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:hint="@string/form_num_consultorio" />
                 </android.support.design.widget.TextInputLayout>
 
                 <TextView
@@ -48,7 +60,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:text="Dirección" />
+                    android:text="@string/direccion" />
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -58,7 +70,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Calle" />
+                        android:hint="@string/form_calle" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -71,7 +83,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="# Exterior" />
+                        android:hint="@string/form_num_ext" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -83,7 +95,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="# Interior" />
+                        android:hint="@string/form_num_int" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -95,7 +107,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Cruzamientos" />
+                        android:hint="@string/form_cruzamientos" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -107,7 +119,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Colonia" />
+                        android:hint="@string/form_colonia" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -119,7 +131,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Municipio"/>
+                        android:hint="@string/form_municipio"/>
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -131,7 +143,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Estado" />
+                        android:hint="@string/form_estado" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -143,7 +155,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Código Postal" />
+                        android:hint="@string/form_cp" />
                 </android.support.design.widget.TextInputLayout>
 
                 <TextView
@@ -151,7 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:text="Contacto" />
+                    android:text="@string/contacto" />
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -162,7 +174,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Telefono 1" />
+                        android:hint="@string/form_telefono_uno" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -174,7 +186,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Telefono 2" />
+                        android:hint="@string/form_telefono_dos" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -186,7 +198,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Extensión 1" />
+                        android:hint="@string/form_tel_ext_uno" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -198,7 +210,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Extensión 2" />
+                        android:hint="@string/form_tel_ext_dos" />
                 </android.support.design.widget.TextInputLayout>
 
 

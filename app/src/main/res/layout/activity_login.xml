@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="Correo"
+                android:hint="@string/hint_correo"
                 android:inputType="textWebEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="Contraseña"
+                android:hint="@string/hint_password"
                 android:inputType="textWebPassword" />
         </android.support.design.widget.TextInputLayout>
 

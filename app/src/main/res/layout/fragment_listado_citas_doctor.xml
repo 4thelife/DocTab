@@ -40,7 +40,7 @@
             android:layout_margin="20dp"
             android:background="@color/colorPrimary"
             android:fontFamily="monospace"
-            android:text="CITAS DOCTOR"
+            android:text="@string/citas_doctor"
             android:textColor="@color/bootstrap_brand_secondary_fill" />
 
     </RelativeLayout>

@@ -34,11 +34,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="20dp"
             android:background="@color/colorPrimary"
             android:fontFamily="monospace"
-            android:text="AGREGAR ESPECIALIDAD"
+            android:text="@string/new_especialidad"
             android:textColor="@color/bootstrap_brand_secondary_fill" />
 
     </RelativeLayout>

@@ -22,7 +22,8 @@
     <string name="dia5">Sábado</string>
     <string name="dia6">Domingo</string>
 
-
+    <string name="hint_names">Nombre(s)</string>
+    <string name="hint_apellidos">Apellidos</string>
     <string name="action_sign_in_short">Register</string>
     <string name="email">Email</string>
     <string name="minimum_password">Contraseña demasiado corta, ingresa minimo 6 caracteres!</string>
@@ -87,5 +88,48 @@
     <string name="default_alert_dialog_si">Si</string>
     <string name="default_alert_dialog_no">No</string>
     <string name="title_activity_maps">Map</string>
+    <string name="hint_correo">Correo</string>
+    <string name="hint_registrar">Registrar</string>
+    <string name="hint_logueate">O haz click para loguearte</string>
+    <string name="direccion">Dirección</string>
+    <string name="contacto">Contacto</string>
+    <string name="especialidad">Especialidad</string>
+    <string name="subespecialidad">Subespecialidad</string>
+    <string name="cedula">Cédula Profesional</string>
+    <string name="universidad">Universidad</string>
+    <string name="egreso">Año de egreso</string>
+
+    <!--Nombres para los formularios-->
+
+        <!--titulos de los formularios-->
+    <string name="form_title_consultorio">Información de Consultorio</string>
+    <string name="form_title_especialidades">Información de Especialidades</string>
+
+
+    <string name="form_nombre_consultorio">Nombre Consultorio</string>
+    <string name="form_num_consultorio"># Consultorio</string>
+    <string name="form_calle">Calle</string>
+    <string name="form_num_int"># Interior</string>
+    <string name="form_num_ext"># Exterior</string>
+    <string name="form_cruzamientos">Cruzamientos</string>
+    <string name="form_colonia">Colonia</string>
+    <string name="form_cp">Codigo Postal</string>
+    <string name="form_municipio">Municipio</string>
+    <string name="form_estado">Estado</string>
+    <string name="form_telefono_uno">Telefono #1</string>
+    <string name="form_telefono_dos">Telefono #2</string>
+    <string name="form_tel_ext_uno">Extension #1</string>
+    <string name="form_tel_ext_dos">Estension #2</string>
+    <string name="citas_doctor">CITAS DOCTOR</string>
+    <string name="new_consultorio">AGREGAR CONSULTORIO</string>
+    <string name="new_especialidad">AGREGAR ESPECIALIDAD</string>
+    <string name="new_paciente">REGISTRAR PACIENTE</string>
+    <string name="new_servicio">AGREGAR SERVICIO</string>
+    <string name="form_tittle_servicios">Informacion de servicios</string>
+    <string name="form_subtittle_servicios">Los costos de cada servicio pueden estar ocultos al paciente</string>
+    <string name="form_servicio">Servicio</string>
+    <string name="form_costo">Costo</string>
+    <string name="button_editar">Editar</string>
+    <string name="button_eliminar">Eliminar</string>
 
 </resources>

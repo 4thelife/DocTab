@@ -25,7 +25,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:text="Servicios a proporcionar"
+                    android:text="@string/form_tittle_servicios"
                     android:textAlignment="center"
                     android:textSize="18sp"/>
 
@@ -34,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:text="Los costos de cada servicio pueden estar ocultos al paciente"
+                    android:text="@string/form_subtittle_servicios"
                     android:textAlignment="center"
                     android:textSize="12sp"/>
 
@@ -46,7 +46,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Servicio" />
+                        android:hint="@string/form_servicio" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -57,7 +57,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:hint="Costo" />
+                        android:hint="@string/form_costo" />
                 </android.support.design.widget.TextInputLayout>
 
 

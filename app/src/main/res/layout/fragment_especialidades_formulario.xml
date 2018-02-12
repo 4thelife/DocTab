@@ -13,10 +13,6 @@
             android:layout_marginBottom="70dp"
             android:background="@null">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -28,9 +24,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
-                        android:text="Especialidades"
+                        android:text="@string/form_title_especialidades"
                         android:textAlignment="center"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp" />
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -40,45 +36,48 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="monospace"
-                            android:hint="Especialidad" />
+                            android:hint="@string/especialidad" />
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
                         <EditText
                             android:id="@+id/ed_nombre_sub_especialidad"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="monospace"
-                            android:hint="Sub especialidad" />
+                            android:hint="@string/subespecialidad" />
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
                         <EditText
                             android:id="@+id/ed_universidad"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="monospace"
-                            android:hint="Universidad" />
+                            android:hint="@string/universidad" />
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
                         <EditText
                             android:id="@+id/ed_ano_egreso"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="monospace"
-                            android:hint="Ano de Egreso" />
+                            android:hint="@string/egreso" />
                     </android.support.design.widget.TextInputLayout>
 
                 </LinearLayout>
 
-            </ScrollView>
+
 
         </FrameLayout>
 

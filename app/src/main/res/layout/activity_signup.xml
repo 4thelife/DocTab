@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="Nombre y apellidos" />
+                android:hint="@string/hint_names" />
         </android.support.design.widget.TextInputLayout>
 
 
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="Correo"
+                android:hint="@string/hint_correo"
                 android:inputType="textWebEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="Contraseña"
+                android:hint="@string/hint_password"
                 android:inputType="textWebPassword" />
         </android.support.design.widget.TextInputLayout>
 
@@ -82,7 +82,7 @@
             android:layout_marginTop="20dip"
             android:background="@color/colorAccent"
             android:fontFamily="monospace"
-            android:text="Registrar"
+            android:text="@string/hint_registrar"
             android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
         <Button
@@ -92,7 +92,7 @@
             android:layout_marginTop="20dip"
             android:background="@null"
             android:fontFamily="monospace"
-            android:text="O haz click aqui para logear"
+            android:text="@string/hint_logueate"
             android:textAllCaps="false"
             android:textColor="@color/colorAccent" />
 

@@ -62,7 +62,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="@color/bootstrap_brand_primary"
                     android:fontFamily="monospace"
-                    android:text="Editar"
+                    android:text="@string/button_editar"
                     android:textColor="@color/bootstrap_brand_secondary_fill" />
 
                 <Button
@@ -72,7 +72,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="@color/bootstrap_brand_danger"
                     android:fontFamily="monospace"
-                    android:text="Eliminar"
+                    android:text="@string/button_eliminar"
                     android:textColor="@color/bootstrap_brand_secondary_fill" />
 
             </LinearLayout>
