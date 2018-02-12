@@ -21,19 +21,25 @@
                     android:id="@+id/fragment_registro_consultorio_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@null" />
+                    android:background="@null">
+
+                </FrameLayout>
 
                 <FrameLayout
                     android:id="@+id/fragment_horarios_consultorio_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@null" />
+                    android:background="@null">
+
+                </FrameLayout>
 
                 <FrameLayout
                     android:id="@+id/fragment_acciones_consultorio_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@null" />
+                    android:background="@null">
+
+                </FrameLayout>
 
         </LinearLayout>
 

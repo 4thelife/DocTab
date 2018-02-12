@@ -12,35 +12,31 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:orientation="vertical">
 
-            <LinearLayout
+            <FrameLayout
+                android:id="@+id/fragment_registro_doctor_container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <FrameLayout
-                    android:id="@+id/fragment_registro_doctor_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                     />
+            </FrameLayout>
 
-                <FrameLayout
-                    android:id="@+id/fragment_vista_doctor_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                     />
+            <FrameLayout
+                android:id="@+id/fragment_vista_doctor_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <FrameLayout
-                    android:id="@+id/fragment_acciones_doctor_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
+            </FrameLayout>
 
-            </LinearLayout>
+            <FrameLayout
+                android:id="@+id/fragment_acciones_doctor_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </FrameLayout>
 
         </LinearLayout>
 
