@@ -55,6 +55,12 @@
     <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
     <string name="title_activity_register">MainRegisterActivity</string>
 
+    <string name="sexo">Sexo</string>
+    <string-array name="sexos">
+        <item>Hombre</item>
+        <item>Mujer</item>
+    </string-array>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -104,7 +110,8 @@
         <!--titulos de los formularios-->
     <string name="form_title_consultorio">Información de Consultorio</string>
     <string name="form_title_especialidades">Información de Especialidades</string>
-
+    <string name="form_title_doctor">Informacion del Doctor</string>
+    <string name="form_title_paciente">Informacion del Paciente</string>
 
     <string name="form_nombre_consultorio">Nombre Consultorio</string>
     <string name="form_num_consultorio"># Consultorio</string>
@@ -125,11 +132,14 @@
     <string name="new_especialidad">AGREGAR ESPECIALIDAD</string>
     <string name="new_paciente">REGISTRAR PACIENTE</string>
     <string name="new_servicio">AGREGAR SERVICIO</string>
+    <string name="new_doctor">Agregar doctor</string>
     <string name="form_tittle_servicios">Informacion de servicios</string>
     <string name="form_subtittle_servicios">Los costos de cada servicio pueden estar ocultos al paciente</string>
     <string name="form_servicio">Servicio</string>
     <string name="form_costo">Costo</string>
     <string name="button_editar">Editar</string>
     <string name="button_eliminar">Eliminar</string>
+    <string name="form_alergia">Alergico a</string>
+    <string name="edad">Edad</string>
 
 </resources>

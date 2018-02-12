@@ -13,9 +13,6 @@
         android:layout_marginBottom="70dp"
         android:background="@null">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -28,7 +25,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:text="Información del Doctor"
+                    android:text="@string/form_title_doctor"
                     android:textAlignment="center"
                     android:textSize="18sp"/>
                 <android.support.design.widget.TextInputLayout
@@ -79,15 +76,16 @@
                         android:hint="@string/cedula" />
                 </android.support.design.widget.TextInputLayout>
 
-                <!--<Spinner
-                    android:id="@+id/spinner"
+                <Spinner
+                    android:id="@+id/spinner1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                -->
+                    android:layout_height="wrap_content"
+                    android:entries="@array/sexos"
+                    android:prompt="@string/sexo" />
+
 
             </LinearLayout>
 
-        </ScrollView>
 
     </FrameLayout>
 
