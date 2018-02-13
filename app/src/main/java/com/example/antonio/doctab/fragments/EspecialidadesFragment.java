@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.antonio.doctab.R;
+
 /**
- * Created by Ricardo on 13/02/2018.
+ * Created by Ricardo on 12/02/2018.
  */
 
-public class DoctoresFragments extends Fragment implements View.OnClickListener{
+public class EspecialidadesFragment extends Fragment implements View.OnClickListener {
 
 
     @Nullable

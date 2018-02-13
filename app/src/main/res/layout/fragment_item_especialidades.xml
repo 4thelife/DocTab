@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_especialidad"
+            android:id="@+id/item_especialidad_nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -20,7 +20,7 @@
             android:text="Especialidad" />
 
         <TextView
-            android:id="@+id/item_subespecialidad"
+            android:id="@+id/item_subespecialidad_nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

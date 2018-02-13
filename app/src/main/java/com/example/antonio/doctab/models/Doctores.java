@@ -7,6 +7,12 @@ package com.example.antonio.doctab.models;
 public class Doctores {
 
     private String nombreCompleto;
+    /*
+    private String nombres;
+    private String apellidos;
+    private String especialidad;
+    private String subespecialidad
+    */
     private String cedulaProfesional;
     private String correoElectronico;
     private String sexo;
@@ -24,8 +30,14 @@ public class Doctores {
     public Doctores() {
     }
 
-    public Doctores(String nombreCompleto, String cedulaProfesional, String correoElectronico, String sexo, String telefonoCelular1, String telefonoCelular2, String fechaNacimiento, String fotoPerfil, String tipoDeUsuario, String firebaseId, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
+    public Doctores(String nombreCompleto, /* String nombre, String, apellidos, String especialidad, String subespecialidad, */String cedulaProfesional, String correoElectronico, String sexo, String telefonoCelular1, String telefonoCelular2, String fechaNacimiento, String fotoPerfil, String tipoDeUsuario, String firebaseId, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
         this.nombreCompleto = nombreCompleto;
+        /*
+        * this.nombres = nombres;
+        * this.apellidos = apellidos;
+        * this.especialidad = especialidad;
+        * this.subespecialidad = subespecialidad;
+        * */
         this.cedulaProfesional = cedulaProfesional;
         this.correoElectronico = correoElectronico;
         this.sexo = sexo;
@@ -47,6 +59,26 @@ public class Doctores {
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
     }
+
+
+    /*
+    public void setNombres(String nombres){ this.nombres=nombres; }
+
+    public String getNombres(){ return nombres; }
+
+    public void setApellidos(String apellidos){ this.apellidos=apellidos; }
+
+    public String getApellidos(){ return apellidos; }
+
+    public void setEspecialidad(String especialidad){ this.especialidad=especialidad; }
+
+    public String getEspecialidad(){ return especialidad; }
+
+    public void setSubespecialidad(String subespecialidad){ this.subespecialidad=subespecialidad; }
+
+    public String getSubespecialidad(){ return subespecialidad; }
+
+    */
 
     public String getCedulaProfesional() {
         return cedulaProfesional;
