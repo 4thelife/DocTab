@@ -1,9 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<FrameLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/item_paciente_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Nombre(s) del paciente" />
+
+        <TextView
+            android:id="@+id/item_paciente_apellidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Apellidos del paciente"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:id="@+id/item_paciente_edad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Edad Paciente"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:id="@+id/item_paciente_sexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Sexo"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:id="@+id/item_paciente_alergia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Alegico a"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:id="@+id/item_paciente_ultima_cita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Ultima cita registrada"
+            android:textAlignment="textEnd" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/item_btn_editar_paciente"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/bootstrap_brand_primary"
+                android:fontFamily="monospace"
+                android:text="@string/button_editar"
+                android:textColor="@color/bootstrap_brand_secondary_fill" />
+
+            <Button
+                android:id="@+id/item_btn_eliminar_paciente"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/bootstrap_brand_danger"
+                android:fontFamily="monospace"
+
+                android:text="@string/button_eliminar"
+                android:textColor="@color/bootstrap_brand_secondary_fill" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

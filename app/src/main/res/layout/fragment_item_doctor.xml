@@ -1,9 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<FrameLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/item_doctor_nombres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Nombre(s)" />
+
+        <TextView
+            android:id="@+id/item_doctor_apellidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Apellidos(s)" />
+
+        <TextView
+            android:id="@+id/item_doctor_especialidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Especialidad(s)" />
+
+        <TextView
+            android:id="@+id/item_doctor_cedula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Cedula Profesional" />
+
+        <TextView
+            android:id="@+id/item_doctor_sexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="Sexo" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/item_btn_editar_doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/bootstrap_brand_primary"
+                android:fontFamily="monospace"
+                android:text="@string/button_editar"
+                android:textColor="@color/bootstrap_brand_secondary_fill" />
+
+            <Button
+                android:id="@+id/item_btn_eliminar_doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/bootstrap_brand_danger"
+                android:fontFamily="monospace"
+                android:text="@string/button_eliminar"
+                android:textColor="@color/bootstrap_brand_secondary_fill" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
