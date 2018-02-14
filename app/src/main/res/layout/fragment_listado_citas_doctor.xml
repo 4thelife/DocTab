@@ -33,7 +33,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/btn_citas_doctor"
+            android:id="@+id/btn_agregar_citas_doctor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

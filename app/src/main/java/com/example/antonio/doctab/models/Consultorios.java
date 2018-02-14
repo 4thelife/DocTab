@@ -18,6 +18,8 @@ public class Consultorios {
     private String ciudad;
     private String estado;
 
+
+
     private String fireBaseId;
     private String estatus;
     private Long fechaDeCreacion;

@@ -30,7 +30,7 @@ public class ListadoConsultoriosFragment extends Fragment implements View.OnClic
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
-        btnRegistrar = view.findViewById(R.id.btn_registrar_consultorio);
+        btnRegistrar = view.findViewById(R.id.btn_agregar_consultorio);
         btnRegistrar.setOnClickListener(this);
 
         return view;
@@ -56,7 +56,7 @@ public class ListadoConsultoriosFragment extends Fragment implements View.OnClic
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_registrar_consultorio:
+            case R.id.btn_agregar_consultorio:
                 /*DecodeExtraHelper extra = new DecodeExtraHelper();
 
                 extra.setTituloActividad(getString(Constants.TITLE_ACTIVITY.get(v.getId())));

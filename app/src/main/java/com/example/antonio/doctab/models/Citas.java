@@ -7,18 +7,7 @@ package com.example.antonio.doctab.models;
 public class Citas {
 
 
-    public Citas(String doctor, String consultorio, String paciente, String fecha, String hora,
-                 String estadoCita, String confirmacion, String comentarioPaciente, String asunto) {
-        this.doctor = doctor;
-        this.consultorio = consultorio;
-        this.paciente = paciente;
-        this.fecha = fecha;
-        this.hora = hora;
-        this.estadoCita = estadoCita;
-        this.confirmacion = confirmacion;
-        this.comentarioPaciente = comentarioPaciente;
-        this.asunto = asunto;
-    }
+
 
     private String doctor;
     private String consultorio;
@@ -29,6 +18,22 @@ public class Citas {
     private String confirmacion;
     private String comentarioPaciente;
     private String asunto;
+    private String retroalimentacionCita;
+
+
+
+    public Citas(String doctor, String consultorio, String paciente, String fecha, String hora, String estadoCita, String confirmacion, String comentarioPaciente, String asunto, String retroalimentacionCita) {
+        this.doctor = doctor;
+        this.consultorio = consultorio;
+        this.paciente = paciente;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.estadoCita = estadoCita;
+        this.confirmacion = confirmacion;
+        this.comentarioPaciente = comentarioPaciente;
+        this.asunto = asunto;
+        this.retroalimentacionCita = retroalimentacionCita;
+    }
 
     public String getDoctor() {
         return doctor;
@@ -100,5 +105,13 @@ public class Citas {
 
     public void setAsunto(String asunto) {
         this.asunto = asunto;
+    }
+
+    public String getRetroalimentacionCita() {
+        return retroalimentacionCita;
+    }
+
+    public void setRetroalimentacionCita(String retroalimentacionCita) {
+        this.retroalimentacionCita = retroalimentacionCita;
     }
 }

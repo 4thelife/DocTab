@@ -31,7 +31,7 @@ public class ListadoCitasDoctorFragment extends Fragment implements View.OnClick
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
-        btnRegistrar = view.findViewById(R.id.btn_citas_doctor);
+        btnRegistrar = view.findViewById(R.id.btn_agregar_citas_doctor);
         btnRegistrar.setOnClickListener(this);
 
         return view;
@@ -57,7 +57,7 @@ public class ListadoCitasDoctorFragment extends Fragment implements View.OnClick
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_citas_doctor:
+            case R.id.btn_agregar_citas_doctor:
 
                 //Toast.makeText(getContext(), "Estas en el fragmento Citas del doctor", Toast.LENGTH_SHORT).show();
 

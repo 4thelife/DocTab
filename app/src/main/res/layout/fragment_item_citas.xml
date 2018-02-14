@@ -81,6 +81,15 @@
             android:text="Comentario del paciente"
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
+        <TextView
+            android:id="@+id/item_citas_retroalimentacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="monospace"
+            android:text="Retroalimentacion"
+            android:textColor="@color/bootstrap_brand_secondary_text" />
+
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -1,6 +1,8 @@
 package com.example.antonio.doctab.fragments;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,8 +14,7 @@ import android.view.ViewGroup;
  * Created by Ricardo on 13/02/2018.
  */
 
-public class FromularioEspecialidadesFragment extends Fragment implements View.OnClickListener{
-
+public class FormularioEspecialidadesFragment extends Fragment implements View.OnClickListener{
 
     @Nullable
     @Override
@@ -36,6 +37,7 @@ public class FromularioEspecialidadesFragment extends Fragment implements View.O
     public void onClick(View view) {
 
     }
+
 
 
 }
