@@ -21,6 +21,10 @@
                         android:icon="@mipmap/ic_event_black_48dp"
                         android:title="Citas" />
                     <item
+                        android:id="@+id/menu_item_calendario_doctor"
+                        android:icon="@mipmap/ic_event_black_48dp"
+                        android:title="Calendario" />
+                    <item
                         android:id="@+id/menu_item_mensajes_doctor"
                         android:icon="@mipmap/ic_message_black_48dp"
                         android:title="Mensajes" />

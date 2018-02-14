@@ -29,7 +29,11 @@ public class Consultorios {
     public Consultorios() {
     }
 
-    public Consultorios(String nombreConsultorio, String tel1, String ext1, String tel2, String ext2, String calle, String colonia, String numeroInt, String numeroExt, String codPostal, String ciudad, String estado, String fireBaseId, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
+    public Consultorios(String nombreConsultorio, String tel1, String ext1, String tel2,
+                        String ext2, String calle, String colonia, String numeroInt,
+                        String numeroExt, String codPostal, String ciudad, String estado,
+                        String fireBaseId, String estatus, Long fechaDeCreacion,
+                        Long fechaDeEdicion) {
         this.nombreConsultorio = nombreConsultorio;
         this.tel1 = tel1;
         this.ext1 = ext1;

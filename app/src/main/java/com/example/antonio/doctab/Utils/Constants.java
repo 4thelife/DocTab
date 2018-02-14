@@ -141,7 +141,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_LISTADO_CONSULTORIOS);
 
         /**DOCTOR*/
-        ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
+        //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.btn_agregar_doctor,FRAGMENT_REGISTRO_DOCTOR);
 
         /**CITAS*/

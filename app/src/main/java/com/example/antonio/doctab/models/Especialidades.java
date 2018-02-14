@@ -10,12 +10,15 @@ public class Especialidades {
     private String subespecialidad;
     private String univerisdad;
     private String anoEgreso;
+    private String firabaseId;
 
-    public Especialidades(String especialidad, String subespecialidad, String univerisdad, String anoEgreso) {
+    public Especialidades(String especialidad, String subespecialidad, String univerisdad,
+                          String anoEgreso, String firabaseId) {
         this.especialidad = especialidad;
         this.subespecialidad = subespecialidad;
         this.univerisdad = univerisdad;
         this.anoEgreso = anoEgreso;
+        this.firabaseId = firabaseId;
     }
 
     public String getEspecialidad() {
@@ -50,4 +53,11 @@ public class Especialidades {
         this.anoEgreso = anoEgreso;
     }
 
+    public String getFirabaseId() {
+        return firabaseId;
+    }
+
+    public void setFirabaseId(String firabaseId) {
+        this.firabaseId = firabaseId;
+    }
 }

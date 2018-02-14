@@ -9,10 +9,13 @@ public class Servicios {
 
     private String servicio;
     private String costo;
+    private String fireBaseId;
 
-    public Servicios(String servicio, String costo) {
+
+    public Servicios(String servicio, String costo, String fireBaseId) {
         this.servicio = servicio;
         this.costo = costo;
+        this.fireBaseId = fireBaseId;
     }
 
     public String getServicio() {
@@ -29,5 +32,13 @@ public class Servicios {
 
     public void setCosto(String costo) {
         this.costo = costo;
+    }
+
+    public String getFireBaseId() {
+        return fireBaseId;
+    }
+
+    public void setFireBaseId(String fireBaseId) {
+        this.fireBaseId = fireBaseId;
     }
 }

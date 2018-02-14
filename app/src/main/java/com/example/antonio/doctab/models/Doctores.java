@@ -30,7 +30,11 @@ public class Doctores {
     public Doctores() {
     }
 
-    public Doctores(String nombreCompleto, /* String nombre, String, apellidos, String especialidad, String subespecialidad, */String cedulaProfesional, String correoElectronico, String sexo, String telefonoCelular1, String telefonoCelular2, String fechaNacimiento, String fotoPerfil, String tipoDeUsuario, String firebaseId, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
+    public Doctores(String nombreCompleto, /* String nombre, String, apellidos, String especialidad,
+     String subespecialidad, */String cedulaProfesional, String correoElectronico, String sexo,
+                    String telefonoCelular1, String telefonoCelular2, String fechaNacimiento,
+                    String fotoPerfil, String tipoDeUsuario, String firebaseId, String estatus,
+                    Long fechaDeCreacion, Long fechaDeEdicion) {
         this.nombreCompleto = nombreCompleto;
         /*
         * this.nombres = nombres;

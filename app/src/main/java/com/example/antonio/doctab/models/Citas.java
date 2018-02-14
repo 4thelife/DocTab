@@ -19,10 +19,15 @@ public class Citas {
     private String comentarioPaciente;
     private String asunto;
     private String retroalimentacionCita;
+    private String fireBaseId;
+    private String estatus;
+    private Long fechaDeCreacion;
+    private Long fechaDeEdicion;
 
-
-
-    public Citas(String doctor, String consultorio, String paciente, String fecha, String hora, String estadoCita, String confirmacion, String comentarioPaciente, String asunto, String retroalimentacionCita) {
+    public Citas(String doctor, String consultorio, String paciente, String fecha, String hora,
+                 String estadoCita, String confirmacion, String comentarioPaciente, String asunto,
+                 String retroalimentacionCita, String fireBaseId, String estatus,
+                 Long fechaDeCreacion, Long fechaDeEdicion) {
         this.doctor = doctor;
         this.consultorio = consultorio;
         this.paciente = paciente;
@@ -33,6 +38,10 @@ public class Citas {
         this.comentarioPaciente = comentarioPaciente;
         this.asunto = asunto;
         this.retroalimentacionCita = retroalimentacionCita;
+        this.fireBaseId = fireBaseId;
+        this.estatus = estatus;
+        this.fechaDeCreacion = fechaDeCreacion;
+        this.fechaDeEdicion = fechaDeEdicion;
     }
 
     public String getDoctor() {
@@ -113,5 +122,36 @@ public class Citas {
 
     public void setRetroalimentacionCita(String retroalimentacionCita) {
         this.retroalimentacionCita = retroalimentacionCita;
+    }
+    public String getFireBaseId() {
+        return fireBaseId;
+    }
+
+    public void setFireBaseId(String fireBaseId) {
+        this.fireBaseId = fireBaseId;
+    }
+
+    public String getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
+    }
+
+    public Long getFechaDeCreacion() {
+        return fechaDeCreacion;
+    }
+
+    public void setFechaDeCreacion(Long fechaDeCreacion) {
+        this.fechaDeCreacion = fechaDeCreacion;
+    }
+
+    public Long getFechaDeEdicion() {
+        return fechaDeEdicion;
+    }
+
+    public void setFechaDeEdicion(Long fechaDeEdicion) {
+        this.fechaDeEdicion = fechaDeEdicion;
     }
 }

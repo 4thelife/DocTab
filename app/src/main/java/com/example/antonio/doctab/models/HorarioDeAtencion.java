@@ -18,7 +18,8 @@ public class HorarioDeAtencion {
     public HorarioDeAtencion() {
     }
 
-    public HorarioDeAtencion(String dia, String horaEntrada, String horaSalida, String horaInicioComida, String horaFinComida, String firebaseId) {
+    public HorarioDeAtencion(String dia, String horaEntrada, String horaSalida,
+                             String horaInicioComida, String horaFinComida, String firebaseId) {
         this.dia = dia;
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
