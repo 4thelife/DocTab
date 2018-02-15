@@ -112,6 +112,7 @@
     <string name="form_title_especialidades">Información de Especialidades</string>
     <string name="form_title_doctor">Informacion del Doctor</string>
     <string name="form_title_paciente">Informacion del Paciente</string>
+    <string name="form_title_mensajes">Redactar mensaje</string>
 
     <string name="form_nombre_consultorio">Nombre Consultorio</string>
     <string name="form_num_consultorio"># Consultorio</string>
@@ -141,5 +142,5 @@
     <string name="button_eliminar">Eliminar</string>
     <string name="form_alergia">Alergico a</string>
     <string name="edad">Edad</string>
-
+    <string name="button_responder">Responder</string>
 </resources>
