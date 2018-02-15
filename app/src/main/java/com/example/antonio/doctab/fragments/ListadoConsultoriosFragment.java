@@ -21,7 +21,7 @@ import com.example.antonio.doctab.models.Usuarios;
 public class ListadoConsultoriosFragment extends Fragment implements View.OnClickListener {
 
     private static Usuarios _SESSION_USER;
-    private Button btnRegistrar;
+    private Button btnAgregar;
 
 
     @Override
@@ -30,8 +30,8 @@ public class ListadoConsultoriosFragment extends Fragment implements View.OnClic
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
-        btnRegistrar = view.findViewById(R.id.btn_agregar_consultorio);
-        btnRegistrar.setOnClickListener(this);
+        btnAgregar = view.findViewById(R.id.btn_agregar_consultorio);
+        btnAgregar.setOnClickListener(this);
 
         return view;
     }
