@@ -14,30 +14,30 @@ import android.view.ViewGroup;
  * Created by Ricardo on 13/02/2018.
  */
 
-public class FormularioPacientesFragment extends Fragment implements View.OnClickListener{
+public class FormularioCitasDoctorFragment extends Fragment implements View.OnClickListener{
 
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+@Nullable
+@Override
+public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
-    }
+        }
 
-    @Override
-    public void onStart() {
+@Override
+public void onStart() {
         super.onStart();
-    }
+        }
 
 
-    @Override
-    public void onAttach(Context context) {
+@Override
+public void onAttach(Context context) {
         super.onAttach(context);
-    }
+        }
 
-    @Override
-    public void onClick(View view) {
+@Override
+public void onClick(View view) {
 
-    }
-
+        }
 
 }
+

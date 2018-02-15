@@ -14,7 +14,7 @@ import android.view.ViewGroup;
  * Created by Ricardo on 13/02/2018.
  */
 
-public class RegistroCitasFragment extends Fragment implements View.OnClickListener{
+public class FormularioPacientesDoctorFragment extends Fragment implements View.OnClickListener{
 
 
     @Nullable

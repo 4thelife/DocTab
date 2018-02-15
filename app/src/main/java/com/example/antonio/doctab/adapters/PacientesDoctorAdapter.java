@@ -18,7 +18,7 @@ import java.util.List;
  * Created by Ricardo on 13/02/2018.
  */
 
-public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.ViewHolder> {
+public class PacientesDoctorAdapter extends RecyclerView.Adapter<PacientesDoctorAdapter.ViewHolder> {
 
     View.OnClickListener onClickListener;
     List<Pacientes> dataList = new ArrayList<>();
@@ -67,13 +67,13 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_pacientes, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_pacientes_doctor, parent, false);
         return new ViewHolder(view);
     }
 
 
     @Override
-    public void onBindViewHolder(PacientesAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(PacientesDoctorAdapter.ViewHolder holder, int position) {
         final Pacientes item = dataList.get(position);
         /**Llena el objeto que sera enviado al fragmento**/
         final DecodeItemHelper decodeItem = new DecodeItemHelper();

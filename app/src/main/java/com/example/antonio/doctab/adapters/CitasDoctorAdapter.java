@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Ricardo on 13/02/2018.
  */
 
-public class CitasAdapter extends RecyclerView.Adapter<CitasAdapter.ViewHolder> {
+public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.ViewHolder> {
 
     View.OnClickListener onClickListener;
     List<Citas> dataList = new ArrayList<>();
@@ -69,12 +69,12 @@ public class CitasAdapter extends RecyclerView.Adapter<CitasAdapter.ViewHolder> 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_citas, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_citas_doctor, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(CitasAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(CitasDoctorAdapter.ViewHolder holder, int position) {
         final Citas item = dataList.get(position);
         /**Llena el objeto que sera enviado al fragmento**/
         final DecodeItemHelper decodeItem = new DecodeItemHelper();
