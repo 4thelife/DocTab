@@ -12,6 +12,7 @@ import com.example.antonio.doctab.fragments.FormularioCitasDoctorFragment;
 import com.example.antonio.doctab.fragments.FormularioConsultorioFragment;
 import com.example.antonio.doctab.fragments.FormularioDoctoresFragment;
 import com.example.antonio.doctab.fragments.FormularioEspecialidadesFragment;
+import com.example.antonio.doctab.fragments.FormularioMensajesFragment;
 import com.example.antonio.doctab.fragments.FormularioPacientesDoctorFragment;
 import com.example.antonio.doctab.fragments.FormularioServiciosFragment;
 import com.example.antonio.doctab.fragments.ListadoCitasDoctorFragment;
@@ -19,13 +20,16 @@ import com.example.antonio.doctab.fragments.ListadoConsultoriosFragment;
 import com.example.antonio.doctab.fragments.ListadoDoctoresFragment;
 import com.example.antonio.doctab.fragments.ListadoEspecialidadesFragment;
 import com.example.antonio.doctab.fragments.ListadoInicioFragment;
+import com.example.antonio.doctab.fragments.ListadoMensajesFragment;
 import com.example.antonio.doctab.fragments.ListadoPacientesDoctorFragment;
 import com.example.antonio.doctab.fragments.ListadoServiciosFragment;
+import com.example.antonio.doctab.fragments.MensajesFragment;
 import com.example.antonio.doctab.fragments.PacientesFragment;
 import com.example.antonio.doctab.fragments.RegistroCitasDoctorFragment;
 import com.example.antonio.doctab.fragments.RegistroConsultoriosFragment;
 import com.example.antonio.doctab.fragments.RegistroDoctoresFragment;
 import com.example.antonio.doctab.fragments.RegistroEspecialidadesFragment;
+import com.example.antonio.doctab.fragments.RegistroMensajesFragment;
 import com.example.antonio.doctab.fragments.RegistroPacientesDoctorFragment;
 import com.example.antonio.doctab.fragments.RegistroServiciosFragment;
 import com.example.antonio.doctab.fragments.ServiciosFragment;
@@ -82,6 +86,7 @@ public class Constants {
     public static final String FRAGMENT_LISTADO_INICIO = "fragment_listado_inicio";
     public static final String FRAGMENT_LISTADO_PACIENTES_DOCTOR = "fragment_listado_pacientes_doctor";
     public static final String FRAGMENT_LISTADO_SERVICIOS = "fragment_listado_servicios";
+    public static final String FRAGMENT_LISTADO_MENSAJES = "fragment_listado_mensajes";
 
     /**
      * Fragmentos segundarios
@@ -93,6 +98,8 @@ public class Constants {
     public static final String FRAGMENT_ESPECIALIDADES = "fragment_especialidades";
     public static final String FRAGMENT_SERVICIOS = "fragment_servicios";
     public static final String FRAGMENT_PACIENTES_DOCTOR = "fragment_pacientes_doctor";
+    public static final String FRAGMENT_MENSAJES = "fragment_mensajes";
+
 
     /***
      * Fragmentos Formularios
@@ -104,6 +111,7 @@ public class Constants {
     public static final String FRAGMENT_FORMULARIO_PACIENTES_DOCTOR = "fragment_formulario_pacientes_doctor";
     public static final String FRAGMENT_FORMULARIO_SERVICIOS = "fragment_formulario_servicios";
     public static final String FRAGMENT_FORMULARIO_CITAS_DOCTOR = "fragment_formulario_citas_doctor";
+    public static final String FRAGMENT_FORMULARIO_MENSAJES = "fragment_formulario_mensajes";
 
     /**
      * Fragmentos de Registro*/
@@ -113,6 +121,7 @@ public class Constants {
     public static final String FRAGMENT_REGISTRO_PACIENTES_DOCTOR = "fragment_registro_pacientes_doctor";
     public static final String FRAGMENT_REGISTRO_SERVICIO = "fragment_registro_servicio";
     public static final String FRAGMENT_REGISTRO_CITAS_DOCTOR = "fragment_registro_citas_doctor";
+    public static final String FRAGMENT_REGISTRO_MENSAJES = "fragment_registro_mensajes";
 
     /**
      * Fragmentos de ITEM
@@ -123,6 +132,8 @@ public class Constants {
     public static final String FRAGMENT_ITEM_ESPECIALIDADES = "fragment_item_especialidades";
     public static final String FRAGMENT_ITEM_PACIENTES_DOCTOR = "fragment_item_pacientes_doctor";
     public static final String FRAGMENT_ITEM_SERVICIOS = "fragment_item_servicios";
+    public static final String FRAGMENT_ITEM_MENSAJES = "fragment_item_mensajes";
+
 
     public static final HashMap<Integer, String> ITEM_FRAGMENT;
 
@@ -152,6 +163,9 @@ public class Constants {
         /**SERVICIOS*/
         ITEM_FRAGMENT.put(R.id.btn_agregar_servicio,FRAGMENT_LISTADO_SERVICIOS);
 
+        /**MENSAJES*/
+        ITEM_FRAGMENT.put(R.id.btn_agregar_mensajes,FRAGMENT_LISTADO_MENSAJES);
+
     }
 
     public static final HashMap<String, Fragment> TAG_FRAGMENT;
@@ -167,6 +181,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_INICIO, new ListadoInicioFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_PACIENTES_DOCTOR, new ListadoPacientesDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_SERVICIOS, new ListadoServiciosFragment());
+        TAG_FRAGMENT.put(FRAGMENT_LISTADO_MENSAJES, new ListadoMensajesFragment());
 
         /**Formulario*/
         TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_CITAS_DOCTOR,new FormularioCitasDoctorFragment());
@@ -175,6 +190,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_ESPECIALIDADES, new FormularioEspecialidadesFragment());
         TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_PACIENTES_DOCTOR, new FormularioPacientesDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_SERVICIOS, new FormularioServiciosFragment());
+        TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_MENSAJES, new FormularioMensajesFragment());
 
         /**Registro*/
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CITAS_DOCTOR, new RegistroCitasDoctorFragment());
@@ -183,6 +199,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_ESPECIALIDADES, new RegistroEspecialidadesFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_PACIENTES_DOCTOR, new RegistroPacientesDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_SERVICIO, new RegistroServiciosFragment());
+        TAG_FRAGMENT.put(FRAGMENT_REGISTRO_MENSAJES, new RegistroMensajesFragment());
 
         /**Objecto*/
         TAG_FRAGMENT.put(FRAGMENT_CITAS_DOCTOR , new CitasDoctorFragment());
@@ -191,6 +208,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_ESPECIALIDADES , new EspecialidadesFragment());
         TAG_FRAGMENT.put(FRAGMENT_PACIENTES_DOCTOR , new PacientesFragment());
         TAG_FRAGMENT.put(FRAGMENT_SERVICIOS , new ServiciosFragment());
+        TAG_FRAGMENT.put(FRAGMENT_MENSAJES, new MensajesFragment());
 
     }
 
