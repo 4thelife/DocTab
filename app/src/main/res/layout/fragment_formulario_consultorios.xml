@@ -400,31 +400,10 @@
                         android:hint="@string/form_tel_ext_dos" />
                 </android.support.design.widget.TextInputLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center">
-
-                    <Button
-                        android:id="@+id/button4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Guardar" />
-                    <Button
-                        android:id="@+id/button5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Cancelar" />
-
-
-                </LinearLayout>
 
             </LinearLayout>
 
         </ScrollView>
-
-
 
     </FrameLayout>
 >>>>>>> 1586889679cb8cc2711e6431080bd64716ef9fce
