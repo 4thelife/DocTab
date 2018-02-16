@@ -10,16 +10,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.antonio.doctab.R;
+
 /**
  * Created by Ricardo on 12/02/2018.
  */
 
-public class FormularioConsultorioFragment extends Fragment implements View.OnClickListener{
+public class FormularioConsultorioFragment extends Fragment {
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_formulario_consultorios, container, false);
+
+        return view;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -27,16 +35,8 @@ public class FormularioConsultorioFragment extends Fragment implements View.OnCl
         super.onStart();
     }
 
-
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void onStop() {
+        super.onStop();
     }
-
-    @Override
-    public void onClick(View view) {
-
-    }
-
-
 }

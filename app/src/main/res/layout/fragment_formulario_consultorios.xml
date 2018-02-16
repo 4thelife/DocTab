@@ -5,219 +5,204 @@
     android:background="@null"
     android:orientation="vertical">
 
-    <!--Fragmento para agregar consultorios-->
-    <FrameLayout
-        android:id="@+id/item_consultorios"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="70dp"
-        android:background="@null">
+        android:orientation="vertical">
 
-        <ScrollView
+        <TextView
+            android:id="@+id/txt_titulo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="@string/form_title_consultorio"
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
-            <LinearLayout
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/ed_nombre__consultorio"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_nombre_consultorio" />
+        </android.support.design.widget.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/txt_titulo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:text="@string/form_title_consultorio"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/ed_num__consultorio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_num_consultorio" />
+        </android.support.design.widget.TextInputLayout>
 
-                    <EditText
-                        android:id="@+id/ed_nombre__consultorio"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_nombre_consultorio" />
-                </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:id="@+id/txt_direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="@string/direccion" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/ed_num__consultorio"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_num_consultorio" />
-                </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/ed_calle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_calle" />
 
-                <TextView
-                    android:id="@+id/txt_direccion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:text="@string/direccion" />
+        </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <EditText
-                        android:id="@+id/ed_calle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_calle" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/ed_num_ext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_num_ext" />
+        </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/ed_num_ext"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_num_ext" />
-                </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/ed_num_int"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_num_int" />
+        </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/ed_num_int"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_num_int" />
-                </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/ed_cruzamientos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_cruzamientos" />
+        </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/ed_cruzamientos"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_cruzamientos" />
-                </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/ed_colonia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_colonia" />
+        </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/ed_colonia"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_colonia" />
-                </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/ed_municipio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_municipio" />
+        </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/ed_municipio"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_municipio"/>
-                </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/ed_estado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_estado" />
+        </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/ed_estado"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_estado" />
-                </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/ed_cp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_cp" />
+        </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txt_contacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="@string/contacto" />
 
-                    <EditText
-                        android:id="@+id/ed_cp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_cp" />
-                </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/txt_contacto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:text="@string/contacto" />
+            <EditText
+                android:id="@+id/ed_telefono_uno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_telefono_uno" />
+        </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/ed_telefono_uno"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_telefono_uno" />
-                </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/ed_telefono_dos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_telefono_dos" />
+        </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/ed_telefono_dos"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_telefono_dos" />
-                </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/ed_tel_ext_uno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_tel_ext_uno" />
+        </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/ed_tel_ext_uno"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_tel_ext_uno" />
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/ed_tel_ext_dos"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:hint="@string/form_tel_ext_dos" />
-                </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/ed_tel_ext_dos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:hint="@string/form_tel_ext_dos" />
+        </android.support.design.widget.TextInputLayout>
 
 
-            </LinearLayout>
-
-        </ScrollView>
-
-    </FrameLayout>
+    </LinearLayout>
 
 </FrameLayout>

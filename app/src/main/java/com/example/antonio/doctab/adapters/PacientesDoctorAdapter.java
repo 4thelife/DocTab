@@ -36,12 +36,12 @@ public class PacientesDoctorAdapter extends RecyclerView.Adapter<PacientesDoctor
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txtNombres = itemView.findViewById(R.id.item_paciente_nombres);
-            txtApellidos = itemView.findViewById(R.id.item_paciente_apellidos);
-            txtAlergia = itemView.findViewById(R.id.item_paciente_alergia);
-            txtEdad = itemView.findViewById(R.id.item_paciente_edad);
-            txtSexo = itemView.findViewById(R.id.item_paciente_sexo);
-            txtUltimaCita= itemView.findViewById(R.id.item_paciente_ultima_cita);
+            txtNombres = (TextView) itemView.findViewById(R.id.item_paciente_nombres);
+            txtApellidos = (TextView) itemView.findViewById(R.id.item_paciente_apellidos);
+            txtAlergia = (TextView) itemView.findViewById(R.id.item_paciente_alergia);
+            txtEdad = (TextView) itemView.findViewById(R.id.item_paciente_edad);
+            txtSexo = (TextView) itemView.findViewById(R.id.item_paciente_sexo);
+            txtUltimaCita= (TextView) itemView.findViewById(R.id.item_paciente_ultima_cita);
 
         }
     }

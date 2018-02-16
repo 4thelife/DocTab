@@ -48,6 +48,7 @@ public class Constants {
     public static final int ACCION_SIN_DEFINIR = 0;
     public static final int ACCION_REGISTRAR = 1;
     public static final int ACCION_EDITAR = 2;
+    public static final int ACCION_VER = 3;
     public static final String FB_KEY_ITEM_ESTATUS_INACTIVO = "inactivo";
     public static final String FB_KEY_ITEM_ESTATUS_ACTIVO = "activo";
     public static final String FB_KEY_ITEM_ESTATUS_ELIMINADO = "eliminado";
@@ -114,7 +115,8 @@ public class Constants {
     public static final String FRAGMENT_FORMULARIO_MENSAJES = "fragment_formulario_mensajes";
 
     /**
-     * Fragmentos de Registro*/
+     * Fragmentos de Registro
+     */
     public static final String FRAGMENT_REGISTRO_CONSULTORIOS = "fragment_registro_consultorios";
     public static final String FRAGMENT_REGISTRO_DOCTOR = "fragment_registro_doctor";
     public static final String FRAGMENT_REGISTRO_ESPECIALIDADES = "fragment_registro_especialidades";
@@ -140,41 +142,24 @@ public class Constants {
     static {
         ITEM_FRAGMENT = new HashMap<>();
         ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_LISTADO_INICIO);
-
-        /**CONSULTORIOS*/
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIOS);
-        ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_LISTADO_CONSULTORIOS);
-
-        /**DOCTOR*/
+        ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_REGISTRO_CONSULTORIOS);
         //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
-        ITEM_FRAGMENT.put(R.id.btn_agregar_doctor,FRAGMENT_REGISTRO_DOCTOR);
-
-        /**CITAS*/
+        ITEM_FRAGMENT.put(R.id.btn_agregar_doctor, FRAGMENT_REGISTRO_DOCTOR);
         ITEM_FRAGMENT.put(R.id.menu_item_citas_doctor, FRAGMENT_LISTADO_CITAS_DOCTOR);
-        ITEM_FRAGMENT.put(R.id.btn_agregar_citas_doctor,FRAGMENT_LISTADO_CITAS_DOCTOR);
-
-        /**ESPECIAIIDADES*/
-
-        ITEM_FRAGMENT.put(R.id.btn_agregar_especialidades,FRAGMENT_LISTADO_ESPECIALIDADES);
-
-        /**PACIENTES*/
-        ITEM_FRAGMENT.put(R.id.btn_agregar_paciente_doctor,FRAGMENT_LISTADO_PACIENTES_DOCTOR);
-
-        /**SERVICIOS*/
-        ITEM_FRAGMENT.put(R.id.btn_agregar_servicio,FRAGMENT_LISTADO_SERVICIOS);
-
-        /**MENSAJES*/
-        ITEM_FRAGMENT.put(R.id.btn_agregar_mensajes,FRAGMENT_LISTADO_MENSAJES);
-
+        ITEM_FRAGMENT.put(R.id.btn_agregar_citas_doctor, FRAGMENT_LISTADO_CITAS_DOCTOR);
+        ITEM_FRAGMENT.put(R.id.btn_agregar_especialidades, FRAGMENT_LISTADO_ESPECIALIDADES);
+        ITEM_FRAGMENT.put(R.id.btn_agregar_paciente_doctor, FRAGMENT_LISTADO_PACIENTES_DOCTOR);
+        ITEM_FRAGMENT.put(R.id.btn_agregar_servicio, FRAGMENT_LISTADO_SERVICIOS);
+        ITEM_FRAGMENT.put(R.id.btn_agregar_mensajes, FRAGMENT_LISTADO_MENSAJES);
     }
 
     public static final HashMap<String, Fragment> TAG_FRAGMENT;
 
     static {
         TAG_FRAGMENT = new HashMap<>();
-
         /**Listado*/
-        TAG_FRAGMENT.put(FRAGMENT_LISTADO_CITAS_DOCTOR,new ListadoCitasDoctorFragment());
+        TAG_FRAGMENT.put(FRAGMENT_LISTADO_CITAS_DOCTOR, new ListadoCitasDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_CONSULTORIOS, new ListadoConsultoriosFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_DOCTORES, new ListadoDoctoresFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_ESPECIALIDADES, new ListadoEspecialidadesFragment());
@@ -182,16 +167,14 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_PACIENTES_DOCTOR, new ListadoPacientesDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_SERVICIOS, new ListadoServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_MENSAJES, new ListadoMensajesFragment());
-
         /**Formulario*/
-        TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_CITAS_DOCTOR,new FormularioCitasDoctorFragment());
+        TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_CITAS_DOCTOR, new FormularioCitasDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_CONSULTORIOS, new FormularioConsultorioFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
         TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_DOCTOR, new FormularioDoctoresFragment());
         TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_ESPECIALIDADES, new FormularioEspecialidadesFragment());
         TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_PACIENTES_DOCTOR, new FormularioPacientesDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_SERVICIOS, new FormularioServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_MENSAJES, new FormularioMensajesFragment());
-
         /**Registro*/
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CITAS_DOCTOR, new RegistroCitasDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CONSULTORIOS, new RegistroConsultoriosFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
@@ -200,16 +183,29 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_PACIENTES_DOCTOR, new RegistroPacientesDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_SERVICIO, new RegistroServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_MENSAJES, new RegistroMensajesFragment());
-
         /**Objecto*/
-        TAG_FRAGMENT.put(FRAGMENT_CITAS_DOCTOR , new CitasDoctorFragment());
-        TAG_FRAGMENT.put(FRAGMENT_CONSULTORIOS , new ConsultoriosFragment());
-        TAG_FRAGMENT.put(FRAGMENT_DOCTOR , new DoctoresFragment());
-        TAG_FRAGMENT.put(FRAGMENT_ESPECIALIDADES , new EspecialidadesFragment());
-        TAG_FRAGMENT.put(FRAGMENT_PACIENTES_DOCTOR , new PacientesFragment());
-        TAG_FRAGMENT.put(FRAGMENT_SERVICIOS , new ServiciosFragment());
+        TAG_FRAGMENT.put(FRAGMENT_CITAS_DOCTOR, new CitasDoctorFragment());
+        TAG_FRAGMENT.put(FRAGMENT_CONSULTORIOS, new ConsultoriosFragment());
+        TAG_FRAGMENT.put(FRAGMENT_DOCTOR, new DoctoresFragment());
+        TAG_FRAGMENT.put(FRAGMENT_ESPECIALIDADES, new EspecialidadesFragment());
+        TAG_FRAGMENT.put(FRAGMENT_PACIENTES_DOCTOR, new PacientesFragment());
+        TAG_FRAGMENT.put(FRAGMENT_SERVICIOS, new ServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_MENSAJES, new MensajesFragment());
+    }
 
+    public static final HashMap<Integer, Integer> TITLE_ACTIVITY;
+
+    static {
+        TITLE_ACTIVITY = new HashMap<>();
+        TITLE_ACTIVITY.put(R.id.btn_agregar_consultorio, R.string.default_title_activity_consultorios);
+    }
+
+    public static final HashMap<Integer, Integer> TITLE_FORM_ACTION;
+
+    static {
+        TITLE_FORM_ACTION = new HashMap<>();
+        TITLE_FORM_ACTION.put(Constants.ACCION_REGISTRAR, R.string.default_form_title_new);
+        TITLE_FORM_ACTION.put(Constants.ACCION_EDITAR, R.string.default_form_title_edit);
     }
 
 }

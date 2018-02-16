@@ -42,16 +42,16 @@ public class NavigationDrawerActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         onPreRenderMenu(navigationView);
@@ -85,8 +85,8 @@ public class NavigationDrawerActivity extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 View header = navigationView.getHeaderView(0);
-                TextView txtNombrePerfil = header.findViewById(R.id.txt_nombre_perfil_header_navigation);
-                TextView txtEmail = header.findViewById(R.id.txt_email_perfil_header_navigation);
+                TextView txtNombrePerfil = (TextView) header.findViewById(R.id.txt_nombre_perfil_header_navigation);
+                TextView txtEmail = (TextView) header.findViewById(R.id.txt_email_perfil_header_navigation);
 
                 switch (usuario.getTipoDeUsuario()) {
                     case Constants.FB_KEY_MAIN_DOCTORES:
@@ -108,7 +108,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -185,7 +185,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 break;
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

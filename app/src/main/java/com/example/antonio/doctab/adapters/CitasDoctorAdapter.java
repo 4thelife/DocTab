@@ -22,7 +22,7 @@ public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.
     View.OnClickListener onClickListener;
     List<Citas> dataList = new ArrayList<>();
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtDoctor;
         TextView txtConsultorio;
@@ -37,15 +37,15 @@ public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txtDoctor = itemView.findViewById(R.id.item_citas_doctor);
-            txtConsultorio = itemView.findViewById(R.id.item_citas_consultorio);
-            txtPaciente = itemView.findViewById(R.id.item_citas_paciente);
-            txtFecha=itemView.findViewById(R.id.item_citas_fecha);
-            txtHora=itemView.findViewById(R.id.item_citas_horario);
-            txtEstadoCita=itemView.findViewById(R.id.item_citas_estado_cita);
-            txtComentarioPaciente=itemView.findViewById(R.id.item_citas_comentario);
-            txtAsunto=itemView.findViewById(R.id.item_citas_asunto);
-            txtRetroalimentacionCita=itemView.findViewById(R.id.item_citas_retroalimentacion);
+            txtDoctor = (TextView) itemView.findViewById(R.id.item_citas_doctor);
+            txtConsultorio = (TextView) itemView.findViewById(R.id.item_citas_consultorio);
+            txtPaciente = (TextView) itemView.findViewById(R.id.item_citas_paciente);
+            txtFecha = (TextView) itemView.findViewById(R.id.item_citas_fecha);
+            txtHora = (TextView) itemView.findViewById(R.id.item_citas_horario);
+            txtEstadoCita = (TextView) itemView.findViewById(R.id.item_citas_estado_cita);
+            txtComentarioPaciente = (TextView) itemView.findViewById(R.id.item_citas_comentario);
+            txtAsunto = (TextView) itemView.findViewById(R.id.item_citas_asunto);
+            txtRetroalimentacionCita = (TextView) itemView.findViewById(R.id.item_citas_retroalimentacion);
 
         }
 

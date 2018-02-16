@@ -53,9 +53,8 @@ public class ConsultoriosFragment extends Fragment implements View.OnClickListen
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_consultorios, container, false);
-        linearLayout = view.findViewById(R.id.view_no_resultados);
-
-        recyclerView = view.findViewById(R.id.recycler_view_consultorios);
+        linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_consultorios);
         adapter = new ConsultoriosAdapter();
         adapter.setOnClickListener(this);
 

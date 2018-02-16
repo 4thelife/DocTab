@@ -143,4 +143,5 @@
     <string name="form_alergia">Alergico a</string>
     <string name="edad">Edad</string>
     <string name="button_responder">Responder</string>
+    <string name="default_title_activity_consultorios">Consultorios</string>
 </resources>

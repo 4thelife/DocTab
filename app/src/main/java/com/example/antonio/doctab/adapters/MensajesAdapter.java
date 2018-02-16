@@ -32,10 +32,10 @@ public class MensajesAdapter extends RecyclerView.Adapter<MensajesAdapter.ViewHo
 
         public ViewHolder(View itemView){
             super(itemView);
-            txtRemitente = itemView.findViewById(R.id.item_mensaje_remitente);
+            txtRemitente = (TextView) itemView.findViewById(R.id.item_mensaje_remitente);
             /**txtDestinatario = itemView.findViewById(R.id.);*/
-            txtAsunto = itemView.findViewById(R.id.item_mensaje_asunto);
-            txtContenido = itemView.findViewById(R.id.item_mensaje_contenido);
+            txtAsunto = (TextView) itemView.findViewById(R.id.item_mensaje_asunto);
+            txtContenido = (TextView) itemView.findViewById(R.id.item_mensaje_contenido);
 
         }
     }

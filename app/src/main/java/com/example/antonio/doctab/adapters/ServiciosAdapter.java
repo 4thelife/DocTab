@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Ricardo on 13/02/2018.
  */
 
-public class ServiciosAdapter extends RecyclerView.Adapter<ServiciosAdapter.ViewHolder>  {
+public class ServiciosAdapter extends RecyclerView.Adapter<ServiciosAdapter.ViewHolder> {
 
     View.OnClickListener onClickListener;
     List<Servicios> dataList = new ArrayList<>();
@@ -28,12 +28,11 @@ public class ServiciosAdapter extends RecyclerView.Adapter<ServiciosAdapter.View
         TextView txtCosto;
 
 
-
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txtServicio = itemView.findViewById(R.id.item_servicios);
-            txtCosto = itemView.findViewById(R.id.item_costo_servicio);
+            txtServicio = (TextView) itemView.findViewById(R.id.item_servicios);
+            txtCosto = (TextView) itemView.findViewById(R.id.item_costo_servicio);
 
         }
     }
@@ -53,8 +52,6 @@ public class ServiciosAdapter extends RecyclerView.Adapter<ServiciosAdapter.View
     public void remove(int position) {
         this.dataList.remove(position);
     }
-
-
 
 
     @Override

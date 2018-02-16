@@ -1,6 +1,7 @@
 package com.example.antonio.doctab.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.antonio.doctab.MainActivity;
+import com.example.antonio.doctab.MainRegisterActivity;
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
+import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.models.Usuarios;
 
 /**
@@ -30,7 +34,7 @@ public class ListadoConsultoriosFragment extends Fragment implements View.OnClic
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
-        btnAgregar = view.findViewById(R.id.btn_agregar_consultorio);
+        btnAgregar = (Button) view.findViewById(R.id.btn_agregar_consultorio);
         btnAgregar.setOnClickListener(this);
 
         return view;
@@ -57,7 +61,7 @@ public class ListadoConsultoriosFragment extends Fragment implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_agregar_consultorio:
-                /*DecodeExtraHelper extra = new DecodeExtraHelper();
+                DecodeExtraHelper extra = new DecodeExtraHelper();
 
                 extra.setTituloActividad(getString(Constants.TITLE_ACTIVITY.get(v.getId())));
                 extra.setTituloFormulario(getString(R.string.default_form_title_new));
@@ -68,7 +72,7 @@ public class ListadoConsultoriosFragment extends Fragment implements View.OnClic
                 intent.putExtra(Constants.KEY_MAIN_DECODE, extra);
                 intent.putExtra(Constants.KEY_SESSION_USER, _SESSION_USER);
                 startActivity(intent);
-                */
+
                 break;
         }
     }

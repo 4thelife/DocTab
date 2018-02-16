@@ -31,7 +31,7 @@ public class ListadoCitasDoctorFragment extends Fragment implements View.OnClick
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
-        btnRegistrar = view.findViewById(R.id.btn_agregar_citas_doctor);
+        btnRegistrar = (Button) view.findViewById(R.id.btn_agregar_citas_doctor);
         btnRegistrar.setOnClickListener(this);
 
         return view;
@@ -59,20 +59,6 @@ public class ListadoCitasDoctorFragment extends Fragment implements View.OnClick
         switch (v.getId()) {
             case R.id.btn_agregar_citas_doctor:
 
-                //Toast.makeText(getContext(), "Estas en el fragmento Citas del doctor", Toast.LENGTH_SHORT).show();
-
-                /*DecodeExtraHelper extra = new DecodeExtraHelper();
-
-                extra.setTituloActividad(getString(Constants.TITLE_ACTIVITY.get(v.getId())));
-                extra.setTituloFormulario(getString(R.string.default_form_title_new));
-                extra.setAccionFragmento(Constants.ACCION_REGISTRAR);
-                extra.setFragmentTag(Constants.ITEM_FRAGMENT.get(v.getId()));
-
-                Intent intent = new Intent(getActivity(), MainRegisterActivity.class);
-                intent.putExtra(Constants.KEY_MAIN_DECODE, extra);
-                intent.putExtra(Constants.KEY_SESSION_USER, _SESSION_USER);
-                startActivity(intent);
-                */
                 break;
         }
     }

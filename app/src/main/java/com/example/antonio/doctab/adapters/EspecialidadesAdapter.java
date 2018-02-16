@@ -33,10 +33,10 @@ public class EspecialidadesAdapter extends RecyclerView.Adapter<EspecialidadesAd
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txtEspecialidad = itemView.findViewById(R.id.item_especialidad_nombre);
-            txtSubespecialidad = itemView.findViewById(R.id.item_subespecialidad_nombre);
-            txtUniverisdad = itemView.findViewById(R.id.item_universidad);
-            txtAnoEgreso=itemView.findViewById(R.id.item_ano_egreso);
+            txtEspecialidad = (TextView) itemView.findViewById(R.id.item_especialidad_nombre);
+            txtSubespecialidad = (TextView) itemView.findViewById(R.id.item_subespecialidad_nombre);
+            txtUniverisdad = (TextView) itemView.findViewById(R.id.item_universidad);
+            txtAnoEgreso= (TextView) itemView.findViewById(R.id.item_ano_egreso);
 
 
         }
