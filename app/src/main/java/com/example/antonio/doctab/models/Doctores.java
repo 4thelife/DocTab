@@ -30,6 +30,9 @@ public class Doctores {
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
 
+    public Doctores() {
+
+    }
 
     public Doctores(String nombreCompleto, String especialidad, String cedulaProfesional, String correoElectronico, String sexo, String fotoPerfil, String tipoDeUsuario, String calle, String colonia, String numeroInt, String numeroExt, String codPostal, String ciudad, String estado, String telefono, String firebaseId, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
         this.nombreCompleto = nombreCompleto;
