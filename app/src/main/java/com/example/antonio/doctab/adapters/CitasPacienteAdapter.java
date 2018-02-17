@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ricardo on 13/02/2018.
+ * Created by Ricardo on 17/02/2018.
  */
 
-public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.ViewHolder> {
+public class CitasPacienteAdapter extends RecyclerView.Adapter<CitasPacienteAdapter.ViewHolder> {
 
     View.OnClickListener onClickListener;
     List<Citas> dataList = new ArrayList<>();
@@ -37,12 +37,10 @@ public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.
             super(itemView);
 
             txtDoctor = (TextView) itemView.findViewById(R.id.item_citas_doctor);
-
             txtPaciente = (TextView) itemView.findViewById(R.id.item_citas_paciente);
             txtFecha = (TextView) itemView.findViewById(R.id.item_citas_fecha);
             txtHora = (TextView) itemView.findViewById(R.id.item_citas_horario);
             txtEstadoCita = (TextView) itemView.findViewById(R.id.item_citas_estado_cita);
-
             txtAsunto = (TextView) itemView.findViewById(R.id.item_citas_asunto);
 
 
@@ -73,7 +71,7 @@ public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.
     }
 
     @Override
-    public void onBindViewHolder(CitasDoctorAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(CitasPacienteAdapter.ViewHolder holder, int position) {
         final Citas item = dataList.get(position);
         /**Llena el objeto que sera enviado al fragmento**/
         final DecodeItemHelper decodeItem = new DecodeItemHelper();
@@ -82,7 +80,6 @@ public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.
         decodeItem.setPosition(position);
 
         holder.txtDoctor.setText(item.getDoctor());
-
         holder.txtPaciente.setText(item.getPaciente());
         holder.txtFecha.setText(item.getFecha());
         holder.txtHora.setText(item.getHora());

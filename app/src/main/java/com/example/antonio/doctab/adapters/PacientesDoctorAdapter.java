@@ -27,10 +27,10 @@ public class PacientesDoctorAdapter extends RecyclerView.Adapter<PacientesDoctor
 
         TextView txtNombres;
         TextView txtApellidos;
-        TextView txtAlergia;
+
         TextView txtEdad;
         TextView txtSexo;
-        TextView txtUltimaCita;
+
 
 
         public ViewHolder(View itemView) {
@@ -38,10 +38,10 @@ public class PacientesDoctorAdapter extends RecyclerView.Adapter<PacientesDoctor
 
             txtNombres = (TextView) itemView.findViewById(R.id.item_paciente_nombres);
             txtApellidos = (TextView) itemView.findViewById(R.id.item_paciente_apellidos);
-            txtAlergia = (TextView) itemView.findViewById(R.id.item_paciente_alergia);
+
             txtEdad = (TextView) itemView.findViewById(R.id.item_paciente_edad);
             txtSexo = (TextView) itemView.findViewById(R.id.item_paciente_sexo);
-            txtUltimaCita= (TextView) itemView.findViewById(R.id.item_paciente_ultima_cita);
+
 
         }
     }
@@ -84,10 +84,10 @@ public class PacientesDoctorAdapter extends RecyclerView.Adapter<PacientesDoctor
 
         holder.txtNombres.setText(item.getNombres());
         holder.txtApellidos.setText(item.getApellidos());
-        holder.txtAlergia.setText(item.getAlergia());
+
         holder.txtEdad.setText(item.getEdad());
         holder.txtSexo.setText(item.getSexo());
-        holder.txtUltimaCita.setText(item.getUltimaCita());
+
 
         /*holder.btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override

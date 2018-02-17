@@ -29,8 +29,8 @@ public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtNombres;
-        TextView txtApellidos;
         TextView txtEspecialidad;
+        TextView txtTelefono;
         TextView txtCedula;
         TextView txtSexo;
 
@@ -39,10 +39,10 @@ public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHo
             super(itemView);
 
             txtNombres = (TextView) itemView.findViewById(R.id.item_doctor_nombres);
-            txtApellidos = (TextView) itemView.findViewById(R.id.item_doctor_apellidos);
             txtEspecialidad= (TextView) itemView.findViewById(R.id.item_doctor_especialidad);
             txtCedula = (TextView) itemView.findViewById(R.id.item_doctor_cedula);
             txtSexo = (TextView) itemView.findViewById(R.id.item_doctor_sexo);
+            txtTelefono = (TextView) itemView.findViewById(R.id.item_doctor_telefono);
         }
     }
 
@@ -80,8 +80,9 @@ public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHo
         holder.txtNombres.setText(item.getNombreCompleto());
         //holder.txtApellidos.setText(item.getApeliidos());
         holder.txtCedula.setText(item.getCedulaProfesional());
-        //holder.txtEspecialidad.setText(item.getEspecialidad);
+        holder.txtEspecialidad.setText(item.getEspecialidad());
         holder.txtSexo.setText(item.getSexo());
+        holder.txtTelefono.setText(item.getTelefono());
 
         /*holder.btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
