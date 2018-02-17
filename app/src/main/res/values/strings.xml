@@ -113,6 +113,7 @@
     <string name="form_title_doctor">Informacion del Doctor</string>
     <string name="form_title_paciente">Informacion del Paciente</string>
     <string name="form_title_mensajes">Redactar mensaje</string>
+    <string name="form_title_cita_paciente">Informacion de la Cita</string>
 
     <string name="form_nombre_consultorio">Nombre Consultorio</string>
     <string name="form_num_consultorio"># Consultorio</string>
@@ -144,4 +145,13 @@
     <string name="edad">Edad</string>
     <string name="button_responder">Responder</string>
     <string name="default_title_activity_consultorios">Consultorios</string>
+    <string name="form_telefono">Telefono</string>
+    <string name="form_asunto">Asunto</string>
+    <string name="dato_cita_hora">Hora de la cita:</string>
+    <string name="dato_cita_fecha">Fecha de la cita:</string>
+    <string name="dato_cita_doctor">Doctor:</string>
+    <string name="btn_agendar">Agendar</string>
+
+
+
 </resources>
