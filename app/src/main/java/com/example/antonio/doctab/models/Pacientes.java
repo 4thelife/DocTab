@@ -13,29 +13,28 @@ public class Pacientes {
     private String apellidos;
     private String edad;
     private String sexo;
-    private String alergia;
-    private String ultimaCita;
     private String tipoDeUsuario;
     private String fireBaseId;
     private String estatus;
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
+    /**private String alergia;*/
+    /**private String ultimaCita;*/
 
-    public Pacientes(String nombres, String apellidos, String edad, String sexo, String alergia,
-                     String ultimaCita, String tipoDeUsuario, String fireBaseId, String estatus,
+    public Pacientes(String nombres, String apellidos, String edad, String sexo,
+                     String tipoDeUsuario, String fireBaseId, String estatus,
                      Long fechaDeCreacion, Long fechaDeEdicion) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.edad = edad;
         this.sexo = sexo;
-        this.alergia = alergia;
-        this.ultimaCita = ultimaCita;
         this.tipoDeUsuario = tipoDeUsuario;
         this.fireBaseId = fireBaseId;
         this.estatus = estatus;
         this.fechaDeCreacion = fechaDeCreacion;
         this.fechaDeEdicion = fechaDeEdicion;
     }
+
 
     public String getNombres() {
         return nombres;
@@ -67,22 +66,6 @@ public class Pacientes {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
-    }
-
-    public String getAlergia() {
-        return alergia;
-    }
-
-    public void setAlergia(String alergia) {
-        this.alergia = alergia;
-    }
-
-    public String getUltimaCita() {
-        return ultimaCita;
-    }
-
-    public void setUltimaCita(String ultimaCita) {
-        this.ultimaCita = ultimaCita;
     }
 
     public String getTipoDeUsuario() {
