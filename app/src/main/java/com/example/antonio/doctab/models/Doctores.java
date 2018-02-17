@@ -9,7 +9,6 @@ public class Doctores {
     private String nombreCompleto;
     private String especialidad;
     private String cedulaProfesional;
-
     private String correoElectronico;
     private String sexo;
     private String fotoPerfil;
@@ -22,7 +21,7 @@ public class Doctores {
     private String codPostal;
     private String ciudad;
     private String estado;
-    private String telefono;
+
 
 
     private String firebaseId;
@@ -30,8 +29,12 @@ public class Doctores {
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
 
+    public Doctores(String nombreCompleto, String especialidad, String cedulaProfesional,
+                    String correoElectronico, String sexo, String fotoPerfil, String tipoDeUsuario,
+                    String calle, String colonia, String numeroInt, String numeroExt,
+                    String codPostal, String ciudad, String estado, String firebaseId,
+                    String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
 
-    public Doctores(String nombreCompleto, String especialidad, String cedulaProfesional, String correoElectronico, String sexo, String fotoPerfil, String tipoDeUsuario, String calle, String colonia, String numeroInt, String numeroExt, String codPostal, String ciudad, String estado, String telefono, String firebaseId, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
         this.nombreCompleto = nombreCompleto;
         this.especialidad = especialidad;
         this.cedulaProfesional = cedulaProfesional;
@@ -46,12 +49,10 @@ public class Doctores {
         this.codPostal = codPostal;
         this.ciudad = ciudad;
         this.estado = estado;
-        this.telefono = telefono;
         this.firebaseId = firebaseId;
         this.estatus = estatus;
         this.fechaDeCreacion = fechaDeCreacion;
         this.fechaDeEdicion = fechaDeEdicion;
-
     }
 
     public String getNombreCompleto() {
@@ -164,14 +165,6 @@ public class Doctores {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
     }
 
     public String getFirebaseId() {
