@@ -10,39 +10,34 @@ public class Citas {
 
 
     private String doctor;
-    private String consultorio;
     private String paciente;
     private String fecha;
     private String hora;
     private String estadoCita;
-    private String confirmacion;
-    private String comentarioPaciente;
     private String asunto;
-    private String retroalimentacionCita;
     private String fireBaseId;
     private String estatus;
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
+    /**private String retroalimentacionCita;*/
+    /**private String comentarioPaciente;*/
+    /**private String consultorio;*/
 
-    public Citas(String doctor, String consultorio, String paciente, String fecha, String hora,
-                 String estadoCita, String confirmacion, String comentarioPaciente, String asunto,
-                 String retroalimentacionCita, String fireBaseId, String estatus,
-                 Long fechaDeCreacion, Long fechaDeEdicion) {
+    public Citas(String doctor, String paciente, String fecha, String hora, String estadoCita,
+                 String asunto, String fireBaseId, String estatus, Long fechaDeCreacion,
+                 Long fechaDeEdicion) {
         this.doctor = doctor;
-        this.consultorio = consultorio;
         this.paciente = paciente;
         this.fecha = fecha;
         this.hora = hora;
         this.estadoCita = estadoCita;
-        this.confirmacion = confirmacion;
-        this.comentarioPaciente = comentarioPaciente;
         this.asunto = asunto;
-        this.retroalimentacionCita = retroalimentacionCita;
         this.fireBaseId = fireBaseId;
         this.estatus = estatus;
         this.fechaDeCreacion = fechaDeCreacion;
         this.fechaDeEdicion = fechaDeEdicion;
     }
+
 
     public String getDoctor() {
         return doctor;
@@ -50,14 +45,6 @@ public class Citas {
 
     public void setDoctor(String doctor) {
         this.doctor = doctor;
-    }
-
-    public String getConsultorio() {
-        return consultorio;
-    }
-
-    public void setConsultorio(String consultorio) {
-        this.consultorio = consultorio;
     }
 
     public String getPaciente() {
@@ -92,22 +79,6 @@ public class Citas {
         this.estadoCita = estadoCita;
     }
 
-    public String getConfirmacion() {
-        return confirmacion;
-    }
-
-    public void setConfirmacion(String confirmacion) {
-        this.confirmacion = confirmacion;
-    }
-
-    public String getComentarioPaciente() {
-        return comentarioPaciente;
-    }
-
-    public void setComentarioPaciente(String comentarioPaciente) {
-        this.comentarioPaciente = comentarioPaciente;
-    }
-
     public String getAsunto() {
         return asunto;
     }
@@ -116,13 +87,6 @@ public class Citas {
         this.asunto = asunto;
     }
 
-    public String getRetroalimentacionCita() {
-        return retroalimentacionCita;
-    }
-
-    public void setRetroalimentacionCita(String retroalimentacionCita) {
-        this.retroalimentacionCita = retroalimentacionCita;
-    }
     public String getFireBaseId() {
         return fireBaseId;
     }
@@ -154,4 +118,5 @@ public class Citas {
     public void setFechaDeEdicion(Long fechaDeEdicion) {
         this.fechaDeEdicion = fechaDeEdicion;
     }
+
 }
