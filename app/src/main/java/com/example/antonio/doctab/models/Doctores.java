@@ -5,50 +5,51 @@ package com.example.antonio.doctab.models;
  */
 
 public class Doctores {
-    /**DATOS DEL DOCTOR*/
+
     private String nombreCompleto;
+    /*
+    private String nombres;
+    private String apellidos;
     private String especialidad;
+    private String subespecialidad
+    */
     private String cedulaProfesional;
     private String correoElectronico;
     private String sexo;
+    private String telefonoCelular1;
+    private String telefonoCelular2;
+    private String fechaNacimiento;
     private String fotoPerfil;
     private String tipoDeUsuario;
-    /**DATOS DEL CONSULTORIO*/
-    private String calle;
-    private String colonia;
-    private String numeroInt;
-    private String numeroExt;
-    private String codPostal;
-    private String ciudad;
-    private String estado;
-
-
 
     private String firebaseId;
     private String estatus;
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
 
-    public Doctores(String nombreCompleto, String especialidad, String cedulaProfesional,
-                    String correoElectronico, String sexo, String fotoPerfil, String tipoDeUsuario,
-                    String calle, String colonia, String numeroInt, String numeroExt,
-                    String codPostal, String ciudad, String estado, String firebaseId,
-                    String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
+    public Doctores() {
+    }
 
+    public Doctores(String nombreCompleto, /* String nombre, String, apellidos, String especialidad,
+     String subespecialidad, */String cedulaProfesional, String correoElectronico, String sexo,
+                    String telefonoCelular1, String telefonoCelular2, String fechaNacimiento,
+                    String fotoPerfil, String tipoDeUsuario, String firebaseId, String estatus,
+                    Long fechaDeCreacion, Long fechaDeEdicion) {
         this.nombreCompleto = nombreCompleto;
-        this.especialidad = especialidad;
+        /*
+        * this.nombres = nombres;
+        * this.apellidos = apellidos;
+        * this.especialidad = especialidad;
+        * this.subespecialidad = subespecialidad;
+        * */
         this.cedulaProfesional = cedulaProfesional;
         this.correoElectronico = correoElectronico;
         this.sexo = sexo;
+        this.telefonoCelular1 = telefonoCelular1;
+        this.telefonoCelular2 = telefonoCelular2;
+        this.fechaNacimiento = fechaNacimiento;
         this.fotoPerfil = fotoPerfil;
         this.tipoDeUsuario = tipoDeUsuario;
-        this.calle = calle;
-        this.colonia = colonia;
-        this.numeroInt = numeroInt;
-        this.numeroExt = numeroExt;
-        this.codPostal = codPostal;
-        this.ciudad = ciudad;
-        this.estado = estado;
         this.firebaseId = firebaseId;
         this.estatus = estatus;
         this.fechaDeCreacion = fechaDeCreacion;
@@ -63,13 +64,25 @@ public class Doctores {
         this.nombreCompleto = nombreCompleto;
     }
 
-    public String getEspecialidad() {
-        return especialidad;
-    }
 
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
+    /*
+    public void setNombres(String nombres){ this.nombres=nombres; }
+
+    public String getNombres(){ return nombres; }
+
+    public void setApellidos(String apellidos){ this.apellidos=apellidos; }
+
+    public String getApellidos(){ return apellidos; }
+
+    public void setEspecialidad(String especialidad){ this.especialidad=especialidad; }
+
+    public String getEspecialidad(){ return especialidad; }
+
+    public void setSubespecialidad(String subespecialidad){ this.subespecialidad=subespecialidad; }
+
+    public String getSubespecialidad(){ return subespecialidad; }
+
+    */
 
     public String getCedulaProfesional() {
         return cedulaProfesional;
@@ -95,6 +108,30 @@ public class Doctores {
         this.sexo = sexo;
     }
 
+    public String getTelefonoCelular1() {
+        return telefonoCelular1;
+    }
+
+    public void setTelefonoCelular1(String telefonoCelular1) {
+        this.telefonoCelular1 = telefonoCelular1;
+    }
+
+    public String getTelefonoCelular2() {
+        return telefonoCelular2;
+    }
+
+    public void setTelefonoCelular2(String telefonoCelular2) {
+        this.telefonoCelular2 = telefonoCelular2;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     public String getFotoPerfil() {
         return fotoPerfil;
     }
@@ -109,62 +146,6 @@ public class Doctores {
 
     public void setTipoDeUsuario(String tipoDeUsuario) {
         this.tipoDeUsuario = tipoDeUsuario;
-    }
-
-    public String getCalle() {
-        return calle;
-    }
-
-    public void setCalle(String calle) {
-        this.calle = calle;
-    }
-
-    public String getColonia() {
-        return colonia;
-    }
-
-    public void setColonia(String colonia) {
-        this.colonia = colonia;
-    }
-
-    public String getNumeroInt() {
-        return numeroInt;
-    }
-
-    public void setNumeroInt(String numeroInt) {
-        this.numeroInt = numeroInt;
-    }
-
-    public String getNumeroExt() {
-        return numeroExt;
-    }
-
-    public void setNumeroExt(String numeroExt) {
-        this.numeroExt = numeroExt;
-    }
-
-    public String getCodPostal() {
-        return codPostal;
-    }
-
-    public void setCodPostal(String codPostal) {
-        this.codPostal = codPostal;
-    }
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
 
     public String getFirebaseId() {
