@@ -19,7 +19,6 @@
             android:textSize="18sp"
             android:text="Nombre(s)" />
 
-        <!--
         <TextView
             android:id="@+id/item_doctor_apellidos"
             android:layout_width="wrap_content"
@@ -27,7 +26,6 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:text="Apellidos(s)" />
-         -->
 
         <TextView
             android:id="@+id/item_doctor_especialidad"
@@ -52,14 +50,6 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:text="Sexo" />
-
-        <TextView
-            android:id="@+id/item_doctor_telefono"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:text="@string/form_telefono" />
 
 
 
