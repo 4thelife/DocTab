@@ -25,26 +25,27 @@ public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtDoctor;
-
+        TextView txtConsultorio;
         TextView txtPaciente;
         TextView txtFecha;
         TextView txtHora;
         TextView txtEstadoCita;
-
+        TextView txtRetroalimentacionCita;
+        TextView txtComentarioPaciente;
         TextView txtAsunto;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             txtDoctor = (TextView) itemView.findViewById(R.id.item_citas_doctor);
-
+            txtConsultorio = (TextView) itemView.findViewById(R.id.item_citas_consultorio);
             txtPaciente = (TextView) itemView.findViewById(R.id.item_citas_paciente);
             txtFecha = (TextView) itemView.findViewById(R.id.item_citas_fecha);
             txtHora = (TextView) itemView.findViewById(R.id.item_citas_horario);
             txtEstadoCita = (TextView) itemView.findViewById(R.id.item_citas_estado_cita);
-
+            txtComentarioPaciente = (TextView) itemView.findViewById(R.id.item_citas_comentario);
             txtAsunto = (TextView) itemView.findViewById(R.id.item_citas_asunto);
-
+            txtRetroalimentacionCita = (TextView) itemView.findViewById(R.id.item_citas_retroalimentacion);
 
         }
 
@@ -82,13 +83,14 @@ public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.
         decodeItem.setPosition(position);
 
         holder.txtDoctor.setText(item.getDoctor());
-
+        holder.txtConsultorio.setText(item.getConsultorio());
         holder.txtPaciente.setText(item.getPaciente());
         holder.txtFecha.setText(item.getFecha());
         holder.txtHora.setText(item.getHora());
         holder.txtEstadoCita.setText(item.getEstadoCita());
+        holder.txtComentarioPaciente.setText(item.getComentarioPaciente());
         holder.txtAsunto.setText(item.getAsunto());
-
+        holder.txtRetroalimentacionCita.setText(item.getRetroalimentacionCita());
 
     }
 
