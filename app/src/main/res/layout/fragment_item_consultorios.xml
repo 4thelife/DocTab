@@ -14,7 +14,7 @@
 
 
                 <TextView
-                    android:id="@+id/item_nombre_consultorio"
+                    android:id="@+id/item_consultorios_nombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
@@ -27,7 +27,7 @@
 
 
                 <TextView
-                    android:id="@+id/item_direccion_consultorio"
+                    android:id="@+id/item_consultorios_direccion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -40,7 +40,7 @@
 
 
                 <TextView
-                    android:id="@+id/item_telefono_consultorio"
+                    android:id="@+id/item_consultorios_telefono"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -56,7 +56,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/item_btn_editar_consultorio"
+                    android:id="@+id/item_btn_editar_consultorios"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -66,7 +66,7 @@
                     android:textColor="@color/bootstrap_brand_secondary_fill" />
 
                 <Button
-                    android:id="@+id/item_btn_eliminar_consultorio"
+                    android:id="@+id/item_btn_eliminar_consultorios"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

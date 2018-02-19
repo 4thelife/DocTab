@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_doctor_nombres"
+            android:id="@+id/item_doctores_nombres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -30,7 +30,7 @@
          -->
 
         <TextView
-            android:id="@+id/item_doctor_especialidad"
+            android:id="@+id/item_doctores_especialidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -38,7 +38,7 @@
             android:text="Especialidad(s)" />
 
         <TextView
-            android:id="@+id/item_doctor_cedula"
+            android:id="@+id/item_doctores_cedula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -46,7 +46,7 @@
             android:text="Cedula Profesional" />
 
         <TextView
-            android:id="@+id/item_doctor_sexo"
+            android:id="@+id/item_doctores_sexo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -54,7 +54,7 @@
             android:text="Sexo" />
 
         <TextView
-            android:id="@+id/item_doctor_telefono"
+            android:id="@+id/item_doctores_telefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -69,7 +69,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/item_btn_editar_doctor"
+                android:id="@+id/item_btn_editar_doctores"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -79,7 +79,7 @@
                 android:textColor="@color/bootstrap_brand_secondary_fill" />
 
             <Button
-                android:id="@+id/item_btn_eliminar_doctor"
+                android:id="@+id/item_btn_eliminar_doctores"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

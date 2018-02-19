@@ -42,7 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <EditText
-                        android:id="@+id/ed_nombre_servicio"
+                        android:id="@+id/ed_form_servicios_nombre_servicio"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
@@ -53,14 +53,43 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <EditText
-                        android:id="@+id/ed_costo"
+                        android:id="@+id/ed_form_servicios_costo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
                         android:hint="@string/form_costo" />
                 </android.support.design.widget.TextInputLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
+                    <Button
+                        android:id="@+id/btn_form_servicios_cancelar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/bootstrap_brand_danger"
+                        android:fontFamily="monospace"
+
+                        android:text="@string/default_alert_dialog_cancelar"
+                        android:textColor="@color/bootstrap_brand_secondary_fill" />
+
+                    <Button
+                        android:id="@+id/btn_form_servicios_registro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/bootstrap_brand_primary"
+                        android:fontFamily="monospace"
+                        android:text="@string/hint_registrar"
+                        android:textColor="@color/bootstrap_brand_secondary_fill" />
+
+
+
+
+                </LinearLayout>
 
             </LinearLayout>
 

@@ -16,21 +16,21 @@
             android:orientation="vertical">
 
             <FrameLayout
-                android:id="@+id/fragment_registro_pacientes_container"
+                android:id="@+id/fragment_registro_pacientes_doctor_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/fragment_vista_pacientes_container"
+                android:id="@+id/fragment_vista_pacientes_doctor_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/fragment_acciones_pacientes_container"
+                android:id="@+id/fragment_acciones_pacientes_doctor_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 

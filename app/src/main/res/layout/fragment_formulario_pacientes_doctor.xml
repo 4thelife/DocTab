@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/ed_nombre_paciente"
+                    android:id="@+id/ed_form_pacientes_doctor_nombre_paciente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/ed_apellidos_paciente"
+                    android:id="@+id/ed_form_pacientes_doctor_apellidos_paciente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/ed_edad"
+                    android:id="@+id/ed_form_pacientes_doctor_edad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/ed_paciente_telefono"
+                    android:id="@+id/ed__form_pacientes_doctor_telefono"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
@@ -103,7 +103,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/form_pacientes_cancelar"
+                    android:id="@+id/btn_form_pacientes_doctor_cancelar"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -114,7 +114,7 @@
                     android:textColor="@color/bootstrap_brand_secondary_fill" />
 
                 <Button
-                    android:id="@+id/form_pacientes_registro"
+                    android:id="@+id/btn_form_pacientes_doctor_registro"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

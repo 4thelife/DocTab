@@ -21,7 +21,10 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="70dp"
-            android:background="@null"></FrameLayout>
+            android:background="@null">
+
+
+        </FrameLayout>
 
     </LinearLayout>
 

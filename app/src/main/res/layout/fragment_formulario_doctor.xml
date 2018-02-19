@@ -246,13 +246,14 @@
 
                         android:hint="@string/form_tel_ext_dos" />
                 </android.support.design.widget.TextInputLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/form_btn_doctor_cancelar"
+                        android:id="@+id/btn_form_doctor_cancelar"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -263,7 +264,7 @@
                         android:textColor="@color/bootstrap_brand_secondary_fill" />
 
                     <Button
-                        android:id="@+id/form_btn_doctor_registro"
+                        android:id="@+id/btn_form_doctor_registro"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

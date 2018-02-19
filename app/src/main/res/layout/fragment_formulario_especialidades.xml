@@ -32,7 +32,7 @@
                         android:layout_height="wrap_content">
 
                         <EditText
-                            android:id="@+id/ed_nombre_especialidad"
+                            android:id="@+id/ed_form_especialidades_especialidad"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="monospace"
@@ -44,7 +44,7 @@
                         android:layout_height="wrap_content">
 
                         <EditText
-                            android:id="@+id/ed_nombre_sub_especialidad"
+                            android:id="@+id/ed_form_especialidades_subespecialidad"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="monospace"
@@ -56,7 +56,7 @@
                         android:layout_height="wrap_content">
 
                         <EditText
-                            android:id="@+id/ed_universidad"
+                            android:id="@+id/ed_form_especialidades_universidad"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="monospace"
@@ -68,12 +68,43 @@
                         android:layout_height="wrap_content">
 
                         <EditText
-                            android:id="@+id/ed_ano_egreso"
+                            android:id="@+id/ed_form_especialeidades_ano_egreso"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="monospace"
                             android:hint="@string/egreso" />
                     </android.support.design.widget.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_form_especialidades_cancelar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/bootstrap_brand_danger"
+                            android:fontFamily="monospace"
+
+                            android:text="@string/default_alert_dialog_cancelar"
+                            android:textColor="@color/bootstrap_brand_secondary_fill" />
+
+                        <Button
+                            android:id="@+id/btn_form_especialidades_registro"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/bootstrap_brand_primary"
+                            android:fontFamily="monospace"
+                            android:text="@string/hint_registrar"
+                            android:textColor="@color/bootstrap_brand_secondary_fill" />
+
+
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

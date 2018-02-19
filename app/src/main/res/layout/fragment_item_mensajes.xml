@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_mensaje_remitente"
+            android:id="@+id/item_mensajes_remitente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -20,14 +20,14 @@
             android:text="Nombre del remitente" />
 
         <TextView
-            android:id="@+id/item_mensaje_asunto"
+            android:id="@+id/item_mensajes_asunto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
             android:text="Asunto del mensaje" />
         <TextView
-            android:id="@+id/item_mensaje_contenido"
+            android:id="@+id/item_mensajes_contenido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -40,7 +40,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/item_btn_respornder_mensaje"
+                android:id="@+id/item_btn_respornder_mensajes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -50,7 +50,7 @@
                 android:textColor="@color/bootstrap_brand_secondary_fill" />
 
             <Button
-                android:id="@+id/item_btn_eliminar_paciente"
+                android:id="@+id/item_btn_eliminar_mensajes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

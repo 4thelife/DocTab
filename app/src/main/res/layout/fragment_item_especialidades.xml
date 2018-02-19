@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_especialidad_nombre"
+            android:id="@+id/item_especialidades_nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -20,7 +20,7 @@
             android:text="Especialidad" />
 
         <TextView
-            android:id="@+id/item_subespecialidad_nombre"
+            android:id="@+id/item_especialidades_subespecialidad_nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -28,7 +28,7 @@
             android:text="Subespecialidad" />
 
         <TextView
-            android:id="@+id/item_universidad"
+            android:id="@+id/item_especialidades_universidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -36,7 +36,7 @@
             android:text="Universidad" />
 
         <TextView
-            android:id="@+id/item_ano_egreso"
+            android:id="@+id/item_especialidades_ano_egreso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -51,7 +51,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/item_btn_editar_especialidad"
+                android:id="@+id/item_btn_editar_especialidades"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -61,7 +61,7 @@
                 android:textColor="@color/bootstrap_brand_secondary_fill" />
 
             <Button
-                android:id="@+id/item_btn_eliminar_especialidad"
+                android:id="@+id/item_btn_eliminar_especialidades"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

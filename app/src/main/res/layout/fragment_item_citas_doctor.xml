@@ -19,7 +19,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/item_citas_paciente"
+            android:id="@+id/item_citas_doctor_paciente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -28,7 +28,7 @@
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
         <TextView
-            android:id="@+id/item_citas_asunto"
+            android:id="@+id/item_citas_doctor_asunto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -37,7 +37,7 @@
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
         <TextView
-            android:id="@+id/item_citas_fecha"
+            android:id="@+id/item_citas_doctor_fecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -46,7 +46,7 @@
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
         <TextView
-            android:id="@+id/item_citas_consultorio"
+            android:id="@+id/item_citas_doctor_consultorio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -55,7 +55,7 @@
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
         <TextView
-            android:id="@+id/item_citas_horario"
+            android:id="@+id/item_citas_doctor_horario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -64,7 +64,7 @@
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
         <TextView
-            android:id="@+id/item_citas_estado_cita"
+            android:id="@+id/item_citas_doctor_estado_cita"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -73,7 +73,7 @@
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
         <TextView
-            android:id="@+id/item_citas_comentario"
+            android:id="@+id/item_citas_doctor_comentario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -82,7 +82,7 @@
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
         <TextView
-            android:id="@+id/item_citas_retroalimentacion"
+            android:id="@+id/item_citas_doctor_retroalimentacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -97,7 +97,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/item_btn_editar_cita"
+                android:id="@+id/item_btn_editar_citas_doctor"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -107,7 +107,7 @@
                 android:textColor="@color/bootstrap_brand_secondary_fill" />
 
             <Button
-                android:id="@+id/item_btn_eliminar_cita"
+                android:id="@+id/item_btn_eliminar_citas_doctor"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
