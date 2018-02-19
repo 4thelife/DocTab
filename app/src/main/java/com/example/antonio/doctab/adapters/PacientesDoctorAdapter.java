@@ -36,11 +36,11 @@ public class PacientesDoctorAdapter extends RecyclerView.Adapter<PacientesDoctor
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txtNombres = (TextView) itemView.findViewById(R.id.item_paciente_nombres);
-            txtApellidos = (TextView) itemView.findViewById(R.id.item_paciente_apellidos);
+            txtNombres = (TextView) itemView.findViewById(R.id.item_pacientes_doctor_nombres);
+            txtApellidos = (TextView) itemView.findViewById(R.id.item_pacientes_doctor_apellidos);
 
-            txtEdad = (TextView) itemView.findViewById(R.id.item_paciente_edad);
-            txtSexo = (TextView) itemView.findViewById(R.id.item_paciente_sexo);
+            txtEdad = (TextView) itemView.findViewById(R.id.item_pacientes_doctor_edad);
+            txtSexo = (TextView) itemView.findViewById(R.id.item_pacientes_doctor_sexo);
 
 
         }

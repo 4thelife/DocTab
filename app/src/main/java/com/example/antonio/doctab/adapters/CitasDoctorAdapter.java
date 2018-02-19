@@ -38,12 +38,12 @@ public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.
 
             txtDoctor = (TextView) itemView.findViewById(R.id.item_citas_doctor);
 
-            txtPaciente = (TextView) itemView.findViewById(R.id.item_citas_paciente);
-            txtFecha = (TextView) itemView.findViewById(R.id.item_citas_fecha);
-            txtHora = (TextView) itemView.findViewById(R.id.item_citas_horario);
-            txtEstadoCita = (TextView) itemView.findViewById(R.id.item_citas_estado_cita);
+            txtPaciente = (TextView) itemView.findViewById(R.id.item_citas_doctor_paciente);
+            txtFecha = (TextView) itemView.findViewById(R.id.item_citas_doctor_fecha);
+            txtHora = (TextView) itemView.findViewById(R.id.item_citas_doctor_horario);
+            txtEstadoCita = (TextView) itemView.findViewById(R.id.item_citas_doctor_estado_cita);
 
-            txtAsunto = (TextView) itemView.findViewById(R.id.item_citas_asunto);
+            txtAsunto = (TextView) itemView.findViewById(R.id.item_citas_doctor_asunto);
 
 
         }

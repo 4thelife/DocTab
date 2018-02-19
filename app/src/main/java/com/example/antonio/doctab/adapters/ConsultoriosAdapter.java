@@ -34,11 +34,11 @@ public class ConsultoriosAdapter extends RecyclerView.Adapter<ConsultoriosAdapte
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txtNombre = (TextView) itemView.findViewById(R.id.item_nombre_consultorio);
-            txtDireccion = (TextView) itemView.findViewById(R.id.item_direccion_consultorio);
-            txtTelefono = (TextView) itemView.findViewById(R.id.item_telefono_consultorio);
-            btnEditar = (Button) itemView.findViewById(R.id.item_btn_editar_consultorio);
-            btnEliminar = (Button) itemView.findViewById(R.id.item_btn_eliminar_consultorio);
+            txtNombre = (TextView) itemView.findViewById(R.id.item_consultorios_nombre);
+            txtDireccion = (TextView) itemView.findViewById(R.id.item_consultorios_direccion);
+            txtTelefono = (TextView) itemView.findViewById(R.id.item_consultorios_telefono);
+            /**btnEditar = (Button) itemView.findViewById(R.id.item_btn_editar_consulorio);
+            btnEliminar = (Button) itemView.findViewById(R.id.item_btn_eliminar_consultorio);*/
         }
     }
 
