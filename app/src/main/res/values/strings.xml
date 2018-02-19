@@ -151,7 +151,7 @@
     <string name="dato_cita_fecha">Fecha de la cita:</string>
     <string name="dato_cita_doctor">Doctor:</string>
     <string name="btn_agendar">Agendar</string>
-
+    <string name="title_view_horario">Horario</string>
 
 
 </resources>
