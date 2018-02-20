@@ -81,12 +81,14 @@
 
     <!--Form subtitle-->
     <string name="default_form_title_edit">Modificar</string>
-    <string name="default_form_title_new">Registrar</string>
+    <string name="default_form_title_new">Agregar</string>
 
     <!--Titulos de la actividad-->
     <string name="default_activity_title_usuarios">Usuarios</string>
     <string name="default_activity_title_aretes_internos">Aretes Internos</string>
     <string name="default_activity_title_cabezas">Cabezas</string>
+    <string name="default_title_activity_consultorios">Consultorios</string>
+    <string name="default_title_activity_citas_doctor">Mis citas</string>
 
     <string name="default_loading_msg">Por favor espera un momento</string>
     <string name="default_alert_dialog_aceptar">Aceptar</string>
@@ -144,7 +146,7 @@
     <string name="form_alergia">Alergico a</string>
     <string name="edad">Edad</string>
     <string name="button_responder">Responder</string>
-    <string name="default_title_activity_consultorios">Consultorios</string>
+
     <string name="form_telefono">Telefono</string>
     <string name="form_asunto">Asunto</string>
     <string name="dato_cita_hora">Hora de la cita:</string>

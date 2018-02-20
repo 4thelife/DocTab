@@ -62,6 +62,7 @@ public class Constants {
     public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
     public static final String FB_KEY_ITEM_TIPO_USUARIO = "tipoDeUsuario";
     public static final String FB_KEY_ITEM_FIREBASE_ID = "firebaseId";
+    public static final String FB_KEY_MAIN_CITAS_DOCTOR = "citas";
 
     /**
      * Key Extras
@@ -141,12 +142,16 @@ public class Constants {
 
     static {
         ITEM_FRAGMENT = new HashMap<>();
+
+        /**Menu*/
         ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_LISTADO_INICIO);
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIOS);
-        ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_REGISTRO_CONSULTORIOS);
         //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
-        ITEM_FRAGMENT.put(R.id.btn_agregar_doctor, FRAGMENT_REGISTRO_DOCTOR);
         ITEM_FRAGMENT.put(R.id.menu_item_citas_doctor, FRAGMENT_LISTADO_CITAS_DOCTOR);
+
+        /**Botones*/
+        ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_REGISTRO_CONSULTORIOS);
+        ITEM_FRAGMENT.put(R.id.btn_agregar_doctor, FRAGMENT_REGISTRO_DOCTOR);
         ITEM_FRAGMENT.put(R.id.btn_agregar_citas_doctor, FRAGMENT_LISTADO_CITAS_DOCTOR);
         ITEM_FRAGMENT.put(R.id.btn_agregar_especialidades, FRAGMENT_LISTADO_ESPECIALIDADES);
         ITEM_FRAGMENT.put(R.id.btn_agregar_paciente_doctor, FRAGMENT_LISTADO_PACIENTES_DOCTOR);
@@ -198,6 +203,7 @@ public class Constants {
     static {
         TITLE_ACTIVITY = new HashMap<>();
         TITLE_ACTIVITY.put(R.id.btn_agregar_consultorio, R.string.default_title_activity_consultorios);
+        TITLE_ACTIVITY.put(R.id.btn_agregar_citas_doctor, R.string.default_title_activity_citas_doctor);
     }
 
     public static final HashMap<Integer, Integer> TITLE_FORM_ACTION;

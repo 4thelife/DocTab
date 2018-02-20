@@ -1,6 +1,7 @@
 package com.example.antonio.doctab.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,8 +12,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.antonio.doctab.MainRegisterActivity;
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
+import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.models.Usuarios;
 
 /**
@@ -22,7 +25,7 @@ import com.example.antonio.doctab.models.Usuarios;
 public class ListadoCitasDoctorFragment extends Fragment implements View.OnClickListener {
 
     private static Usuarios _SESSION_USER;
-    private Button btnRegistrar;
+    private Button btnAgregar;
 
 
     @Override
@@ -31,8 +34,8 @@ public class ListadoCitasDoctorFragment extends Fragment implements View.OnClick
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
-        btnRegistrar = (Button) view.findViewById(R.id.btn_agregar_citas_doctor);
-        btnRegistrar.setOnClickListener(this);
+        btnAgregar = (Button) view.findViewById(R.id.btn_agregar_citas_doctor);
+        btnAgregar.setOnClickListener(this);
 
         return view;
     }
@@ -58,6 +61,17 @@ public class ListadoCitasDoctorFragment extends Fragment implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_agregar_citas_doctor:
+                DecodeExtraHelper extra = new DecodeExtraHelper();
+
+                extra.setTituloActividad(getString(Constants.TITLE_ACTIVITY.get(v.getId())));
+                extra.setTituloFormulario("Agregar");
+                extra.setAccionFragmento(Constants.ACCION_REGISTRAR);
+                extra.setFragmentTag(Constants.ITEM_FRAGMENT.get(v.getId()));
+
+                Intent intent = new Intent(getActivity(), MainRegisterActivity.class);
+                intent.putExtra(Constants.KEY_MAIN_DECODE, extra);
+                intent.putExtra(Constants.KEY_SESSION_USER, _SESSION_USER);
+                startActivity(intent);
 
                 break;
         }

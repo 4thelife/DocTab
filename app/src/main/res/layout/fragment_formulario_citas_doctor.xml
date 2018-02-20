@@ -1,6 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <!--Fragmento para agregar  datos de consultorios-->
+    <FrameLayout
+        android:id="@+id/item_formulario_citas_doctor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="70dp"
+        android:background="@null">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/txt_title_citas_doctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="@string/form_title_cita_paciente"
+                    android:textAlignment="center"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/txt_datos_citas_doctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="monospace"
+                    android:text="@string/dato_cita_doctor"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_datos_citas_fecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="monospace"
+                    android:text="@string/dato_cita_fecha"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_datos_citas_hora"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="monospace"
+
+                    android:text="@string/dato_cita_hora"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/ed_form_citas_asunto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+
+                        android:hint="@string/form_asunto" />
+                </android.support.design.widget.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_form_citas_doctor_cancelar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/bootstrap_brand_danger"
+                        android:fontFamily="monospace"
+
+                        android:text="@string/default_alert_dialog_cancelar"
+                        android:textColor="@color/bootstrap_brand_secondary_fill" />
+
+                    <Button
+                        android:id="@+id/btn_form_citas_doctor_agendar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/bootstrap_brand_primary"
+                        android:fontFamily="monospace"
+                        android:text="@string/btn_agendar"
+                        android:textColor="@color/bootstrap_brand_secondary_fill" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </FrameLayout>
+
+</FrameLayout>
