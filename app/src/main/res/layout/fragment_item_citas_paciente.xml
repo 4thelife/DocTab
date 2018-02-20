@@ -45,6 +45,7 @@
             android:text="Fecha de cita"
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
+        <!--
         <TextView
             android:id="@+id/item_citas_paciente_consultorio"
             android:layout_width="match_parent"
@@ -53,6 +54,7 @@
             android:fontFamily="monospace"
             android:text="Consultorio de cita"
             android:textColor="@color/bootstrap_brand_secondary_text" />
+        -->
 
         <TextView
             android:id="@+id/item_citas_paciente_horario"
@@ -72,6 +74,8 @@
             android:text="Estado de cita"
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
+
+        <!--
         <TextView
             android:id="@+id/item_citas_paciente_comentario"
             android:layout_width="match_parent"
@@ -89,7 +93,7 @@
             android:fontFamily="monospace"
             android:text="Retroalimentacion"
             android:textColor="@color/bootstrap_brand_secondary_text" />
-
+        -->
 
         <LinearLayout
             android:layout_width="match_parent"
