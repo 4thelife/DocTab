@@ -61,6 +61,37 @@
         <item>Mujer</item>
     </string-array>
 
+
+    <!--Horas-->
+    <string-array name="horas">
+        <item>6:00</item>
+        <item>7:00</item>
+        <item>8:00</item>
+        <item>9:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+        <item>18:00</item>
+        <item>19:00</item>
+        <item>20:00</item>
+        <item>21:00</item>
+        <item>22:00</item>
+        <item>23:00</item>
+    </string-array>
+
+    <string-array name="cantidad_citas">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -154,6 +185,13 @@
     <string name="dato_cita_doctor">Doctor:</string>
     <string name="btn_agendar">Agendar</string>
     <string name="title_view_horario">Horario</string>
+
+
+    <string name="hora_entrada">Hora de entrada:</string>
+    <string name="hora_salida">Hora de salida:</string>
+    <string name="citas_x_hora">Citas por hora:</string>
+
+
 
 
 </resources>
