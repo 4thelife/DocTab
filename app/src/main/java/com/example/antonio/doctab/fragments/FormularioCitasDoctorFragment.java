@@ -19,10 +19,9 @@ import com.example.antonio.doctab.R;
 public class FormularioCitasDoctorFragment extends Fragment {
 
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_citas_doctor,container,false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_formulario_citas_doctor,container,false);
 
         return view;
     }
