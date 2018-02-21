@@ -131,7 +131,7 @@
     <string name="form_telefono_dos">Telefono #2</string>
     <string name="form_tel_ext_uno">Extension #1</string>
     <string name="form_tel_ext_dos">Estension #2</string>
-    <string name="citas_doctor">CITAS DOCTOR</string>
+    <string name="citas_doctor">AGREGAR CITA</string>
     <string name="new_consultorio">AGREGAR CONSULTORIO</string>
     <string name="new_especialidad">AGREGAR ESPECIALIDAD</string>
     <string name="new_paciente">REGISTRAR PACIENTE</string>

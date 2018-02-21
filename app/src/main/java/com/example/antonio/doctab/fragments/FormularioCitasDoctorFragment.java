@@ -16,7 +16,7 @@ import com.example.antonio.doctab.R;
  * Created by Ricardo on 13/02/2018.
  */
 
-public class FormularioCitasDoctorFragment extends Fragment implements View.OnClickListener {
+public class FormularioCitasDoctorFragment extends Fragment {
 
 
     @Nullable
@@ -26,21 +26,18 @@ public class FormularioCitasDoctorFragment extends Fragment implements View.OnCl
 
         return view;
     }
-
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
     @Override
     public void onStart() {
         super.onStart();
     }
 
-
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onClick(View view) {
-
+    public void onStop() {
+        super.onStop();
     }
 
 }

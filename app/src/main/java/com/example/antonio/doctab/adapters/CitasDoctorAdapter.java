@@ -73,7 +73,7 @@ public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.
     }
 
     @Override
-    public void onBindViewHolder(CitasDoctorAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         final Citas item = dataList.get(position);
         /**Llena el objeto que sera enviado al fragmento**/
         final DecodeItemHelper decodeItem = new DecodeItemHelper();
@@ -94,7 +94,7 @@ public class CitasDoctorAdapter extends RecyclerView.Adapter<CitasDoctorAdapter.
 
     @Override
     public int getItemCount() {
-        return 0;
+        return dataList == null ? 0 : dataList.size();
     }
 
 }

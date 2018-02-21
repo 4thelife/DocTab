@@ -60,11 +60,21 @@ public class CitasDoctorFragment extends Fragment implements View.OnClickListene
         adapter.setOnClickListener(this);
 
         database = FirebaseDatabase.getInstance();
-        drCitasDoctor = database.getReference(Constants.FB_KEY_MAIN_CITAS_DOCTOR);
+        drCitasDoctor = database.getReference(Constants.FB_KEY_MAIN_DOCTORES);
 
         return view;
-
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
 
     @Override
     public void onStart() {
@@ -155,7 +165,7 @@ public class CitasDoctorFragment extends Fragment implements View.OnClickListene
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View v) {
 
     }
 

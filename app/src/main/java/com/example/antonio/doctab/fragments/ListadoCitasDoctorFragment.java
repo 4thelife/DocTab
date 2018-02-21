@@ -64,7 +64,7 @@ public class ListadoCitasDoctorFragment extends Fragment implements View.OnClick
                 DecodeExtraHelper extra = new DecodeExtraHelper();
 
                 extra.setTituloActividad(getString(Constants.TITLE_ACTIVITY.get(v.getId())));
-                extra.setTituloFormulario("Agregar");
+                extra.setTituloFormulario(getString(R.string.default_form_title_new));
                 extra.setAccionFragmento(Constants.ACCION_REGISTRAR);
                 extra.setFragmentTag(Constants.ITEM_FRAGMENT.get(v.getId()));
 
