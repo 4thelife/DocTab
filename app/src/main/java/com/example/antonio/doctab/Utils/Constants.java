@@ -152,7 +152,7 @@ public class Constants {
         /**Botones*/
         ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_REGISTRO_CONSULTORIOS);
         ITEM_FRAGMENT.put(R.id.btn_agregar_doctor, FRAGMENT_REGISTRO_DOCTOR);
-        ITEM_FRAGMENT.put(R.id.btn_agregar_citas_doctor, FRAGMENT_LISTADO_CITAS_DOCTOR);
+        ITEM_FRAGMENT.put(R.id.btn_agregar_citas_doctor, FRAGMENT_REGISTRO_CITAS_DOCTOR);
         ITEM_FRAGMENT.put(R.id.btn_agregar_especialidades, FRAGMENT_LISTADO_ESPECIALIDADES);
         ITEM_FRAGMENT.put(R.id.btn_agregar_paciente_doctor, FRAGMENT_LISTADO_PACIENTES_DOCTOR);
         ITEM_FRAGMENT.put(R.id.btn_agregar_servicio, FRAGMENT_LISTADO_SERVICIOS);
