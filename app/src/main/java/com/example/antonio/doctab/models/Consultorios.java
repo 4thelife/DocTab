@@ -18,38 +18,14 @@ public class Consultorios {
     private String ciudad;
     private String estado;
 
-
-
     private String fireBaseId;
+    private String fireBaseIdDoctor;
     private String estatus;
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
 
 
     public Consultorios() {
-    }
-
-    public Consultorios(String nombreConsultorio, String tel1, String ext1, String tel2,
-                        String ext2, String calle, String colonia, String numeroInt,
-                        String numeroExt, String codPostal, String ciudad, String estado,
-                        String fireBaseId, String estatus, Long fechaDeCreacion,
-                        Long fechaDeEdicion) {
-        this.nombreConsultorio = nombreConsultorio;
-        this.tel1 = tel1;
-        this.ext1 = ext1;
-        this.tel2 = tel2;
-        this.ext2 = ext2;
-        this.calle = calle;
-        this.colonia = colonia;
-        this.numeroInt = numeroInt;
-        this.numeroExt = numeroExt;
-        this.codPostal = codPostal;
-        this.ciudad = ciudad;
-        this.estado = estado;
-        this.fireBaseId = fireBaseId;
-        this.estatus = estatus;
-        this.fechaDeCreacion = fechaDeCreacion;
-        this.fechaDeEdicion = fechaDeEdicion;
     }
 
     public String getNombreConsultorio() {
@@ -154,6 +130,14 @@ public class Consultorios {
 
     public void setFireBaseId(String fireBaseId) {
         this.fireBaseId = fireBaseId;
+    }
+
+    public String getFireBaseIdDoctor() {
+        return fireBaseIdDoctor;
+    }
+
+    public void setFireBaseIdDoctor(String fireBaseIdDoctor) {
+        this.fireBaseIdDoctor = fireBaseIdDoctor;
     }
 
     public String getEstatus() {

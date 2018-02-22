@@ -107,13 +107,14 @@ public class Constants {
      * Fragmentos Formularios
      */
 
-    public static final String FRAGMENT_FORMULARIO_CONSULTORIOS = "fragment_formulario_consultorios";
-    public static final String FRAGMENT_FORMULARIO_DOCTOR = "fragment_formulario_doctor";
-    public static final String FRAGMENT_FORMULARIO_ESPECIALIDADES = "fragment_formulario_especialidades";
-    public static final String FRAGMENT_FORMULARIO_PACIENTES_DOCTOR = "fragment_formulario_pacientes_doctor";
-    public static final String FRAGMENT_FORMULARIO_SERVICIOS = "fragment_formulario_servicios";
-    public static final String FRAGMENT_FORMULARIO_CITAS_DOCTOR = "fragment_formulario_citas_doctor";
-    public static final String FRAGMENT_FORMULARIO_MENSAJES = "fragment_formulario_mensajes";
+    public static final String FORMULARIO_CONSULTORIOS_FRAGMENT = "formulario_consultorios_fragment";
+    public static final String FORMULARIO_ACCIONES_CONSULTORIOS_FRAGMENT = "fragment_acciones_consultorios_fragment";
+    public static final String FORMULARIO_DOCTOR_FRAGMENT = "formulario_doctor_fragment";
+    public static final String FORMULARIO_ESPECIALIDADES_FRAGMENT = "formulario_especialidades_fragment";
+    public static final String FORMULARIO_PACIENTES_DOCTOR_FRAGMENT = "formulario_pacientes_doctor_fragment";
+    public static final String FORMULARIO_SERVICIOS_FRAGMENT = "formulario_servicios_fragment";
+    public static final String FORMULARIO_CITAS_DOCTOR_FRAGMENT = "formulario_citas_doctor_fragment";
+    public static final String FORMULARIO_MENSAJES_FRAGMENT = "formulario_mensajes_fragment";
 
     /**
      * Fragmentos de Registro
@@ -173,16 +174,16 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_SERVICIOS, new ListadoServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_MENSAJES, new ListadoMensajesFragment());
         /**Formulario*/
-        TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_CITAS_DOCTOR, new FormularioCitasDoctorFragment());
-        TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_CONSULTORIOS, new FormularioConsultorioFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
-        TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_DOCTOR, new FormularioDoctoresFragment());
-        TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_ESPECIALIDADES, new FormularioEspecialidadesFragment());
-        TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_PACIENTES_DOCTOR, new FormularioPacientesDoctorFragment());
-        TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_SERVICIOS, new FormularioServiciosFragment());
-        TAG_FRAGMENT.put(FRAGMENT_FORMULARIO_MENSAJES, new FormularioMensajesFragment());
+        TAG_FRAGMENT.put(FORMULARIO_CITAS_DOCTOR_FRAGMENT, new FormularioCitasDoctorFragment());
+        TAG_FRAGMENT.put(FORMULARIO_CONSULTORIOS_FRAGMENT, new FormularioConsultorioFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
+        TAG_FRAGMENT.put(FORMULARIO_DOCTOR_FRAGMENT, new FormularioDoctoresFragment());
+        TAG_FRAGMENT.put(FORMULARIO_ESPECIALIDADES_FRAGMENT, new FormularioEspecialidadesFragment());
+        TAG_FRAGMENT.put(FORMULARIO_PACIENTES_DOCTOR_FRAGMENT, new FormularioPacientesDoctorFragment());
+        TAG_FRAGMENT.put(FORMULARIO_SERVICIOS_FRAGMENT, new FormularioServiciosFragment());
+        TAG_FRAGMENT.put(FORMULARIO_MENSAJES_FRAGMENT, new FormularioMensajesFragment());
         /**Registro*/
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CITAS_DOCTOR, new RegistroCitasDoctorFragment());
-        TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CONSULTORIOS, new RegistroConsultoriosFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
+        TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CONSULTORIOS, new RegistroConsultoriosFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_DOCTOR, new RegistroDoctoresFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_ESPECIALIDADES, new RegistroEspecialidadesFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_PACIENTES_DOCTOR, new RegistroPacientesDoctorFragment());

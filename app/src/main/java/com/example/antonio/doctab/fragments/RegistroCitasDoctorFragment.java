@@ -39,7 +39,7 @@ public class RegistroCitasDoctorFragment extends Fragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction mainFragment = fragmentManager.beginTransaction();
 
-        mainFragment.replace(R.id.fragment_registro_citas_doctor_container, new FormularioCitasDoctorFragment(), Constants.FRAGMENT_FORMULARIO_CITAS_DOCTOR);
+        mainFragment.replace(R.id.fragment_registro_citas_doctor_container, new FormularioCitasDoctorFragment(), Constants.FORMULARIO_CITAS_DOCTOR_FRAGMENT);
 
         mainFragment.commit();
 

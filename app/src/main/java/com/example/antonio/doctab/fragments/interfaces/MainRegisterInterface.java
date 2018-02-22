@@ -1,5 +1,6 @@
 package com.example.antonio.doctab.fragments.interfaces;
 
+import com.example.antonio.doctab.helpers.ConsultoriosHelper;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 
 /**
@@ -14,7 +15,7 @@ public interface MainRegisterInterface {
 
     void setDecodeItem(DecodeItemHelper decodeItem);
 
-    //void registrarPromotor(PromotoresHelper promotoresHelper);
+    void registrarConsultorio(ConsultoriosHelper helper);
 
-    //void editarPromotor(PromotoresHelper promotoresHelper);
+    void editarConsultorio(ConsultoriosHelper helper);
 }

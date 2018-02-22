@@ -11,13 +11,20 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.antonio.doctab.Utils.Constants;
+import com.example.antonio.doctab.Utils.DateTimeUtils;
 import com.example.antonio.doctab.fragments.interfaces.MainRegisterInterface;
+import com.example.antonio.doctab.helpers.ConsultoriosHelper;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
+import com.example.antonio.doctab.models.Consultorios;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by jvier on 04/09/2017.
@@ -37,7 +44,6 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_register);
 
-        //TODO CESAR DEBES CHECAR QUE LIBRERIA TIENES MAL QUE NO DEJA APLICAR ESTO
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main_register);
         setSupportActionBar(toolbar);
 
@@ -131,6 +137,76 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
     @Override
     public void setDecodeItem(DecodeItemHelper decodeItem) {
+
+    }
+
+    @Override
+    public void registrarConsultorio(ConsultoriosHelper helper) {
+        pDialog = new ProgressDialog(MainRegisterActivity.this);
+        pDialog.setMessage(getString(R.string.default_loading_msg));
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        webServiceRegistrarConsultorio(helper);
+
+    }
+
+    private void webServiceRegistrarConsultorio(ConsultoriosHelper helper) {
+        /**Se obtiene el objeto principal**/
+        Consultorios data = helper.getConsultorio();
+
+        /**Se crea la conexion con los nodos a utilizar**/
+        final DatabaseReference dbConsultorios =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_DOCTORES)
+                        .child(helper.getConsultorio().getFireBaseIdDoctor());
+
+        /**Se crea el firebaseID en el futuro nodo**/
+        String firebaseIDConsultorio = dbConsultorios.child(Constants.FB_KEY_ITEM_CONSULTORIOS).push().getKey();
+
+        /**Se agregan los ultimos objetos del sistema**/
+        data.setFireBaseId(firebaseIDConsultorio);
+        data.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ACTIVO);
+        data.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
+        data.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+        try {
+            /**Se crea la conexion para guadar el objeto**/
+            dbConsultorios.child(Constants.FB_KEY_ITEM_CONSULTORIOS).child(data.getFireBaseIdDoctor())
+                    .setValue(data, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                            pDialog.dismiss();
+                            if (databaseError == null) {
+                                finish();
+                                Toast.makeText(getApplicationContext(),
+                                        "Registrado correctamente...", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            pDialog.dismiss();
+            Toast.makeText(getApplicationContext(),
+                    "Intente mas tarde...", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void editarConsultorio(ConsultoriosHelper helper) {
+        pDialog = new ProgressDialog(MainRegisterActivity.this);
+        pDialog.setMessage(getString(R.string.default_loading_msg));
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        webServiceEditarConsultorio(helper);
+
+    }
+
+    private void webServiceEditarConsultorio(ConsultoriosHelper helper) {
 
     }
 }
