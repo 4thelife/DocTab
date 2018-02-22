@@ -158,6 +158,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.btn_agregar_paciente_doctor, FRAGMENT_LISTADO_PACIENTES_DOCTOR);
         ITEM_FRAGMENT.put(R.id.btn_agregar_servicio, FRAGMENT_LISTADO_SERVICIOS);
         ITEM_FRAGMENT.put(R.id.btn_agregar_mensajes, FRAGMENT_LISTADO_MENSAJES);
+        ITEM_FRAGMENT.put(R.id.item_btn_editar_consultorios, FRAGMENT_REGISTRO_CONSULTORIOS);
     }
 
     public static final HashMap<String, Fragment> TAG_FRAGMENT;
@@ -205,6 +206,7 @@ public class Constants {
         TITLE_ACTIVITY = new HashMap<>();
         TITLE_ACTIVITY.put(R.id.btn_agregar_consultorio, R.string.default_title_activity_consultorios);
         TITLE_ACTIVITY.put(R.id.btn_agregar_citas_doctor, R.string.default_title_activity_citas_doctor);
+        TITLE_ACTIVITY.put(R.id.item_btn_editar_consultorios, R.string.default_title_activity_consultorios);
     }
 
     public static final HashMap<Integer, Integer> TITLE_FORM_ACTION;
@@ -214,5 +216,11 @@ public class Constants {
         TITLE_FORM_ACTION.put(Constants.ACCION_REGISTRAR, R.string.default_form_title_new);
         TITLE_FORM_ACTION.put(Constants.ACCION_EDITAR, R.string.default_form_title_edit);
     }
+
+    /**
+     * Identificadores
+     **/
+    public static final int WS_KEY_ELIMINAR_CONSULTORIOS = 10;
+    public static final int WS_KEY_ELIMINAR_DOCTORES = 20;
 
 }

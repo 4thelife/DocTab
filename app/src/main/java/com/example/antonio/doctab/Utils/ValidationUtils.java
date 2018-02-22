@@ -14,18 +14,25 @@ import java.util.regex.Matcher;
 
 public class ValidationUtils {
 
-    public static boolean esNumeroValido(TextInputLayout txt, String numero) {
+    public static boolean esTelefonoValido(TextInputLayout txt, String numero) {
 
         txt.setError(null);
         txt.setErrorEnabled(false);
 
         if (numero.isEmpty()) {
-            txt.setError("Número inválido");
+            txt.setError("Texto inválido");
             txt.setErrorEnabled(true);
             return false;
-        }
+        } else {
+            Matcher matcher = Patterns.PHONE.matcher(numero);
 
-        return true;
+            if (!matcher.matches()) {
+                txt.setError("Telefono inválido");
+                txt.setErrorEnabled(true);
+            }
+
+            return matcher.matches();
+        }
     }
 
     public static boolean esTextoValido(TextInputLayout txt, String texto) {

@@ -174,7 +174,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="@string/form_telefono_uno" />
+                android:hint="@string/form_telefono_uno"
+                android:inputType="phone"
+                android:singleLine="true" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout

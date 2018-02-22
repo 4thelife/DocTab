@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.antonio.doctab.R;
+import com.example.antonio.doctab.fragments.ConsultoriosFragment;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.models.Consultorios;
 
@@ -37,8 +38,8 @@ public class ConsultoriosAdapter extends RecyclerView.Adapter<ConsultoriosAdapte
             txtNombre = (TextView) itemView.findViewById(R.id.item_consultorios_nombre);
             txtDireccion = (TextView) itemView.findViewById(R.id.item_consultorios_direccion);
             txtTelefono = (TextView) itemView.findViewById(R.id.item_consultorios_telefono);
-            /**btnEditar = (Button) itemView.findViewById(R.id.item_btn_editar_consulorio);
-            btnEliminar = (Button) itemView.findViewById(R.id.item_btn_eliminar_consultorio);*/
+            btnEditar = (Button) itemView.findViewById(R.id.item_btn_editar_consultorios);
+            btnEliminar = (Button) itemView.findViewById(R.id.item_btn_eliminar_consultorios);
         }
     }
 
@@ -74,22 +75,23 @@ public class ConsultoriosAdapter extends RecyclerView.Adapter<ConsultoriosAdapte
         decodeItem.setPosition(position);
 
         holder.txtNombre.setText(item.getNombreConsultorio());
-
-
+        //TODO HACER UN METODO PARA CONCATENAR SIN NULL
         holder.txtDireccion.setText(item.getCalle() + " " + item.getColonia() + " " + item.getCodPostal()
                 + " " + item.getCiudad() + " " + item.getEstado());
+        holder.txtTelefono.setText(item.getTel1());
+
         holder.btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 decodeItem.setIdView(v.getId());
-                //PromotoresFragment.onListenerAction(decodeItem);
+                ConsultoriosFragment.onListenerAction(decodeItem);
             }
         });
         holder.btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 decodeItem.setIdView(v.getId());
-                //PromotoresFragment.onListenerAction(decodeItem);
+                ConsultoriosFragment.onListenerAction(decodeItem);
             }
         });
     }

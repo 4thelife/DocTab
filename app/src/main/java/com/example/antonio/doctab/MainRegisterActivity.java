@@ -173,7 +173,7 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
         try {
             /**Se crea la conexion para guadar el objeto**/
-            dbConsultorios.child(Constants.FB_KEY_ITEM_CONSULTORIOS).child(data.getFireBaseIdDoctor())
+            dbConsultorios.child(Constants.FB_KEY_ITEM_CONSULTORIOS).child(data.getFireBaseId())
                     .setValue(data, new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
@@ -191,7 +191,6 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
                     "Intente mas tarde...", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -207,7 +206,39 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
     }
 
     private void webServiceEditarConsultorio(ConsultoriosHelper helper) {
+        /**Se obtiene el objeto principal**/
+        Consultorios data = helper.getConsultorio();
 
+        /**Se crea la conexion con los nodos a utilizar**/
+        final DatabaseReference dbConsultorios =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_DOCTORES)
+                        .child(helper.getConsultorio().getFireBaseIdDoctor())
+                        .child(Constants.FB_KEY_ITEM_CONSULTORIOS);
+
+        data.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ACTIVO);
+        data.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+        try {
+            /**Se crea la conexion para actualizar el objeto apuntando al firebaseID a modificar**/
+            dbConsultorios.child(data.getFireBaseId())
+                    .setValue(data, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                            pDialog.dismiss();
+                            if (databaseError == null) {
+                                finish();
+                                Toast.makeText(getApplicationContext(),
+                                        "Actualizado correctamente...", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            pDialog.dismiss();
+            Toast.makeText(getApplicationContext(),
+                    "Intente mas tarde...", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
     }
 }
 

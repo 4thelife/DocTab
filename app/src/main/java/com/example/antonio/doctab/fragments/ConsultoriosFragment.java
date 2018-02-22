@@ -13,11 +13,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.antonio.doctab.MainRegisterActivity;
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.adapters.ConsultoriosAdapter;
 import com.example.antonio.doctab.fragments.interfaces.NavigationDrawerInterface;
+import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.models.Consultorios;
+import com.example.antonio.doctab.models.Usuarios;
+import com.example.antonio.doctab.services.SharedPreferencesService;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +38,8 @@ import java.util.List;
  */
 
 public class ConsultoriosFragment extends Fragment implements View.OnClickListener {
+
+    private static Usuarios _SESSION_USER;
 
     private static NavigationDrawerInterface activityInterface;
     public static LinearLayout linearLayout;
@@ -53,18 +59,25 @@ public class ConsultoriosFragment extends Fragment implements View.OnClickListen
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_consultorios, container, false);
+
+        _SESSION_USER = SharedPreferencesService.getUsuarioActual(getContext());
+
         linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_consultorios);
+
         adapter = new ConsultoriosAdapter();
         adapter.setOnClickListener(this);
 
         database = FirebaseDatabase.getInstance();
-        drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES);
+        /**Se crea la instancia para acceder a la consulta**/
+        drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
+                .child(_SESSION_USER.getFirebaseId())
+                .child(Constants.FB_KEY_ITEM_CONSULTORIOS);
 
         return view;
     }
 
-     @Override
+    @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
@@ -90,29 +103,18 @@ public class ConsultoriosFragment extends Fragment implements View.OnClickListen
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
 
-                    /*
-                    for (DataSnapshot psBodegas : postSnapshot.child(Constants.FB_KEY_MAIN_BODEGAS).getChildren()) {
+                    Consultorios consultorio = postSnapshot.getValue(Consultorios.class);
 
-                        Bodegas bodega = psBodegas.getValue(Bodegas.class);
+                    if (null == consultorio.getEstatus()) break;
 
-                        DataSnapshot psCliente = postSnapshot.child(Constants.FB_KEY_ITEM_CLIENTE);
-                        Clientes cliente = psCliente.getValue(Clientes.class);
-
-                        if (!Constants.FB_KEY_ITEM_ESTATUS_ACTIVO.equals(cliente.getEstatus()))
+                    switch (consultorio.getEstatus()) {
+                        case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                        case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                            dataList.add(consultorio);
                             break;
-
-                        if (_SESSION_USER.getTipoDeUsuario().equals(Constants.FB_KEY_ITEM_TIPO_USUARIO_CLIENTE)) {
-                            if (!_SESSION_USER.getFirebaseId().equals(postSnapshot.getKey()))
-                                continue;
-                        }
-
-                        if (bodega.getEstatus().equals(Constants.FB_KEY_ITEM_ESTATUS_ACTIVO)) {
-                            bodega.setFirebaseIdDelCliente(postSnapshot.getKey());
-                            bodega.setNombreDeLaBodega(cliente.getNombre() + " - " + bodega.getNombreDeLaBodega());
-                            bodegasList.add(bodega);
-                        }
+                        default:
+                            break;
                     }
-                    */
                 }
 
                 onPreRenderListadoConsultorios();
@@ -164,5 +166,19 @@ public class ConsultoriosFragment extends Fragment implements View.OnClickListen
     @Override
     public void onClick(View v) {
 
+    }
+
+    public static void onListenerAction(DecodeItemHelper decodeItem) {
+        /**Inicializa DecodeItem en la activity principal**/
+        activityInterface.setDecodeItem(decodeItem);
+
+        switch (decodeItem.getIdView()) {
+            case R.id.item_btn_editar_consultorios:
+                activityInterface.openExternalActivity(Constants.ACCION_EDITAR, MainRegisterActivity.class);
+                break;
+            case R.id.item_btn_eliminar_consultorios:
+                activityInterface.showQuestion("Eliminar", "¿Esta seguro que desea eliminar?");
+                break;
+        }
     }
 }

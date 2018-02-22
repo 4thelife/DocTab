@@ -1,9 +1,11 @@
 package com.example.antonio.doctab.fragments;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,11 @@ import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.models.Consultorios;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by Ricardo on 12/02/2018.
@@ -79,7 +86,43 @@ public class FormularioConsultorioFragment extends Fragment {
     }
 
     private void obtenerConsultorio() {
+        /**Obtiene el item selecionado en el fragmento de lista**/
+        Consultorios consultorio = (Consultorios) _MAIN_DECODE.getDecodeItem().getItemModel();
 
+        DatabaseReference drConsultorio = FirebaseDatabase.getInstance()
+                .getReference(Constants.FB_KEY_MAIN_DOCTORES)
+                .child(_SESSION_USER.getFirebaseId())
+                .child(Constants.FB_KEY_ITEM_CONSULTORIOS)
+                .child(consultorio.getFireBaseId());
+
+        final ProgressDialog pDialogRender = new ProgressDialog(getContext());
+        pDialogRender.setMessage(getString(R.string.default_loading_msg));
+        pDialogRender.setIndeterminate(false);
+        pDialogRender.setCancelable(false);
+        pDialogRender.show();
+
+        drConsultorio.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Consultorios consultorio = dataSnapshot.getValue(Consultorios.class);
+                /**Se asigna el chofer actual a la memoria**/
+                _consultorioActual = consultorio;
+
+                /**Asigna los valores al formulario**/
+                tilNombreConsultorio.getEditText().setText(consultorio.getNombreConsultorio());
+                tilCalle.getEditText().setText(consultorio.getCalle());
+                tilTelefono1.getEditText().setText(consultorio.getTel1());
+                tilExtencion1.getEditText().setText(consultorio.getExt1());
+
+                pDialogRender.dismiss();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "Error intentando obtener datos ...");
+                pDialogRender.dismiss();
+            }
+        });
     }
 
     public static boolean validarDatosRegistro() {
@@ -92,7 +135,7 @@ public class FormularioConsultorioFragment extends Fragment {
 
         /**Se acceden a las validaciones de los campos requeridos**/
         boolean a = ValidationUtils.esTextoValido(tilNombreConsultorio, nombreConsultorio);
-        boolean b = ValidationUtils.esNumeroValido(tilTelefono1, telefono1);
+        boolean b = ValidationUtils.esTelefonoValido(tilTelefono1, telefono1);
         boolean c = ValidationUtils.esTextoValido(tilCalle, calle);
 
         if (a && b && c) {
@@ -124,7 +167,7 @@ public class FormularioConsultorioFragment extends Fragment {
 
         /**Se acceden a las validaciones de los campos requeridos**/
         boolean a = ValidationUtils.esTextoValido(tilNombreConsultorio, nombreConsultorio);
-        boolean b = ValidationUtils.esNumeroValido(tilTelefono1, telefono1);
+        boolean b = ValidationUtils.esTelefonoValido(tilTelefono1, telefono1);
         boolean c = ValidationUtils.esTextoValido(tilCalle, calle);
 
         if (a && b && c) {
