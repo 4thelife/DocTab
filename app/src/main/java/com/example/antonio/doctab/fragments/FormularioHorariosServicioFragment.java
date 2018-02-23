@@ -1,28 +1,15 @@
 package com.example.antonio.doctab.fragments;
 
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-
-import com.example.antonio.doctab.R;
-import com.example.antonio.doctab.Utils.Constants;
-import com.example.antonio.doctab.fragments.interfaces.MainRegisterInterface;
-import com.example.antonio.doctab.helpers.DecodeExtraHelper;
-import com.example.antonio.doctab.models.Usuarios;
 
 import com.example.antonio.doctab.R;
 
@@ -32,7 +19,7 @@ import java.util.Calendar;
  * Created by Ricardo on 21/02/2018.
  */
 
-public class AgregarHorarioFragment extends Fragment implements View.OnClickListener{
+public class FormularioHorariosServicioFragment extends Fragment implements View.OnClickListener{
 
     TextView agregar_hora_entrada;
     TextView hora_salida;
@@ -46,7 +33,7 @@ public class AgregarHorarioFragment extends Fragment implements View.OnClickList
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_agregar_horario, container,
+        View view = inflater.inflate(R.layout.fragment_formulario_horarios_servicio, container,
                 false);
 
 
