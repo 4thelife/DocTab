@@ -31,8 +31,6 @@
         <activity
             android:name=".SignupActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ActivityAccount" />
-        <activity android:name=".Activity_agregar_horario" />
         <activity
             android:name=".NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
