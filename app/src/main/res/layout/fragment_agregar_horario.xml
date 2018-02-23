@@ -1,97 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_height="match_parent"
+<FrameLayout
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout
+
+
+    <TextView
+        android:id="@+id/tv_agregar_hora_entrada"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/tv_agregar_hora_salida"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
-        <CheckBox
-            android:id="@+id/chkb_lunes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dia0" />
-
-        <CheckBox
-            android:id="@+id/chkb_martes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dia1" />
-
-        <CheckBox
-            android:id="@+id/chkb_miercoles"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dia2" />
-
-        <CheckBox
-            android:id="@+id/chkb_jueves"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dia3" />
-
-        <CheckBox
-            android:id="@+id/chkb_viernes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dia4" />
-
-        <CheckBox
-            android:id="@+id/chkb_sabado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dia5" />
-
-        <CheckBox
-            android:id="@+id/chkb_domingo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dia6" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:text="@string/hora_salida"
-            android:textAlignment="center"
-            android:textColor="@android:color/black" />
-
-        <Spinner
-            android:id="@+id/spnr_horas_entrada"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:text="@string/hora_salida"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"/>
-
-        <Spinner
-            android:id="@+id/spnr_horas_salida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:text="@string/citas_x_hora"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"/>
-
-        <Spinner
-            android:id="@+id/spnr_citas_por_hora"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-    </LinearLayout>
 </FrameLayout>
