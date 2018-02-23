@@ -7,21 +7,21 @@ package com.example.antonio.doctab.models;
 public class HorarioDeAtencion {
 
     private String dia;
-    private String horaEntrada;
-    private String horaSalida;
-    /**private String horaInicioComida;*/
-    /**private String horaFinComida;*/
+    private String horainicio;
+    private String horafin;
+    private String citasPorHora;
+
 
     private String firebaseId;
-
 
     public HorarioDeAtencion() {
     }
 
-    public HorarioDeAtencion(String dia, String horaEntrada, String horaSalida, String firebaseId) {
+    public HorarioDeAtencion(String dia, String horainicio, String horafin, String citasPorHora, String firebaseId) {
         this.dia = dia;
-        this.horaEntrada = horaEntrada;
-        this.horaSalida = horaSalida;
+        this.horainicio = horainicio;
+        this.horafin = horafin;
+        this.citasPorHora = citasPorHora;
         this.firebaseId = firebaseId;
     }
 
@@ -33,20 +33,28 @@ public class HorarioDeAtencion {
         this.dia = dia;
     }
 
-    public String getHoraEntrada() {
-        return horaEntrada;
+    public String getHorainicio() {
+        return horainicio;
     }
 
-    public void setHoraEntrada(String horaEntrada) {
-        this.horaEntrada = horaEntrada;
+    public void setHorainicio(String horainicio) {
+        this.horainicio = horainicio;
     }
 
-    public String getHoraSalida() {
-        return horaSalida;
+    public String getHorafin() {
+        return horafin;
     }
 
-    public void setHoraSalida(String horaSalida) {
-        this.horaSalida = horaSalida;
+    public void setHorafin(String horafin) {
+        this.horafin = horafin;
+    }
+
+    public String getCitasPorHora() {
+        return citasPorHora;
+    }
+
+    public void setCitasPorHora(String citasPorHora) {
+        this.citasPorHora = citasPorHora;
     }
 
     public String getFirebaseId() {
