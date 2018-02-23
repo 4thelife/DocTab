@@ -154,7 +154,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="@string/form_cp" />
+                android:hint="@string/form_cp"
+                android:inputType="number" />
         </android.support.design.widget.TextInputLayout>
 
         <TextView
@@ -189,7 +190,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="@string/form_telefono_dos" />
+                android:hint="@string/form_telefono_dos"
+                android:inputType="phone" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -202,7 +204,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="@string/form_tel_ext_uno" />
+                android:hint="@string/form_tel_ext_uno"
+                android:inputType="number" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -215,7 +218,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="@string/form_tel_ext_dos" />
+                android:hint="@string/form_tel_ext_dos"
+                android:inputType="number" />
         </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
