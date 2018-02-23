@@ -37,7 +37,10 @@ public class FormularioConsultorioFragment extends Fragment {
     /**
      * Se declaran los elementos del formulario
      **/
-    private static TextInputLayout tilNombreConsultorio, tilTelefono1, tilExtencion1, tilCalle;
+    private static TextInputLayout  tilNombreConsultorio,tilNumConsultorio, tilCalle, tilNumExt,tilNumInt,
+                                    tilCruzamientos,tilColonia,tilMunicipio,tilEstado,tilCodigoPostal,
+                                    tilTelefono1,tilTelefono2, tilExtencion1,tilExtension2;
+
     /**
      * Se declaran las variables para uso en memoria
      **/
@@ -47,15 +50,26 @@ public class FormularioConsultorioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_formulario_consultorios, container, false);
 
+
         /**Se inicializan las variables globales**/
         _MAIN_DECODE = (DecodeExtraHelper) getActivity().getIntent().getExtras().getSerializable(Constants.KEY_MAIN_DECODE);
         _SESSION_USER = SharedPreferencesService.getUsuarioActual(getContext());
 
         /**Se inicializan los elementos del formulario**/
         tilNombreConsultorio = (TextInputLayout) view.findViewById(R.id.til_nombre_consultorio);
-        tilTelefono1 = (TextInputLayout) view.findViewById(R.id.til_telefono_uno);
-        tilExtencion1 = (TextInputLayout) view.findViewById(R.id.til_telefono_uno_extencion);
+        tilNumConsultorio = (TextInputLayout) view.findViewById(R.id.til_num_consultorio);
         tilCalle = (TextInputLayout) view.findViewById(R.id.til_calle);
+        tilNumExt = (TextInputLayout)view.findViewById(R.id.til_num_ext);
+        tilNumInt = (TextInputLayout)view.findViewById(R.id.til_num_int);
+        tilCruzamientos = (TextInputLayout)view.findViewById(R.id.til_cruzamientos);
+        tilColonia = (TextInputLayout)view.findViewById(R.id.til_colonia);
+        tilMunicipio = (TextInputLayout)view.findViewById(R.id.til_municipio);
+        tilEstado = (TextInputLayout)view.findViewById(R.id.til_estado);
+        tilCodigoPostal = (TextInputLayout)view.findViewById(R.id.til_codigo_postal);
+        tilTelefono1 = (TextInputLayout) view.findViewById(R.id.til_telefono_uno);
+        tilTelefono2 = (TextInputLayout)view.findViewById(R.id.til_telefono_dos);
+        tilExtencion1 = (TextInputLayout) view.findViewById(R.id.til_telefono_uno_extencion);
+        tilExtension2 = (TextInputLayout) view.findViewById(R.id.til_telefono_dos_extencion);
 
         return view;
     }
@@ -110,9 +124,19 @@ public class FormularioConsultorioFragment extends Fragment {
 
                 /**Asigna los valores al formulario**/
                 tilNombreConsultorio.getEditText().setText(consultorio.getNombreConsultorio());
+                tilNumConsultorio.getEditText().setText(consultorio.getNumConsultorio());
                 tilCalle.getEditText().setText(consultorio.getCalle());
+                tilNumExt.getEditText().setText(consultorio.getNumeroExt());
+                tilNumInt.getEditText().setText(consultorio.getNumeroInt());
+                tilCruzamientos.getEditText().setText(consultorio.getCruzamientos());
+                tilColonia.getEditText().setText(consultorio.getColonia());
+                tilMunicipio.getEditText().setText(consultorio.getMunicipio());
+                tilEstado.getEditText().setText(consultorio.getEstado());
+                tilCodigoPostal.getEditText().setText(consultorio.getCodPostal());
                 tilTelefono1.getEditText().setText(consultorio.getTel1());
+                tilTelefono2.getEditText().setText(consultorio.getTel2());
                 tilExtencion1.getEditText().setText(consultorio.getExt1());
+                tilExtension2.getEditText().setText(consultorio.getExt2());
 
                 pDialogRender.dismiss();
             }
@@ -129,22 +153,46 @@ public class FormularioConsultorioFragment extends Fragment {
         boolean valido = false;
 
         String nombreConsultorio = tilNombreConsultorio.getEditText().getText().toString();
-        String telefono1 = tilTelefono1.getEditText().getText().toString();
-        String extencion1 = tilExtencion1.getEditText().getText().toString();
+        String numeroConsultorio = tilNumConsultorio.getEditText().getText().toString();
         String calle = tilCalle.getEditText().getText().toString();
+        String numeroExterior = tilNumExt.getEditText().getText().toString();
+        String numeroInterior = tilNumInt.getEditText().getText().toString();
+        String cruzamientos = tilCruzamientos.getEditText().getText().toString();
+        String colonia = tilColonia.getEditText().getText().toString();
+        String municipio = tilMunicipio.getEditText().getText().toString();
+        String estado = tilEstado.getEditText().getText().toString();
+        String codigoPostal = tilCodigoPostal.getEditText().getText().toString();
+        String telefono1 = tilTelefono1.getEditText().getText().toString();
+        String telefono2 = tilTelefono2.getEditText().getText().toString();
+        String extencion1 = tilExtencion1.getEditText().getText().toString();
+        String extension2 = tilExtension2.getEditText().getText().toString();
+
 
         /**Se acceden a las validaciones de los campos requeridos**/
         boolean a = ValidationUtils.esTextoValido(tilNombreConsultorio, nombreConsultorio);
         boolean b = ValidationUtils.esTelefonoValido(tilTelefono1, telefono1);
         boolean c = ValidationUtils.esTextoValido(tilCalle, calle);
-
-        if (a && b && c) {
+        boolean d = ValidationUtils.esTextoValido(tilNumExt,numeroExterior);
+        boolean e = ValidationUtils.esTextoValido(tilColonia,colonia);
+        //boolean f = ValidationUtils.es
+        if (a && b && c && d && e ) {
             /**Se agregan los campos que el cliente captura**/
             Consultorios data = new Consultorios();
             data.setNombreConsultorio(nombreConsultorio);
-            data.setTel1(telefono1);
-            data.setExt1(extencion1);
+            data.setNumConsultorio(numeroConsultorio);
             data.setCalle(calle);
+            data.setNumeroExt(numeroExterior);
+            data.setNumeroInt(numeroInterior);
+            data.setCruzamientos(cruzamientos);
+            data.setColonia(colonia);
+            data.setMunicipio(municipio);
+            data.setEstado(estado);
+            data.setCodPostal(codigoPostal);
+            data.setTel1(telefono1);
+            data.setTel2(telefono2);
+            data.setExt1(extencion1);
+            data.setExt2(extension2);
+
 
             /**Se agregan los datos de sistema que ya existen**/
             /**FirebaseIDDoctor de agrega del usuario en session debido a que el admin no agrega consultorios**/
@@ -161,22 +209,45 @@ public class FormularioConsultorioFragment extends Fragment {
         boolean valido = false;
 
         String nombreConsultorio = tilNombreConsultorio.getEditText().getText().toString();
-        String telefono1 = tilTelefono1.getEditText().getText().toString();
-        String extencion1 = tilExtencion1.getEditText().getText().toString();
+        String numeroConsultorio = tilNumConsultorio.getEditText().getText().toString();
         String calle = tilCalle.getEditText().getText().toString();
+        String numeroExterior = tilNumExt.getEditText().getText().toString();
+        String numeroInterior = tilNumInt.getEditText().getText().toString();
+        String cruzamientos = tilCruzamientos.getEditText().getText().toString();
+        String colonia = tilColonia.getEditText().getText().toString();
+        String municipio = tilMunicipio.getEditText().getText().toString();
+        String estado = tilEstado.getEditText().getText().toString();
+        String codigoPostal = tilCodigoPostal.getEditText().getText().toString();
+        String telefono1 = tilTelefono1.getEditText().getText().toString();
+        String telefono2 = tilTelefono2.getEditText().getText().toString();
+        String extencion1 = tilExtencion1.getEditText().getText().toString();
+        String extension2 = tilExtension2.getEditText().getText().toString();
+
 
         /**Se acceden a las validaciones de los campos requeridos**/
         boolean a = ValidationUtils.esTextoValido(tilNombreConsultorio, nombreConsultorio);
         boolean b = ValidationUtils.esTelefonoValido(tilTelefono1, telefono1);
         boolean c = ValidationUtils.esTextoValido(tilCalle, calle);
-
-        if (a && b && c) {
+        boolean d = ValidationUtils.esTextoValido(tilNumExt,numeroExterior);
+        boolean e = ValidationUtils.esTextoValido(tilColonia,colonia);
+        //boolean f = ValidationUtils.es
+        if (a && b && c && d && e ) {
             /**Se agregan los campos que el cliente captura**/
             Consultorios data = new Consultorios();
             data.setNombreConsultorio(nombreConsultorio);
-            data.setTel1(telefono1);
-            data.setExt1(extencion1);
+            data.setNumConsultorio(numeroConsultorio);
             data.setCalle(calle);
+            data.setNumeroExt(numeroExterior);
+            data.setNumeroInt(numeroInterior);
+            data.setCruzamientos(cruzamientos);
+            data.setColonia(colonia);
+            data.setMunicipio(municipio);
+            data.setEstado(estado);
+            data.setCodPostal(codigoPostal);
+            data.setTel1(telefono1);
+            data.setTel2(telefono2);
+            data.setExt1(extencion1);
+            data.setExt2(extension2);
 
             /**Se agregan los datos de sistema que ya existen**/
             /**FirebaseIDDoctor de agrega del usuario en session debido a que el admin no agrega consultorios**/
@@ -202,7 +273,6 @@ public class FormularioConsultorioFragment extends Fragment {
         _consultorioActual.setNumeroInt(data.getNumeroInt());
         _consultorioActual.setNumeroExt(data.getNumeroExt());
         _consultorioActual.setCodPostal(data.getCodPostal());
-        _consultorioActual.setCiudad(data.getCiudad());
         _consultorioActual.setEstado(data.getEstado());
         /**Se declaran valores que el sistema debe llenar**/
         _consultorioActual.setFireBaseIdDoctor(data.getFireBaseIdDoctor());

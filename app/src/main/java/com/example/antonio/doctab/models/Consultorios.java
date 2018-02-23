@@ -8,17 +8,20 @@ import java.io.Serializable;
 
 public class Consultorios implements Serializable {
     private String nombreConsultorio;
+    private String numConsultorio;
+    private String calle;
+    private String numeroExt;
+    private String numeroInt;
+    private String cruzamientos;
+    private String colonia;
+    private String municipio;
+    private String estado;
+    private String codPostal;
     private String tel1;
     private String ext1;
     private String tel2;
     private String ext2;
-    private String calle;
-    private String colonia;
-    private String numeroInt;
-    private String numeroExt;
-    private String codPostal;
-    private String ciudad;
-    private String estado;
+
 
     private String fireBaseId;
     private String fireBaseIdDoctor;
@@ -30,12 +33,85 @@ public class Consultorios implements Serializable {
     public Consultorios() {
     }
 
+
     public String getNombreConsultorio() {
         return nombreConsultorio;
     }
 
     public void setNombreConsultorio(String nombreConsultorio) {
         this.nombreConsultorio = nombreConsultorio;
+    }
+
+    public String getNumConsultorio() {
+        return numConsultorio;
+    }
+
+    public void setNumConsultorio(String numConsultorio) {
+        this.numConsultorio = numConsultorio;
+    }
+
+    public String getCalle() {
+        return calle;
+    }
+
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+
+    public String getNumeroExt() {
+        return numeroExt;
+    }
+
+    public void setNumeroExt(String numeroExt) {
+        this.numeroExt = numeroExt;
+    }
+
+    public String getNumeroInt() {
+        return numeroInt;
+    }
+
+    public void setNumeroInt(String numeroInt) {
+        this.numeroInt = numeroInt;
+    }
+
+    public String getCruzamientos() {
+        return cruzamientos;
+    }
+
+    public void setCruzamientos(String cruzamientos) {
+        this.cruzamientos = cruzamientos;
+    }
+
+    public String getColonia() {
+        return colonia;
+    }
+
+    public void setColonia(String colonia) {
+        this.colonia = colonia;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCodPostal() {
+        return codPostal;
+    }
+
+    public void setCodPostal(String codPostal) {
+        this.codPostal = codPostal;
     }
 
     public String getTel1() {
@@ -68,62 +144,6 @@ public class Consultorios implements Serializable {
 
     public void setExt2(String ext2) {
         this.ext2 = ext2;
-    }
-
-    public String getCalle() {
-        return calle;
-    }
-
-    public void setCalle(String calle) {
-        this.calle = calle;
-    }
-
-    public String getColonia() {
-        return colonia;
-    }
-
-    public void setColonia(String colonia) {
-        this.colonia = colonia;
-    }
-
-    public String getNumeroInt() {
-        return numeroInt;
-    }
-
-    public void setNumeroInt(String numeroInt) {
-        this.numeroInt = numeroInt;
-    }
-
-    public String getNumeroExt() {
-        return numeroExt;
-    }
-
-    public void setNumeroExt(String numeroExt) {
-        this.numeroExt = numeroExt;
-    }
-
-    public String getCodPostal() {
-        return codPostal;
-    }
-
-    public void setCodPostal(String codPostal) {
-        this.codPostal = codPostal;
-    }
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
 
     public String getFireBaseId() {

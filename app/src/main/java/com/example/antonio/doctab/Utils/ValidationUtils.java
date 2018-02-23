@@ -1,5 +1,6 @@
 package com.example.antonio.doctab.Utils;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.TextInputLayout;
 import android.util.Patterns;
@@ -13,6 +14,20 @@ import java.util.regex.Matcher;
  */
 
 public class ValidationUtils {
+
+
+
+    public static boolean esNumeroValido(TextInputLayout txt, String numero){
+
+        int num;
+        try{
+            num = Integer.parseInt(numero);
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
 
     public static boolean esTelefonoValido(TextInputLayout txt, String numero) {
 

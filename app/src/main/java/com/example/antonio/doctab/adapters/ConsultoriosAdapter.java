@@ -77,7 +77,7 @@ public class ConsultoriosAdapter extends RecyclerView.Adapter<ConsultoriosAdapte
         holder.txtNombre.setText(item.getNombreConsultorio());
         //TODO HACER UN METODO PARA CONCATENAR SIN NULL
         holder.txtDireccion.setText(item.getCalle() + " " + item.getColonia() + " " + item.getCodPostal()
-                + " " + item.getCiudad() + " " + item.getEstado());
+                + " " +  " " + item.getEstado());
         holder.txtTelefono.setText(item.getTel1());
 
         holder.btnEditar.setOnClickListener(new View.OnClickListener() {
