@@ -10,6 +10,31 @@
             android:icon="@mipmap/ic_home_black_24dp"
             android:title="@string/default_item_menu_title_inicio" />
         <item
+            android:id="@+id/menu_title_Admin"
+            android:title="Administrador">
+            <menu>
+                <group
+                    android:id="@+id/submenu_admin"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/menu_item_doctores_admin"
+                        android:icon="@mipmap/ic_event_black_48dp"
+                        android:title="Todos los Doctores" />
+
+                    <item
+                        android:id="@+id/menu_item_pacientes_admin"
+                        android:icon="@mipmap/ic_domain_black_48dp"
+                        android:title="Todos los pacientes" />
+
+                    <item
+                        android:id="@+id/menu_item_perfil_admin"
+                        android:icon="@mipmap/ic_perm_identity_black_48dp"
+                        android:title="Administrador" />
+                </group>
+            </menu>
+        </item>
+
+        <item
             android:id="@+id/menu_title_doctor"
             android:title="Doctor">
             <menu>
