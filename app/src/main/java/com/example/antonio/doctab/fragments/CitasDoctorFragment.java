@@ -54,7 +54,7 @@ public class CitasDoctorFragment extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_citas_doctor, container, false);
-        linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados1);
+        linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_citas_doctor);
         adapter = new CitasDoctorAdapter();
         adapter.setOnClickListener(this);
