@@ -4,7 +4,7 @@ package com.example.antonio.doctab.models;
  * Created by GIGABYTE on 20/12/2017.
  */
 
-public class HorarioDeAtencion {
+public class HorariosServicio {
 
     private String dia;
     private String horainicio;
@@ -14,10 +14,10 @@ public class HorarioDeAtencion {
 
     private String firebaseId;
 
-    public HorarioDeAtencion() {
+    public HorariosServicio() {
     }
 
-    public HorarioDeAtencion(String dia, String horainicio, String horafin, String citasPorHora, String firebaseId) {
+    public HorariosServicio(String dia, String horainicio, String horafin, String citasPorHora, String firebaseId) {
         this.dia = dia;
         this.horainicio = horainicio;
         this.horafin = horafin;

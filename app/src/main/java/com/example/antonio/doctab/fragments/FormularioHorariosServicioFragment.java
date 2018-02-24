@@ -54,6 +54,11 @@ public class FormularioHorariosServicioFragment extends Fragment implements View
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public void onClick(View view) {
 
         switch (view.getId()) {
@@ -94,4 +99,18 @@ public class FormularioHorariosServicioFragment extends Fragment implements View
         }
 
     }
+
+    private void onPreRender(){
+
+    }
+
+    private void obtenerHorariosServicio(){
+
+    }
+
+    /**
+     * public void setHorariosServicio(HorariosServicio data){
+     *
+     *  }
+     */
 }

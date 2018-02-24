@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.antonio.doctab.helpers.DecodeItemHelper;
+
 /**
- * Created by Ricardo on 23/02/2018.
+ * Created by Ricardo on 24/02/2018.
  */
 
-public class RegistroHorariosServicioFragment extends Fragment {
+public class HorariosServicioFragment extends Fragment implements View.OnClickListener {
 
 
     @Nullable
@@ -22,12 +24,45 @@ public class RegistroHorariosServicioFragment extends Fragment {
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    public void listadoHorariosServicio(){
+
+    }
+
+    public void onPreRenderListadoHorariosServicio(){
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
     }
+
+    @Override
+    public void onClick(View view) {
+
+    }
+
+    public void onListenerAction(DecodeItemHelper decodeItem){
+
+    }
+
 }
