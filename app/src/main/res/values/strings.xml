@@ -158,6 +158,8 @@
     <string name="form_cp">Codigo Postal</string>
     <string name="form_municipio">Municipio</string>
     <string name="form_estado">Estado</string>
+    <string name="form_telefono_personal">Número de celular</string>
+
     <string name="form_telefono_uno">Telefono #1</string>
     <string name="form_telefono_dos">Telefono #2</string>
     <string name="form_tel_ext_uno">Extension #1</string>
