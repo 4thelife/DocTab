@@ -30,7 +30,9 @@
                     android:text="@string/form_title_doctor"
                     android:textAlignment="center"
                     android:textSize="18sp"/>
+
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_nombre_doctor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -43,6 +45,7 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_apellidos_doctor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -55,16 +58,9 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_especialidad_doctor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
-                    <Spinner
-                        android:id="@+id/spinner1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:entries="@array/sexos"
-                        android:prompt="@string/sexo" />
 
                     <EditText
                         android:id="@+id/ed_especialidad"
@@ -74,7 +70,16 @@
                         android:hint="@string/especialidad" />
                 </android.support.design.widget.TextInputLayout>
 
+                <Spinner
+                    android:id="@+id/sp_sexo_doctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/sexos"
+                    android:prompt="@string/sexo" />
+
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_cedula"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -87,13 +92,13 @@
                 </android.support.design.widget.TextInputLayout>
 
 
-
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_tel_doc_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/ed_telefono_uno"
+                        android:id="@+id/ed_tel_doc_personal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
