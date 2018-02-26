@@ -70,7 +70,10 @@ public class ListadoHorariosServiciosFragment extends Fragment implements View.O
                 extra.setFragmentTag(Constants.ITEM_FRAGMENT.get(v.getId()));
 
                 Intent intent= new Intent(getActivity(), MainRegisterActivity.class);
-                intent
+                intent.putExtra(Constants.KEY_MAIN_DECODE,extra);
+                intent.putExtra(Constants.KEY_SESSION_USER, _SESSION_USER);
+                startActivity(intent);
+                break;
 
         }
 
