@@ -4,16 +4,105 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <TextView
-        android:id="@+id/tv_agregar_hora_entrada"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_agregar_hora_salida"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hora de Entrada:"
+            android:textSize="22dp" />
+
+
+        <TextView
+            android:id="@+id/tv_agregar_hora_entrada"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="07:00 AM"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hora de Salida:"
+            android:textSize="22dp" />
+
+        <TextView
+            android:id="@+id/tv_agregar_hora_salida"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="06:00 PM"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/toggBtn_dia_0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/dia_0"
+            android:textOn="@string/dia_5"/>
+
+        <ToggleButton
+            android:id="@+id/toggBtn_dia_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/dia_1"
+            android:textOn="@string/dia_5"/>
+
+        <ToggleButton
+            android:id="@+id/toggBtn_dia_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/dia_2"
+            android:textOn="@string/dia_5"/>
+
+        <ToggleButton
+            android:id="@+id/toggBtn_dia_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/dia_3"
+            android:textOn="@string/dia_5"/>
+
+        <ToggleButton
+            android:id="@+id/toggBtn_dia_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/dia_4"
+            android:textOn="@string/dia_5"/>
+
+        <ToggleButton
+            android:id="@+id/toggBtn_dia_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/dia_5"
+            android:textOn="@string/dia_5"/>
+
+        <ToggleButton
+            android:id="@+id/toggBtn_dia_6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/dia_6"
+            android:textOn="@string/dia_6" />
+
+    </LinearLayout>
 
 
 </FrameLayout>

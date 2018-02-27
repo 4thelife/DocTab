@@ -201,5 +201,13 @@
     <string name="default_doctor">Doctor</string>
     <string name="default_paciente">Paciente</string>
 
+    <string name="dia_0">D</string>
+    <string name="dia_1">L</string>
+    <string name="dia_2">M</string>
+    <string name="dia_3">M</string>
+    <string name="dia_4">J</string>
+    <string name="dia_5">V</string>
+    <string name="dia_6">S</string>
+
 
 </resources>
