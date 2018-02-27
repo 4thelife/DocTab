@@ -57,6 +57,7 @@
 
     <string name="sexo">Sexo</string>
     <string-array name="sexos">
+        <item>Seleccione ...</item>
         <item>Hombre</item>
         <item>Mujer</item>
     </string-array>

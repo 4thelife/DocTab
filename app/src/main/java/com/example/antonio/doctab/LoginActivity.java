@@ -70,7 +70,6 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(),
                                             "Correo de activación enviado...", Toast.LENGTH_LONG).show();
 
-
                                     mAuth.signOut();
                                 }
                             }

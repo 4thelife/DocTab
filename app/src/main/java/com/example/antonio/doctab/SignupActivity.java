@@ -159,29 +159,13 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if (databaseError == null) {
-                    sentEmailVerification();
-                }
-            }
-        });
-
-
-    }
-
-    public void sentEmailVerification() {
-        FirebaseUser user = mAuth.getCurrentUser();
-
-        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-
                     FirebaseAuth.getInstance().signOut();
 
                     Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
 
-                    Toast.makeText(getApplicationContext(), "Registrado correctamente, se ha enviado un correo de activación ...", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Registrado correctamente...", Toast.LENGTH_LONG).show();
                 }
             }
         });

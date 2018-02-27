@@ -51,7 +51,7 @@ public class SecondRegisterActivity extends AppCompatActivity {
     }
 
     private void onPreRender() {
-        openFragment(Constants.FRAGMENT_REGISTRO_INDEFINIDO);
+        openFragment(Constants.FRAGMENT_REGISTRO_INDEFINIDOS);
     }
 
     /**

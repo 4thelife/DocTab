@@ -19,7 +19,9 @@ import com.example.antonio.doctab.fragments.interfaces.MainRegisterInterface;
 import com.example.antonio.doctab.helpers.ConsultoriosHelper;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
+import com.example.antonio.doctab.helpers.DoctoresHelper;
 import com.example.antonio.doctab.models.Consultorios;
+import com.example.antonio.doctab.models.Doctores;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
 import com.google.firebase.database.DatabaseError;
@@ -137,6 +139,115 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
     @Override
     public void setDecodeItem(DecodeItemHelper decodeItem) {
+
+    }
+
+    @Override
+    public void registrarDoctor(DoctoresHelper helper) {
+        pDialog = new ProgressDialog(MainRegisterActivity.this);
+        pDialog.setMessage(getString(R.string.default_loading_msg));
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        webServiceRegistrarDoctor(helper);
+
+    }
+
+    private void webServiceRegistrarDoctor(DoctoresHelper helper) {
+        /**Se obtiene el objeto principal**/
+        final Doctores data = helper.getDoctor();
+
+        /**Se crea la conexion con los nodos a utilizar**/
+        final DatabaseReference dbConsultorios =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_DOCTORES)
+                        .child(data.getFirebaseId());
+
+        /**Se agregan los ultimos objetos del sistema**/
+        data.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ACTIVO);
+        data.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
+        data.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+        final Usuarios usuario = new Usuarios();
+        usuario.setFirebaseId(data.getFirebaseId());
+        usuario.setTipoDeUsuario(data.getTipoDeUsuario());
+
+        try {
+            /**Se crea la conexion para guadar el objeto**/
+            dbConsultorios.child(Constants.FB_KEY_ITEM_DOCTOR).child(data.getFirebaseId())
+                    .setValue(data, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                            pDialog.dismiss();
+                            if (databaseError == null) {
+                                actualizarPermisos(usuario);
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            pDialog.dismiss();
+            Toast.makeText(getApplicationContext(),
+                    "Intente mas tarde...", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+
+    }
+
+    private void actualizarPermisos(final Usuarios usuario) {
+        DatabaseReference dbUsuario =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_USUARIOS)
+                        .child(usuario.getFirebaseId());
+
+        dbUsuario.setValue(usuario, new DatabaseReference.CompletionListener() {
+
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+                if (databaseError == null) {
+                    deleteIndefinido(usuario);
+                }
+            }
+        });
+
+    }
+
+    private void deleteIndefinido(Usuarios usuario) {
+        /**obtiene la instancia del elemento**/
+        DatabaseReference dbCliente =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_INDEFINIDOS)
+                        .child(usuario.getFirebaseId());
+
+        dbCliente.removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                Toast.makeText(getApplicationContext(),
+                        "Registo finalizado...", Toast.LENGTH_LONG).show();
+                openSimpleActivity(MainActivity.class);
+            }
+        });
+    }
+
+    private void openSimpleActivity(Class<?> cls) {
+        Intent intent = new Intent(MainRegisterActivity.this, cls);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void editarDoctor(DoctoresHelper helper) {
+
+    }
+
+    @Override
+    public void registrarPaciente(ConsultoriosHelper helper) {
+
+    }
+
+    @Override
+    public void editarPaciente(ConsultoriosHelper helper) {
 
     }
 

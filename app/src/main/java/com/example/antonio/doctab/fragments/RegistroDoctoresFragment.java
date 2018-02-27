@@ -36,15 +36,13 @@ public class RegistroDoctoresFragment extends Fragment {
         _MAIN_DECODE = (DecodeExtraHelper) getActivity().getIntent().getExtras().getSerializable(Constants.KEY_MAIN_DECODE);
         _SESSION_USER = (Usuarios) getActivity().getIntent().getExtras().getSerializable(Constants.KEY_SESSION_USER);
 
-        //FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        //FragmentTransaction mainFragment = fragmentManager.beginTransaction();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction mainFragment = fragmentManager.beginTransaction();
 
-        /*
-        mainFragment.replace(R.id.fragment_registro_doctor_container, new FormularioPromotoresFragment(), Constants.FORMULARIO_PROMOTORES);
-        mainFragment.replace(R.id.fragment_acciones_consultorio_container, new AccionesPromotoresFragment(), Constants.FORMULARIO_PROMOTORES_ACCIONES);
-        */
+        mainFragment.replace(R.id.fragment_registro_doctor_container, new FormularioDoctoresFragment(), Constants.FORMULARIO_DOCTORES_FRAGMENT);
+        mainFragment.replace(R.id.fragment_acciones_doctor_container, new AccionesDoctoresFragment(), Constants.FORMULARIO_ACCIONES_DOCTORES_FRAGMENT);
 
-        //mainFragment.commit();
+        mainFragment.commit();
 
         this.onPreRender();
 
@@ -53,7 +51,6 @@ public class RegistroDoctoresFragment extends Fragment {
 
     @Override
     public void onStart() {
-
         super.onStart();
     }
 
