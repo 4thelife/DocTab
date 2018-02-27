@@ -57,9 +57,11 @@ public class Constants {
     public static final String FB_KEY_ITEM_ESTATUS_ACTIVO = "activo";
     public static final String FB_KEY_ITEM_ESTATUS_ELIMINADO = "eliminado";
     public static final String FB_KEY_MAIN_DOCTORES = "doctores";
+    public static final String FB_KEY_MAIN_HORARIOS_SERVICIO = "Horarios de Servicoo";
     public static final String FB_KEY_MAIN_PACIENTES = "pacientes";
     public static final String FB_KEY_ITEM_DOCTOR = "doctor";
     public static final String FB_KEY_ITEM_CONSULTORIOS = "consultorios";
+    public static final String FB_KEY_ITEM_HORARIOS_SERVICIO = "Horarios de servicio";
     public static final String FB_KEY_ITEM_CONSULTORIO_HORARIOS = "horarios";
     public static final String FB_KEY_ITEM_CONSULTORIO_DIRECCION = "direccion";
     public static final String FB_KEY_ITEM_PERFILES_ACADEMICOS = "perfilesAcademicos";
@@ -121,7 +123,7 @@ public class Constants {
     public static final String FORMULARIO_SERVICIOS_FRAGMENT = "formulario_servicios_fragment";
     public static final String FORMULARIO_CITAS_DOCTOR_FRAGMENT = "formulario_citas_doctor_fragment";
     public static final String FORMULARIO_MENSAJES_FRAGMENT = "formulario_mensajes_fragment";
-    public static final String FORMULARIO_HORARIOS_SERVICIOS = "formulario_horarios_servicios_fragment";
+    public static final String FORMULARIO_HORARIOS_SERVICIOS_FRAGMENT = "formulario_horarios_servicios_fragment";
 
     /**
      * Fragmentos de Registro

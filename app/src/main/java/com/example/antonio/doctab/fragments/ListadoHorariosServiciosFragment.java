@@ -38,7 +38,7 @@ public class ListadoHorariosServiciosFragment extends Fragment implements View.O
         btnAgregar = (Button) view.findViewById(R.id.btn_agregar_horario_servicio);
         btnAgregar.setOnClickListener(this);
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return view;
     }
 
     @Override
