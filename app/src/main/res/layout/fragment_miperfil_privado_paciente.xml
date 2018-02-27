@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
-            android:background="@color/colorP   rimary"
+            android:background="@color/colorPrimary"
             android:fontFamily="monospace"
             android:text="@string/button_editar"
             android:textColor="@color/bootstrap_brand_secondary_fill" />

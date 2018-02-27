@@ -78,23 +78,6 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
-                    mProgress.dismiss();
-
-                    /**Registro usuario en el nodo indefinido**/
-                    String name = mNameField.getText().toString().trim();
-                    String email = mEmailFiedl.getText().toString().trim();
-
-                    Indefinido indefinido = new Indefinido();
-
-                    indefinido.setNombreCompleto(name);
-                    indefinido.setCorreoElectronico(email);
-                    indefinido.setTipoDeUsuario(Constants.FB_KEY_ITEM_TIPO_USUARIO_INDEFINIDO);
-                    indefinido.setFirebaseId(mAuth.getCurrentUser().getUid());
-                    indefinido.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_INACTIVO);
-                    indefinido.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
-                    indefinido.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
-
-                    firebaseRegistroUsuarioIndefinido(indefinido);
                 }
             }
         };
@@ -116,6 +99,22 @@ public class SignupActivity extends AppCompatActivity {
                             if (!task.isSuccessful()) {
                                 mProgress.dismiss();
                                 Toast.makeText(SignupActivity.this, "Ha ocurrido un error al registrarse", Toast.LENGTH_SHORT).show();
+                            } else {
+                                /**Registro usuario en el nodo indefinido**/
+                                String name = mNameField.getText().toString().trim();
+                                String email = mEmailFiedl.getText().toString().trim();
+
+                                Indefinido indefinido = new Indefinido();
+
+                                indefinido.setNombreCompleto(name);
+                                indefinido.setCorreoElectronico(email);
+                                indefinido.setTipoDeUsuario(Constants.FB_KEY_ITEM_TIPO_USUARIO_INDEFINIDO);
+                                indefinido.setFirebaseId(mAuth.getCurrentUser().getUid());
+                                indefinido.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_INACTIVO);
+                                indefinido.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
+                                indefinido.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+                                firebaseRegistroUsuarioIndefinido(indefinido);
                             }
                         }
                     });

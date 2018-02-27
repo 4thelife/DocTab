@@ -60,25 +60,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
-
-                    if (!firebaseAuth.getCurrentUser().isEmailVerified()) {
-                        firebaseAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    //Si el email se envio correctamente cierra sessión
-                                    Toast.makeText(getApplicationContext(),
-                                            "Correo de activación enviado...", Toast.LENGTH_LONG).show();
-
-                                    mAuth.signOut();
-                                }
-                            }
-                        });
-                    } else {
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         };

@@ -175,16 +175,15 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
         try {
             /**Se crea la conexion para guadar el objeto**/
-            dbConsultorios.child(Constants.FB_KEY_ITEM_DOCTOR).child(data.getFirebaseId())
-                    .setValue(data, new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                            pDialog.dismiss();
-                            if (databaseError == null) {
-                                actualizarPermisos(usuario);
-                            }
-                        }
-                    });
+            dbConsultorios.child(Constants.FB_KEY_ITEM_DOCTOR).child(data.getFirebaseId()).setValue(data, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                    pDialog.dismiss();
+                    if (databaseError == null) {
+                        actualizarPermisos(usuario);
+                    }
+                }
+            });
         } catch (Exception e) {
             pDialog.dismiss();
             Toast.makeText(getApplicationContext(),
