@@ -43,7 +43,8 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:background="@mipmap/selectdoctor" />
 
                 <TextView
                     android:layout_width="100dp"
@@ -68,7 +69,8 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:background="@mipmap/selectpaciente" />
 
                 <TextView
                     android:layout_width="100dp"
