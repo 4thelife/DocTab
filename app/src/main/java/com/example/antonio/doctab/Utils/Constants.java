@@ -2,6 +2,7 @@ package com.example.antonio.doctab.Utils;
 
 
 import android.support.v4.app.Fragment;
+import android.view.View;
 
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.fragments.CitasDoctorFragment;
@@ -25,6 +26,7 @@ import com.example.antonio.doctab.fragments.ListadoHorariosServiciosFragment;
 import com.example.antonio.doctab.fragments.ListadoInicioFragment;
 import com.example.antonio.doctab.fragments.ListadoMensajesFragment;
 import com.example.antonio.doctab.fragments.ListadoPacientesDoctorFragment;
+import com.example.antonio.doctab.fragments.ListadoSeleccionIndefinidoFragment;
 import com.example.antonio.doctab.fragments.ListadoServiciosFragment;
 import com.example.antonio.doctab.fragments.MensajesFragment;
 import com.example.antonio.doctab.fragments.PacientesFragment;
@@ -56,10 +58,8 @@ public class Constants {
     public static final String FB_KEY_ITEM_ESTATUS_INACTIVO = "inactivo";
     public static final String FB_KEY_ITEM_ESTATUS_ACTIVO = "activo";
     public static final String FB_KEY_ITEM_ESTATUS_ELIMINADO = "eliminado";
-    public static final String FB_KEY_MAIN_DOCTORES = "doctores";
     public static final String FB_KEY_MAIN_HORARIOS_SERVICIO = "Horarios de Servicoo";
-    public static final String FB_KEY_MAIN_PACIENTES = "pacientes";
-    public static final String FB_KEY_ITEM_DOCTOR = "doctor";
+
     public static final String FB_KEY_ITEM_CONSULTORIOS = "consultorios";
     public static final String FB_KEY_ITEM_HORARIOS_SERVICIO = "Horarios de servicio";
     public static final String FB_KEY_ITEM_CONSULTORIO_HORARIOS = "horarios";
@@ -128,6 +128,7 @@ public class Constants {
     /**
      * Fragmentos de Registro
      */
+    public static final String FRAGMENT_REGISTRO_INDEFINIDO = "fragment_registro_indefinido";
     public static final String FRAGMENT_REGISTRO_CONSULTORIOS = "fragment_registro_consultorios";
     public static final String FRAGMENT_REGISTRO_DOCTOR = "fragment_registro_doctor";
     public static final String FRAGMENT_REGISTRO_ESPECIALIDADES = "fragment_registro_especialidades";
@@ -154,9 +155,12 @@ public class Constants {
 
     static {
         ITEM_FRAGMENT = new HashMap<>();
-
+        ITEM_FRAGMENT.put(View.NO_ID, FRAGMENT_REGISTRO_INDEFINIDO);
+        ITEM_FRAGMENT.put(R.id.linear_registro_doctor, FRAGMENT_REGISTRO_CONSULTORIOS);
+        ITEM_FRAGMENT.put(R.id.linear_registro_paciente, FRAGMENT_REGISTRO_CONSULTORIOS);
         /**Menu*/
         ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_LISTADO_INICIO);
+
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIOS);
         //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.menu_item_citas_doctor, FRAGMENT_LISTADO_CITAS_DOCTOR);
@@ -177,6 +181,8 @@ public class Constants {
 
     static {
         TAG_FRAGMENT = new HashMap<>();
+
+        TAG_FRAGMENT.put(FRAGMENT_REGISTRO_INDEFINIDO, new ListadoSeleccionIndefinidoFragment());
         /**Listado*/
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_CITAS_DOCTOR, new ListadoCitasDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_CONSULTORIOS, new ListadoConsultoriosFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
@@ -221,6 +227,9 @@ public class Constants {
 
     static {
         TITLE_ACTIVITY = new HashMap<>();
+        TITLE_ACTIVITY.put(View.NO_ID, R.string.default_undefined);
+        TITLE_ACTIVITY.put(R.id.linear_registro_doctor, R.string.default_doctor);
+        TITLE_ACTIVITY.put(R.id.linear_registro_paciente, R.string.default_paciente);
         TITLE_ACTIVITY.put(R.id.btn_agregar_consultorio, R.string.default_title_activity_consultorios);
         TITLE_ACTIVITY.put(R.id.btn_agregar_citas_doctor, R.string.default_title_activity_citas_doctor);
         TITLE_ACTIVITY.put(R.id.btn_agregar_horario_servicio, R.string.default_title_activity_horarios_servicio);
@@ -240,5 +249,29 @@ public class Constants {
      **/
     public static final int WS_KEY_ELIMINAR_CONSULTORIOS = 10;
     public static final int WS_KEY_ELIMINAR_DOCTORES = 20;
+
+    /**
+     * Tipos de usuarios - todos en singular
+     **/
+    public static final String FB_KEY_ITEM_TIPO_USUARIO_INDEFINIDO = "indefinido";
+    public static final String FB_KEY_ITEM_TIPO_USUARIO_ADMINISTRADOR = "administrador";
+    public static final String FB_KEY_ITEM_TIPO_USUARIO_DOCTOR = "doctor";
+    public static final String FB_KEY_ITEM_TIPO_USUARIO_PACIENTE = "paciente";
+
+    /**
+     * Nodos de usuarios - todos en plural
+     **/
+    public static final String FB_KEY_MAIN_INDEFINIDOS = "indefinidos";
+    public static final String FB_KEY_MAIN_ADMINISTRADORES = "administradores";
+    public static final String FB_KEY_MAIN_DOCTORES = "doctores";
+    public static final String FB_KEY_MAIN_PACIENTES = "pacientes";
+
+    /**
+     * Sub item NODO
+     **/
+    public static final String FB_KEY_ITEM_INDEFINIDO = "indefinido";
+    public static final String FB_KEY_ITEM_ADMINISTRADOR = "administrador";
+    public static final String FB_KEY_ITEM_DOCTOR = "doctor";
+    public static final String FB_KEY_ITEM_PACIENTE = "paciente";
 
 }

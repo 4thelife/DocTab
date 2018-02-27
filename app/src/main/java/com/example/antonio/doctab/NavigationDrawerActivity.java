@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,6 +44,8 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
     private static final String TAG = NavigationDrawerActivity.class.getSimpleName();
 
+    private static Usuarios _SESSION_USER;
+
     private static DecodeItemHelper _decodeItem;
     private ProgressDialog pDialog;
     private NavigationView navigationView;
@@ -60,6 +63,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        /**Carga los persmisos de la session**/
+        _SESSION_USER = SharedPreferencesService.getUsuarioActual(getApplicationContext());
+
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -67,9 +73,35 @@ public class NavigationDrawerActivity extends AppCompatActivity
     }
 
     private void onPreRenderMenu(NavigationView navigationView) {
-        /**Carga el item seleccionado**/
-        /**0 = Inicio**/
-        onNavigationItemSelected(navigationView.getMenu().getItem(0));
+        onPreRenderSessionMenu(navigationView.getMenu());
+    }
+
+    private void onPreRenderSessionMenu(Menu menu) {
+
+        menu.findItem(R.id.menu_title_admin).setVisible(false);
+        menu.findItem(R.id.menu_title_doctor).setVisible(false);
+        menu.findItem(R.id.menu_title_paciente).setVisible(false);
+
+        switch (_SESSION_USER.getTipoDeUsuario()) {
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_ADMINISTRADOR:
+                menu.findItem(R.id.menu_title_admin).setVisible(true);
+                onNavigationItemSelected(navigationView.getMenu().getItem(0));
+                break;
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                menu.findItem(R.id.menu_title_doctor).setVisible(true);
+                onNavigationItemSelected(navigationView.getMenu().getItem(0));
+                break;
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                menu.findItem(R.id.menu_title_paciente).setVisible(true);
+                onNavigationItemSelected(navigationView.getMenu().getItem(0));
+                break;
+            default:
+                /**Cierra session en caso de no tener usuario**/
+                closeNavigation();
+                break;
+        }
+
+        Log.i(TAG, "TIPO DE USUARIO: " + _SESSION_USER.getTipoDeUsuario());
     }
 
     @Override
@@ -174,10 +206,6 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_citas_doctor));
                 this.openFragment(Constants.ITEM_FRAGMENT.get(id));
                 break;
-            /**case R.id.menu_item_mensajes_doctor:
-             getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_mensajes_doctor));
-             this.openFragment(Constants.ITEM_FRAGMENT.get(id));
-             break;*/
             case R.id.menu_item_consultorios_doctor:
                 getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_consultorios_doctor));
                 this.openFragment(Constants.ITEM_FRAGMENT.get(id));

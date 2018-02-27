@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="wrap_content">
 
     <!--Fragmento para agregar pacientes del doctor-->
 
@@ -25,6 +24,7 @@
             android:id="@+id/til_form_pacientes_doctor_nombre_paciente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/ed_form_pacientes_doctor_nombre_paciente"
                 android:layout_width="match_parent"
@@ -37,6 +37,7 @@
             android:id="@+id/til_form_pacientes_doctor_apellidos_paciente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/ed_form_pacientes_doctor_apellidos_paciente"
                 android:layout_width="match_parent"
@@ -56,6 +57,7 @@
             android:id="@+id/til_form_pacientes_doctor_edad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/ed_form_pacientes_doctor_edad"
                 android:layout_width="match_parent"
@@ -68,6 +70,7 @@
             android:id="@+id/til_form_pacientes_doctor_telefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/ed_form_pacientes_doctor_telefono"
                 android:layout_width="match_parent"
@@ -80,12 +83,13 @@
             android:id="@+id/til_form_pacientes_edad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/ed_form_pacientes_edad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="Edad"/>
+                android:hint="Edad" />
         </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>

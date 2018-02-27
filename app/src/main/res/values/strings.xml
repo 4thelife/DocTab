@@ -143,7 +143,7 @@
 
     <!--Nombres para los formularios-->
 
-        <!--titulos de los formularios-->
+    <!--titulos de los formularios-->
     <string name="form_title_consultorio">Información de Consultorio</string>
     <string name="form_title_especialidades">Información de Especialidades</string>
     <string name="form_title_doctor">Informacion del Doctor</string>
@@ -196,8 +196,9 @@
     <string name="hora_entrada">Hora de entrada:</string>
     <string name="hora_salida">Hora de salida:</string>
     <string name="citas_x_hora">Citas por hora:</string>
-
-
+    <string name="default_undefined">Indefinido</string>
+    <string name="default_doctor">Doctor</string>
+    <string name="default_paciente">Paciente</string>
 
 
 </resources>

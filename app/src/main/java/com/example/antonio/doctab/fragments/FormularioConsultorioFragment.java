@@ -37,9 +37,9 @@ public class FormularioConsultorioFragment extends Fragment {
     /**
      * Se declaran los elementos del formulario
      **/
-    private static TextInputLayout  tilNombreConsultorio,tilNumConsultorio, tilCalle, tilNumExt,tilNumInt,
-                                    tilCruzamientos,tilColonia,tilMunicipio,tilEstado,tilCodigoPostal,
-                                    tilTelefono1,tilTelefono2, tilExtencion1,tilExtension2;
+    private static TextInputLayout tilNombreConsultorio, tilNumConsultorio, tilCalle, tilNumExt, tilNumInt,
+            tilCruzamientos, tilColonia, tilMunicipio, tilEstado, tilCodigoPostal,
+            tilTelefono1, tilTelefono2, tilExtencion1, tilExtension2;
 
     /**
      * Se declaran las variables para uso en memoria
@@ -59,15 +59,15 @@ public class FormularioConsultorioFragment extends Fragment {
         tilNombreConsultorio = (TextInputLayout) view.findViewById(R.id.til_nombre_consultorio);
         tilNumConsultorio = (TextInputLayout) view.findViewById(R.id.til_num_consultorio);
         tilCalle = (TextInputLayout) view.findViewById(R.id.til_calle);
-        tilNumExt = (TextInputLayout)view.findViewById(R.id.til_num_ext);
-        tilNumInt = (TextInputLayout)view.findViewById(R.id.til_num_int);
-        tilCruzamientos = (TextInputLayout)view.findViewById(R.id.til_cruzamientos);
-        tilColonia = (TextInputLayout)view.findViewById(R.id.til_colonia);
-        tilMunicipio = (TextInputLayout)view.findViewById(R.id.til_municipio);
-        tilEstado = (TextInputLayout)view.findViewById(R.id.til_estado);
-        tilCodigoPostal = (TextInputLayout)view.findViewById(R.id.til_codigo_postal);
+        tilNumExt = (TextInputLayout) view.findViewById(R.id.til_num_ext);
+        tilNumInt = (TextInputLayout) view.findViewById(R.id.til_num_int);
+        tilCruzamientos = (TextInputLayout) view.findViewById(R.id.til_cruzamientos);
+        tilColonia = (TextInputLayout) view.findViewById(R.id.til_colonia);
+        tilMunicipio = (TextInputLayout) view.findViewById(R.id.til_municipio);
+        tilEstado = (TextInputLayout) view.findViewById(R.id.til_estado);
+        tilCodigoPostal = (TextInputLayout) view.findViewById(R.id.til_codigo_postal);
         tilTelefono1 = (TextInputLayout) view.findViewById(R.id.til_telefono_uno);
-        tilTelefono2 = (TextInputLayout)view.findViewById(R.id.til_telefono_dos);
+        tilTelefono2 = (TextInputLayout) view.findViewById(R.id.til_telefono_dos);
         tilExtencion1 = (TextInputLayout) view.findViewById(R.id.til_telefono_uno_extencion);
         tilExtension2 = (TextInputLayout) view.findViewById(R.id.til_telefono_dos_extencion);
 
@@ -172,10 +172,10 @@ public class FormularioConsultorioFragment extends Fragment {
         boolean a = ValidationUtils.esTextoValido(tilNombreConsultorio, nombreConsultorio);
         boolean b = ValidationUtils.esTelefonoValido(tilTelefono1, telefono1);
         boolean c = ValidationUtils.esTextoValido(tilCalle, calle);
-        boolean d = ValidationUtils.esTextoValido(tilNumExt,numeroExterior);
-        boolean e = ValidationUtils.esTextoValido(tilColonia,colonia);
-        //boolean f = ValidationUtils.es
-        if (a && b && c && d && e ) {
+        boolean d = ValidationUtils.esTextoValido(tilNumExt, numeroExterior);
+        boolean e = ValidationUtils.esTextoValido(tilColonia, colonia);
+
+        if (a && b && c && d && e) {
             /**Se agregan los campos que el cliente captura**/
             Consultorios data = new Consultorios();
             data.setNombreConsultorio(nombreConsultorio);
@@ -228,10 +228,10 @@ public class FormularioConsultorioFragment extends Fragment {
         boolean a = ValidationUtils.esTextoValido(tilNombreConsultorio, nombreConsultorio);
         boolean b = ValidationUtils.esTelefonoValido(tilTelefono1, telefono1);
         boolean c = ValidationUtils.esTextoValido(tilCalle, calle);
-        boolean d = ValidationUtils.esTextoValido(tilNumExt,numeroExterior);
-        boolean e = ValidationUtils.esTextoValido(tilColonia,colonia);
-        //boolean f = ValidationUtils.es
-        if (a && b && c && d && e ) {
+        boolean d = ValidationUtils.esTextoValido(tilNumExt, numeroExterior);
+        boolean e = ValidationUtils.esTextoValido(tilColonia, colonia);
+        
+        if (a && b && c && d && e) {
             /**Se agregan los campos que el cliente captura**/
             Consultorios data = new Consultorios();
             data.setNombreConsultorio(nombreConsultorio);

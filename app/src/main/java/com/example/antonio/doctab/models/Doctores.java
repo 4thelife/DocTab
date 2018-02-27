@@ -1,11 +1,15 @@
 package com.example.antonio.doctab.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Antonio on 19/12/2017.
  */
 
-public class Doctores {
-    /**DATOS DEL DOCTOR*/
+public class Doctores implements Serializable {
+    /**
+     * DATOS DEL DOCTOR
+     */
     private String nombreCompleto;
     private String especialidad;
     private String cedulaProfesional;
@@ -14,7 +18,9 @@ public class Doctores {
     private String sexo;
     private String fotoPerfil;
     private String tipoDeUsuario;
-    /**DATOS DEL CONSULTORIO*/
+    /**
+     * DATOS DEL CONSULTORIO
+     */
     private String calle;
     private String colonia;
     private String numeroInt;

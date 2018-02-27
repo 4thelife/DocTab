@@ -58,7 +58,16 @@ public class MainActivity extends AppCompatActivity {
                             if (dataSnapshot.exists()) {
                                 /**Guarda en preferencias los datos de la session*/
                                 saveSessionPreferences(dataSnapshot.getValue(Usuarios.class));
-                                openNavigationDrawer();
+                                switch (dataSnapshot.getValue(Usuarios.class).getTipoDeUsuario()) {
+                                    case Constants.FB_KEY_ITEM_TIPO_USUARIO_INDEFINIDO:
+                                        /**Abre la segunda parte para completar el registro**/
+                                        openSecondRegister();
+                                        break;
+                                    default:
+                                        /**Usuario con credenciales validas**/
+                                        openNavigationDrawer();
+                                        break;
+                                }
                             } else {
                                 openLogin();
                             }
@@ -90,6 +99,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void openNavigationDrawer() {
         Intent intent = new Intent(MainActivity.this, NavigationDrawerActivity.class);
+        intent.putExtra(Constants.KEY_SESSION_USER, SharedPreferencesService.getUsuarioActual(getApplicationContext()));
+        startActivity(intent);
+        finish();
+    }
+
+    private void openSecondRegister() {
+        Intent intent = new Intent(MainActivity.this, SecondRegisterActivity.class);
         intent.putExtra(Constants.KEY_SESSION_USER, SharedPreferencesService.getUsuarioActual(getApplicationContext()));
         startActivity(intent);
         finish();

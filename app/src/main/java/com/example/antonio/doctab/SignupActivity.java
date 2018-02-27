@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.Utils.DateTimeUtils;
 import com.example.antonio.doctab.models.Doctores;
+import com.example.antonio.doctab.models.Indefinido;
 import com.example.antonio.doctab.models.Usuarios;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -77,9 +78,23 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
-                    Intent intent = new Intent(SignupActivity.this, NavigationDrawerActivity.class);
-                    startActivity(intent);
-                    finish();
+                    mProgress.dismiss();
+
+                    /**Registro usuario en el nodo indefinido**/
+                    String name = mNameField.getText().toString().trim();
+                    String email = mEmailFiedl.getText().toString().trim();
+
+                    Indefinido indefinido = new Indefinido();
+
+                    indefinido.setNombreCompleto(name);
+                    indefinido.setCorreoElectronico(email);
+                    indefinido.setTipoDeUsuario(Constants.FB_KEY_ITEM_TIPO_USUARIO_INDEFINIDO);
+                    indefinido.setFirebaseId(mAuth.getCurrentUser().getUid());
+                    indefinido.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_INACTIVO);
+                    indefinido.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
+                    indefinido.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+                    firebaseRegistroUsuarioIndefinido(indefinido);
                 }
             }
         };
@@ -90,7 +105,6 @@ public class SignupActivity extends AppCompatActivity {
         final String name = mNameField.getText().toString().trim();
         final String email = mEmailFiedl.getText().toString().trim();
         final String password = mPasswordField.getText().toString().trim();
-        final String tipoDeUsuario = "doctores";
 
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
             mProgress.setMessage("Por favor espere lo estamos registrando....");
@@ -99,49 +113,32 @@ public class SignupActivity extends AppCompatActivity {
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            mProgress.dismiss();
-                            if (task.isSuccessful()) {
-
-                                Doctores doctor = new Doctores();
-
-                                doctor.setNombreCompleto(name);
-                                doctor.setCorreoElectronico(email);
-
-                                doctor.setTipoDeUsuario(tipoDeUsuario);
-
-                                doctor.setFirebaseId(mAuth.getCurrentUser().getUid());
-                                doctor.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_INACTIVO);
-                                doctor.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
-                                doctor.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
-
-                                firebaseRegistroDoctor(doctor);
-
-                            } else
+                            if (!task.isSuccessful()) {
+                                mProgress.dismiss();
                                 Toast.makeText(SignupActivity.this, "Ha ocurrido un error al registrarse", Toast.LENGTH_SHORT).show();
-
+                            }
                         }
                     });
         }
 
     }
 
-    public void firebaseRegistroDoctor(final Doctores doctor) {
+    public void firebaseRegistroUsuarioIndefinido(final Indefinido indefinido) {
 
-  /*obtiene la instancia como Doctor*/
-        final DatabaseReference dbDoctor =
+        final DatabaseReference dbIndefinido =
                 FirebaseDatabase.getInstance().getReference()
-                        .child(Constants.FB_KEY_MAIN_DOCTORES)
-                        .child(doctor.getFirebaseId())
-                        .child(Constants.FB_KEY_ITEM_DOCTOR);
+                        .child(Constants.FB_KEY_MAIN_INDEFINIDOS)
+                        .child(indefinido.getFirebaseId())
+                        .child(Constants.FB_KEY_ITEM_INDEFINIDO);
 
-        dbDoctor.setValue(doctor, new DatabaseReference.CompletionListener() {
+        dbIndefinido.setValue(indefinido, new DatabaseReference.CompletionListener() {
 
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if (databaseError == null) {
                     Usuarios usuario = new Usuarios();
-                    usuario.setFirebaseId(doctor.getFirebaseId());
-                    usuario.setTipoDeUsuario(doctor.getTipoDeUsuario());
+                    usuario.setFirebaseId(indefinido.getFirebaseId());
+                    usuario.setTipoDeUsuario(indefinido.getTipoDeUsuario());
 
                     firebaseRegistroUsuario(usuario);
                 }
@@ -170,7 +167,6 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-    //Este método manda un link al correo registrado para verificarlo *Falta el código para verificar *
     public void sentEmailVerification() {
         FirebaseUser user = mAuth.getCurrentUser();
 
@@ -179,7 +175,13 @@ public class SignupActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
 
-                    //Toast.makeText(getApplicationContext(),"Registrado correctamente...", Toast.LENGTH_LONG).show();
+                    FirebaseAuth.getInstance().signOut();
+
+                    Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                    Toast.makeText(getApplicationContext(), "Registrado correctamente, se ha enviado un correo de activación ...", Toast.LENGTH_LONG).show();
                 }
             }
         });
