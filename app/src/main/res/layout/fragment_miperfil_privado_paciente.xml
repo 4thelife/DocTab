@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:id="@+id/fragment_miperfil_datos_paciente"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null">
+
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_editar_miperfil_privado_paciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:background="@color/colorP   rimary"
+            android:fontFamily="monospace"
+            android:text="@string/button_editar"
+            android:textColor="@color/bootstrap_brand_secondary_fill" />
+
+    </RelativeLayout>
+</FrameLayout>
