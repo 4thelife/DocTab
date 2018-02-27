@@ -45,7 +45,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:src="@drawable/btnimgdoc"
-                    android:background="" />
+                     />
 
                 <TextView
                     android:layout_width="100dp"
@@ -72,7 +72,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:src="@drawable/btnimgpac"
-                    android:background="" />
+                     />
 
                 <TextView
                     android:layout_width="100dp"
