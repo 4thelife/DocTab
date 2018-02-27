@@ -2,4 +2,17 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <!--Fragmento para traer el listado de clientes-->
+    <FrameLayout
+        android:id="@+id/fragment_listado_consultas_paciente_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="70dp"
+        android:background="@null">
+
+    </FrameLayout>
+
 </FrameLayout>
