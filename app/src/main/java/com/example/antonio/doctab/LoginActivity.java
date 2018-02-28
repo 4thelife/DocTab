@@ -74,6 +74,11 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.addAuthStateListener(mAuthListener);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mAuthListener != null) mAuth.removeAuthStateListener(mAuthListener);
+    }
 
     private void doLogin() {
         String email = textEmail.getText().toString().trim();

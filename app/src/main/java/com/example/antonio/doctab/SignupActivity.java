@@ -39,14 +39,6 @@ public class SignupActivity extends AppCompatActivity {
     private TextView mTextLogin;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,10 +70,37 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
+                    /**Registro usuario en el nodo indefinido**/
+                    String name = mNameField.getText().toString().trim();
+                    String email = mEmailFiedl.getText().toString().trim();
+
+                    Indefinido indefinido = new Indefinido();
+
+                    indefinido.setNombreCompleto(name);
+                    indefinido.setCorreoElectronico(email);
+                    indefinido.setTipoDeUsuario(Constants.FB_KEY_ITEM_TIPO_USUARIO_INDEFINIDO);
+                    indefinido.setFirebaseId(firebaseAuth.getCurrentUser().getUid());
+                    indefinido.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_INACTIVO);
+                    indefinido.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
+                    indefinido.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+                    firebaseRegistroUsuarioIndefinido(indefinido);
                 }
             }
         };
+    }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mAuthListener != null) mAuth.removeAuthStateListener(mAuthListener);
     }
 
     private void startRegister() {
@@ -99,22 +118,6 @@ public class SignupActivity extends AppCompatActivity {
                             if (!task.isSuccessful()) {
                                 mProgress.dismiss();
                                 Toast.makeText(SignupActivity.this, "Ha ocurrido un error al registrarse", Toast.LENGTH_SHORT).show();
-                            } else {
-                                /**Registro usuario en el nodo indefinido**/
-                                String name = mNameField.getText().toString().trim();
-                                String email = mEmailFiedl.getText().toString().trim();
-
-                                Indefinido indefinido = new Indefinido();
-
-                                indefinido.setNombreCompleto(name);
-                                indefinido.setCorreoElectronico(email);
-                                indefinido.setTipoDeUsuario(Constants.FB_KEY_ITEM_TIPO_USUARIO_INDEFINIDO);
-                                indefinido.setFirebaseId(mAuth.getCurrentUser().getUid());
-                                indefinido.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_INACTIVO);
-                                indefinido.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
-                                indefinido.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
-
-                                firebaseRegistroUsuarioIndefinido(indefinido);
                             }
                         }
                     });
@@ -135,6 +138,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if (databaseError == null) {
+
                     Usuarios usuario = new Usuarios();
                     usuario.setFirebaseId(indefinido.getFirebaseId());
                     usuario.setTipoDeUsuario(indefinido.getTipoDeUsuario());
@@ -143,8 +147,6 @@ public class SignupActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     private void firebaseRegistroUsuario(Usuarios usuario) {
@@ -158,13 +160,11 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if (databaseError == null) {
-                    FirebaseAuth.getInstance().signOut();
+                    Toast.makeText(getApplicationContext(), "Registrado correctamente...", Toast.LENGTH_LONG).show();
 
-                    Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(SignupActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
-
-                    Toast.makeText(getApplicationContext(), "Registrado correctamente...", Toast.LENGTH_LONG).show();
                 }
             }
         });
