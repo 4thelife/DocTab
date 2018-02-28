@@ -55,6 +55,10 @@
                         android:icon="@mipmap/ic_message_black_48dp"
                         android:title="Mensajes" />-->
                     <item
+                        android:id="@+id/menu_item_horarios_servicio"
+                        android:icon="@mipmap/ic_event_black_48dp"
+                        android:title="Horarios de servicio"/>
+                    <item
                         android:id="@+id/menu_item_consultorios_doctor"
                         android:icon="@mipmap/ic_domain_black_48dp"
                         android:title="Mis consultorios" />

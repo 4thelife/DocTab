@@ -43,7 +43,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="155dp"
         android:orientation="horizontal">
 
         <ToggleButton
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textOff="@string/dia_0"
-            android:textOn="@string/dia_5"/>
+            android:textOn="@string/dia_5" />
 
         <ToggleButton
             android:id="@+id/toggBtn_dia_1"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textOff="@string/dia_1"
-            android:textOn="@string/dia_5"/>
+            android:textOn="@string/dia_5" />
 
         <ToggleButton
             android:id="@+id/toggBtn_dia_2"
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textOff="@string/dia_2"
-            android:textOn="@string/dia_5"/>
+            android:textOn="@string/dia_5" />
 
         <ToggleButton
             android:id="@+id/toggBtn_dia_3"
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textOff="@string/dia_3"
-            android:textOn="@string/dia_5"/>
+            android:textOn="@string/dia_5" />
 
         <ToggleButton
             android:id="@+id/toggBtn_dia_4"
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textOff="@string/dia_4"
-            android:textOn="@string/dia_5"/>
+            android:textOn="@string/dia_5" />
 
         <ToggleButton
             android:id="@+id/toggBtn_dia_5"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textOff="@string/dia_5"
-            android:textOn="@string/dia_5"/>
+            android:textOn="@string/dia_5" />
 
         <ToggleButton
             android:id="@+id/toggBtn_dia_6"
