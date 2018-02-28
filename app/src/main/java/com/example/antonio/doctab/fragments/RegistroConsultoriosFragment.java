@@ -23,7 +23,6 @@ import com.example.antonio.doctab.models.Usuarios;
 public class RegistroConsultoriosFragment extends Fragment {
 
     private MainRegisterInterface activityInterface;
-
     private static DecodeExtraHelper _MAIN_DECODE;
     private static Usuarios _SESSION_USER;
 

@@ -210,6 +210,10 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_consultorios_doctor));
                 this.openFragment(Constants.ITEM_FRAGMENT.get(id));
                 break;
+            case R.id.menu_item_horarios_servicio:
+                getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_horarios_servicio));
+                this.openFragment(Constants.ITEM_FRAGMENT.get(id));
+                break;
             case R.id.menu_item_pacientes_doctor:
                 getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_pacientes_doctor));
                 this.openFragment(Constants.ITEM_FRAGMENT.get(id));

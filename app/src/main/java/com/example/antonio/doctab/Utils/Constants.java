@@ -22,7 +22,7 @@ import com.example.antonio.doctab.fragments.ListadoCitasDoctorFragment;
 import com.example.antonio.doctab.fragments.ListadoConsultoriosFragment;
 import com.example.antonio.doctab.fragments.ListadoDoctoresFragment;
 import com.example.antonio.doctab.fragments.ListadoEspecialidadesFragment;
-import com.example.antonio.doctab.fragments.ListadoHorariosServiciosFragment;
+import com.example.antonio.doctab.fragments.ListadoHorariosServicioFragment;
 import com.example.antonio.doctab.fragments.ListadoInicioFragment;
 import com.example.antonio.doctab.fragments.ListadoMensajesFragment;
 import com.example.antonio.doctab.fragments.ListadoPacientesDoctorFragment;
@@ -60,8 +60,11 @@ public class Constants {
     public static final String FB_KEY_ITEM_ESTATUS_ELIMINADO = "eliminado";
     public static final String FB_KEY_MAIN_HORARIOS_SERVICIO = "Horarios de Servicoo";
 
+    /**
+     *
+     */
     public static final String FB_KEY_ITEM_CONSULTORIOS = "consultorios";
-    public static final String FB_KEY_ITEM_HORARIOS_SERVICIO = "Horarios de servicio";
+    public static final String FB_KEY_ITEM_HORARIOS_SERVICIO = "Horariosservicio";
     public static final String FB_KEY_ITEM_CONSULTORIO_HORARIOS = "horarios";
     public static final String FB_KEY_ITEM_CONSULTORIO_DIRECCION = "direccion";
     public static final String FB_KEY_ITEM_PERFILES_ACADEMICOS = "perfilesAcademicos";
@@ -126,7 +129,7 @@ public class Constants {
     public static final String FORMULARIO_SERVICIOS_FRAGMENT = "formulario_servicios_fragment";
     public static final String FORMULARIO_CITAS_DOCTOR_FRAGMENT = "formulario_citas_doctor_fragment";
     public static final String FORMULARIO_MENSAJES_FRAGMENT = "formulario_mensajes_fragment";
-    public static final String FORMULARIO_HORARIOS_SERVICIOS_FRAGMENT = "formulario_horarios_servicios_fragment";
+    public static final String FORMULARIO_HORARIOS_SERVICIO_FRAGMENT = "formulario_horarios_servicio_fragment";
 
     /**
      * Fragmentos de Registro
@@ -176,7 +179,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.btn_agregar_paciente_doctor, FRAGMENT_LISTADO_PACIENTES_DOCTOR);
         ITEM_FRAGMENT.put(R.id.btn_agregar_servicio, FRAGMENT_LISTADO_SERVICIOS);
         ITEM_FRAGMENT.put(R.id.btn_agregar_mensajes, FRAGMENT_LISTADO_MENSAJES);
-        ITEM_FRAGMENT.put(R.id.btn_agregar_horario_servicio, FRAGMENT_LISTADO_HORARIOS_SERVICIO);
+        ITEM_FRAGMENT.put(R.id.btn_agregar_horarios_servicio, FRAGMENT_LISTADO_HORARIOS_SERVICIO);
         ITEM_FRAGMENT.put(R.id.item_btn_editar_consultorios, FRAGMENT_REGISTRO_CONSULTORIOS);
     }
 
@@ -195,7 +198,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_PACIENTES_DOCTOR, new ListadoPacientesDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_SERVICIOS, new ListadoServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_MENSAJES, new ListadoMensajesFragment());
-        TAG_FRAGMENT.put(FRAGMENT_LISTADO_HORARIOS_SERVICIO, new ListadoHorariosServiciosFragment());
+        TAG_FRAGMENT.put(FRAGMENT_LISTADO_HORARIOS_SERVICIO, new ListadoHorariosServicioFragment());
         /**Formulario*/
         TAG_FRAGMENT.put(FORMULARIO_CITAS_DOCTOR_FRAGMENT, new FormularioCitasDoctorFragment());
         TAG_FRAGMENT.put(FORMULARIO_CONSULTORIOS_FRAGMENT, new FormularioConsultorioFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
@@ -204,7 +207,8 @@ public class Constants {
         TAG_FRAGMENT.put(FORMULARIO_PACIENTES_DOCTOR_FRAGMENT, new FormularioPacientesDoctorFragment());
         TAG_FRAGMENT.put(FORMULARIO_SERVICIOS_FRAGMENT, new FormularioServiciosFragment());
         TAG_FRAGMENT.put(FORMULARIO_MENSAJES_FRAGMENT, new FormularioMensajesFragment());
-        TAG_FRAGMENT.put(FORMULARIO_ESPECIALIDADES_FRAGMENT, new FormularioHorariosServicioFragment());
+        TAG_FRAGMENT.put(FORMULARIO_HORARIOS_SERVICIO_FRAGMENT, new FormularioHorariosServicioFragment());
+
         /**Registro*/
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CITAS_DOCTOR, new RegistroCitasDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CONSULTORIOS, new RegistroConsultoriosFragment());

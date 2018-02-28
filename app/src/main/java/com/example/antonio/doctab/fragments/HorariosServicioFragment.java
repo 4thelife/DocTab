@@ -67,7 +67,7 @@ public class HorariosServicioFragment extends Fragment implements View.OnClickLi
 
         drDoctores = database.getReference(Constants.FB_KEY_MAIN_HORARIOS_SERVICIO)
                 .child(_SESSION_USER.getFirebaseId())
-                .child(Constants.FB_KEY_MAIN_HORARIOS_SERVICIO);
+                .child(Constants.FB_KEY_ITEM_HORARIOS_SERVICIO);
 
         return view;
 

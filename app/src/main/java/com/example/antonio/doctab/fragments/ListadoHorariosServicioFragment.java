@@ -22,7 +22,7 @@ import com.example.antonio.doctab.models.Usuarios;
  * Created by Ricardo on 26/02/2018.
  */
 
-public class ListadoHorariosServiciosFragment extends Fragment implements View.OnClickListener {
+public class ListadoHorariosServicioFragment extends Fragment implements View.OnClickListener {
 
 
     private static Usuarios _SESSION_USER;
@@ -35,7 +35,7 @@ public class ListadoHorariosServiciosFragment extends Fragment implements View.O
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
-        btnAgregar = (Button) view.findViewById(R.id.btn_agregar_horario_servicio);
+        btnAgregar = (Button) view.findViewById(R.id.btn_agregar_horarios_servicio);
         btnAgregar.setOnClickListener(this);
 
         return view;
@@ -61,7 +61,7 @@ public class ListadoHorariosServiciosFragment extends Fragment implements View.O
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btn_agregar_horario_servicio:
+            case R.id.btn_agregar_horarios_servicio:
                 DecodeExtraHelper extra = new DecodeExtraHelper();
 
                 extra.setTituloActividad(getString(Constants.TITLE_ACTIVITY.get(v.getId())));

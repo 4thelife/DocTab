@@ -37,7 +37,7 @@ public class RegistroHorariosServicioFragment extends Fragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction mainFragment = fragmentManager.beginTransaction();
 
-        mainFragment.replace(R.id.fragment_registro_horarios_servicio_container, new FormularioHorariosServicioFragment(), Constants.FORMULARIO_HORARIOS_SERVICIOS_FRAGMENT);
+        mainFragment.replace(R.id.fragment_registro_horarios_servicio_container, new FormularioHorariosServicioFragment(), Constants.FORMULARIO_HORARIOS_SERVICIO_FRAGMENT);
 
         mainFragment.commit();
 
