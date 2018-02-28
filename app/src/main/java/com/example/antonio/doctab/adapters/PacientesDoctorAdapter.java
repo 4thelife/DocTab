@@ -32,7 +32,6 @@ public class PacientesDoctorAdapter extends RecyclerView.Adapter<PacientesDoctor
         TextView txtSexo;
 
 
-
         public ViewHolder(View itemView) {
             super(itemView);
 
@@ -63,8 +62,6 @@ public class PacientesDoctorAdapter extends RecyclerView.Adapter<PacientesDoctor
     }
 
 
-
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_pacientes_doctor,
@@ -81,10 +78,6 @@ public class PacientesDoctorAdapter extends RecyclerView.Adapter<PacientesDoctor
 
         decodeItem.setItemModel(item);
         decodeItem.setPosition(position);
-
-
-        holder.txtNombres.setText(item.getNombres());
-        holder.txtApellidos.setText(item.getApellidos());
 
         holder.txtEdad.setText(item.getEdad());
         holder.txtSexo.setText(item.getSexo());
@@ -110,8 +103,6 @@ public class PacientesDoctorAdapter extends RecyclerView.Adapter<PacientesDoctor
     public int getItemCount() {
         return 0;
     }
-
-
 
 
 }

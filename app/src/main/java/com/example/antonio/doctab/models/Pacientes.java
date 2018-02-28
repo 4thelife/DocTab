@@ -7,49 +7,41 @@ package com.example.antonio.doctab.models;
 public class Pacientes {
 
 
-
-
-    private String nombres;
-    private String apellidos;
+    private String nombreCompleto;
     private String edad;
+    private String correoElectronico;
     private String sexo;
+    private String telefono;
+    private String fotoPerfil;
     private String tipoDeUsuario;
-    private String fireBaseId;
+    private String firebaseId;
     private String estatus;
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
-    /**private String alergia;*/
-    /**private String ultimaCita;*/
 
-    public Pacientes(String nombres, String apellidos, String edad, String sexo,
-                     String tipoDeUsuario, String fireBaseId, String estatus,
-                     Long fechaDeCreacion, Long fechaDeEdicion) {
-        this.nombres = nombres;
-        this.apellidos = apellidos;
+    public Pacientes() {
+    }
+
+    public Pacientes(String nombreCompleto, String edad, String correoElectronico, String sexo, String telefono, String fotoPerfil, String tipoDeUsuario, String firebaseId, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
+        this.nombreCompleto = nombreCompleto;
         this.edad = edad;
+        this.correoElectronico = correoElectronico;
         this.sexo = sexo;
+        this.telefono = telefono;
+        this.fotoPerfil = fotoPerfil;
         this.tipoDeUsuario = tipoDeUsuario;
-        this.fireBaseId = fireBaseId;
+        this.firebaseId = firebaseId;
         this.estatus = estatus;
         this.fechaDeCreacion = fechaDeCreacion;
         this.fechaDeEdicion = fechaDeEdicion;
     }
 
-
-    public String getNombres() {
-        return nombres;
+    public String getNombreCompleto() {
+        return nombreCompleto;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
     }
 
     public String getEdad() {
@@ -60,12 +52,36 @@ public class Pacientes {
         this.edad = edad;
     }
 
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
     public String getSexo() {
         return sexo;
     }
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 
     public String getTipoDeUsuario() {
@@ -76,12 +92,12 @@ public class Pacientes {
         this.tipoDeUsuario = tipoDeUsuario;
     }
 
-    public String getFireBaseId() {
-        return fireBaseId;
+    public String getFirebaseId() {
+        return firebaseId;
     }
 
-    public void setFireBaseId(String fireBaseId) {
-        this.fireBaseId = fireBaseId;
+    public void setFirebaseId(String firebaseId) {
+        this.firebaseId = firebaseId;
     }
 
     public String getEstatus() {

@@ -20,8 +20,10 @@ import com.example.antonio.doctab.helpers.ConsultoriosHelper;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.helpers.DoctoresHelper;
+import com.example.antonio.doctab.helpers.PacientesHelper;
 import com.example.antonio.doctab.models.Consultorios;
 import com.example.antonio.doctab.models.Doctores;
+import com.example.antonio.doctab.models.Pacientes;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
 import com.google.firebase.database.DatabaseError;
@@ -193,7 +195,69 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
     }
 
+    @Override
+    public void editarDoctor(DoctoresHelper helper) {
+
+    }
+
+    @Override
+    public void registrarPaciente(PacientesHelper helper) {
+        pDialog = new ProgressDialog(MainRegisterActivity.this);
+        pDialog.setMessage(getString(R.string.default_loading_msg));
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        webServiceRegistrarPaciente(helper);
+
+    }
+
+    private void webServiceRegistrarPaciente(PacientesHelper helper) {
+        /**Se obtiene el objeto principal**/
+        final Pacientes data = helper.getPaciente();
+
+        /**Se crea la conexion con los nodos a utilizar**/
+        final DatabaseReference dbConsultorios =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_PACIENTES)
+                        .child(data.getFirebaseId());
+
+        /**Se agregan los ultimos objetos del sistema**/
+        data.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ACTIVO);
+        data.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
+        data.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+        final Usuarios usuario = new Usuarios();
+        usuario.setFirebaseId(data.getFirebaseId());
+        usuario.setTipoDeUsuario(data.getTipoDeUsuario());
+
+        try {
+            /**Se crea la conexion para guadar el objeto**/
+            dbConsultorios.child(Constants.FB_KEY_ITEM_PACIENTE).child(data.getFirebaseId()).setValue(data, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                    pDialog.dismiss();
+                    if (databaseError == null) {
+                        actualizarPermisos(usuario);
+                    }
+                }
+            });
+        } catch (Exception e) {
+            pDialog.dismiss();
+            Toast.makeText(getApplicationContext(),
+                    "Intente mas tarde...", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void editarPaciente(PacientesHelper helper) {
+
+    }
+
     private void actualizarPermisos(final Usuarios usuario) {
+        /**Se actualizan los permisos cuando son usuarios nuevos**/
         DatabaseReference dbUsuario =
                 FirebaseDatabase.getInstance().getReference()
                         .child(Constants.FB_KEY_MAIN_USUARIOS)
@@ -235,20 +299,6 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
         finish();
     }
 
-    @Override
-    public void editarDoctor(DoctoresHelper helper) {
-
-    }
-
-    @Override
-    public void registrarPaciente(ConsultoriosHelper helper) {
-
-    }
-
-    @Override
-    public void editarPaciente(ConsultoriosHelper helper) {
-
-    }
 
     @Override
     public void registrarConsultorio(ConsultoriosHelper helper) {

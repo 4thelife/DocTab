@@ -21,7 +21,7 @@
             android:textSize="18sp" />
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/til_form_pacientes_doctor_nombre_paciente"
+            android:id="@+id/til_nombre_paciente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -34,7 +34,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/til_form_pacientes_doctor_apellidos_paciente"
+            android:id="@+id/til_correo_paciente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -43,18 +43,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:hint="@string/hint_apellidos" />
+                android:hint="@string/hint_email" />
         </android.support.design.widget.TextInputLayout>
 
-        <Spinner
-            android:id="@+id/spinner1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/sexos"
-            android:prompt="@string/sexo" />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Sexo"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinner_sexo_paciente"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:entries="@array/sexos"
+                android:spinnerMode="dropdown" />
+
+        </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/til_form_pacientes_doctor_edad"
+            android:id="@+id/til_edad_paciente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -67,7 +82,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/til_form_pacientes_doctor_telefono"
+            android:id="@+id/til_telefono_paciente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -77,19 +92,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
                 android:hint="@string/form_telefono" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/til_form_pacientes_edad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/ed_form_pacientes_edad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:hint="Edad" />
         </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>

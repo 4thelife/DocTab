@@ -1,6 +1,5 @@
 package com.example.antonio.doctab.helpers;
 
-import com.example.antonio.doctab.models.Consultorios;
 import com.example.antonio.doctab.models.Doctores;
 
 /**

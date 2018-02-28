@@ -28,6 +28,7 @@ import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.models.Consultorios;
 import com.example.antonio.doctab.models.Doctores;
+import com.example.antonio.doctab.models.Pacientes;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
 import com.google.firebase.auth.AuthCredential;
@@ -119,6 +120,8 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
         DatabaseReference dbUsuario =
                 FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.NODOS_USUARIOS_PRIVILEGIOS.get(usuario.getTipoDeUsuario()))
+                        .child(usuario.getFirebaseId())
                         .child(usuario.getTipoDeUsuario())
                         .child(usuario.getFirebaseId());
 
@@ -130,12 +133,17 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 TextView txtEmail = (TextView) header.findViewById(R.id.txt_email_perfil_header_navigation);
 
                 switch (usuario.getTipoDeUsuario()) {
-                    case Constants.FB_KEY_MAIN_DOCTORES:
-                        Doctores doctor = dataSnapshot.child(Constants.FB_KEY_ITEM_DOCTOR).getValue(Doctores.class);
+                    case Constants.FB_KEY_ITEM_DOCTOR:
+                        Doctores doctor = dataSnapshot.getValue(Doctores.class);
                         txtNombrePerfil.setText(doctor.getNombreCompleto());
                         txtEmail.setText(doctor.getCorreoElectronico());
                         break;
-                    case Constants.FB_KEY_MAIN_PACIENTES:
+                    case Constants.FB_KEY_ITEM_PACIENTE:
+                        Pacientes paciente = dataSnapshot.getValue(Pacientes.class);
+                        txtNombrePerfil.setText(paciente.getNombreCompleto());
+                        txtEmail.setText(paciente.getCorreoElectronico());
+                        break;
+                    case Constants.FB_KEY_ITEM_ADMINISTRADOR:
                         break;
                 }
             }

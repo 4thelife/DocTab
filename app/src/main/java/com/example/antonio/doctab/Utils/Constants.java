@@ -37,6 +37,7 @@ import com.example.antonio.doctab.fragments.RegistroEspecialidadesFragment;
 import com.example.antonio.doctab.fragments.RegistroHorariosServicioFragment;
 import com.example.antonio.doctab.fragments.RegistroMensajesFragment;
 import com.example.antonio.doctab.fragments.RegistroPacientesDoctorFragment;
+import com.example.antonio.doctab.fragments.RegistroPacientesFragment;
 import com.example.antonio.doctab.fragments.RegistroServiciosFragment;
 import com.example.antonio.doctab.fragments.ServiciosFragment;
 
@@ -120,7 +121,7 @@ public class Constants {
 
     public static final String FORMULARIO_DOCTORES_FRAGMENT = "formulario_doctores_fragment";
     public static final String FORMULARIO_ACCIONES_DOCTORES_FRAGMENT = "fragment_acciones_doctores_fragment";
-    public static final String FORMULARIO_PACIENTE_FRAGMENT = "formulario_pacientes_fragment";
+    public static final String FORMULARIO_PACIENTES_FRAGMENT = "formulario_pacientes_fragment";
     public static final String FORMULARIO_ACCIONES_PACIENTES_FRAGMENT = "fragment_acciones_pacientes_fragment";
     public static final String FORMULARIO_CONSULTORIOS_FRAGMENT = "formulario_consultorios_fragment";
     public static final String FORMULARIO_ACCIONES_CONSULTORIOS_FRAGMENT = "fragment_acciones_consultorios_fragment";
@@ -213,6 +214,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CITAS_DOCTOR, new RegistroCitasDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CONSULTORIOS, new RegistroConsultoriosFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_DOCTORES, new RegistroDoctoresFragment());
+        TAG_FRAGMENT.put(FRAGMENT_REGISTRO_PACIENTES, new RegistroPacientesFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_ESPECIALIDADES, new RegistroEspecialidadesFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_PACIENTES_DOCTOR, new RegistroPacientesDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_SERVICIOS, new RegistroServiciosFragment());
@@ -279,5 +281,15 @@ public class Constants {
     public static final String FB_KEY_ITEM_ADMINISTRADOR = "administrador";
     public static final String FB_KEY_ITEM_DOCTOR = "doctor";
     public static final String FB_KEY_ITEM_PACIENTE = "paciente";
+
+    public static final HashMap<String, String> NODOS_USUARIOS_PRIVILEGIOS;
+
+    static {
+        NODOS_USUARIOS_PRIVILEGIOS = new HashMap<>();
+        NODOS_USUARIOS_PRIVILEGIOS.put(Constants.FB_KEY_ITEM_TIPO_USUARIO_INDEFINIDO, FB_KEY_MAIN_INDEFINIDOS);
+        NODOS_USUARIOS_PRIVILEGIOS.put(Constants.FB_KEY_ITEM_TIPO_USUARIO_ADMINISTRADOR, FB_KEY_MAIN_ADMINISTRADORES);
+        NODOS_USUARIOS_PRIVILEGIOS.put(Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR, FB_KEY_MAIN_DOCTORES);
+        NODOS_USUARIOS_PRIVILEGIOS.put(Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE, FB_KEY_MAIN_PACIENTES);
+    }
 
 }
