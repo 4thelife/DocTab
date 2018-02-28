@@ -164,7 +164,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.linear_registro_paciente, FRAGMENT_REGISTRO_PACIENTES);
         /**Menu*/
         ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_LISTADO_INICIO);
-
+        ITEM_FRAGMENT.put(R.id.menu_item_horarios_servicio, FRAGMENT_LISTADO_HORARIOS_SERVICIO);
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIOS);
         //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.menu_item_citas_doctor, FRAGMENT_LISTADO_CITAS_DOCTOR);
@@ -234,7 +234,7 @@ public class Constants {
         TITLE_ACTIVITY.put(R.id.linear_registro_paciente, R.string.default_paciente);
         TITLE_ACTIVITY.put(R.id.btn_agregar_consultorio, R.string.default_title_activity_consultorios);
         TITLE_ACTIVITY.put(R.id.btn_agregar_citas_doctor, R.string.default_title_activity_citas_doctor);
-        TITLE_ACTIVITY.put(R.id.btn_agregar_horario_servicio, R.string.default_title_activity_horarios_servicio);
+        TITLE_ACTIVITY.put(R.id.btn_agregar_horarios_servicio, R.string.default_title_activity_horarios_servicio);
         TITLE_ACTIVITY.put(R.id.item_btn_editar_consultorios, R.string.default_title_activity_consultorios);
     }
 
