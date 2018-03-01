@@ -19,7 +19,7 @@ import java.util.Calendar;
  * Created by Ricardo on 21/02/2018.
  */
 
-public class FormularioHorariosServicioFragment extends Fragment implements View.OnClickListener{
+public class FormularioHorariosDeAtencionFragment extends Fragment implements View.OnClickListener{
 
     TextView agregar_hora_entrada;
     TextView hora_salida;
@@ -33,7 +33,7 @@ public class FormularioHorariosServicioFragment extends Fragment implements View
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_formulario_horarios_servicio, container,
+        View view = inflater.inflate(R.layout.fragment_formulario_horarios_de_atencion, container,
                 false);
 
 
@@ -109,7 +109,7 @@ public class FormularioHorariosServicioFragment extends Fragment implements View
     }
 
     /**
-     * public void setHorariosServicio(HorariosServicio data){
+     * public void setHorariosDeAtencion(HorariosDeAtencion data){
      *
      *  }
      */

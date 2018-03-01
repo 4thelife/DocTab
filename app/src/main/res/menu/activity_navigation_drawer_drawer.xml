@@ -55,7 +55,7 @@
                         android:icon="@mipmap/ic_message_black_48dp"
                         android:title="Mensajes" />-->
                     <item
-                        android:id="@+id/menu_item_horarios_servicio"
+                        android:id="@+id/menu_item_horarios_de_atencion"
                         android:icon="@mipmap/ic_event_black_48dp"
                         android:title="Horarios de servicio"/>
                     <item

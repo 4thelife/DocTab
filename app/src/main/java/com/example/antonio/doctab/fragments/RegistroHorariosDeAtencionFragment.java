@@ -20,7 +20,7 @@ import com.example.antonio.doctab.models.Usuarios;
  * Created by Ricardo on 23/02/2018.
  */
 
-public class RegistroHorariosServicioFragment extends Fragment {
+public class RegistroHorariosDeAtencionFragment extends Fragment {
 
     private MainRegisterInterface activityInterface;
     private static DecodeExtraHelper _MAIN_DECODE;
@@ -29,7 +29,7 @@ public class RegistroHorariosServicioFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_registro_horarios_servicio,container,false);
+        View view = inflater.inflate(R.layout.fragment_registro_horarios_de_atencion,container,false);
 
         _MAIN_DECODE = (DecodeExtraHelper) getActivity().getIntent().getExtras().getSerializable(Constants.KEY_MAIN_DECODE);
         _SESSION_USER = (Usuarios) getActivity().getIntent().getExtras().getSerializable(Constants.KEY_SESSION_USER);
@@ -37,7 +37,7 @@ public class RegistroHorariosServicioFragment extends Fragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction mainFragment = fragmentManager.beginTransaction();
 
-        mainFragment.replace(R.id.fragment_registro_horarios_servicio_container, new FormularioHorariosServicioFragment(), Constants.FORMULARIO_HORARIOS_SERVICIO_FRAGMENT);
+        mainFragment.replace(R.id.fragment_registro_horarios_servicio_container, new FormularioHorariosDeAtencionFragment(), Constants.FORMULARIO_HORARIOS_SERVICIO_FRAGMENT);
 
         mainFragment.commit();
 

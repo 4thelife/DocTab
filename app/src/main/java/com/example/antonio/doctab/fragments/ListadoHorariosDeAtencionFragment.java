@@ -22,7 +22,7 @@ import com.example.antonio.doctab.models.Usuarios;
  * Created by Ricardo on 26/02/2018.
  */
 
-public class ListadoHorariosServicioFragment extends Fragment implements View.OnClickListener {
+public class ListadoHorariosDeAtencionFragment extends Fragment implements View.OnClickListener {
 
 
     private static Usuarios _SESSION_USER;
@@ -31,7 +31,7 @@ public class ListadoHorariosServicioFragment extends Fragment implements View.On
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_listado_horarios_servicio,container,false);
+        View view = inflater.inflate(R.layout.fragment_listado_horarios_de_atencion,container,false);
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
@@ -47,7 +47,7 @@ public class ListadoHorariosServicioFragment extends Fragment implements View.On
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction mainFragment = fragmentManager.beginTransaction();
-        mainFragment.replace(R.id.listado_horarios_servicio_container, new HorariosServicioFragment(), Constants.FRAGMENT_HORARIOS_SERVICIOS);
+        mainFragment.replace(R.id.listado_horarios_servicio_container, new HorariosDeAtencionFragment(), Constants.FRAGMENT_HORARIOS_SERVICIOS);
         mainFragment.commit();
 
         getActivity().setTitle(getString(R.string.default_item_menu_title_horarios_servicio));

@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_horarios_servicio_dia"
+            android:id="@+id/item_horarios_de_atencion_dia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
@@ -22,14 +22,14 @@
             />
 
         <TextView
-            android:id="@+id/item_horarios_servicio_hora_entrada"
+            android:id="@+id/item_horarios_de_atencion_hora_inicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
             android:text="7:00 AM"/>
 
         <TextView
-            android:id="@+id/item_horarios_servicio_hora_salida"
+            android:id="@+id/item_horarios_de_atencion_hora_fin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"

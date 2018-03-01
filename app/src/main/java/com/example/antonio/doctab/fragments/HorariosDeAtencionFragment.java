@@ -13,10 +13,10 @@ import android.widget.LinearLayout;
 
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
-import com.example.antonio.doctab.adapters.HorariosServicioAdapter;
+import com.example.antonio.doctab.adapters.HorariosDeAtencionAdapter;
 import com.example.antonio.doctab.fragments.interfaces.NavigationDrawerInterface;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
-import com.example.antonio.doctab.models.HorariosServicio;
+import com.example.antonio.doctab.models.HorariosDeAtencion;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
 import com.google.firebase.database.DataSnapshot;
@@ -34,16 +34,16 @@ import java.util.List;
  * Created by Ricardo on 24/02/2018.
  */
 
-public class HorariosServicioFragment extends Fragment implements View.OnClickListener {
+public class HorariosDeAtencionFragment extends Fragment implements View.OnClickListener {
 
     private static Usuarios _SESSION_USER;
 
     private static NavigationDrawerInterface activityInterface;
     public static LinearLayout linearLayout;
 
-    private static List<HorariosServicio> dataList;
+    private static List<HorariosDeAtencion> dataList;
     private static RecyclerView recyclerView;
-    private static HorariosServicioAdapter adapter;
+    private static HorariosDeAtencionAdapter adapter;
 
 
     private FirebaseDatabase database;
@@ -53,14 +53,14 @@ public class HorariosServicioFragment extends Fragment implements View.OnClickLi
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_horarios_servicio,container,false);
+        View view = inflater.inflate(R.layout.fragment_horarios_de_atencion,container,false);
 
         _SESSION_USER = SharedPreferencesService.getUsuarioActual(getContext());
 
         linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_horarios_servicio);
 
-        adapter = new HorariosServicioAdapter();
+        adapter = new HorariosDeAtencionAdapter();
         adapter.setOnClickListener(this);
 
         database = FirebaseDatabase.getInstance();
@@ -93,14 +93,14 @@ public class HorariosServicioFragment extends Fragment implements View.OnClickLi
         listenerHorariosServicios = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                adapter = new HorariosServicioAdapter();
+                adapter = new HorariosDeAtencionAdapter();
                 dataList = new ArrayList<>();
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
 
-                    HorariosServicio horariosServicio = dataSnapshot.getValue(HorariosServicio.class);
+                    HorariosDeAtencion horariosDeAtencion = dataSnapshot.getValue(HorariosDeAtencion.class);
 
-                    /**switch (HorariosServicio.getEstatus()) {
+                    /**switch (HorariosDeAtencion.getEstatus()) {
                         case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
                         case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
                             dataList.add(consultorio);
@@ -127,9 +127,9 @@ public class HorariosServicioFragment extends Fragment implements View.OnClickLi
          * Falta colocar el comparador para ordenar la vista de los dias
          */
 
-        Collections.sort(dataList, new Comparator<HorariosServicio>() {
+        Collections.sort(dataList, new Comparator<HorariosDeAtencion>() {
             @Override
-            public int compare(HorariosServicio o1, HorariosServicio o2) {
+            public int compare(HorariosDeAtencion o1, HorariosDeAtencion o2) {
                 return (o1.getDia().compareTo(o2.getDia()));
             }
         });

@@ -123,7 +123,7 @@
     <string name="default_activity_title_cabezas">Cabezas</string>
     <string name="default_title_activity_consultorios">Consultorios</string>
     <string name="default_title_activity_citas_doctor">Mis citas</string>
-    <string name="default_title_activity_horarios_servicio">Mi horario</string>
+    <string name="default_title_activity_horarios_de_atencion">Mi horario</string>
 
     <string name="default_loading_msg">Por favor espera un momento</string>
     <string name="default_alert_dialog_aceptar">Aceptar</string>

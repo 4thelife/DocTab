@@ -18,7 +18,7 @@
             android:orientation="vertical">
 
             <FrameLayout
-                android:id="@+id/fragment_registro_horarios_servicio_container"
+                android:id="@+id/fragment_registro_horarios_de_atencion_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null">
@@ -26,7 +26,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/fragment_horarios_servicio_container"
+                android:id="@+id/fragment_horarios_de_atencion_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null">
@@ -34,7 +34,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/fragment_acciones__horarios_servicio_container"
+                android:id="@+id/fragment_acciones__horarios_de_atencion_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null">
