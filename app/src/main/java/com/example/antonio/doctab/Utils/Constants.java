@@ -130,7 +130,7 @@ public class Constants {
     public static final String FORMULARIO_SERVICIOS_FRAGMENT = "formulario_servicios_fragment";
     public static final String FORMULARIO_CITAS_DOCTOR_FRAGMENT = "formulario_citas_doctor_fragment";
     public static final String FORMULARIO_MENSAJES_FRAGMENT = "formulario_mensajes_fragment";
-    public static final String FORMULARIO_HORARIOS_DE_ATENCION_FRAGMENT = "formulario_horario_de_atencion_fragment";
+    public static final String FORMULARIO_HORARIOS_DE_ATENCION_FRAGMENT = "formulario_horarios_de_atencion_fragment";
 
     /**
      * Fragmentos de Registro

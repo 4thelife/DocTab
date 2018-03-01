@@ -57,7 +57,7 @@
                     <item
                         android:id="@+id/menu_item_horarios_de_atencion"
                         android:icon="@mipmap/ic_event_black_48dp"
-                        android:title="Horarios de servicio"/>
+                        android:title="Horarios de Atencion"/>
                     <item
                         android:id="@+id/menu_item_consultorios_doctor"
                         android:icon="@mipmap/ic_domain_black_48dp"
