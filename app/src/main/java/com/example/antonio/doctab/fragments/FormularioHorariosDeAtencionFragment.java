@@ -73,18 +73,18 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                         selectedTimeFormat(hour);
                         agregar_hora_entrada.setText(hour+":"+minute+" "+format);
                     }
-                },hour,minute,true);
+                },hour,minute,false);
                 timePickerDialog.show();
                 break;
             case R.id.tv_agregar_hora_salida:
-                new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+             /*   new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
                         selectedTimeFormat(hour);
                         agregar_hora_fin.setText(hour+":"+minute+" "+format);
                     }
                 },hour,minute,true);
-                timePickerDialog.show();
+                timePickerDialog.show(); */
                 break;
         }
 
