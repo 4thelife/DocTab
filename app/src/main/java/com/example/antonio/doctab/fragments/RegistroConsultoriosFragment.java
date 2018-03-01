@@ -36,8 +36,12 @@ public class RegistroConsultoriosFragment extends Fragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction mainFragment = fragmentManager.beginTransaction();
 
-        mainFragment.replace(R.id.fragment_registro_consultorio_container, new FormularioConsultorioFragment(), Constants.FORMULARIO_CONSULTORIOS_FRAGMENT);
-        mainFragment.replace(R.id.fragment_acciones_consultorio_container, new AccionesConsultoriosFragment(), Constants.FORMULARIO_ACCIONES_CONSULTORIOS_FRAGMENT);
+        mainFragment.replace(R.id.fragment_registro_consultorio_container,
+                new FormularioConsultorioFragment(),
+                Constants.FORMULARIO_CONSULTORIOS_FRAGMENT);
+        mainFragment.replace(R.id.fragment_acciones_consultorio_container,
+                new AccionesConsultoriosFragment(),
+                Constants.FORMULARIO_ACCIONES_CONSULTORIOS_FRAGMENT);
 
         mainFragment.commit();
 

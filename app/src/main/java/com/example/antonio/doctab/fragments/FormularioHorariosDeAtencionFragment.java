@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.ToggleButton;
 
 
 import com.example.antonio.doctab.R;
@@ -22,7 +23,8 @@ import java.util.Calendar;
 public class FormularioHorariosDeAtencionFragment extends Fragment implements View.OnClickListener{
 
     TextView agregar_hora_entrada;
-    TextView hora_salida;
+    TextView agregar_hora_fin;
+    ToggleButton tgb0, tgb1, tgb2, tgb3, tgb4, tgb5, tgb6;
     Calendar currentTime;
     int hour,minute;
     String format;
@@ -38,6 +40,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
 
 
         agregar_hora_entrada = (TextView) view.findViewById(R.id.tv_agregar_hora_entrada);
+        agregar_hora_fin = (TextView) view.findViewById(R.id.tv_agregar_hora_salida);
 
         currentTime = Calendar.getInstance();
 
@@ -45,6 +48,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         minute =currentTime.get(Calendar.MINUTE);
 
         agregar_hora_entrada.setText(hour+":"+minute+" "+format);
+        agregar_hora_fin.setText(hour+":"+minute+" "+format);
 
         agregar_hora_entrada.setOnClickListener(this);
 
@@ -73,9 +77,14 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                 timePickerDialog.show();
                 break;
             case R.id.tv_agregar_hora_salida:
-                /**
-                 * Aqui va el codigo para hacer funcionar la hora de salida
-                 */
+                new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                        selectedTimeFormat(hour);
+                        agregar_hora_fin.setText(hour+":"+minute+" "+format);
+                    }
+                },hour,minute,true);
+                timePickerDialog.show();
                 break;
         }
 

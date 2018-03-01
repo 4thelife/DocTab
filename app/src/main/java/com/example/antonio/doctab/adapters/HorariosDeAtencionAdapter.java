@@ -81,7 +81,7 @@ public class HorariosDeAtencionAdapter extends RecyclerView.Adapter<HorariosDeAt
 
     @Override
     public int getItemCount() {
-        return 0;
+        return dataList== null ? 0 : dataList.size();
     }
 
 
