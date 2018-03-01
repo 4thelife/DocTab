@@ -21,7 +21,6 @@
                 android:layout_marginBottom="70dp"
                 android:background="@null" />
 
-        //Aqui va Duracion de la cita y un boton-flecha
 
 
     </LinearLayout>

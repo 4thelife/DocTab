@@ -26,6 +26,24 @@
 
         </FrameLayout>
 
+
+
+        <FrameLayout
+            android:id="@+id/la_duracion_consulta"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="70dp"
+            android:background="@null">
+            <!--El fragment  Duracion de Consulta -->
+
+
+        </FrameLayout>
+
+
+
     </LinearLayout>
 
     <RelativeLayout
