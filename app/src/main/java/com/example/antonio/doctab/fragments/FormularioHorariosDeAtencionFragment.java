@@ -38,19 +38,21 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         View view = inflater.inflate(R.layout.fragment_formulario_horarios_de_atencion, container,
                 false);
 
-
+        
         agregar_hora_entrada = (TextView) view.findViewById(R.id.tv_agregar_hora_entrada);
         agregar_hora_fin = (TextView) view.findViewById(R.id.tv_agregar_hora_salida);
 
         currentTime = Calendar.getInstance();
 
         hour = currentTime.get(Calendar.HOUR_OF_DAY);
+        selectedTimeFormat(hour);
         minute =currentTime.get(Calendar.MINUTE);
 
         agregar_hora_entrada.setText(hour+":"+minute+" "+format);
         agregar_hora_fin.setText(hour+":"+minute+" "+format);
 
         agregar_hora_entrada.setOnClickListener(this);
+        agregar_hora_fin.setOnClickListener(this);
 
 
         return view;
@@ -77,14 +79,14 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                 timePickerDialog.show();
                 break;
             case R.id.tv_agregar_hora_salida:
-             /*   new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+                TimePickerDialog timePickerDialog1 = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
                         selectedTimeFormat(hour);
                         agregar_hora_fin.setText(hour+":"+minute+" "+format);
                     }
-                },hour,minute,true);
-                timePickerDialog.show(); */
+                },hour,minute,false);
+                timePickerDialog1.show();
                 break;
         }
 
