@@ -35,7 +35,7 @@ public class ListadoHorariosDeAtencionFragment extends Fragment implements View.
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
-        btnAgregar = (Button) view.findViewById(R.id.btn_agregar_horarios_servicio);
+        btnAgregar = (Button) view.findViewById(R.id.btn_agregar_horarios_de_atencion);
         btnAgregar.setOnClickListener(this);
 
         return view;
@@ -47,7 +47,7 @@ public class ListadoHorariosDeAtencionFragment extends Fragment implements View.
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction mainFragment = fragmentManager.beginTransaction();
-        mainFragment.replace(R.id.listado_horarios_servicio_container, new HorariosDeAtencionFragment(), Constants.FRAGMENT_HORARIOS_SERVICIOS);
+        mainFragment.replace(R.id.listado_horarios_de_atencion_container, new HorariosDeAtencionFragment(), Constants.FRAGMENT_HORARIOS_DE_ATENCION);
         mainFragment.commit();
 
         getActivity().setTitle(getString(R.string.default_item_menu_title_horarios_servicio));
@@ -61,7 +61,7 @@ public class ListadoHorariosDeAtencionFragment extends Fragment implements View.
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btn_agregar_horarios_servicio:
+            case R.id.btn_agregar_horarios_de_atencion:
                 DecodeExtraHelper extra = new DecodeExtraHelper();
 
                 extra.setTituloActividad(getString(Constants.TITLE_ACTIVITY.get(v.getId())));

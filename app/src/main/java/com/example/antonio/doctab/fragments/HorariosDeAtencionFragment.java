@@ -58,16 +58,16 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
         _SESSION_USER = SharedPreferencesService.getUsuarioActual(getContext());
 
         linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_horarios_servicio);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_horarios_de_atencion);
 
         adapter = new HorariosDeAtencionAdapter();
         adapter.setOnClickListener(this);
 
         database = FirebaseDatabase.getInstance();
 
-        drDoctores = database.getReference(Constants.FB_KEY_MAIN_HORARIOS_SERVICIO)
+        drDoctores = database.getReference(Constants.FB_KEY_MAIN_HORARIOS_DE_ATENCION)
                 .child(_SESSION_USER.getFirebaseId())
-                .child(Constants.FB_KEY_ITEM_HORARIOS_SERVICIO);
+                .child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION);
 
         return view;
 

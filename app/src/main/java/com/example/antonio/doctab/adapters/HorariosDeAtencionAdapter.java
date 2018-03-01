@@ -34,9 +34,9 @@ public class HorariosDeAtencionAdapter extends RecyclerView.Adapter<HorariosDeAt
             super(itemView);
 
 
-             txtDia = (TextView)itemView.findViewById(R.id.item_horarios_servicio_dia);
-             txtHoraInicio = (TextView)itemView.findViewById(R.id.item_horarios_servicio_hora_inicio);
-             txtHoraFin = (TextView)itemView.findViewById(R.id.item_horarios_servicio_hora_fin);
+             txtDia = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_dia);
+             txtHoraInicio = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_hora_inicio);
+             txtHoraFin = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_hora_fin);
 
 
 
