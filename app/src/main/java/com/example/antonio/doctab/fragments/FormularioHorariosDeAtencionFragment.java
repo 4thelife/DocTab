@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.ToggleButton;
@@ -26,6 +27,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
     TextView agregar_hora_fin;
     ToggleButton tgb0, tgb1, tgb2, tgb3, tgb4, tgb5, tgb6;
     Calendar currentTime;
+    Boolean dia0,dia1,dia2,dia3,dia4,dia5,dia6 = false;
     int hour,minute;
     String format;
 
@@ -35,7 +37,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_formulario_horarios_de_atencion, container,
+        final View view = inflater.inflate(R.layout.fragment_formulario_horarios_de_atencion, container,
                 false);
 
 
@@ -53,6 +55,60 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
 
         agregar_hora_entrada.setOnClickListener(this);
         agregar_hora_fin.setOnClickListener(this);
+        tgb0 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_0);
+        tgb1 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_1);
+        tgb2 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_2);
+        tgb3 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_3);
+        tgb4 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_4);
+        tgb5 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_5);
+        tgb6 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_6);
+
+
+        tgb0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){ dia0=true; }else{ dia0=false; }
+            }
+        });
+
+        tgb1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){ dia1=true; }else{ dia1=false; }
+            }
+        });
+        tgb2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){ dia2=true; }else{ dia2=false; }
+            }
+        });
+        tgb3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){ dia3=true; }else{ dia3=false; }
+            }
+        });
+
+        tgb4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){ dia4=true; }else{ dia4=false; }
+            }
+        });
+        tgb5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){ dia5=true; }else{ dia5=false; }
+            }
+        });
+        tgb6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){ dia6=true; }else{ dia6=false; }
+            }
+        });
+
 
 
         return view;
@@ -110,6 +166,33 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         }
 
     }
+    /**
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        switch (getId()){
+            case R.id.tgBtn_dia_0:
+                if (isChecked){ dia0=true; }else{ dia0=false; }
+                break;
+            case R.id.tgBtn_dia_1:
+                if (isChecked){ dia1=true; }else{ dia1=false; }
+                break;
+            case R.id.tgBtn_dia_2:
+                if (isChecked){ dia2=true; }else{ dia2=false; }
+                break;
+            case R.id.tgBtn_dia_3:
+                if (isChecked){ dia3=true; }else{ dia3=false; }
+                break;
+            case R.id.tgBtn_dia_4:
+                if (isChecked){ dia4=true; }else{ dia4=false; }
+                break;
+            case R.id.tgBtn_dia_5:
+                if (isChecked){ dia5=true; }else{ dia5=false; }
+                break;
+            case R.id.tgBtn_dia_6:
+                if (isChecked){ dia6=true; }else{ dia6=false; }
+                break;
+
+        }
+    }*/
 
     private void onPreRender(){
 

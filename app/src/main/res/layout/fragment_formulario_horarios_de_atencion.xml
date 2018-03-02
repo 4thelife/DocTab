@@ -47,47 +47,47 @@
         android:orientation="horizontal">
 
         <ToggleButton
-            android:id="@+id/toggBtn_dia_0"
+            android:id="@+id/tgBtn_dia_0"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textOff="@string/dia_0"
-            android:textOn="@string/dia_5" />
+            android:textOn="@string/dia_0" />
 
         <ToggleButton
-            android:id="@+id/toggBtn_dia_1"
+            android:id="@+id/tgBtn_dia_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textOff="@string/dia_1"
-            android:textOn="@string/dia_5" />
+            android:textOn="@string/dia_1" />
 
         <ToggleButton
-            android:id="@+id/toggBtn_dia_2"
+            android:id="@+id/tgBtn_dia_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textOff="@string/dia_2"
-            android:textOn="@string/dia_5" />
+            android:textOn="@string/dia_2" />
 
         <ToggleButton
-            android:id="@+id/toggBtn_dia_3"
+            android:id="@+id/tgBtn_dia_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textOff="@string/dia_3"
-            android:textOn="@string/dia_5" />
+            android:textOn="@string/dia_3" />
 
         <ToggleButton
-            android:id="@+id/toggBtn_dia_4"
+            android:id="@+id/tgBtn_dia_4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textOff="@string/dia_4"
-            android:textOn="@string/dia_5" />
+            android:textOn="@string/dia_4" />
 
         <ToggleButton
-            android:id="@+id/toggBtn_dia_5"
+            android:id="@+id/tgBtn_dia_5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -95,7 +95,7 @@
             android:textOn="@string/dia_5" />
 
         <ToggleButton
-            android:id="@+id/toggBtn_dia_6"
+            android:id="@+id/tgBtn_dia_6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
