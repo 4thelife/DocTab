@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <FrameLayout
-        android:id="@+id/fragment_vista_datos_doctor_container"
+        android:id="@+id/fragment_miperfil_general_doctor_privado_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@null">
@@ -14,7 +14,16 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/fragment_vista_horario_doctor_container"
+        android:id="@+id/fragment_miperfil_academico_doctor_privado_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null">
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_miperfil_servicios_doctor_privado_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@null">

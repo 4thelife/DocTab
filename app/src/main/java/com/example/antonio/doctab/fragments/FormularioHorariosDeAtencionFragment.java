@@ -38,7 +38,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         View view = inflater.inflate(R.layout.fragment_formulario_horarios_de_atencion, container,
                 false);
 
-        
+
         agregar_hora_entrada = (TextView) view.findViewById(R.id.tv_agregar_hora_entrada);
         agregar_hora_fin = (TextView) view.findViewById(R.id.tv_agregar_hora_salida);
 
