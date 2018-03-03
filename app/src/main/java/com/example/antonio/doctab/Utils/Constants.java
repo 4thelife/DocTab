@@ -158,6 +158,22 @@ public class Constants {
     public static final String FRAGMENT_ITEM_MENSAJES = "fragment_item_mensajes";
     public static final String FRAGMENT_ITEM_HORARIOS_DE_ATENCION = "fragment_item_horarios_de_atencion";
 
+    /**
+     * Fragmentos principales de panel
+     **/
+    public static final String FRAGMENT_MAIN_PANEL = "fragment_main_panel";
+
+
+
+    /**
+     * Contenido del FRAGMENT_MAIN_PANEL
+     **/
+    public static final String PANEL_PERFIL_GENERAL_CONTAINER = "panel_perfil_general_container";
+
+
+
+
+
 
     public static final HashMap<Integer, String> ITEM_FRAGMENT;
 

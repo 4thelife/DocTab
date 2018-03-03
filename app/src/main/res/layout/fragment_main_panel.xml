@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.antonio.doctab.fragments.MainPanelFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Fragmento para traer el panel de Perfil general (Doctor)-->
+            <FrameLayout
+                android:id="@+id/panel_perfil_general_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null" />
+
+            <FrameLayout
+                android:id="@+id/panel_perfil_academico_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null" />
+
+            <FrameLayout
+                android:id="@+id/panel_perfil_servicio_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null" />
+
+
+            <!--Fragmento para traer el panel de Pacientes-->
+            <FrameLayout
+                android:id="@+id/panel_fletes_rapidos_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null" />
+
+
+
+            <!--Fragmento para traer el panel de colaboradores-->
+            <FrameLayout
+                android:id="@+id/panel_colaboradores_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null" />
+
+            <!--Fragmento para traer el panel de clientes-->
+            <FrameLayout
+                android:id="@+id/panel_clientes_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null" />
+
+            <!--Fragmento para traer el panel de bodegas-->
+            <FrameLayout
+                android:id="@+id/panel_bodegas_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null" />
+
+            <!--Fragmento para traer el panel de transportistas-->
+            <FrameLayout
+                android:id="@+id/panel_transportistas_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null" />
+
+            <!--Fragmento para traer el panel de transportistas-->
+            <FrameLayout
+                android:id="@+id/panel_choferes_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null" />
+
+            <!--Fragmento para traer el panel de transportistas-->
+            <FrameLayout
+                android:id="@+id/panel_tractores_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null" />
+
+            <!--Fragmento para traer el panel de transportistas-->
+            <FrameLayout
+                android:id="@+id/panel_remolques_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>
