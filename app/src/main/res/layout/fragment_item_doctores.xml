@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Nombre(s)" />
 
         <!--
@@ -35,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Especialidad(s)" />
 
         <TextView
@@ -43,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Cedula Profesional" />
 
         <TextView
@@ -51,6 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Sexo" />
 
         <TextView
@@ -59,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="@string/form_telefono" />
 
 

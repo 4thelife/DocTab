@@ -12,6 +12,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:text="Hora de Entrada:"
             android:textSize="22dp" />
 
@@ -20,6 +21,7 @@
             android:id="@+id/tv_agregar_hora_entrada"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="monospace"
             android:text="07:00 AM"
             android:textAlignment="center"
             android:textSize="36sp" />
@@ -27,12 +29,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:text="Hora de Salida:"
             android:textSize="22dp" />
 
         <TextView
             android:id="@+id/tv_agregar_hora_salida"
             android:layout_width="match_parent"
+            android:fontFamily="monospace"
             android:layout_height="match_parent"
             android:text="06:00 PM"
             android:textAlignment="center"

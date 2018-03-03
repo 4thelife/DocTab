@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Nombre(s) del paciente" />
 
         <TextView
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Apellidos del paciente"
             android:textAlignment="textEnd" />
 
@@ -34,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Edad Paciente"
             android:textAlignment="textEnd" />
 
@@ -43,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Sexo"
             android:textAlignment="textEnd" />
 
@@ -52,6 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Alegico a"
             android:textAlignment="textEnd" />
 
@@ -61,6 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Ultima cita registrada"
             android:textAlignment="textEnd" />
 

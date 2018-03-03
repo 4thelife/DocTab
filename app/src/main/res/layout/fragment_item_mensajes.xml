@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Nombre del remitente" />
 
         <TextView
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Asunto del mensaje" />
         <TextView
             android:id="@+id/item_mensajes_contenido"
@@ -32,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:fontFamily="monospace"
             android:text="Contenido del mensaje" />
 
         <LinearLayout
