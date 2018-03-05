@@ -113,6 +113,9 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
 
     private void editar(){
         /**Transporta la informacion del objeto a la actividad de registro*/
+        /**HorarioDeAtencionHelper helper = new HorarioDeAtencionHelper();
+        helper.setHorariosDeAtencion(FormularioHorariosDeAtencionFragment._horariosDeAtencionActual);
+        activityInterface.editarHorarioDeAtencion(helper);*/
     }
 
 }
