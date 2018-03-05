@@ -14,6 +14,7 @@ import android.widget.ToggleButton;
 
 
 import com.example.antonio.doctab.R;
+import com.example.antonio.doctab.models.HorariosDeAtencion;
 
 import java.util.Calendar;
 
@@ -23,6 +24,8 @@ import java.util.Calendar;
 
 public class FormularioHorariosDeAtencionFragment extends Fragment implements View.OnClickListener{
 
+    private static final String TAG = FormularioHorariosDeAtencionFragment.class.getSimpleName();
+
     TextView agregar_hora_entrada;
     TextView agregar_hora_fin;
     ToggleButton tgb0, tgb1, tgb2, tgb3, tgb4, tgb5, tgb6;
@@ -30,6 +33,9 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
     Boolean dia0,dia1,dia2,dia3,dia4,dia5,dia6 = false;
     int hour,minute;
     String format;
+
+    public static HorariosDeAtencion _horarioDeATencionActual;
+
 
 
 
@@ -43,6 +49,13 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
 
         agregar_hora_entrada = (TextView) view.findViewById(R.id.tv_agregar_hora_entrada);
         agregar_hora_fin = (TextView) view.findViewById(R.id.tv_agregar_hora_salida);
+        tgb0 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_0);
+        tgb1 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_1);
+        tgb2 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_2);
+        tgb3 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_3);
+        tgb4 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_4);
+        tgb5 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_5);
+        tgb6 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_6);
 
         currentTime = Calendar.getInstance();
 
@@ -55,13 +68,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
 
         agregar_hora_entrada.setOnClickListener(this);
         agregar_hora_fin.setOnClickListener(this);
-        tgb0 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_0);
-        tgb1 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_1);
-        tgb2 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_2);
-        tgb3 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_3);
-        tgb4 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_4);
-        tgb5 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_5);
-        tgb6 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_6);
+
 
 
         tgb0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
