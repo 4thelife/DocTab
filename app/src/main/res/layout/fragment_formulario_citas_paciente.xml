@@ -32,44 +32,55 @@
                     android:textColor="@color/common_google_signin_btn_text_dark_focused"
                     android:textSize="18sp"/>
 
-                <TextView
-                    android:id="@+id/txt_datos_cita_doctor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="monospace"
-                    android:text="@string/dato_cita_doctor"
-                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                    />
-
-                <TextView
-                    android:id="@+id/txt_datos_cita_fecha"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="monospace"
-                    android:text="@string/dato_cita_fecha"
-                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
-                    />
-
-                <TextView
-                    android:id="@+id/txt_datos_cita_hora"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="monospace"
-
-                    android:text="@string/dato_cita_hora"
-                    android:textColor="@color/common_google_signin_btn_text_dark_focused" />
-
-
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_citas_paciente_nombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/ed_form_cita_asunto"
+                        android:id="@+id/ed_citas_paciente_noombre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
+                        android:hint="@string/dato_cita_doctor" />
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_citas_paciente_fecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/ed_citas_paciente_fecha"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:hint="@string/dato_cita_fecha" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_citas_paciente_hora"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/ed_citas_paciente_hora"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:hint="@string/dato_cita_hora" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_citas_paciente_asunto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/ed_citas_paciente_asunto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
                         android:hint="@string/form_asunto" />
                 </android.support.design.widget.TextInputLayout>
                 <LinearLayout
