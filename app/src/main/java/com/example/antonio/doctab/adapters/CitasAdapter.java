@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ricardo on 17/02/2018.
+ * Created by Ricardo on 13/02/2018.
  */
 
-public class CitasPacienteAdapter extends RecyclerView.Adapter<CitasPacienteAdapter.ViewHolder> {
+public class CitasAdapter extends RecyclerView.Adapter<CitasAdapter.ViewHolder> {
 
     View.OnClickListener onClickListener;
     List<Citas> dataList = new ArrayList<>();
@@ -37,11 +37,11 @@ public class CitasPacienteAdapter extends RecyclerView.Adapter<CitasPacienteAdap
             super(itemView);
 
             txtDoctor = (TextView) itemView.findViewById(R.id.item_citas_doctor);
-            txtPaciente = (TextView) itemView.findViewById(R.id.item_citas_paciente_paciente);
-            txtFecha = (TextView) itemView.findViewById(R.id.item_citas_paciente_fecha);
-            txtHora = (TextView) itemView.findViewById(R.id.item_citas_paciente_horario);
-            txtEstadoCita = (TextView) itemView.findViewById(R.id.item_citas_paciente_estado_cita);
-            txtAsunto = (TextView) itemView.findViewById(R.id.item_citas_paciente_asunto);
+            txtPaciente = (TextView) itemView.findViewById(R.id.item_citas_paciente);
+            txtFecha = (TextView) itemView.findViewById(R.id.item_citas_fecha);
+            txtHora = (TextView) itemView.findViewById(R.id.item_citas_horario);
+            txtEstadoCita = (TextView) itemView.findViewById(R.id.item_citas_estado_cita);
+            txtAsunto = (TextView) itemView.findViewById(R.id.item_citas_asunto);
 
 
         }
@@ -66,12 +66,12 @@ public class CitasPacienteAdapter extends RecyclerView.Adapter<CitasPacienteAdap
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_citas_doctor, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_citas, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(CitasPacienteAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         final Citas item = dataList.get(position);
         /**Llena el objeto que sera enviado al fragmento**/
         final DecodeItemHelper decodeItem = new DecodeItemHelper();
@@ -80,6 +80,7 @@ public class CitasPacienteAdapter extends RecyclerView.Adapter<CitasPacienteAdap
         decodeItem.setPosition(position);
 
         holder.txtDoctor.setText(item.getDoctor());
+
         holder.txtPaciente.setText(item.getPaciente());
         holder.txtFecha.setText(item.getFecha());
         holder.txtHora.setText(item.getHora());
@@ -91,7 +92,7 @@ public class CitasPacienteAdapter extends RecyclerView.Adapter<CitasPacienteAdap
 
     @Override
     public int getItemCount() {
-        return 0;
+        return dataList == null ? 0 : dataList.size();
     }
 
 }

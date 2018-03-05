@@ -42,7 +42,7 @@
                     android:id="@+id/submenu_doctor"
                     android:checkableBehavior="single">
                     <item
-                        android:id="@+id/menu_item_citas_doctor"
+                        android:id="@+id/menu_item_citas"
                         android:icon="@mipmap/ic_event_black_48dp"
                         android:title="Citas" />
                     <!--

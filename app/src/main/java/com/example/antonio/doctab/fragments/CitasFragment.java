@@ -1,8 +1,6 @@
 package com.example.antonio.doctab.fragments;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,7 +13,7 @@ import android.widget.LinearLayout;
 
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
-import com.example.antonio.doctab.adapters.CitasDoctorAdapter;
+import com.example.antonio.doctab.adapters.CitasAdapter;
 import com.example.antonio.doctab.fragments.interfaces.NavigationDrawerInterface;
 import com.example.antonio.doctab.models.Citas;
 import com.google.firebase.database.DataSnapshot;
@@ -33,13 +31,13 @@ import java.util.List;
  * Created by Ricardo on 13/02/2018.
  */
 
-public class CitasDoctorFragment extends Fragment implements View.OnClickListener{
+public class CitasFragment extends Fragment implements View.OnClickListener{
     private static NavigationDrawerInterface activityInterface;
     public static LinearLayout linearLayout;
 
     private static List<Citas> dataList;
     private static RecyclerView recyclerView;
-    public static CitasDoctorAdapter adapter;
+    public static CitasAdapter adapter;
 
     /**
      * Declaraciones de firabase
@@ -53,10 +51,10 @@ public class CitasDoctorFragment extends Fragment implements View.OnClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_citas_doctor, container, false);
+        View view = inflater.inflate(R.layout.fragment_citas, container, false);
         linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_citas_doctor);
-        adapter = new CitasDoctorAdapter();
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_citas);
+        adapter = new CitasAdapter();
         adapter.setOnClickListener(this);
 
         database = FirebaseDatabase.getInstance();
@@ -87,7 +85,7 @@ public class CitasDoctorFragment extends Fragment implements View.OnClickListene
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                adapter = new CitasDoctorAdapter();
+                adapter = new CitasAdapter();
                 dataList = new ArrayList<>();
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {

@@ -20,7 +20,7 @@ import com.example.antonio.doctab.models.Usuarios;
  * Created by Ricardo on 13/02/2018.
  */
 
-public class RegistroCitasDoctorFragment extends Fragment {
+public class RegistroCitasFragment extends Fragment {
 
     private MainRegisterInterface activityInterface;
 
@@ -31,7 +31,7 @@ public class RegistroCitasDoctorFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_registro_citas_doctor, container, false);
+        View view = inflater.inflate(R.layout.fragment_registro_citas, container, false);
 
         _MAIN_DECODE = (DecodeExtraHelper) getActivity().getIntent().getExtras().getSerializable(Constants.KEY_MAIN_DECODE);
         _SESSION_USER = (Usuarios) getActivity().getIntent().getExtras().getSerializable(Constants.KEY_SESSION_USER);
@@ -39,7 +39,7 @@ public class RegistroCitasDoctorFragment extends Fragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction mainFragment = fragmentManager.beginTransaction();
 
-        mainFragment.replace(R.id.fragment_registro_citas_doctor_container, new FormularioCitasDoctorFragment(), Constants.FORMULARIO_CITAS_DOCTOR_FRAGMENT);
+        mainFragment.replace(R.id.fragment_registro_citas_doctor_container, new FormularioCitasFragment(), Constants.FORMULARIO_CITAS_FRAGMENT);
 
         mainFragment.commit();
 

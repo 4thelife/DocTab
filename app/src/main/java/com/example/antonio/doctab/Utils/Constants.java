@@ -5,11 +5,11 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.example.antonio.doctab.R;
-import com.example.antonio.doctab.fragments.CitasDoctorFragment;
+import com.example.antonio.doctab.fragments.CitasFragment;
 import com.example.antonio.doctab.fragments.ConsultoriosFragment;
 import com.example.antonio.doctab.fragments.DoctoresFragment;
 import com.example.antonio.doctab.fragments.EspecialidadesFragment;
-import com.example.antonio.doctab.fragments.FormularioCitasDoctorFragment;
+import com.example.antonio.doctab.fragments.FormularioCitasFragment;
 import com.example.antonio.doctab.fragments.FormularioConsultorioFragment;
 import com.example.antonio.doctab.fragments.FormularioDoctoresFragment;
 import com.example.antonio.doctab.fragments.FormularioEspecialidadesFragment;
@@ -18,7 +18,7 @@ import com.example.antonio.doctab.fragments.FormularioMensajesFragment;
 import com.example.antonio.doctab.fragments.FormularioPacientesDoctorFragment;
 import com.example.antonio.doctab.fragments.FormularioServiciosFragment;
 import com.example.antonio.doctab.fragments.HorariosDeAtencionFragment;
-import com.example.antonio.doctab.fragments.ListadoCitasDoctorFragment;
+import com.example.antonio.doctab.fragments.ListadoCitasFragment;
 import com.example.antonio.doctab.fragments.ListadoConsultoriosFragment;
 import com.example.antonio.doctab.fragments.ListadoDoctoresFragment;
 import com.example.antonio.doctab.fragments.ListadoEspecialidadesFragment;
@@ -30,7 +30,7 @@ import com.example.antonio.doctab.fragments.ListadoSeleccionIndefinidoFragment;
 import com.example.antonio.doctab.fragments.ListadoServiciosFragment;
 import com.example.antonio.doctab.fragments.MensajesFragment;
 import com.example.antonio.doctab.fragments.PacientesFragment;
-import com.example.antonio.doctab.fragments.RegistroCitasDoctorFragment;
+import com.example.antonio.doctab.fragments.RegistroCitasFragment;
 import com.example.antonio.doctab.fragments.RegistroConsultoriosFragment;
 import com.example.antonio.doctab.fragments.RegistroDoctoresFragment;
 import com.example.antonio.doctab.fragments.RegistroEspecialidadesFragment;
@@ -72,7 +72,7 @@ public class Constants {
     public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
     public static final String FB_KEY_ITEM_TIPO_USUARIO = "tipoDeUsuario";
     public static final String FB_KEY_ITEM_FIREBASE_ID = "firebaseId";
-    public static final String FB_KEY_MAIN_CITAS_DOCTOR = "citas";
+    public static final String FB_KEY_MAIN_CITAS = "citas";
 
     /**
      * Key Extras
@@ -91,7 +91,7 @@ public class Constants {
     /**
      * Fragmentos principales de lista
      **/
-    public static final String FRAGMENT_LISTADO_CITAS_DOCTOR = "fragment_listado_citas_doctor";
+    public static final String FRAGMENT_LISTADO_CITAS = "fragment_listado_citas";
     public static final String FRAGMENT_LISTADO_CONSULTORIOS = "fragment_listado_consultorios";
     public static final String FRAGMENT_LISTADO_DOCTORES = "fragment_listado_doctores";
     public static final String FRAGMENT_LISTADO_ESPECIALIDADES = "fragment_listado_especialidades";
@@ -107,7 +107,7 @@ public class Constants {
     public static final String FRAGMENT_INICIOS = "fragment_inicios";
     public static final String FRAGMENT_CONSULTORIOS = "fragment_consultorios";
     public static final String FRAGMENT_DOCTOR = "fragment_doctor";
-    public static final String FRAGMENT_CITAS_DOCTOR = "fragment_citas_doctor";
+    public static final String FRAGMENT_CITAS = "fragment_citas";
     public static final String FRAGMENT_ESPECIALIDADES = "fragment_especialidades";
     public static final String FRAGMENT_SERVICIOS = "fragment_servicios";
     public static final String FRAGMENT_PACIENTES_DOCTOR = "fragment_pacientes_doctor";
@@ -128,7 +128,7 @@ public class Constants {
     public static final String FORMULARIO_ESPECIALIDADES_FRAGMENT = "formulario_especialidades_fragment";
     public static final String FORMULARIO_PACIENTES_DOCTOR_FRAGMENT = "formulario_pacientes_doctor_fragment";
     public static final String FORMULARIO_SERVICIOS_FRAGMENT = "formulario_servicios_fragment";
-    public static final String FORMULARIO_CITAS_DOCTOR_FRAGMENT = "formulario_citas_doctor_fragment";
+    public static final String FORMULARIO_CITAS_FRAGMENT = "formulario_citas_fragment";
     public static final String FORMULARIO_MENSAJES_FRAGMENT = "formulario_mensajes_fragment";
     public static final String FORMULARIO_HORARIOS_DE_ATENCION_FRAGMENT = "formulario_horarios_de_atencion_fragment";
 
@@ -142,14 +142,14 @@ public class Constants {
     public static final String FRAGMENT_REGISTRO_ESPECIALIDADES = "fragment_registro_especialidades";
     public static final String FRAGMENT_REGISTRO_PACIENTES_DOCTOR = "fragment_registro_pacientes_doctor";
     public static final String FRAGMENT_REGISTRO_SERVICIOS = "fragment_registro_servicios";
-    public static final String FRAGMENT_REGISTRO_CITAS_DOCTOR = "fragment_registro_citas_doctor";
+    public static final String FRAGMENT_REGISTRO_CITAS = "fragment_registro_citas";
     public static final String FRAGMENT_REGISTRO_MENSAJES = "fragment_registro_mensajes";
     public static final String FRAGMENT_REGISTRO_HORARIOS_DE_ATENCION = "fragment_registro_horarios_de_atencion";
 
     /**
      * Fragmentos de ITEM
      */
-    public static final String FRAGMENT_ITEM_CITAS_DOCTOR = "fragment_item_citas_doctor";
+    public static final String FRAGMENT_ITEM_CITAS = "fragment_item_citas";
     public static final String FRAGMENT_ITEM_CONSULTORIOS = "fragment_item_consultorios";
     public static final String FRAGMENT_ITEM_DOCTOR = "fragment_item_doctor";
     public static final String FRAGMENT_ITEM_ESPECIALIDADES = "fragment_item_especialidades";
@@ -187,11 +187,11 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.menu_item_horarios_de_atencion, FRAGMENT_LISTADO_HORARIOS_DE_ATENCION);
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIOS);
         //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
-        ITEM_FRAGMENT.put(R.id.menu_item_citas_doctor, FRAGMENT_LISTADO_CITAS_DOCTOR);
+        ITEM_FRAGMENT.put(R.id.menu_item_citas, FRAGMENT_LISTADO_CITAS);
 
         /**Botones*/
         ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_REGISTRO_CONSULTORIOS);
-        ITEM_FRAGMENT.put(R.id.btn_agregar_citas_doctor, FRAGMENT_REGISTRO_CITAS_DOCTOR);
+        ITEM_FRAGMENT.put(R.id.btn_agregar_citas, FRAGMENT_REGISTRO_CITAS);
         ITEM_FRAGMENT.put(R.id.btn_agregar_especialidades, FRAGMENT_LISTADO_ESPECIALIDADES);
         ITEM_FRAGMENT.put(R.id.btn_agregar_paciente_doctor, FRAGMENT_LISTADO_PACIENTES_DOCTOR);
         ITEM_FRAGMENT.put(R.id.btn_agregar_servicio, FRAGMENT_LISTADO_SERVICIOS);
@@ -207,7 +207,7 @@ public class Constants {
 
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_INDEFINIDOS, new ListadoSeleccionIndefinidoFragment());
         /**Listado*/
-        TAG_FRAGMENT.put(FRAGMENT_LISTADO_CITAS_DOCTOR, new ListadoCitasDoctorFragment());
+        TAG_FRAGMENT.put(FRAGMENT_LISTADO_CITAS, new ListadoCitasFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_CONSULTORIOS, new ListadoConsultoriosFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_DOCTORES, new ListadoDoctoresFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_ESPECIALIDADES, new ListadoEspecialidadesFragment());
@@ -217,7 +217,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_MENSAJES, new ListadoMensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_HORARIOS_DE_ATENCION, new ListadoHorariosDeAtencionFragment());
         /**Formulario*/
-        TAG_FRAGMENT.put(FORMULARIO_CITAS_DOCTOR_FRAGMENT, new FormularioCitasDoctorFragment());
+        TAG_FRAGMENT.put(FORMULARIO_CITAS_FRAGMENT, new FormularioCitasFragment());
         TAG_FRAGMENT.put(FORMULARIO_CONSULTORIOS_FRAGMENT, new FormularioConsultorioFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
         TAG_FRAGMENT.put(FORMULARIO_DOCTORES_FRAGMENT, new FormularioDoctoresFragment());
         TAG_FRAGMENT.put(FORMULARIO_ESPECIALIDADES_FRAGMENT, new FormularioEspecialidadesFragment());
@@ -227,7 +227,7 @@ public class Constants {
         TAG_FRAGMENT.put(FORMULARIO_HORARIOS_DE_ATENCION_FRAGMENT, new FormularioHorariosDeAtencionFragment());
 
         /**Registro*/
-        TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CITAS_DOCTOR, new RegistroCitasDoctorFragment());
+        TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CITAS, new RegistroCitasFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CONSULTORIOS, new RegistroConsultoriosFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_DOCTORES, new RegistroDoctoresFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_PACIENTES, new RegistroPacientesFragment());
@@ -237,7 +237,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_MENSAJES, new RegistroMensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_HORARIOS_DE_ATENCION, new RegistroHorariosDeAtencionFragment());
         /**Objecto*/
-        TAG_FRAGMENT.put(FRAGMENT_CITAS_DOCTOR, new CitasDoctorFragment());
+        TAG_FRAGMENT.put(FRAGMENT_CITAS, new CitasFragment());
         TAG_FRAGMENT.put(FRAGMENT_CONSULTORIOS, new ConsultoriosFragment());
         TAG_FRAGMENT.put(FRAGMENT_DOCTOR, new DoctoresFragment());
         TAG_FRAGMENT.put(FRAGMENT_ESPECIALIDADES, new EspecialidadesFragment());
@@ -255,7 +255,7 @@ public class Constants {
         TITLE_ACTIVITY.put(R.id.linear_registro_doctor, R.string.default_doctor);
         TITLE_ACTIVITY.put(R.id.linear_registro_paciente, R.string.default_paciente);
         TITLE_ACTIVITY.put(R.id.btn_agregar_consultorio, R.string.default_title_activity_consultorios);
-        TITLE_ACTIVITY.put(R.id.btn_agregar_citas_doctor, R.string.default_title_activity_citas_doctor);
+        TITLE_ACTIVITY.put(R.id.btn_agregar_citas, R.string.default_title_activity_citas_doctor);
         TITLE_ACTIVITY.put(R.id.btn_agregar_horarios_de_atencion, R.string.default_title_activity_horarios_de_atencion);
         TITLE_ACTIVITY.put(R.id.item_btn_editar_consultorios, R.string.default_title_activity_consultorios);
     }

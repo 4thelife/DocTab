@@ -18,7 +18,7 @@
 
 
             <TextView
-                android:id="@+id/txt_title_citas_doctor"
+                android:id="@+id/txt_title_citas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
@@ -29,12 +29,12 @@
 
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/til_citas_doctor_nombre"
+                android:id="@+id/til_citas_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/ed_citas_doctor_noombre"
+                    android:id="@+id/ed_citas_nombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
@@ -42,12 +42,12 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/til_citas_doctor_fecha"
+                android:id="@+id/til_citas_fecha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/ed_citas_doctor_fecha"
+                    android:id="@+id/ed_citas_fecha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
@@ -55,12 +55,12 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/til_citas_doctor_hora"
+                android:id="@+id/til_citas_hora"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/ed_citas_doctor_hora"
+                    android:id="@+id/ed_citas_doctr_hora"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
@@ -68,7 +68,7 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/til_citas_doctor_asunto"
+                android:id="@+id/til_citas_asunto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -80,33 +80,7 @@
                     android:hint="@string/form_asunto" />
             </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btn_form_citas_doctor_cancelar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/bootstrap_brand_danger"
-                    android:fontFamily="monospace"
-
-                    android:text="@string/default_alert_dialog_cancelar"
-                    android:textColor="@color/bootstrap_brand_secondary_fill" />
-
-                <Button
-                    android:id="@+id/btn_form_citas_doctor_agendar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/bootstrap_brand_primary"
-                    android:fontFamily="monospace"
-                    android:text="@string/btn_agendar"
-                    android:textColor="@color/bootstrap_brand_secondary_fill" />
-
-            </LinearLayout>
 
         </LinearLayout>
 
