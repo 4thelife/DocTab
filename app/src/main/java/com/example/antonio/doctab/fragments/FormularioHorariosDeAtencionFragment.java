@@ -63,8 +63,8 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         selectedTimeFormat(hour);
         minute =currentTime.get(Calendar.MINUTE);
 
-        agregar_hora_entrada.setText(hour+":"+minute+" "+format);
-        agregar_hora_fin.setText(hour+":"+minute+" "+format);
+        agregar_hora_entrada.setText(hour+":"+minute);
+        agregar_hora_fin.setText(hour+":"+minute);
 
         agregar_hora_entrada.setOnClickListener(this);
         agregar_hora_fin.setOnClickListener(this);
@@ -135,20 +135,20 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                 TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                        selectedTimeFormat(hour);
-                        agregar_hora_entrada.setText(hour+":"+minute+" "+format);
+
+                        agregar_hora_entrada.setText(hour+":"+minute);
                     }
-                },hour,minute,false);
+                },hour,minute,true);
                 timePickerDialog.show();
                 break;
             case R.id.tv_agregar_hora_salida:
                 TimePickerDialog timePickerDialog1 = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                        selectedTimeFormat(hour);
-                        agregar_hora_fin.setText(hour+":"+minute+" "+format);
+
+                        agregar_hora_fin.setText(hour+":"+minute);
                     }
-                },hour,minute,false);
+                },hour,minute,true);
                 timePickerDialog1.show();
                 break;
         }

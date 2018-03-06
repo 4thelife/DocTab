@@ -40,6 +40,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         mes = currentDate.get(Calendar.MONTH);
         year = currentDate.get(Calendar.YEAR);
         tilCitasFecha.getEditText().setText(dia+"/"+mes+"/"+year);
+
         fecha.setOnClickListener(this);
 
         return view;
@@ -79,4 +80,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     }
 
 }
+
+
+
 
