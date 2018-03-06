@@ -29,7 +29,6 @@
         android:id="@+id/recycler_view_horarios_de_atencion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-
+    
 
 </FrameLayout>
