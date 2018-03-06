@@ -12,7 +12,16 @@
 
 
     </FrameLayout>
+    <FrameLayout
+        android:id="@+id/fragment_miperfil_horario_doctor_privado_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null">
 
+
+    </FrameLayout>
+
+    <!--
     <FrameLayout
         android:id="@+id/fragment_miperfil_academico_doctor_privado_container"
         android:layout_width="match_parent"
@@ -29,6 +38,6 @@
         android:background="@null">
 
 
-    </FrameLayout>
+    </FrameLayout>-->
 
 </FrameLayout>

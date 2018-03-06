@@ -60,7 +60,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         currentTime = Calendar.getInstance();
 
         hour = currentTime.get(Calendar.HOUR_OF_DAY);
-        selectedTimeFormat(hour);
+
         minute =currentTime.get(Calendar.MINUTE);
 
         agregar_hora_entrada.setText(hour+":"+minute);
@@ -158,48 +158,6 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
     }
 
 
-    private void selectedTimeFormat(int hour) {
-
-        if(hour==0){
-            hour +=12;
-            format = "AM";
-        }else if(hour == 12){
-            format="PM";
-        }else if(hour >12){
-            hour-=12;
-            format="PM";
-        }else{
-            format="AM";
-        }
-
-    }
-    /**
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        switch (getId()){
-            case R.id.tgBtn_dia_0:
-                if (isChecked){ dia0=true; }else{ dia0=false; }
-                break;
-            case R.id.tgBtn_dia_1:
-                if (isChecked){ dia1=true; }else{ dia1=false; }
-                break;
-            case R.id.tgBtn_dia_2:
-                if (isChecked){ dia2=true; }else{ dia2=false; }
-                break;
-            case R.id.tgBtn_dia_3:
-                if (isChecked){ dia3=true; }else{ dia3=false; }
-                break;
-            case R.id.tgBtn_dia_4:
-                if (isChecked){ dia4=true; }else{ dia4=false; }
-                break;
-            case R.id.tgBtn_dia_5:
-                if (isChecked){ dia5=true; }else{ dia5=false; }
-                break;
-            case R.id.tgBtn_dia_6:
-                if (isChecked){ dia6=true; }else{ dia6=false; }
-                break;
-
-        }
-    }*/
 
     private void onPreRender(){
 
