@@ -66,9 +66,12 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                                month = month+1;
+
                                 tilCitasFecha.getEditText().setText(dayOfMonth+"/"+month+"/"+year);
                             }
-                        },dia,mes,year);
+                        },year,mes,dia);
                 datePickerDialog.show();
                 break;
         }
