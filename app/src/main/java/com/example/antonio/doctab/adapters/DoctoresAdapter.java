@@ -99,6 +99,6 @@ public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return 0;
+        return dataList == null ? 0 : dataList.size();
     }
 }
