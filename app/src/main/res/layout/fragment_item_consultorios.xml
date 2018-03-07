@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="monospace"
-            android:text="Mariano Abasolo 248 Col Centro"
+
             android:textColor="@color/bootstrap_brand_secondary_text" />
         <TextView
             android:id="@+id/item_consultorios_num_ext"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="monospace"
-            android:text="#53"
+
             android:textColor="@color/bootstrap_brand_secondary_text" />
         <TextView
             android:id="@+id/item_consultorios_colonia"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="monospace"
-            android:text="Libertad"
+            
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
 
