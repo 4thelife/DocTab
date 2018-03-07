@@ -80,9 +80,9 @@ public class ConsultoriosAdapter extends RecyclerView.Adapter<ConsultoriosAdapte
 
         //holder.txtNombre.setText(item.getNombreConsultorio());
         //TODO HACER UN METODO PARA CONCATENAR SIN NULL
-        holder.txtCalle.setText(item.getCalle());
-        holder.txtNumExt.setText(item.getNumeroExt());
-        holder.txtColonia.setText(item.getColonia());
+        holder.txtCalle.setText(item.getCalle() +" #"+item.getNumeroExt() + " " + item.getColonia());
+        //holder.txtNumExt.setText(item.getNumeroExt());
+        //holder.txtColonia.setText(item.getColonia());
         //holder.txtDireccion.setText(item.getCalle() + " " + item.getColonia() + " " + item.getCodPostal()
         //        + " " +  " " + item.getEstado());
         //holder.txtTelefono.setText(item.getTel1());
