@@ -50,8 +50,8 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_citas, container, false);
+
         linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_citas);
         adapter = new CitasAdapter();
@@ -115,7 +115,7 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
                     */
                 }
 
-                onPreRenderListadoCitasDoctor();
+                //onPreRenderListadoCitasDoctor();
 
             }
 
@@ -128,7 +128,7 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
         drCitasDoctor.addValueEventListener(listenerCitasDoctor);
     }
 
-
+/*
     private static void onPreRenderListadoCitasDoctor(){
         Collections.sort(dataList, new Comparator<Citas>() {
         @Override
@@ -144,6 +144,7 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
         recyclerView.setLayoutManager(linearLayoutManager);
 
     }
+    */
 
     public void onStop() {
         super.onStop();

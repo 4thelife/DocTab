@@ -45,7 +45,7 @@ public class ListadoCitasFragment extends Fragment implements View.OnClickListen
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction mainFragment = fragmentManager.beginTransaction();
-        mainFragment.replace(R.id.listado_citas_doctor_container, new ConsultoriosFragment(), Constants.FRAGMENT_CITAS);
+        mainFragment.replace(R.id.listado_citas_doctor_container, new CitasFragment(), Constants.FRAGMENT_CITAS);
         mainFragment.commit();
 
         getActivity().setTitle(getString(R.string.default_item_menu_title_citas_doctor));
