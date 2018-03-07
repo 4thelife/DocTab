@@ -7,8 +7,8 @@ import java.io.Serializable;
  */
 
 public class Consultorios implements Serializable {
-    private String nombreConsultorio;
-    private String numConsultorio;
+    //private String nombreConsultorio;
+    //private String numConsultorio;
     private String calle;
     private String numeroExt;
     private String numeroInt;
@@ -17,10 +17,10 @@ public class Consultorios implements Serializable {
     private String municipio;
     private String estado;
     private String codPostal;
-    private String tel1;
-    private String ext1;
-    private String tel2;
-    private String ext2;
+    //private String tel1;
+    //private String ext1;
+    //private String tel2;
+    //private String ext2;
 
 
     private String fireBaseId;
@@ -33,7 +33,7 @@ public class Consultorios implements Serializable {
     public Consultorios() {
     }
 
-
+/*
     public String getNombreConsultorio() {
         return nombreConsultorio;
     }
@@ -49,7 +49,7 @@ public class Consultorios implements Serializable {
     public void setNumConsultorio(String numConsultorio) {
         this.numConsultorio = numConsultorio;
     }
-
+*/
     public String getCalle() {
         return calle;
     }
@@ -113,7 +113,7 @@ public class Consultorios implements Serializable {
     public void setCodPostal(String codPostal) {
         this.codPostal = codPostal;
     }
-
+/*
     public String getTel1() {
         return tel1;
     }
@@ -145,7 +145,7 @@ public class Consultorios implements Serializable {
     public void setExt2(String ext2) {
         this.ext2 = ext2;
     }
-
+*/
     public String getFireBaseId() {
         return fireBaseId;
     }

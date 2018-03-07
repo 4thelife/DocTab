@@ -18,6 +18,7 @@ import com.example.antonio.doctab.fragments.FormularioMensajesFragment;
 import com.example.antonio.doctab.fragments.FormularioPacientesDoctorFragment;
 import com.example.antonio.doctab.fragments.FormularioServiciosFragment;
 import com.example.antonio.doctab.fragments.HorariosDeAtencionFragment;
+import com.example.antonio.doctab.fragments.InicioPacienteFragment;
 import com.example.antonio.doctab.fragments.ListadoCitasFragment;
 import com.example.antonio.doctab.fragments.ListadoConsultoriosFragment;
 import com.example.antonio.doctab.fragments.ListadoDoctoresFragment;
@@ -66,7 +67,7 @@ public class Constants {
     /**
      *
      */
-    public static final String FB_KEY_ITEM_CONSULTORIOS = "consultorios";
+    public static final String FB_KEY_ITEM_CONSULTORIOS = "consultorios";//No modifico este pues es para la bd
     public static final String FB_KEY_ITEM_HORARIOS_DE_ATENCION = "HorariosDeAtencion";
     public static final String FB_KEY_ITEM_CONSULTORIO_HORARIOS = "horarios";
     public static final String FB_KEY_ITEM_CONSULTORIO_DIRECCION = "direccion";
@@ -103,6 +104,7 @@ public class Constants {
     public static final String FRAGMENT_LISTADO_MENSAJES = "fragment_listado_mensajes";
     public static final String FRAGMENT_LISTADO_HORARIOS_DE_ATENCION = "fragment_listado_horarios_de_atencion";
     public static final String FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO = "fragment_miperfil_doctor_privado";
+    public static final String FRAGMENT_INICIO__PACIENTE ="fragment_inicio_paciente";
     /**
      * Fragmentos segundarios
      **/
@@ -192,6 +194,8 @@ public class Constants {
         //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.menu_item_citas, FRAGMENT_LISTADO_CITAS);
         ITEM_FRAGMENT.put(R.id.menu_item_perfil_doctor,FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO);
+        /** INICIO PACIENTE**/
+        ITEM_FRAGMENT.put(R.id.menu_item_inicio,FRAGMENT_INICIO__PACIENTE);
 
         /**Botones*/
         ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_REGISTRO_CONSULTORIOS);
@@ -221,7 +225,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_MENSAJES, new ListadoMensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_HORARIOS_DE_ATENCION, new ListadoHorariosDeAtencionFragment());
         TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO,new MiPerfilDoctorPrivadoFragment());
-
+        TAG_FRAGMENT.put(FRAGMENT_INICIO__PACIENTE, new InicioPacienteFragment());
 
         /**Formulario*/
         TAG_FRAGMENT.put(FORMULARIO_CITAS_FRAGMENT, new FormularioCitasFragment());

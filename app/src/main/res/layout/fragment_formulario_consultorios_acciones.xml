@@ -25,7 +25,7 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="10dp"
             android:background="@color/bootstrap_brand_primary"
-            android:text="REGISTRAR CONSULTORIO"
+            android:text="REGISTRAR DIRECCION"
             android:textColor="@color/bootstrap_brand_secondary_fill" />
 
     </LinearLayout>

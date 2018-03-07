@@ -104,7 +104,7 @@
     <string name="default_item_menu_title_inicio">Inicio</string>
     <string name="default_item_menu_title_citas_doctor">Citas</string>
     <string name="default_item_menu_title_mensajes_doctor">Mensajes</string>
-    <string name="default_item_menu_title_consultorios_doctor">Mis Consultorios</string>
+    <string name="default_item_menu_title_consultorios_doctor">Mi Dirección</string><!--Mis Consultorios -->
     <string name="default_item_menu_title_perfil_doctor">Mi Perfil</string>
     <string name="default_item_menu_title_citas_paciente">Citas</string>
     <string name="default_item_menu_title_mensajes_paciente">Mensajes</string>
@@ -121,7 +121,10 @@
     <string name="default_activity_title_usuarios">Usuarios</string>
     <string name="default_activity_title_aretes_internos">Aretes Internos</string>
     <string name="default_activity_title_cabezas">Cabezas</string>
+    <!--
     <string name="default_title_activity_consultorios">Consultorios</string>
+    -->
+    <string name="default_title_activity_consultorios">Mi Dirección</string>
     <string name="default_title_activity_citas_doctor">Mis citas</string>
     <string name="default_title_activity_horarios_de_atencion">Mi horario</string>
 
@@ -169,7 +172,10 @@
     <string name="form_tel_ext_uno">Extension #1</string>
     <string name="form_tel_ext_dos">Estension #2</string>
     <string name="citas_doctor">AGENDAR CITA</string>
+    <!--
     <string name="new_consultorio">AGREGAR CONSULTORIO</string>
+    -->
+    <string name="new_consultorio">AGREGAR DIRECCION</string>
     <string name="new_especialidad">AGREGAR ESPECIALIDAD</string>
     <string name="new_paciente">REGISTRAR PACIENTE</string>
     <string name="new_horario_servicio">Agregar Horario</string>

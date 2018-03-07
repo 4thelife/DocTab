@@ -27,17 +27,21 @@ public class ConsultoriosAdapter extends RecyclerView.Adapter<ConsultoriosAdapte
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtNombre;
-        TextView txtDireccion;
         TextView txtTelefono;
+        TextView txtCalle,txtNumExt,txtColonia;
+
         Button btnEditar;
         Button btnEliminar;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txtNombre = (TextView) itemView.findViewById(R.id.item_consultorios_nombre);
-            txtDireccion = (TextView) itemView.findViewById(R.id.item_consultorios_direccion);
-            txtTelefono = (TextView) itemView.findViewById(R.id.item_consultorios_telefono);
+            txtCalle = (TextView)itemView.findViewById(R.id.item_consultorios_calle);
+            txtNumExt = (TextView)itemView.findViewById(R.id.item_consultorios_num_ext);
+            txtColonia= (TextView)itemView.findViewById(R.id.item_consultorios_colonia);
+            //txtNombre = (TextView) itemView.findViewById(R.id.item_consultorios_nombre);
+            //txtTelefono = (TextView) itemView.findViewById(R.id.item_consultorios_telefono);
             btnEditar = (Button) itemView.findViewById(R.id.item_btn_editar_consultorios);
             btnEliminar = (Button) itemView.findViewById(R.id.item_btn_eliminar_consultorios);
         }
@@ -74,11 +78,14 @@ public class ConsultoriosAdapter extends RecyclerView.Adapter<ConsultoriosAdapte
         decodeItem.setItemModel(item);
         decodeItem.setPosition(position);
 
-        holder.txtNombre.setText(item.getNombreConsultorio());
+        //holder.txtNombre.setText(item.getNombreConsultorio());
         //TODO HACER UN METODO PARA CONCATENAR SIN NULL
-        holder.txtDireccion.setText(item.getCalle() + " " + item.getColonia() + " " + item.getCodPostal()
-                + " " +  " " + item.getEstado());
-        holder.txtTelefono.setText(item.getTel1());
+        holder.txtCalle.setText(item.getCalle());
+        holder.txtNumExt.setText(item.getNumeroExt());
+        holder.txtColonia.setText(item.getColonia());
+        //holder.txtDireccion.setText(item.getCalle() + " " + item.getColonia() + " " + item.getCodPostal()
+        //        + " " +  " " + item.getEstado());
+        //holder.txtTelefono.setText(item.getTel1());
 
         holder.btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override

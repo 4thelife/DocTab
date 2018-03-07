@@ -135,7 +135,7 @@ public class ConsultoriosFragment extends Fragment implements View.OnClickListen
         Collections.sort(dataList, new Comparator<Consultorios>() {
             @Override
             public int compare(Consultorios o1, Consultorios o2) {
-                return (o1.getNombreConsultorio().compareTo(o2.getNombreConsultorio()));
+                return (o1.getColonia().compareTo(o2.getColonia()));
             }
         });
 

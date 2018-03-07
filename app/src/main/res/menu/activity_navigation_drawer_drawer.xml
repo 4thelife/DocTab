@@ -61,7 +61,7 @@
                     <item
                         android:id="@+id/menu_item_consultorios_doctor"
                         android:icon="@mipmap/ic_domain_black_48dp"
-                        android:title="Mis consultorios" />
+                        android:title="Mi Direccion" />
 
                     <item
                         android:id="@+id/menu_item_pacientes_doctor"

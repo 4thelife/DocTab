@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:orientation="vertical">
-
+<!--
         <TextView
             android:id="@+id/item_consultorios_nombre"
             android:layout_width="match_parent"
@@ -17,18 +17,6 @@
             android:text="Los Angeles consultorio # 1"
             android:textColor="@color/bootstrap_brand_secondary_text"
             android:textStyle="bold" />
-
-
-        <TextView
-            android:id="@+id/item_consultorios_direccion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="monospace"
-            android:text="Mariano Abasolo 248 Col Centro"
-            android:textColor="@color/bootstrap_brand_secondary_text" />
-
-
         <TextView
             android:id="@+id/item_consultorios_telefono"
             android:layout_width="match_parent"
@@ -37,6 +25,34 @@
             android:fontFamily="monospace"
             android:text="9932232232"
             android:textColor="@color/bootstrap_brand_secondary_text" />
+-->
+        <TextView
+            android:id="@+id/item_consultorios_calle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="monospace"
+            android:text="Mariano Abasolo 248 Col Centro"
+            android:textColor="@color/bootstrap_brand_secondary_text" />
+        <TextView
+            android:id="@+id/item_consultorios_num_ext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="monospace"
+            android:text="Mariano Abasolo 248 Col Centro"
+            android:textColor="@color/bootstrap_brand_secondary_text" />
+        <TextView
+            android:id="@+id/item_consultorios_colonia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="monospace"
+            android:text="Mariano Abasolo 248 Col Centro"
+            android:textColor="@color/bootstrap_brand_secondary_text" />
+
+
+
 
 
         <LinearLayout
