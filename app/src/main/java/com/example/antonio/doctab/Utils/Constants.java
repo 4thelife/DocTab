@@ -206,6 +206,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.btn_agregar_mensajes, FRAGMENT_LISTADO_MENSAJES);
         ITEM_FRAGMENT.put(R.id.btn_agregar_horarios_de_atencion, FRAGMENT_REGISTRO_HORARIOS_DE_ATENCION);
         ITEM_FRAGMENT.put(R.id.item_btn_editar_consultorios, FRAGMENT_REGISTRO_CONSULTORIOS);
+        ITEM_FRAGMENT.put(R.id.item_btn_editar_doctores, FRAGMENT_REGISTRO_DOCTORES);
     }
 
     public static final HashMap<String, Fragment> TAG_FRAGMENT;
@@ -273,6 +274,7 @@ public class Constants {
         TITLE_ACTIVITY.put(R.id.btn_agregar_citas, R.string.default_title_activity_citas_doctor);
         TITLE_ACTIVITY.put(R.id.btn_agregar_horarios_de_atencion, R.string.default_title_activity_horarios_de_atencion);
         TITLE_ACTIVITY.put(R.id.item_btn_editar_consultorios, R.string.default_title_activity_consultorios);
+        TITLE_ACTIVITY.put(R.id.item_btn_editar_doctores,R.string.default_title_activity_doctores);
     }
 
     public static final HashMap<Integer, Integer> TITLE_FORM_ACTION;

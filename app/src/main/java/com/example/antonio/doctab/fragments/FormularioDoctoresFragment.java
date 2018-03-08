@@ -159,6 +159,7 @@ public class FormularioDoctoresFragment extends Fragment {
             /**Se agregan los datos de sistema que ya existen**/
             /**FirebaseIDDoctor de agrega del usuario en session debido a que el admin no agrega consultorios**/
             data.setFirebaseId(_SESSION_USER.getFirebaseId());
+            data.setEstatus(_doctorActual.getEstatus());
 
             setDoctor(data);
             valido = true;

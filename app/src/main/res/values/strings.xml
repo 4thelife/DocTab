@@ -127,6 +127,7 @@
     <string name="default_title_activity_consultorios">Mi Dirección</string>
     <string name="default_title_activity_citas_doctor">Mis citas</string>
     <string name="default_title_activity_horarios_de_atencion">Mi horario</string>
+    <string name="default_title_activity_doctores">Mis Datos</string>
 
     <string name="default_loading_msg">Por favor espera un momento</string>
     <string name="default_alert_dialog_aceptar">Aceptar</string>

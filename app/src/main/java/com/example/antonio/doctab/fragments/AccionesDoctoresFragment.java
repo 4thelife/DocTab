@@ -17,6 +17,8 @@ import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.helpers.DoctoresHelper;
 
+import static com.example.antonio.doctab.fragments.FormularioDoctoresFragment._doctorActual;
+
 /**
  * Created by Ricardo on 12/02/2018.
  */
@@ -121,12 +123,16 @@ public class AccionesDoctoresFragment extends Fragment implements View.OnClickLi
     private void registrar() {
         /**Transporta la información del objeto a la actividad de registro**/
         DoctoresHelper helper = new DoctoresHelper();
-        helper.setDoctor(FormularioDoctoresFragment._doctorActual);
+        helper.setDoctor(_doctorActual);
 
         activityInterface.registrarDoctor(helper);
     }
 
     private void editar() {
         /**Transporta la información del objeto a la actividad de registro**/
+        DoctoresHelper helper = new DoctoresHelper();
+        helper.setDoctor(FormularioDoctoresFragment._doctorActual);
+
+        activityInterface.editarDoctor(helper);
     }
 }
