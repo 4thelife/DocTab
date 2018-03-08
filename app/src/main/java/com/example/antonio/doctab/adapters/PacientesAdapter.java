@@ -18,7 +18,7 @@ import java.util.List;
  * Created by Ricardo on 13/02/2018.
  */
 
-public class PacientesDoctorAdapter extends RecyclerView.Adapter<PacientesDoctorAdapter.ViewHolder> {
+public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.ViewHolder> {
 
     View.OnClickListener onClickListener;
     List<Pacientes> dataList = new ArrayList<>();

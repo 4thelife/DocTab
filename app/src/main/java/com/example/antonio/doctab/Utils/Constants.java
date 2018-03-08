@@ -15,7 +15,7 @@ import com.example.antonio.doctab.fragments.FormularioDoctoresFragment;
 import com.example.antonio.doctab.fragments.FormularioEspecialidadesFragment;
 import com.example.antonio.doctab.fragments.FormularioHorariosDeAtencionFragment;
 import com.example.antonio.doctab.fragments.FormularioMensajesFragment;
-import com.example.antonio.doctab.fragments.FormularioPacientesDoctorFragment;
+import com.example.antonio.doctab.fragments.FormularioPacientesFragment;
 import com.example.antonio.doctab.fragments.FormularioServiciosFragment;
 import com.example.antonio.doctab.fragments.HorariosDeAtencionFragment;
 import com.example.antonio.doctab.fragments.InicioPacienteFragment;
@@ -26,7 +26,7 @@ import com.example.antonio.doctab.fragments.ListadoEspecialidadesFragment;
 import com.example.antonio.doctab.fragments.ListadoHorariosDeAtencionFragment;
 import com.example.antonio.doctab.fragments.ListadoInicioFragment;
 import com.example.antonio.doctab.fragments.ListadoMensajesFragment;
-import com.example.antonio.doctab.fragments.ListadoPacientesDoctorFragment;
+import com.example.antonio.doctab.fragments.ListadoPacientesFragment;
 import com.example.antonio.doctab.fragments.ListadoSeleccionIndefinidoFragment;
 import com.example.antonio.doctab.fragments.ListadoServiciosFragment;
 import com.example.antonio.doctab.fragments.MensajesFragment;
@@ -39,7 +39,6 @@ import com.example.antonio.doctab.fragments.RegistroDoctoresFragment;
 import com.example.antonio.doctab.fragments.RegistroEspecialidadesFragment;
 import com.example.antonio.doctab.fragments.RegistroHorariosDeAtencionFragment;
 import com.example.antonio.doctab.fragments.RegistroMensajesFragment;
-import com.example.antonio.doctab.fragments.RegistroPacientesDoctorFragment;
 import com.example.antonio.doctab.fragments.RegistroPacientesFragment;
 import com.example.antonio.doctab.fragments.RegistroServiciosFragment;
 import com.example.antonio.doctab.fragments.ServiciosFragment;
@@ -99,7 +98,7 @@ public class Constants {
     public static final String FRAGMENT_LISTADO_DOCTORES = "fragment_listado_doctores";
     public static final String FRAGMENT_LISTADO_ESPECIALIDADES = "fragment_listado_especialidades";
     public static final String FRAGMENT_LISTADO_INICIO = "fragment_listado_inicio";
-    public static final String FRAGMENT_LISTADO_PACIENTES_DOCTOR = "fragment_listado_pacientes_doctor";
+    public static final String FRAGMENT_LISTADO_PACIENTES = "fragment_listado_pacientes";
     public static final String FRAGMENT_LISTADO_SERVICIOS = "fragment_listado_servicios";
     public static final String FRAGMENT_LISTADO_MENSAJES = "fragment_listado_mensajes";
     public static final String FRAGMENT_LISTADO_HORARIOS_DE_ATENCION = "fragment_listado_horarios_de_atencion";
@@ -114,7 +113,7 @@ public class Constants {
     public static final String FRAGMENT_CITAS = "fragment_citas";
     public static final String FRAGMENT_ESPECIALIDADES = "fragment_especialidades";
     public static final String FRAGMENT_SERVICIOS = "fragment_servicios";
-    public static final String FRAGMENT_PACIENTES_DOCTOR = "fragment_pacientes_doctor";
+    public static final String FRAGMENT_PACIENTES = "fragment_pacientes";
     public static final String FRAGMENT_MENSAJES = "fragment_mensajes";
     public static final String FRAGMENT_HORARIOS_DE_ATENCION = "fragment_horarios_de_atencion";
     public static final String FRAGMENT_MI_PERFIL_GENERAL_DOCTOR_PRIVADO = "fragment_miperfil_general_doctor_privado";
@@ -131,7 +130,6 @@ public class Constants {
     public static final String FORMULARIO_CONSULTORIOS_FRAGMENT = "formulario_consultorios_fragment";
     public static final String FORMULARIO_ACCIONES_CONSULTORIOS_FRAGMENT = "fragment_acciones_consultorios_fragment";
     public static final String FORMULARIO_ESPECIALIDADES_FRAGMENT = "formulario_especialidades_fragment";
-    public static final String FORMULARIO_PACIENTES_DOCTOR_FRAGMENT = "formulario_pacientes_doctor_fragment";
     public static final String FORMULARIO_SERVICIOS_FRAGMENT = "formulario_servicios_fragment";
     public static final String FORMULARIO_CITAS_FRAGMENT = "formulario_citas_fragment";
     public static final String FORMULARIO_MENSAJES_FRAGMENT = "formulario_mensajes_fragment";
@@ -145,7 +143,6 @@ public class Constants {
     public static final String FRAGMENT_REGISTRO_INDEFINIDOS = "fragment_registro_indefinido";
     public static final String FRAGMENT_REGISTRO_CONSULTORIOS = "fragment_registro_consultorios";
     public static final String FRAGMENT_REGISTRO_ESPECIALIDADES = "fragment_registro_especialidades";
-    public static final String FRAGMENT_REGISTRO_PACIENTES_DOCTOR = "fragment_registro_pacientes_doctor";
     public static final String FRAGMENT_REGISTRO_SERVICIOS = "fragment_registro_servicios";
     public static final String FRAGMENT_REGISTRO_CITAS = "fragment_registro_citas";
     public static final String FRAGMENT_REGISTRO_MENSAJES = "fragment_registro_mensajes";
@@ -201,7 +198,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_REGISTRO_CONSULTORIOS);
         ITEM_FRAGMENT.put(R.id.btn_agregar_citas, FRAGMENT_REGISTRO_CITAS);
         ITEM_FRAGMENT.put(R.id.btn_agregar_especialidades, FRAGMENT_LISTADO_ESPECIALIDADES);
-        ITEM_FRAGMENT.put(R.id.btn_agregar_paciente_doctor, FRAGMENT_LISTADO_PACIENTES_DOCTOR);
+        ITEM_FRAGMENT.put(R.id.btn_agregar_paciente_doctor, FRAGMENT_LISTADO_PACIENTES);
         ITEM_FRAGMENT.put(R.id.btn_agregar_servicio, FRAGMENT_LISTADO_SERVICIOS);
         ITEM_FRAGMENT.put(R.id.btn_agregar_mensajes, FRAGMENT_LISTADO_MENSAJES);
         ITEM_FRAGMENT.put(R.id.btn_agregar_horarios_de_atencion, FRAGMENT_REGISTRO_HORARIOS_DE_ATENCION);
@@ -221,7 +218,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_DOCTORES, new ListadoDoctoresFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_ESPECIALIDADES, new ListadoEspecialidadesFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_INICIO, new ListadoInicioFragment());
-        TAG_FRAGMENT.put(FRAGMENT_LISTADO_PACIENTES_DOCTOR, new ListadoPacientesDoctorFragment());
+        TAG_FRAGMENT.put(FRAGMENT_LISTADO_PACIENTES, new ListadoPacientesFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_SERVICIOS, new ListadoServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_MENSAJES, new ListadoMensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_HORARIOS_DE_ATENCION, new ListadoHorariosDeAtencionFragment());
@@ -233,7 +230,7 @@ public class Constants {
         TAG_FRAGMENT.put(FORMULARIO_CONSULTORIOS_FRAGMENT, new FormularioConsultorioFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
         TAG_FRAGMENT.put(FORMULARIO_DOCTORES_FRAGMENT, new FormularioDoctoresFragment());
         TAG_FRAGMENT.put(FORMULARIO_ESPECIALIDADES_FRAGMENT, new FormularioEspecialidadesFragment());
-        TAG_FRAGMENT.put(FORMULARIO_PACIENTES_DOCTOR_FRAGMENT, new FormularioPacientesDoctorFragment());
+        TAG_FRAGMENT.put(FORMULARIO_PACIENTES_FRAGMENT, new FormularioPacientesFragment());
         TAG_FRAGMENT.put(FORMULARIO_SERVICIOS_FRAGMENT, new FormularioServiciosFragment());
         TAG_FRAGMENT.put(FORMULARIO_MENSAJES_FRAGMENT, new FormularioMensajesFragment());
         TAG_FRAGMENT.put(FORMULARIO_HORARIOS_DE_ATENCION_FRAGMENT, new FormularioHorariosDeAtencionFragment());
@@ -244,7 +241,6 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_DOCTORES, new RegistroDoctoresFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_PACIENTES, new RegistroPacientesFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_ESPECIALIDADES, new RegistroEspecialidadesFragment());
-        TAG_FRAGMENT.put(FRAGMENT_REGISTRO_PACIENTES_DOCTOR, new RegistroPacientesDoctorFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_SERVICIOS, new RegistroServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_MENSAJES, new RegistroMensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_HORARIOS_DE_ATENCION, new RegistroHorariosDeAtencionFragment());
@@ -254,7 +250,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_CONSULTORIOS, new ConsultoriosFragment());
         TAG_FRAGMENT.put(FRAGMENT_DOCTOR, new DoctoresFragment());
         TAG_FRAGMENT.put(FRAGMENT_ESPECIALIDADES, new EspecialidadesFragment());
-        TAG_FRAGMENT.put(FRAGMENT_PACIENTES_DOCTOR, new PacientesFragment());
+        TAG_FRAGMENT.put(FRAGMENT_PACIENTES, new PacientesFragment());
         TAG_FRAGMENT.put(FRAGMENT_SERVICIOS, new ServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_MENSAJES, new MensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_HORARIOS_DE_ATENCION, new HorariosDeAtencionFragment());

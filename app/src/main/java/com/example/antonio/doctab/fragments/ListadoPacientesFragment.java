@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
@@ -19,7 +18,7 @@ import com.example.antonio.doctab.models.Usuarios;
  * Created by jvier on 04/09/2017.
  */
 
-public class ListadoPacientesDoctorFragment extends Fragment implements View.OnClickListener {
+public class ListadoPacientesFragment extends Fragment implements View.OnClickListener {
 
     private static Usuarios _SESSION_USER;
     private Button btnRegistrar;
@@ -27,7 +26,7 @@ public class ListadoPacientesDoctorFragment extends Fragment implements View.OnC
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_listado_pacientes_doctor, container, false);
+        View view = inflater.inflate(R.layout.fragment_listado_pacientes, container, false);
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 

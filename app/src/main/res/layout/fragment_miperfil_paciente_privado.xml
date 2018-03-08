@@ -13,20 +13,5 @@
 
     </FrameLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn_editar_miperfil_privado_paciente"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="20dp"
-            android:background="@color/colorPrimary"
-            android:fontFamily="monospace"
-            android:text="@string/button_editar"
-            android:textColor="@color/bootstrap_brand_secondary_fill" />
-
-    </RelativeLayout>
 </FrameLayout>
