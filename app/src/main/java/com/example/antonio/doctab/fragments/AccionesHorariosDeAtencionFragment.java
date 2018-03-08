@@ -51,12 +51,16 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
     @Override
     public void onStart() {
         super.onStart();
+        this.onPreRender();
     }
 
     private void onPreRender(){
         switch (_MAIN_DECODE.getAccionFragmento()){
             case Constants.ACCION_EDITAR:
-                btnRegistrar.setText("EDITAR DOCTOR");
+                btnRegistrar.setText("EDITAR HORARIO");
+                break;
+            case Constants.ACCION_REGISTRAR:
+                btnRegistrar.setText("REGISTRAR HORARIO");
                 break;
             default:
                 view.setVisibility(View.GONE);
@@ -81,7 +85,19 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.btn_accion_consultorios:
+                switch (_MAIN_DECODE.getAccionFragmento()) {
+                    case Constants.ACCION_EDITAR:
+                        this.showQuestion();
+                        break;
+                    case Constants.ACCION_REGISTRAR:
+                        if (FormularioConsultorioFragment.validarDatosRegistro())
+                            registrar();
+                        break;
+                }
+                break;
+        }
     }
 
     private void showQuestion() {
@@ -98,6 +114,7 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
     public void onClick(DialogInterface dialog, int which){
         switch (which){
             case DialogInterface.BUTTON_POSITIVE:
+                if (FormularioConsultorioFragment.validarDatosEdicion())
                     editar();
                 break;
         }
