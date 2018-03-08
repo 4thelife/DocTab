@@ -258,6 +258,8 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_MENSAJES, new MensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_HORARIOS_DE_ATENCION, new HorariosDeAtencionFragment());
         TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_GENERAL_DOCTOR_PRIVADO,new MiPerfilGeneralDoctorPrivadoFragment());
+
+
     }
 
     public static final HashMap<Integer, Integer> TITLE_ACTIVITY;

@@ -44,7 +44,7 @@ public class MiPerfilDoctorPrivadoFragment extends Fragment{
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction mainFragment = fragmentManager.beginTransaction();
-        mainFragment.replace(R.id.fragment_miperfil_general_doctor_privado_container, new MiPerfilGeneralDoctorPrivadoFragment(), Constants.FRAGMENT_MI_PERFIL_GENERAL_DOCTOR_PRIVADO);
+        mainFragment.replace(R.id.fragment_miperfil_general_doctor_privado_container, new DoctoresFragment(), Constants.FRAGMENT_DOCTOR);
         mainFragment.replace(R.id.fragment_miperfil_horario_doctor_privado_container, new HorariosDeAtencionFragment(), Constants.FRAGMENT_HORARIOS_DE_ATENCION);
         mainFragment.replace(R.id.fragment_miperfil_direccion_doctor_privado_container,new ConsultoriosFragment(),Constants.FRAGMENT_CONSULTORIOS);
         mainFragment.commit();
