@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.ToggleButton;
@@ -42,13 +43,15 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
     private static Usuarios _SESSION_USER;
     //Se asignan los dias en el array
     int semana [] = new int[7];
-    boolean bandera[] = new boolean[7];
+    public static boolean bandera[] = new boolean[7];
+    public static String horaini,horafin;
     /**
      * Se declaran los elementos del formulario
      **/
     TextView agregar_hora_entrada;
     TextView agregar_hora_fin;
     ToggleButton tgb0, tgb1, tgb2, tgb3, tgb4, tgb5, tgb6;
+    static Spinner sp_duracion_cita;
     Calendar currentTime;
     Boolean dia0,dia1,dia2,dia3,dia4,dia5,dia6 = false;
     int hour,minute;
@@ -80,7 +83,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         tgb4 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_4);
         tgb5 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_5);
         tgb6 = (ToggleButton) view.findViewById(R.id.tgBtn_dia_6);
-
+        sp_duracion_cita = (Spinner)view.findViewById(R.id.sp_duracion_consulta);
         currentTime = Calendar.getInstance();
 
         hour = currentTime.get(Calendar.HOUR_OF_DAY);
@@ -90,8 +93,12 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         agregar_hora_entrada.setText(hour+":"+minute);
         agregar_hora_fin.setText(hour+":"+minute);
 
+
         agregar_hora_entrada.setOnClickListener(this);
         agregar_hora_fin.setOnClickListener(this);
+
+        horaini = agregar_hora_entrada.getText().toString();
+        horafin = agregar_hora_fin.getText().toString();
 
         tgb0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -136,22 +143,6 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
             }
         });
 
-        semana[0] = 0;
-        semana[1] = 1;
-        semana[2] = 2;
-        semana[3] = 3;
-        semana[4] = 4;
-        semana[5] = 5;
-        semana[6] = 6;
-
-        for (int i = 0; i<7; i++){
-            if (bandera[i]){
-                //registrar
-            }
-            else{
-                // registrar sin horario ¿?
-            }
-        }
 
         return view;
     }
@@ -248,16 +239,39 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         });
     }
 
+    public static boolean validarDatosRegistro(){
+        boolean valido = false;
+        String eldia;
+        for (int i=0; i<7; i++){
+            if (bandera[i] = true){
+                eldia= String.valueOf(i);
 
-    public static void procesarDias(int dias[]){
+                HorariosDeAtencion data = new HorariosDeAtencion();
+                data.setHoraInicio(horaini);
+                data.setHoraFin(horafin);
+                data.setDuracionDeCita(sp_duracion_cita.getSelectedItem().toString());
+                data.setDia(eldia);
 
+                data.setFirebaseId(_SESSION_USER.getFirebaseId());
+                data.setEstatus(_horarioDeATencionActual.getEstatus());
+                setHorariosDeAtencion(data);
+                valido = true;
 
-        int []dia = null;
+            }
 
-        dia[0] = 0;
+        }
+        return valido;
+    }
+    public static void setHorariosDeAtencion(HorariosDeAtencion data){
+        _horarioDeATencionActual.setDia(data.getDia());
+        _horarioDeATencionActual.setDuracionDeCita(_horarioDeATencionActual.getDuracionDeCita());
+        _horarioDeATencionActual.setHoraInicio(data.getHoraInicio());
+        _horarioDeATencionActual.setHoraFin(data.getHoraFin());
+        /**Se declaran valores que el sistema debe llenar**/
+        _horarioDeATencionActual.setFirebaseId(data.getFirebaseId());
+
 
     }
-
 
     /**
      * public void setHorariosDeAtencion(HorariosDeAtencion data){
