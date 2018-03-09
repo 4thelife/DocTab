@@ -20,9 +20,11 @@ import com.example.antonio.doctab.helpers.ConsultoriosHelper;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.helpers.DoctoresHelper;
+import com.example.antonio.doctab.helpers.HorarioDeAtencionHelper;
 import com.example.antonio.doctab.helpers.PacientesHelper;
 import com.example.antonio.doctab.models.Consultorios;
 import com.example.antonio.doctab.models.Doctores;
+import com.example.antonio.doctab.models.HorariosDeAtencion;
 import com.example.antonio.doctab.models.Pacientes;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
@@ -403,6 +405,58 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
 
 
+    @Override
+    public void registrarHorariosDeAtencion(HorarioDeAtencionHelper helper) {
+        pDialog = new ProgressDialog(MainRegisterActivity.this);
+        pDialog.setMessage(getString(R.string.default_loading_msg));
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        webServiceRegistrarHorariosDeAtencion(helper);
+
+    }
+
+    private void webServiceRegistrarHorariosDeAtencion(HorarioDeAtencionHelper helper) {
+        /**Se obtiene el objeto principal**/
+        HorariosDeAtencion data = helper.getHorariosDeAtencion();
+
+        /**Se crea la conexion con los nodos a utilizar**/
+        final DatabaseReference dbHorariosDeAtencion =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_DOCTORES)
+                        .child(helper.getHorariosDeAtencion().getFireBaseIdDoctor());
+
+        /**Se crea el firebaseID en el futuro nodo**/
+        String firebaseIDHorarioDeAtencion = dbHorariosDeAtencion.child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION).push().getKey();
+
+        /**Se agregan los ultimos objetos del sistema**/
+        data.setFireBaseId(firebaseIDHorarioDeAtencion);
+        data.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ACTIVO);
+        data.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
+        data.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+        try {
+            /**Se crea la conexion para guadar el objeto**/
+            dbHorariosDeAtencion.child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION).child(data.getFireBaseId())
+                    .setValue(data, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                            pDialog.dismiss();
+                            if (databaseError == null) {
+                                finish();
+                                Toast.makeText(getApplicationContext(),
+                                        "Registrado correctamente...", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            pDialog.dismiss();
+            Toast.makeText(getApplicationContext(),
+                    "Intente mas tarde...", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+    }
 
 
 

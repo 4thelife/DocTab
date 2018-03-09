@@ -211,7 +211,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                 .getReference(Constants.FB_KEY_MAIN_DOCTORES)
                 .child(_SESSION_USER.getFirebaseId())
                 .child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION)
-                .child(horariosDeAtencion.getFirebaseId());
+                .child(horariosDeAtencion.getFireBaseId());
 
         final ProgressDialog pDialogRender = new ProgressDialog(getContext());
         pDialogRender.setMessage(getString(R.string.default_loading_msg));
@@ -239,12 +239,12 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         });
     }
 
-    public static boolean validarDatosRegistro(){
+    public static boolean validarDatosReg(){
         boolean valido = false;
         String eldia;
-        for (int i=0; i<7; i++){
-            if (bandera[i] = true){
-                eldia= String.valueOf(i);
+        //for (int i=0; i<7; i++){
+            if (bandera[0] = true){
+                eldia= String.valueOf(0);
 
                 HorariosDeAtencion data = new HorariosDeAtencion();
                 data.setHoraInicio(horaini);
@@ -252,23 +252,42 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                 data.setDuracionDeCita(sp_duracion_cita.getSelectedItem().toString());
                 data.setDia(eldia);
 
-                data.setFirebaseId(_SESSION_USER.getFirebaseId());
+                data.setFireBaseId(_SESSION_USER.getFirebaseId());
                 data.setEstatus(_horarioDeATencionActual.getEstatus());
+                data.setFireBaseIdDoctor(_horarioDeATencionActual.getFireBaseIdDoctor());
                 setHorariosDeAtencion(data);
                 valido = true;
 
             }
+            else {
+                eldia= String.valueOf(0);
+
+                HorariosDeAtencion data = new HorariosDeAtencion();
+                data.setHoraInicio("");
+                data.setHoraFin("");
+                data.setDuracionDeCita(sp_duracion_cita.getSelectedItem().toString());
+                data.setDia(eldia);
+
+                data.setFireBaseId(_SESSION_USER.getFirebaseId());
+                data.setEstatus(_horarioDeATencionActual.getEstatus());
+                data.setFireBaseIdDoctor(_horarioDeATencionActual.getFireBaseIdDoctor());
+                setHorariosDeAtencion(data);
+                valido = true;
+
+          //  }
 
         }
         return valido;
     }
+
     public static void setHorariosDeAtencion(HorariosDeAtencion data){
         _horarioDeATencionActual.setDia(data.getDia());
         _horarioDeATencionActual.setDuracionDeCita(_horarioDeATencionActual.getDuracionDeCita());
         _horarioDeATencionActual.setHoraInicio(data.getHoraInicio());
         _horarioDeATencionActual.setHoraFin(data.getHoraFin());
         /**Se declaran valores que el sistema debe llenar**/
-        _horarioDeATencionActual.setFirebaseId(data.getFirebaseId());
+        _horarioDeATencionActual.setFireBaseId(data.getFireBaseId());
+        _horarioDeATencionActual.setFireBaseIdDoctor(data.getFireBaseIdDoctor());
 
 
     }

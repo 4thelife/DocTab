@@ -86,13 +86,13 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_accion_consultorios:
+            case R.id.btn_accion_horarios_de_atencion:
                 switch (_MAIN_DECODE.getAccionFragmento()) {
                     case Constants.ACCION_EDITAR:
                         this.showQuestion();
                         break;
                     case Constants.ACCION_REGISTRAR:
-                        if (FormularioConsultorioFragment.validarDatosRegistro())
+                        if (FormularioHorariosDeAtencionFragment.validarDatosReg())
                             registrar();
                         break;
                 }
@@ -122,10 +122,10 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
 
     private void registrar() {
         /**Transporta la información del objeto a la actividad de registro**/
-        /**HorarioDeAtencionHelper helper = new HorarioDeAtencionHelper();
-        helper.setHorariosDeAtencion(FormularioHorariosDeAtencionFragment._horarioActual);
+        HorarioDeAtencionHelper helper = new HorarioDeAtencionHelper();
+        helper.setHorariosDeAtencion(FormularioHorariosDeAtencionFragment._horarioDeATencionActual);
 
-        activityInterface.registrarHorarioDeAtencion(helper);*/
+        activityInterface.registrarHorariosDeAtencion(helper);
     }
 
     private void editar(){

@@ -40,6 +40,8 @@ public class RegistroHorariosDeAtencionFragment extends Fragment {
         mainFragment.replace(R.id.fragment_registro_horarios_de_atencion_container,
                 new FormularioHorariosDeAtencionFragment(),
                 Constants.FORMULARIO_HORARIOS_DE_ATENCION_FRAGMENT);
+        mainFragment.replace(R.id.fragment_acciones__horarios_de_atencion_container,
+                new AccionesHorariosDeAtencionFragment(),Constants.FORMULARIO_ACCIONES_HORARIOS_DE_ATENCION_FRAGMENT);
 
         mainFragment.commit();
 
