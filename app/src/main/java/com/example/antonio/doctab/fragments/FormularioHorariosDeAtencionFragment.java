@@ -96,7 +96,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         tgb0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){ bandera[0]=true; }else{ bandera[0]=false; }
+                if (isChecked){ bandera[0]=true; }else{ bandera[0]= false; }
             }
         });
         tgb1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -238,7 +238,6 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                 /**Asigna los valores al formulario**/
                 agregar_hora_entrada.setText(horariosDeAtencion.getHoraInicio());
                 agregar_hora_fin.setText(horariosDeAtencion.getHoraFin());
-
             }
 
             @Override
