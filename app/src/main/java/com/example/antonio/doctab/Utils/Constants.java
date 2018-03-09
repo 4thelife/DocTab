@@ -32,6 +32,7 @@ import com.example.antonio.doctab.fragments.ListadoServiciosFragment;
 import com.example.antonio.doctab.fragments.MensajesFragment;
 import com.example.antonio.doctab.fragments.MiPerfilDoctorPrivadoFragment;
 import com.example.antonio.doctab.fragments.MiPerfilGeneralDoctorPrivadoFragment;
+import com.example.antonio.doctab.fragments.MiPerfilPacientePrivadoFragment;
 import com.example.antonio.doctab.fragments.PacientesFragment;
 import com.example.antonio.doctab.fragments.RegistroCitasFragment;
 import com.example.antonio.doctab.fragments.RegistroConsultoriosFragment;
@@ -66,15 +67,16 @@ public class Constants {
     /**
      *
      */
+    public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
+    public static final String FB_KEY_MAIN_CITAS = "citas";
     public static final String FB_KEY_ITEM_CONSULTORIOS = "consultorios";//No modifico este pues es para la bd
     public static final String FB_KEY_ITEM_HORARIOS_DE_ATENCION = "HorariosDeAtencion";
     public static final String FB_KEY_ITEM_CONSULTORIO_HORARIOS = "horarios";
     public static final String FB_KEY_ITEM_CONSULTORIO_DIRECCION = "direccion";
     public static final String FB_KEY_ITEM_PERFILES_ACADEMICOS = "perfilesAcademicos";
-    public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
     public static final String FB_KEY_ITEM_TIPO_USUARIO = "tipoDeUsuario";
     public static final String FB_KEY_ITEM_FIREBASE_ID = "firebaseId";
-    public static final String FB_KEY_MAIN_CITAS = "citas";
+
 
     /**
      * Key Extras
@@ -103,6 +105,7 @@ public class Constants {
     public static final String FRAGMENT_LISTADO_MENSAJES = "fragment_listado_mensajes";
     public static final String FRAGMENT_LISTADO_HORARIOS_DE_ATENCION = "fragment_listado_horarios_de_atencion";
     public static final String FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO = "fragment_miperfil_doctor_privado";
+    public static final String FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO = "fragment_miperfil_paciente_privado";
     public static final String FRAGMENT_INICIO_PACIENTE ="fragment_inicio_paciente";
     /**
      * Fragmentos segundarios
@@ -156,7 +159,7 @@ public class Constants {
     public static final String FRAGMENT_ITEM_CONSULTORIOS = "fragment_item_consultorios";
     public static final String FRAGMENT_ITEM_DOCTOR = "fragment_item_doctor";
     public static final String FRAGMENT_ITEM_ESPECIALIDADES = "fragment_item_especialidades";
-    public static final String FRAGMENT_ITEM_PACIENTES_DOCTOR = "fragment_item_pacientes_doctor";
+    public static final String FRAGMENT_ITEM_PACIENTES = "fragment_item_pacientes";
     public static final String FRAGMENT_ITEM_SERVICIOS = "fragment_item_servicios";
     public static final String FRAGMENT_ITEM_MENSAJES = "fragment_item_mensajes";
     public static final String FRAGMENT_ITEM_HORARIOS_DE_ATENCION = "fragment_item_horarios_de_atencion";
@@ -191,6 +194,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIOS);
         //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.menu_item_citas, FRAGMENT_LISTADO_CITAS);
+        ITEM_FRAGMENT.put(R.id.menu_item_perfil_pacientes,FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO);
         ITEM_FRAGMENT.put(R.id.menu_item_perfil_doctor,FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO);
         /** INICIO PACIENTE**/
         ITEM_FRAGMENT.put(R.id.menu_item_inicio,FRAGMENT_INICIO_PACIENTE);
@@ -224,6 +228,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_MENSAJES, new ListadoMensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_HORARIOS_DE_ATENCION, new ListadoHorariosDeAtencionFragment());
         TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO,new MiPerfilDoctorPrivadoFragment());
+        TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO, new MiPerfilPacientePrivadoFragment());
         TAG_FRAGMENT.put(FRAGMENT_INICIO_PACIENTE, new InicioPacienteFragment());
 
         /**Formulario*/

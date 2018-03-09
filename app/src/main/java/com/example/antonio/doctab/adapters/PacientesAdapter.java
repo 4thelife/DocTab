@@ -26,7 +26,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtNombres;
-        TextView txtApellidos;
+
 
         TextView txtEdad;
         TextView txtSexo;
@@ -35,11 +35,11 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txtNombres = (TextView) itemView.findViewById(R.id.item_pacientes_doctor_nombres);
-            txtApellidos = (TextView) itemView.findViewById(R.id.item_pacientes_doctor_apellidos);
+            txtNombres = (TextView) itemView.findViewById(R.id.item_pacientes_nombres);
 
-            txtEdad = (TextView) itemView.findViewById(R.id.item_pacientes_doctor_edad);
-            txtSexo = (TextView) itemView.findViewById(R.id.item_pacientes_doctor_sexo);
+
+            txtEdad = (TextView) itemView.findViewById(R.id.item_pacientes_edad);
+            txtSexo = (TextView) itemView.findViewById(R.id.item_pacientes_sexo);
 
 
         }
@@ -64,7 +64,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_pacientes_doctor,
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_pacientes,
                 parent, false);
         return new ViewHolder(view);
     }
@@ -79,6 +79,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
         decodeItem.setItemModel(item);
         decodeItem.setPosition(position);
 
+        holder.txtNombres.setText(item.getSexo());
         holder.txtEdad.setText(item.getEdad());
         holder.txtSexo.setText(item.getSexo());
 

@@ -12,26 +12,26 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_pacientes_doctor_nombres"
+            android:id="@+id/item_pacientes_nombres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
             android:fontFamily="monospace"
             android:text="Nombre(s) del paciente" />
-
+        <!--
         <TextView
-            android:id="@+id/item_pacientes_doctor_apellidos"
+            android:id="@+id/item_pacientes_apellidos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
             android:fontFamily="monospace"
             android:text="Apellidos del paciente"
-            android:textAlignment="textEnd" />
+            android:textAlignment="textEnd" />-->
 
         <TextView
-            android:id="@+id/item_pacientes_doctor_edad"
+            android:id="@+id/item_pacientes_edad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -41,7 +41,7 @@
             android:textAlignment="textEnd" />
 
         <TextView
-            android:id="@+id/item_pacientes_doctor_sexo"
+            android:id="@+id/item_pacientes_sexo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -49,9 +49,9 @@
             android:fontFamily="monospace"
             android:text="Sexo"
             android:textAlignment="textEnd" />
-
+<!--
         <TextView
-            android:id="@+id/item_pacientes_doctor_alergia"
+            android:id="@+id/item_pacientes_alergia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -61,14 +61,14 @@
             android:textAlignment="textEnd" />
 
         <TextView
-            android:id="@+id/item_pacientes_doctor_ultima_cita"
+            android:id="@+id/item_pacientes_ultima_cita"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="18sp"
             android:fontFamily="monospace"
             android:text="Ultima cita registrada"
-            android:textAlignment="textEnd" />
+            android:textAlignment="textEnd" />-->
 
 
 
@@ -78,7 +78,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/item_btn_editar_paciente_doctor"
+                android:id="@+id/item_btn_editar_paciente"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -88,7 +88,7 @@
                 android:textColor="@color/bootstrap_brand_secondary_fill" />
 
             <Button
-                android:id="@+id/item_btn_eliminar_paciente_doctor"
+                android:id="@+id/item_btn_eliminar_paciente"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
