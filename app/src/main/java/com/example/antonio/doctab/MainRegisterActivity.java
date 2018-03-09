@@ -425,7 +425,7 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
         final DatabaseReference dbHorariosDeAtencion =
                 FirebaseDatabase.getInstance().getReference()
                         .child(Constants.FB_KEY_MAIN_DOCTORES)
-                        .child(helper.getHorariosDeAtencion().getFireBaseIdDoctor());
+                        .child(helper.getHorariosDeAtencion().getFireBaseId());
 
         /**Se crea el firebaseID en el futuro nodo**/
         String firebaseIDHorarioDeAtencion = dbHorariosDeAtencion.child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION).push().getKey();
