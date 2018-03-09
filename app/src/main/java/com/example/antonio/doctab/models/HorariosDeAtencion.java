@@ -12,7 +12,8 @@ public class HorariosDeAtencion {
     private String duracionDeCita;
 
 
-    private String firebaseId;
+    private String fireBaseId;
+    private String fireBaseIdDoctor;
     private String estatus;
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
@@ -21,17 +22,17 @@ public class HorariosDeAtencion {
     public HorariosDeAtencion() {
     }
 
-    public HorariosDeAtencion(String dia, String horaInicio, String horaFin, String duracionDeCita, String firebaseId, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
+    public HorariosDeAtencion(String dia, String horaInicio, String horaFin, String duracionDeCita, String fireBaseId, String fireBaseIdDoctor, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
         this.dia = dia;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.duracionDeCita = duracionDeCita;
-        this.firebaseId = firebaseId;
+        this.fireBaseId = fireBaseId;
+        this.fireBaseIdDoctor = fireBaseIdDoctor;
         this.estatus = estatus;
         this.fechaDeCreacion = fechaDeCreacion;
         this.fechaDeEdicion = fechaDeEdicion;
     }
-
 
     public String getDia() {
         return dia;
@@ -65,12 +66,20 @@ public class HorariosDeAtencion {
         this.duracionDeCita = duracionDeCita;
     }
 
-    public String getFirebaseId() {
-        return firebaseId;
+    public String getFireBaseId() {
+        return fireBaseId;
     }
 
-    public void setFirebaseId(String firebaseId) {
-        this.firebaseId = firebaseId;
+    public void setFireBaseId(String fireBaseId) {
+        this.fireBaseId = fireBaseId;
+    }
+
+    public String getFireBaseIdDoctor() {
+        return fireBaseIdDoctor;
+    }
+
+    public void setFireBaseIdDoctor(String fireBaseIdDoctor) {
+        this.fireBaseIdDoctor = fireBaseIdDoctor;
     }
 
     public String getEstatus() {
