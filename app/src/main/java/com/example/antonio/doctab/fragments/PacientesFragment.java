@@ -45,7 +45,7 @@ public class PacientesFragment extends Fragment implements View.OnClickListener{
     private static PacientesAdapter adapter;
 
     private FirebaseDatabase database;
-    private DatabaseReference drDoctores;
+    private DatabaseReference drPacientes;
     private ValueEventListener listenerPacientes;
 
     @Nullable
@@ -62,7 +62,7 @@ public class PacientesFragment extends Fragment implements View.OnClickListener{
 
         database = FirebaseDatabase.getInstance();
 
-        drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
+        drPacientes = database.getReference(Constants.FB_KEY_MAIN_PACIENTES)
                 .child(_SESSION_USER.getFirebaseId())
                 .child(Constants.FB_KEY_ITEM_PACIENTE);
 
@@ -116,7 +116,7 @@ public class PacientesFragment extends Fragment implements View.OnClickListener{
 
             }
         };
-        drDoctores.addValueEventListener(listenerPacientes);
+        drPacientes.addValueEventListener(listenerPacientes);
     }
 
     private void onPreRenderListadoPacientes() {
@@ -155,7 +155,7 @@ public class PacientesFragment extends Fragment implements View.OnClickListener{
         activityInterface.setDecodeItem(decodeItem);
 
         switch (decodeItem.getIdView()) {
-            case R.id.item_btn_editar_doctores:
+            case R.id.item_btn_editar_paciente:
                 activityInterface.openExternalActivity(Constants.ACCION_EDITAR, MainRegisterActivity.class);
                 break;
 

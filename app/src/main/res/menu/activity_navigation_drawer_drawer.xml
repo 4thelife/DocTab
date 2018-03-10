@@ -92,7 +92,7 @@
                         android:title="Mensajes" />
                         -->
                     <item
-                        android:id="@+id/menu_item_perfil_pacientes"
+                        android:id="@+id/menu_item_perfil_paciente"
                         android:icon="@mipmap/ic_perm_identity_black_48dp"
                         android:title="Mi Perfil" />
                 </group>

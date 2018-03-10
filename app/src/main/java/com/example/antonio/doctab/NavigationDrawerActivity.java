@@ -210,6 +210,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_inicio));
                 this.openFragment(Constants.ITEM_FRAGMENT.get(id));
                 break;
+            /**
+             * Menu del Doctor
+             */
             case R.id.menu_item_citas:
                 getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_citas_doctor));
                 this.openFragment(Constants.ITEM_FRAGMENT.get(id));
@@ -233,9 +236,13 @@ public class NavigationDrawerActivity extends AppCompatActivity
             /**
              * Menu del Paciente
              */
-            case R.id.menu_item_perfil_pacientes:
+            case R.id.menu_item_perfil_paciente:
                 getSupportActionBar().setTitle(getString(R.string.default_item_menu_title_perfil_paciente));
                 this.openFragment(Constants.ITEM_FRAGMENT.get(id));
+                break;
+            /**
+             * Menu del Administrador
+             */
             default:
                 break;
         }
