@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/ed_citas_doctr_hora"
+                    android:id="@+id/ed_citas_hora"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
