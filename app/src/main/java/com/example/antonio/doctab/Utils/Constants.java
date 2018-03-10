@@ -193,7 +193,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIOS);
         //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.menu_item_citas, FRAGMENT_LISTADO_CITAS);
-        ITEM_FRAGMENT.put(R.id.menu_item_perfil_pacientes,FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO);
+        ITEM_FRAGMENT.put(R.id.menu_item_perfil_paciente,FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO);
         ITEM_FRAGMENT.put(R.id.menu_item_perfil_doctor,FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO);
         /** INICIO PACIENTE**/
         ITEM_FRAGMENT.put(R.id.menu_item_inicio,FRAGMENT_INICIO_PACIENTE);
