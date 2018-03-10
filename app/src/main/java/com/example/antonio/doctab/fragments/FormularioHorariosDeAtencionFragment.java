@@ -243,11 +243,10 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         boolean valido = true;
         String eldia,hora1,hora2,duracion;
 
-      /*
-       for (int i=0; i<7; i++){
-        if (bandera[0] = true){
-            eldia= String.valueOf(0);
 
+       //for (int i=0; i<7; i++){
+        //if (bandera[0] = true){
+            eldia= String.valueOf(0);
             HorariosDeAtencion data = new HorariosDeAtencion();
             data.setHoraInicio(horaini);
             data.setHoraFin(horafin);
@@ -259,10 +258,11 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
             data.setFireBaseIdDoctor(_horarioDeATencionActual.getFireBaseIdDoctor());
             setHorariosDeAtencion(data);
             valido = true;
+
+  /*
          }
        }
-        */
-        eldia= "0";
+            eldia= "0";
         hora1= "7:00";
         hora2= "8:00";
         duracion= "30";
@@ -277,7 +277,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         data.setEstatus(_horarioDeATencionActual.getEstatus());
         data.setFireBaseIdDoctor(_horarioDeATencionActual.getFireBaseIdDoctor());
         setHorariosDeAtencion(data);
-
+*/
 
 
         return valido;

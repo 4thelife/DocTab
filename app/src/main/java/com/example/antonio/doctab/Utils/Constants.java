@@ -65,7 +65,7 @@ public class Constants {
     //public static final String FB_KEY_MAIN_HORARIOS_DE_ATENCION = "HorariosAtencion";
 
     /**
-     *
+     *Nodos?
      */
     public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
     public static final String FB_KEY_MAIN_CITAS = "citas";
