@@ -208,6 +208,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.btn_agregar_horarios_de_atencion, FRAGMENT_REGISTRO_HORARIOS_DE_ATENCION);
         ITEM_FRAGMENT.put(R.id.item_btn_editar_consultorios, FRAGMENT_REGISTRO_CONSULTORIOS);
         ITEM_FRAGMENT.put(R.id.item_btn_editar_doctores, FRAGMENT_REGISTRO_DOCTORES);
+
     }
 
     public static final HashMap<String, Fragment> TAG_FRAGMENT;
