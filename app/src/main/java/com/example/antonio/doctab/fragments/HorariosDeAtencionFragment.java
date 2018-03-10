@@ -68,7 +68,7 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
 
         database = FirebaseDatabase.getInstance();
 
-        drDoctores = database.getReference(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION)
+        drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
                 .child(_SESSION_USER.getFirebaseId())
                 .child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION);
 
