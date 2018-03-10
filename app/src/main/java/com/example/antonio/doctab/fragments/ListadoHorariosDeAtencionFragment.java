@@ -28,9 +28,9 @@ public class ListadoHorariosDeAtencionFragment extends Fragment implements View.
     private static Usuarios _SESSION_USER;
     private Button btnAgregar;
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_listado_horarios_de_atencion,container,false);
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);

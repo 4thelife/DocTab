@@ -62,7 +62,7 @@ public class Constants {
     public static final String FB_KEY_ITEM_ESTATUS_INACTIVO = "inactivo";
     public static final String FB_KEY_ITEM_ESTATUS_ACTIVO = "activo";
     public static final String FB_KEY_ITEM_ESTATUS_ELIMINADO = "eliminado";
-    public static final String FB_KEY_MAIN_HORARIOS_DE_ATENCION = "HorariosAtencion";
+    //public static final String FB_KEY_MAIN_HORARIOS_DE_ATENCION = "HorariosAtencion";
 
     /**
      *

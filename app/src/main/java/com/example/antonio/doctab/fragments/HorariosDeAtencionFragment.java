@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.antonio.doctab.MainRegisterActivity;
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.adapters.HorariosDeAtencionAdapter;
@@ -45,10 +46,12 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
     private static RecyclerView recyclerView;
     private static HorariosDeAtencionAdapter adapter;
 
-
+    /**
+     * Declaraciones de firebase
+     **/
     private FirebaseDatabase database;
     private DatabaseReference drDoctores;
-    private ValueEventListener listenerHorariosServicios;
+    private ValueEventListener listenerHorariosDeAtencion;
 
     @Nullable
     @Override
@@ -65,7 +68,7 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
 
         database = FirebaseDatabase.getInstance();
 
-        drDoctores = database.getReference(Constants.FB_KEY_MAIN_HORARIOS_DE_ATENCION)
+        drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
                 .child(_SESSION_USER.getFirebaseId())
                 .child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION);
 
@@ -86,11 +89,11 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
     @Override
     public void onStart() {
         super.onStart();
-        listadoHorariosServicio();
+        listadoHorariosDeAtencion();
     }
 
-    public void listadoHorariosServicio(){
-        listenerHorariosServicios = new ValueEventListener() {
+    public void listadoHorariosDeAtencion(){
+        listenerHorariosDeAtencion = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 adapter = new HorariosDeAtencionAdapter();
@@ -98,19 +101,21 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
 
-                    HorariosDeAtencion horariosDeAtencion = dataSnapshot.getValue(HorariosDeAtencion.class);
+                    HorariosDeAtencion horariosDeAtencion = postSnapshot.getValue(HorariosDeAtencion.class);
 
-                    /**switch (HorariosDeAtencion.getEstatus()) {
+                    if (null == horariosDeAtencion.getEstatus())break;
+
+                    switch (horariosDeAtencion.getEstatus()) {
                         case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
                         case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
-                            dataList.add(consultorio);
+                            dataList.add(horariosDeAtencion);
                             break;
                         default:
                             break;
-                    }*/
+                    }
 
                 }
-                onPreRenderListadoHorariosServicio();
+                onPreRenderListadoHorariosDeAtencion();
             }
 
             @Override
@@ -118,14 +123,11 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
 
             }
         };
-        drDoctores.addValueEventListener(listenerHorariosServicios);
+        drDoctores.addValueEventListener(listenerHorariosDeAtencion);
     }
 
-    public void onPreRenderListadoHorariosServicio(){
+    public void onPreRenderListadoHorariosDeAtencion(){
 
-        /**
-         * Falta colocar el comparador para ordenar la vista de los dias
-         */
 
         Collections.sort(dataList, new Comparator<HorariosDeAtencion>() {
             @Override
@@ -145,7 +147,7 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
     @Override
     public void onStop() {
         super.onStop();
-        drDoctores.removeEventListener(listenerHorariosServicios);
+        drDoctores.removeEventListener(listenerHorariosDeAtencion);
     }
 
     @Override
@@ -163,8 +165,19 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
 
     }
 
-    public void onListenerAction(DecodeItemHelper decodeItem){
 
+    public static void onListenerAction(DecodeItemHelper decodeItem) {
+        /**Inicializa DecodeItem en la activity principal**/
+        activityInterface.setDecodeItem(decodeItem);
+
+        switch (decodeItem.getIdView()) {
+            case R.id.item_btn_editar_dia:
+                activityInterface.openExternalActivity(Constants.ACCION_EDITAR, MainRegisterActivity.class);
+                break;
+            case R.id.item_btn_eliminar_dia:
+                activityInterface.showQuestion("Eliminar", "¿Esta seguro que desea eliminar?");
+                break;
+        }
     }
 
 }

@@ -262,7 +262,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
          }
        }
         */
-        eldia= "Domingo";
+        eldia= "0";
         hora1= "7:00";
         hora2= "8:00";
         duracion= "30";

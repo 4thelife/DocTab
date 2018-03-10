@@ -1,11 +1,14 @@
 package com.example.antonio.doctab.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.antonio.doctab.R;
+import com.example.antonio.doctab.fragments.HorariosDeAtencionFragment;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.models.HorariosDeAtencion;
 
@@ -28,7 +31,8 @@ public class HorariosDeAtencionAdapter extends RecyclerView.Adapter<HorariosDeAt
         TextView txtHoraInicio;
         TextView txtHoraFin;
         TextView txtDuracionDeCita;/**Duracion de la cita*/
-
+        Button btnEditar;
+        Button btnEliminar;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -37,12 +41,6 @@ public class HorariosDeAtencionAdapter extends RecyclerView.Adapter<HorariosDeAt
              txtDia = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_dia);
              txtHoraInicio = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_hora_inicio);
              txtHoraFin = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_hora_fin);
-
-
-
-
-
-
         }
     }
 
@@ -59,9 +57,8 @@ public class HorariosDeAtencionAdapter extends RecyclerView.Adapter<HorariosDeAt
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_horario_servicio,parent, false);
-        //return new ViewHolder(view);
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_horarios_de_atencion,parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -72,11 +69,26 @@ public class HorariosDeAtencionAdapter extends RecyclerView.Adapter<HorariosDeAt
 
         decodeItem.setItemModel(item);
         decodeItem.setPosition(position);
+
         holder.txtDia.setText(item.getDia());
         holder.txtHoraInicio.setText(item.getHoraInicio());
         holder.txtHoraFin.setText(item.getHoraFin());
         holder.txtDuracionDeCita.setText(item.getDuracionDeCita());
 
+        holder.btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                decodeItem.setIdView(v.getId());
+                HorariosDeAtencionFragment.onListenerAction(decodeItem);
+            }
+        });
+        holder.btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                decodeItem.setIdView(v.getId());
+                HorariosDeAtencionFragment.onListenerAction(decodeItem);
+            }
+        });
     }
 
     @Override
