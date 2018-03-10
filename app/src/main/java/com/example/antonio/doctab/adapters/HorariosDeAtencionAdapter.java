@@ -42,6 +42,8 @@ public class HorariosDeAtencionAdapter extends RecyclerView.Adapter<HorariosDeAt
              txtHoraInicio = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_hora_inicio);
              txtHoraFin = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_hora_fin);
              txtDuracionDeCita=(TextView)itemView.findViewById(R.id.item_horarios_de_atencion_duracion);
+             btnEditar = (Button) itemView.findViewById(R.id.item_btn_editar_dia);
+             btnEliminar=(Button)itemView.findViewById(R.id.item_btn_eliminar_dia);
         }
     }
 

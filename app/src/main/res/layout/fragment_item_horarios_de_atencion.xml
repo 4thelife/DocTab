@@ -74,6 +74,7 @@
                 android:fontFamily="monospace"
                 android:text="@string/button_eliminar"
                 android:textColor="@color/bootstrap_brand_secondary_fill" />
+
         </LinearLayout>
     </LinearLayout>
 
