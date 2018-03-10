@@ -69,11 +69,35 @@ public class HorariosDeAtencionAdapter extends RecyclerView.Adapter<HorariosDeAt
         final HorariosDeAtencion item = dataList.get(position);
 
         final DecodeItemHelper decodeItem = new DecodeItemHelper();
-
+        String eldia="";
         decodeItem.setItemModel(item);
         decodeItem.setPosition(position);
 
-        holder.txtDia.setText(item.getDia());
+        switch (item.getDia()){
+            case "0":
+                eldia = "Domingo";
+                break;
+            case "1":
+                eldia = "Lunes";
+                break;
+            case "2":
+                eldia = "Martes";
+                break;
+            case "3":
+                eldia = "Miércoles";
+                break;
+            case "4":
+                eldia = "Jueves";
+                break;
+            case "5":
+                eldia = "Viernes";
+                break;
+            case "6":
+                eldia = "Sábado";
+                break;
+        }
+
+        holder.txtDia.setText(eldia);
         holder.txtHoraInicio.setText(item.getHoraInicio());
         holder.txtHoraFin.setText(item.getHoraFin());
         holder.txtDuracionDeCita.setText(item.getDuracionDeCita());
