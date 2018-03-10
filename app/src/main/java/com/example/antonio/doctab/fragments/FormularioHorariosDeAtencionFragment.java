@@ -239,10 +239,11 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         });
     }
 
-    public static boolean validarDatosReg(){
+    public static boolean validarDatosReg() {
         boolean valido = true;
-        String eldia,hora1,hora2,duracion;
+        String eldia, hora1, hora2, duracion;
 
+        duracion = sp_duracion_cita.getSelectedItem().toString();
 
        //for (int i=0; i<7; i++){
         //if (bandera[0] = true){
@@ -250,7 +251,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
             HorariosDeAtencion data = new HorariosDeAtencion();
             data.setHoraInicio(horaini);
             data.setHoraFin(horafin);
-            data.setDuracionDeCita(sp_duracion_cita.getSelectedItem().toString());
+            data.setDuracionDeCita(duracion);
             data.setDia(eldia);
 
             data.setFireBaseId(_SESSION_USER.getFirebaseId());
@@ -286,7 +287,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
 
     public static void setHorariosDeAtencion(HorariosDeAtencion data){
         _horarioDeATencionActual.setDia(data.getDia());
-        _horarioDeATencionActual.setDuracionDeCita(_horarioDeATencionActual.getDuracionDeCita());
+        _horarioDeATencionActual.setDuracionDeCita(data.getDuracionDeCita());
         _horarioDeATencionActual.setHoraInicio(data.getHoraInicio());
         _horarioDeATencionActual.setHoraFin(data.getHoraFin());
         /**Se declaran valores que el sistema debe llenar**/
