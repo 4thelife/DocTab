@@ -118,7 +118,8 @@ public class AccionesConsultoriosFragment extends Fragment implements View.OnCli
         }
     }
 
-    private void registrar() {
+    private void registrar()
+    {
         /**Transporta la información del objeto a la actividad de registro**/
         ConsultoriosHelper helper = new ConsultoriosHelper();
         helper.setConsultorio(FormularioConsultorioFragment._consultorioActual);

@@ -10,11 +10,13 @@ public class HorarioDeAtencionHelper {
 
     HorariosDeAtencion horariosDeAtencion;
 
-    public HorariosDeAtencion getHorariosDeAtencion() {
+    public HorariosDeAtencion getHorariosDeAtencion()
+    {
         return horariosDeAtencion;
     }
 
-    public void setHorariosDeAtencion(HorariosDeAtencion horariosDeAtencion) {
+    public void setHorariosDeAtencion(HorariosDeAtencion horariosDeAtencion)
+    {
         this.horariosDeAtencion = horariosDeAtencion;
     }
 }

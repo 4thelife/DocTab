@@ -13,12 +13,14 @@ import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
+import com.example.antonio.doctab.helpers.HorarioDeAtencionHelper;
 import com.example.antonio.doctab.models.HorariosDeAtencion;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
@@ -36,6 +38,7 @@ import java.util.Calendar;
  */
 
 public class FormularioHorariosDeAtencionFragment extends Fragment implements View.OnClickListener{
+
 
     private static final String TAG = FormularioHorariosDeAtencionFragment.class.getSimpleName();
 
@@ -153,7 +156,8 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view)
+    {
 
         switch (view.getId()) {
             case R.id.tv_agregar_hora_entrada:
@@ -239,7 +243,34 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         });
     }
 
-    public static boolean validarDatosReg() {
+    public void registrar1(){
+
+        for (int i=0; i<7; i++)
+        {
+            if (bandera[i]){
+
+                HorariosDeAtencion data = new HorariosDeAtencion();
+                data.setHoraInicio(horaini);
+                data.setHoraFin(horafin);
+                data.setDuracionDeCita(sp_duracion_cita.getSelectedItem().toString());
+                data.setDia(String.valueOf(i));
+
+                data.setFireBaseId(_SESSION_USER.getFirebaseId());
+                data.setEstatus(_horarioDeATencionActual.getEstatus());
+                data.setFireBaseIdDoctor(_horarioDeATencionActual.getFireBaseIdDoctor());
+                setHorariosDeAtencion(data);
+                AccionesHorariosDeAtencionFragment  accionesHorariosDeAtencionFragment = new AccionesHorariosDeAtencionFragment();
+                accionesHorariosDeAtencionFragment.registrar();
+
+            }
+
+        }
+
+    }
+
+/*
+    public static boolean validarDatosReg()
+    {
         boolean valido = true;
         String eldia, hora1, hora2, duracion;
 
@@ -248,7 +279,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
        //for (int i=0; i<7; i++){
         //if (bandera[0] = true){
             eldia= String.valueOf(0);
-            HorariosDeAtencion data = new HorariosDeAtencion();
+           HorariosDeAtencion data = new HorariosDeAtencion();
             data.setHoraInicio(horaini);
             data.setHoraFin(horafin);
             data.setDuracionDeCita(duracion);
@@ -258,9 +289,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
             data.setEstatus(_horarioDeATencionActual.getEstatus());
             data.setFireBaseIdDoctor(_horarioDeATencionActual.getFireBaseIdDoctor());
             setHorariosDeAtencion(data);
-            valido = true;
-
-  /*
+            valido = true; /*
          }
        }
             eldia= "0";
@@ -278,12 +307,12 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         data.setEstatus(_horarioDeATencionActual.getEstatus());
         data.setFireBaseIdDoctor(_horarioDeATencionActual.getFireBaseIdDoctor());
         setHorariosDeAtencion(data);
-*/
+
 
 
         return valido;
     }
-
+*/
 
     public static void setHorariosDeAtencion(HorariosDeAtencion data){
         _horarioDeATencionActual.setDia(data.getDia());

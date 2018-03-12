@@ -92,8 +92,11 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
                         this.showQuestion();
                         break;
                     case Constants.ACCION_REGISTRAR:
-                        if (FormularioHorariosDeAtencionFragment.validarDatosReg())
-                            registrar();
+                        FormularioHorariosDeAtencionFragment formularioHorariosDeAtencionFragment = new FormularioHorariosDeAtencionFragment();
+
+                        formularioHorariosDeAtencionFragment.registrar1();
+                        //if (FormularioHorariosDeAtencionFragment.validarDatosReg())
+                            //registrar();
                         break;
                 }
                 break;
@@ -120,11 +123,11 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
         }
     }
 
-    private void registrar() {
+    public void registrar()
+    {
         /**Transporta la información del objeto a la actividad de registro**/
         HorarioDeAtencionHelper helper = new HorarioDeAtencionHelper();
         helper.setHorariosDeAtencion(FormularioHorariosDeAtencionFragment._horarioDeATencionActual);
-
         activityInterface.registrarHorariosDeAtencion(helper);
     }
 
