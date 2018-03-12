@@ -64,7 +64,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         hour = currentTime.get(Calendar.HOUR_OF_DAY);
         minuto = currentTime.get(Calendar.MINUTE);
 
-        tilCitasHora.getEditText().setText(hora+":"+minuto);
+        tilCitasHora.getEditText().setText(hour+":"+minuto);
         hora.setOnClickListener(this);
 
 
