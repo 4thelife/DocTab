@@ -94,7 +94,7 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
                     case Constants.ACCION_REGISTRAR:
                         FormularioHorariosDeAtencionFragment formularioHorariosDeAtencionFragment = new FormularioHorariosDeAtencionFragment();
 
-                        formularioHorariosDeAtencionFragment.registrar1();
+                        formularioHorariosDeAtencionFragment.registrar();
                         //if (FormularioHorariosDeAtencionFragment.validarDatosReg())
                             //registrar();
                         break;

@@ -243,7 +243,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         });
     }
 
-    public void registrar1(){
+    public void registrar(){
 
         for (int i=0; i<7; i++)
         {
