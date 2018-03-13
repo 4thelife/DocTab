@@ -79,7 +79,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
         decodeItem.setItemModel(item);
         decodeItem.setPosition(position);
 
-        holder.txtNombres.setText(item.getSexo());
+        holder.txtNombres.setText(item.getNombreCompleto());
         holder.txtEdad.setText(item.getEdad());
         holder.txtSexo.setText(item.getSexo());
 
@@ -102,7 +102,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
 
     @Override
     public int getItemCount() {
-        return 0;
+        return dataList == null ? 0 : dataList.size();
     }
 
 

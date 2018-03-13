@@ -64,7 +64,8 @@ public class PacientesFragment extends Fragment implements View.OnClickListener{
 
         drPacientes = database.getReference(Constants.FB_KEY_MAIN_PACIENTES)
                 .child(_SESSION_USER.getFirebaseId())
-                .child(Constants.FB_KEY_ITEM_PACIENTE);
+                .child(Constants.FB_KEY_ITEM_PACIENTE)
+                .child(_SESSION_USER.getFirebaseId());
 
 
         return view;
@@ -93,6 +94,18 @@ public class PacientesFragment extends Fragment implements View.OnClickListener{
                 adapter = new PacientesAdapter();
                 dataList = new ArrayList<>();
 
+                Pacientes pacientes = dataSnapshot.getValue(Pacientes.class);
+
+                switch (pacientes.getEstatus()){
+                    case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                    case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                        dataList.add(pacientes);
+                        break;
+                    default:
+                        break;
+                }
+
+                /**
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
                     Pacientes pacientes = postSnapshot.getValue(Pacientes.class);
 
@@ -108,6 +121,7 @@ public class PacientesFragment extends Fragment implements View.OnClickListener{
                     }
 
                 }
+              */
                 onPreRenderListadoPacientes();
             }
 
@@ -120,13 +134,6 @@ public class PacientesFragment extends Fragment implements View.OnClickListener{
     }
 
     private void onPreRenderListadoPacientes() {
-        Collections.sort(dataList, new Comparator<Pacientes>() {
-            @Override
-            public int compare(Pacientes o1, Pacientes o2) {
-                return (o1.getFechaDeCreacion().compareTo(o2.getFechaDeCreacion()));
-            }
-        });
-
         adapter.addAll(dataList);
         recyclerView.setAdapter(adapter);
 
