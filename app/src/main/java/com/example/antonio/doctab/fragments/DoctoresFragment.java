@@ -71,9 +71,9 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
         database = FirebaseDatabase.getInstance();
 
         drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
-                .child(Constants.FBID_DOCTOR)
+                .child(Constants.USUARIO_DOCTOR)
                 .child(Constants.FB_KEY_ITEM_DOCTOR)
-                .child(Constants.FBID_DOCTOR);
+                .child(Constants.USUARIO_DOCTOR);
 
         return view;
     }
