@@ -187,16 +187,17 @@ public class Constants {
         ITEM_FRAGMENT.put(View.NO_ID, FRAGMENT_REGISTRO_INDEFINIDOS);
         ITEM_FRAGMENT.put(R.id.linear_registro_doctor, FRAGMENT_REGISTRO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.linear_registro_paciente, FRAGMENT_REGISTRO_PACIENTES);
-        /**Menu*/
+        /**Menu Doctor*/
         ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_LISTADO_INICIO);
         ITEM_FRAGMENT.put(R.id.menu_item_horarios_de_atencion, FRAGMENT_LISTADO_HORARIOS_DE_ATENCION);
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIOS);
         //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.menu_item_citas, FRAGMENT_LISTADO_CITAS);
-        ITEM_FRAGMENT.put(R.id.menu_item_perfil_paciente, FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO);
         ITEM_FRAGMENT.put(R.id.menu_item_perfil_doctor, FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO);
-        /** INICIO PACIENTE**/
+        /** Menu Paciente*/
         ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_INICIO_PACIENTE);
+        ITEM_FRAGMENT.put(R.id.menu_item_mi_doctor, FRAGMENT_LISTADO_DOCTORES);
+        ITEM_FRAGMENT.put(R.id.menu_item_perfil_paciente, FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO);
 
         /**Botones*/
         ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_REGISTRO_CONSULTORIOS);

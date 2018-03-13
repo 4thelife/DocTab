@@ -71,8 +71,9 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
         database = FirebaseDatabase.getInstance();
 
         drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
-                .child(_SESSION_USER.getFirebaseId())
-                .child(Constants.FB_KEY_ITEM_DOCTOR);
+                .child(Constants.FBID_DOCTOR)
+                .child(Constants.FB_KEY_ITEM_DOCTOR)
+                .child(Constants.FBID_DOCTOR);
 
         return view;
     }
@@ -100,7 +101,18 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
                 adapter = new DoctoresAdapter();
                 dataList = new ArrayList<>();
 
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                Doctores doctores = dataSnapshot.getValue(Doctores.class);
+
+                switch (doctores.getEstatus()){
+                    case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                    case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                        dataList.add(doctores);
+                        break;
+                    default:
+                        break;
+                }
+
+                /**for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
 
                     Doctores doctores = postSnapshot.getValue(Doctores.class);
 
@@ -115,7 +127,7 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
                             break;
                     }
 
-                }
+                }*/
                 onPreRenderListadoDoctores();
             }
 

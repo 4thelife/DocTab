@@ -1,6 +1,7 @@
 package com.example.antonio.doctab.fragments;
 
  import android.content.Context;
+ import android.content.Intent;
  import android.os.Bundle;
  import android.support.annotation.Nullable;
  import android.support.v4.app.Fragment;
@@ -11,8 +12,10 @@ package com.example.antonio.doctab.fragments;
  import android.view.ViewGroup;
  import android.widget.Button;
 
+ import com.example.antonio.doctab.MainRegisterActivity;
  import com.example.antonio.doctab.R;
  import com.example.antonio.doctab.Utils.Constants;
+ import com.example.antonio.doctab.helpers.DecodeExtraHelper;
  import com.example.antonio.doctab.models.Usuarios;
 
 
@@ -33,7 +36,7 @@ public class ListadoDoctoresFragment extends Fragment implements View.OnClickLis
 
         _SESSION_USER = (Usuarios) getActivity().getIntent().getSerializableExtra(Constants.KEY_SESSION_USER);
 
-        btnRegistrar = (Button) view.findViewById(R.id.btn_agregar_doctor);
+        btnRegistrar = (Button) view.findViewById(R.id.btn_agregar_citas);
         btnRegistrar.setOnClickListener(this);
 
         return view;
@@ -62,8 +65,21 @@ public class ListadoDoctoresFragment extends Fragment implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_agregar_doctor:
+            case R.id.btn_agregar_citas:
+                DecodeExtraHelper extra = new DecodeExtraHelper();
+
+                extra.setTituloActividad(getString(Constants.TITLE_ACTIVITY.get(v.getId())));
+                extra.setTituloFormulario(getString(R.string.default_form_title_new));
+                extra.setAccionFragmento(Constants.ACCION_REGISTRAR);
+                extra.setFragmentTag(Constants.ITEM_FRAGMENT.get(v.getId()));
+
+                Intent intent = new Intent(getActivity(), MainRegisterActivity.class);
+                intent.putExtra(Constants.KEY_MAIN_DECODE, extra);
+                intent.putExtra(Constants.KEY_SESSION_USER, _SESSION_USER);
+                startActivity(intent);
+
                 break;
+
         }
     }
 

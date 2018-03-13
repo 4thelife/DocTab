@@ -85,12 +85,12 @@
                         android:id="@+id/menu_item_citas_paciente"
                         android:icon="@mipmap/ic_event_black_48dp"
                         android:title="Citas" />
-                    <!--
+
                     <item
-                        android:id="@+id/menu_item_mensajes_paciente"
-                        android:icon="@mipmap/ic_message_black_48dp"
-                        android:title="Mensajes" />
-                        -->
+                        android:id="@+id/menu_item_mi_doctor"
+                        android:icon="@mipmap/ic_perm_identity_black_48dp"
+                        android:title="Mi doctor" />
+
                     <item
                         android:id="@+id/menu_item_perfil_paciente"
                         android:icon="@mipmap/ic_perm_identity_black_48dp"

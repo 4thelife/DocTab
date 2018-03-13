@@ -109,6 +109,7 @@
     <string name="default_item_menu_title_citas_paciente">Citas</string>
     <string name="default_item_menu_title_mensajes_paciente">Mensajes</string>
     <string name="default_item_menu_title_perfil_paciente">Mi Perfil</string>
+    <string name="default_item_menu_title_perfil_de_doctor">Perfil de Doctor</string>
     <string name="default_item_menu_title_pacientes_doctor">Mis Pacientes</string>
     <string name="default_item_menu_title_horarios_servicio">Mi horario</string>
 
@@ -180,6 +181,7 @@
     <string name="new_especialidad">AGREGAR ESPECIALIDAD</string>
     <string name="new_paciente">REGISTRAR PACIENTE</string>
     <string name="new_horario_servicio">Agregar Horario</string>
+    <string name="new_agendar_cita">Agendar Cita</string>
     <string name="new_servicio">AGREGAR SERVICIO</string>
     <string name="new_doctor">Agregar doctor</string>
     <string name="form_tittle_servicios">Informacion de servicios</string>

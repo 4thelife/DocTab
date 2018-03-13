@@ -103,6 +103,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/bootstrap_brand_danger"
                 android:fontFamily="monospace"
+                android:visibility="gone"
 
                 android:text="@string/button_eliminar"
                 android:textColor="@color/bootstrap_brand_secondary_fill" />
