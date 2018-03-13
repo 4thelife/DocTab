@@ -55,7 +55,7 @@ public class Constants {
     public static final int TIPO_COMPILACION = Constants.USUARIO_COMPILACION_PACIENTE;
     public static final int USUARIO_COMPILACION_DOCTOR = 0;
     public static final int USUARIO_COMPILACION_PACIENTE = 1;
-    public static final String FBID_DOCTOR = "Qw5Ow8WhDeULVWyDltbWLLKUnf32";
+    public static final String USUARIO_DOCTOR = "Qw5Ow8WhDeULVWyDltbWLLKUnf32";
 
     /**
      * Acciones generales
