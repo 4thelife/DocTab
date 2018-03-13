@@ -26,8 +26,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtNombres;
-
-
+        TextView txtTelefono;
         TextView txtEdad;
         TextView txtSexo;
 
@@ -36,10 +35,9 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
             super(itemView);
 
             txtNombres = (TextView) itemView.findViewById(R.id.item_pacientes_nombres);
-
-
             txtEdad = (TextView) itemView.findViewById(R.id.item_pacientes_edad);
             txtSexo = (TextView) itemView.findViewById(R.id.item_pacientes_sexo);
+            txtTelefono = (TextView) itemView.findViewById(R.id.item_pacientes_telefono);
 
 
         }
@@ -82,7 +80,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
         holder.txtNombres.setText(item.getNombreCompleto());
         holder.txtEdad.setText(item.getEdad());
         holder.txtSexo.setText(item.getSexo());
-
+        holder.txtTelefono.setText(item.getTelefono());
 
         /*holder.btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override

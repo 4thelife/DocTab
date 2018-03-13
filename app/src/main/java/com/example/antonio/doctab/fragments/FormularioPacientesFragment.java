@@ -133,22 +133,22 @@ public class FormularioPacientesFragment extends Fragment {
 
         String nombreDoctor = tilNombrePaciente.getEditText().getText().toString();
         String correo = tilCorreoElectronico.getEditText().getText().toString();
-        String especialidad = tilEdad.getEditText().getText().toString();
+        String edad = tilEdad.getEditText().getText().toString();
         String telefono = tilTelefono.getEditText().getText().toString();
 
         /**Se acceden a las validaciones de los campos requeridos**/
         boolean a = ValidationUtils.esTextoValido(tilNombrePaciente, nombreDoctor);
         boolean b = ValidationUtils.esEmailValido(tilCorreoElectronico, correo);
-        boolean c = ValidationUtils.esNumeroValido(tilEdad, especialidad);
         boolean d = ValidationUtils.esTelefonoValido(tilTelefono, telefono);
         boolean e = ValidationUtils.esSpinnerValido(spinnerSexo);
 
-        if (a && b && c && d && e) {
+        if (a && b  && d && e) {
             /**Se agregan los campos que el cliente captura**/
             Pacientes data = new Pacientes();
             data.setNombreCompleto(nombreDoctor);
             data.setCorreoElectronico(correo);
             data.setTelefono(telefono);
+            data.setEdad(edad);/**No esta agregando la edad*/
             data.setSexo(spinnerSexo.getSelectedItem().toString());
             data.setTipoDeUsuario(Constants.FB_KEY_ITEM_PACIENTE);
 
