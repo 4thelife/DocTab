@@ -28,6 +28,7 @@ import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.models.Consultorios;
 import com.example.antonio.doctab.models.Doctores;
+import com.example.antonio.doctab.models.HorariosDeAtencion;
 import com.example.antonio.doctab.models.Pacientes;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
@@ -354,20 +355,20 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
     private void webServiceDeleteDias() {
 
-        final Consultorios consultorio = (Consultorios) _decodeItem.getItemModel();
+        final HorariosDeAtencion dia = (HorariosDeAtencion) _decodeItem.getItemModel();
 
         /**obtiene la instancia del elemento**/
-        DatabaseReference dbConsultorio =
+        DatabaseReference dbdia =
                 FirebaseDatabase.getInstance().getReference()
                         .child(Constants.FB_KEY_MAIN_DOCTORES)
-                        .child(consultorio.getFireBaseIdDoctor())
-                        .child(Constants.FB_KEY_ITEM_CONSULTORIOS)
-                        .child(consultorio.getFireBaseId());
+                        .child(dia.getFireBaseIdDoctor())
+                        .child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION)
+                        .child(dia.getFireBaseId());
 
-        consultorio.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ELIMINADO);
-        consultorio.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+        dia.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ELIMINADO);
+        dia.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
 
-        dbConsultorio.setValue(consultorio, new DatabaseReference.CompletionListener() {
+        dbdia.setValue(dia, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
