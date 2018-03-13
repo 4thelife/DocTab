@@ -172,7 +172,7 @@ public class FormularioPacientesFragment extends Fragment {
         _pacienteActual.setCorreoElectronico(data.getCorreoElectronico());
         _pacienteActual.setEdad(data.getEdad());
         _pacienteActual.setSexo(data.getSexo());
-        _pacienteActual.setFotoPerfil(data.getFotoPerfil());
+        _pacienteActual.setTelefono(data.getTelefono());
         _pacienteActual.setTipoDeUsuario(data.getTipoDeUsuario());
         /**Se declaran valores que el sistema debe llenar**/
         _pacienteActual.setFirebaseId(data.getFirebaseId());
