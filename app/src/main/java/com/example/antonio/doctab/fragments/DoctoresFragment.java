@@ -69,11 +69,20 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
         adapter.setOnClickListener(this);
 
         database = FirebaseDatabase.getInstance();
+        switch (_SESSION_USER.getTipoDeUsuario()){
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
+                        .child(_SESSION_USER.getFirebaseId())
+                        .child(Constants.FB_KEY_ITEM_DOCTOR)
+                        .child(_SESSION_USER.getFirebaseId());
+                break;
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
+                        .child(Constants.USUARIO_DOCTOR)
+                        .child(Constants.FB_KEY_ITEM_DOCTOR)
+                        .child(Constants.USUARIO_DOCTOR);
+        }
 
-        drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
-                .child(Constants.USUARIO_DOCTOR)
-                .child(Constants.FB_KEY_ITEM_DOCTOR)
-                .child(Constants.USUARIO_DOCTOR);
 
         return view;
     }
@@ -176,15 +185,18 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
     public static void onListenerAction(DecodeItemHelper decodeItem) {
         /**Inicializa DecodeItem en la activity principal**/
         activityInterface.setDecodeItem(decodeItem);
+                switch (decodeItem.getIdView()) {
+                    case R.id.item_btn_editar_doctores:
+                        activityInterface.openExternalActivity(Constants.ACCION_EDITAR, MainRegisterActivity.class);
 
-        switch (decodeItem.getIdView()) {
-            case R.id.item_btn_editar_doctores:
-                activityInterface.openExternalActivity(Constants.ACCION_EDITAR, MainRegisterActivity.class);
-                break;
-            case R.id.item_btn_eliminar_doctores:
-                activityInterface.showQuestion("Eliminar", "¿Esta seguro que desea eliminar?");
-                break;
-        }
+                        break;
+                    case R.id.item_btn_eliminar_doctores:
+                        activityInterface.showQuestion("Eliminar", "¿Esta seguro que desea eliminar?");
+                        break;
+                }
+
+
+
     }
 
 

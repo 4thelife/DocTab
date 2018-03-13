@@ -81,7 +81,8 @@
                 android:backgroundTint="@color/bootstrap_brand_primary"
                 android:fontFamily="monospace"
                 android:text="@string/button_editar"
-                android:textColor="@color/bootstrap_brand_secondary_fill" />
+                android:textColor="@color/bootstrap_brand_secondary_fill"
+                android:visibility="invisible"/>
 
             <Button
                 android:id="@+id/item_btn_eliminar_doctores"
