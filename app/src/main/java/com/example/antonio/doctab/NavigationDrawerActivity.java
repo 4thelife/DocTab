@@ -326,6 +326,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
                     case R.id.item_btn_eliminar_consultorios:
                         operation = Constants.WS_KEY_ELIMINAR_CONSULTORIOS;
                         break;
+                    case R.id.item_btn_eliminar_dia:
+                        operation = Constants.WS_KEY_ELIMINAR_DIAS;
+                        break;
                 }
 
                 this.webServiceOperations(operation);
@@ -343,7 +346,39 @@ public class NavigationDrawerActivity extends AppCompatActivity
             case Constants.WS_KEY_ELIMINAR_CONSULTORIOS:
                 this.webServiceDeleteConsultorio();
                 break;
+            case Constants.WS_KEY_ELIMINAR_DIAS:
+                this.webServiceDeleteDias();
+                break;
         }
+    }
+
+    private void webServiceDeleteDias() {
+
+        final Consultorios consultorio = (Consultorios) _decodeItem.getItemModel();
+
+        /**obtiene la instancia del elemento**/
+        DatabaseReference dbConsultorio =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_DOCTORES)
+                        .child(consultorio.getFireBaseIdDoctor())
+                        .child(Constants.FB_KEY_ITEM_CONSULTORIOS)
+                        .child(consultorio.getFireBaseId());
+
+        consultorio.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ELIMINADO);
+        consultorio.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+        dbConsultorio.setValue(consultorio, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+                pDialog.dismiss();
+                if (databaseError == null) {
+                    Toast.makeText(getApplicationContext(),
+                            "Eliminado correctamente...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     private void webServiceDeleteConsultorio() {
@@ -373,7 +408,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
             }
         });
 
+
     }
+
 
 
 }

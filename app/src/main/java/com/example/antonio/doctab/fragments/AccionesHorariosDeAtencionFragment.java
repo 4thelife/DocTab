@@ -21,7 +21,7 @@ import com.example.antonio.doctab.helpers.HorarioDeAtencionHelper;
  * Created by Ricardo on 02/03/2018.
  */
 
-public class AccionesHorariosDeAtencionFragment extends Fragment implements View.OnClickListener {
+public class AccionesHorariosDeAtencionFragment extends Fragment implements View.OnClickListener, AlertDialog.OnClickListener {
 
     private static DecodeExtraHelper _MAIN_DECODE;
     private static MainRegisterActivity activityInterface;
@@ -95,8 +95,7 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
                         FormularioHorariosDeAtencionFragment formularioHorariosDeAtencionFragment = new FormularioHorariosDeAtencionFragment();
 
                         formularioHorariosDeAtencionFragment.registrar();
-                        //if (FormularioHorariosDeAtencionFragment.validarDatosReg())
-                            //registrar();
+
                         break;
                 }
                 break;
@@ -109,8 +108,8 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
         ad.setTitle(_MAIN_DECODE.getTituloActividad());
         ad.setMessage("¿Esta seguro que desea editar?");
         ad.setCancelable(false);
-        /**ad.setNegativeButton(getString(R.string.default_alert_dialog_cancelar), this);
-        ad.setPositiveButton(getString(R.string.default_alert_dialog_aceptar), this);*/
+        ad.setNegativeButton(getString(R.string.default_alert_dialog_cancelar), this);
+        ad.setPositiveButton(getString(R.string.default_alert_dialog_aceptar), this);
         ad.show();
     }
 

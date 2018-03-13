@@ -93,15 +93,16 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
 
         minute =currentTime.get(Calendar.MINUTE);
 
-        agregar_hora_entrada.setText(hour+":"+minute);
-        agregar_hora_fin.setText(hour+":"+minute);
+        //agregar_hora_entrada.setText(hour+":"+minute);
+        //agregar_hora_fin.setText(hour+":"+minute);
 
 
-        agregar_hora_entrada.setOnClickListener(this);
-        agregar_hora_fin.setOnClickListener(this);
+
 
         horaini = agregar_hora_entrada.getText().toString();
         horafin = agregar_hora_fin.getText().toString();
+        agregar_hora_entrada.setOnClickListener(this);
+        agregar_hora_fin.setOnClickListener(this);
 
         tgb0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -247,7 +248,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
 
         for (int i=0; i<7; i++)
         {
-            if (bandera[i]){
+            if (bandera[i]== true){
 
                 HorariosDeAtencion data = new HorariosDeAtencion();
                 data.setHoraInicio(horaini);

@@ -10,14 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:text="¿Usted se esta registrando como doctor o como paciente?"
             android:textAlignment="center"
-            android:fontFamily="monospace"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Display1"
             android:textColor="@color/bootstrap_brand_secondary_text"
             android:textSize="20sp" />
@@ -45,16 +46,15 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:src="@drawable/btnimgdoc"
-                     />
+                    android:src="@drawable/btnimgdoc" />
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="Doctor"
                     android:fontFamily="monospace"
+                    android:text="Doctor"
                     android:textAlignment="center"
                     android:textColor="@color/bootstrap_brand_secondary_text"
                     android:textSize="20dp" />
@@ -73,16 +73,15 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:src="@drawable/btnimgpac"
-                     />
+                    android:src="@drawable/btnimgpac" />
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="Paciente"
                     android:fontFamily="monospace"
+                    android:text="Paciente"
                     android:textAlignment="center"
                     android:textColor="@color/bootstrap_brand_secondary_text"
                     android:textSize="20dp" />

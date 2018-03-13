@@ -52,6 +52,10 @@ import java.util.HashMap;
 
 public class Constants {
 
+    public static final int TIPO_COMPILACION = Constants.USUARIO_COMPILACION_DOCTOR;
+    public static final int USUARIO_COMPILACION_DOCTOR = 0;
+    public static final int USUARIO_COMPILACION_PACIENTE = 1;
+
     /**
      * Acciones generales
      **/
@@ -64,7 +68,7 @@ public class Constants {
     public static final String FB_KEY_ITEM_ESTATUS_ELIMINADO = "eliminado";
 
     /**
-     *Nodos?
+     * Nodos?
      */
     public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
     public static final String FB_KEY_MAIN_CITAS = "citas";
@@ -105,7 +109,7 @@ public class Constants {
     public static final String FRAGMENT_LISTADO_HORARIOS_DE_ATENCION = "fragment_listado_horarios_de_atencion";
     public static final String FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO = "fragment_miperfil_doctor_privado";
     public static final String FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO = "fragment_miperfil_paciente_privado";
-    public static final String FRAGMENT_INICIO_PACIENTE ="fragment_inicio_paciente";
+    public static final String FRAGMENT_INICIO_PACIENTE = "fragment_inicio_paciente";
     /**
      * Fragmentos segundarios
      **/
@@ -169,15 +173,10 @@ public class Constants {
     public static final String FRAGMENT_MAIN_PANEL = "fragment_main_panel";
 
 
-
     /**
      * Contenido del FRAGMENT_MAIN_PANEL
      **/
     public static final String PANEL_PERFIL_GENERAL_CONTAINER = "panel_perfil_general_container";
-
-
-
-
 
 
     public static final HashMap<Integer, String> ITEM_FRAGMENT;
@@ -193,10 +192,10 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIOS);
         //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.menu_item_citas, FRAGMENT_LISTADO_CITAS);
-        ITEM_FRAGMENT.put(R.id.menu_item_perfil_paciente,FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO);
-        ITEM_FRAGMENT.put(R.id.menu_item_perfil_doctor,FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO);
+        ITEM_FRAGMENT.put(R.id.menu_item_perfil_paciente, FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO);
+        ITEM_FRAGMENT.put(R.id.menu_item_perfil_doctor, FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO);
         /** INICIO PACIENTE**/
-        ITEM_FRAGMENT.put(R.id.menu_item_inicio,FRAGMENT_INICIO_PACIENTE);
+        ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_INICIO_PACIENTE);
 
         /**Botones*/
         ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_REGISTRO_CONSULTORIOS);
@@ -227,7 +226,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_SERVICIOS, new ListadoServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_MENSAJES, new ListadoMensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_HORARIOS_DE_ATENCION, new ListadoHorariosDeAtencionFragment());
-        TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO,new MiPerfilDoctorPrivadoFragment());
+        TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO, new MiPerfilDoctorPrivadoFragment());
         TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO, new MiPerfilPacientePrivadoFragment());
         TAG_FRAGMENT.put(FRAGMENT_INICIO_PACIENTE, new InicioPacienteFragment());
 
@@ -260,7 +259,7 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_SERVICIOS, new ServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_MENSAJES, new MensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_HORARIOS_DE_ATENCION, new HorariosDeAtencionFragment());
-        TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_GENERAL_DOCTOR_PRIVADO,new MiPerfilGeneralDoctorPrivadoFragment());
+        TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_GENERAL_DOCTOR_PRIVADO, new MiPerfilGeneralDoctorPrivadoFragment());
 
 
     }
@@ -276,7 +275,7 @@ public class Constants {
         TITLE_ACTIVITY.put(R.id.btn_agregar_citas, R.string.default_title_activity_citas_doctor);
         TITLE_ACTIVITY.put(R.id.btn_agregar_horarios_de_atencion, R.string.default_title_activity_horarios_de_atencion);
         TITLE_ACTIVITY.put(R.id.item_btn_editar_consultorios, R.string.default_title_activity_consultorios);
-        TITLE_ACTIVITY.put(R.id.item_btn_editar_doctores,R.string.default_title_activity_doctores);
+        TITLE_ACTIVITY.put(R.id.item_btn_editar_doctores, R.string.default_title_activity_doctores);
     }
 
     public static final HashMap<Integer, Integer> TITLE_FORM_ACTION;
@@ -292,6 +291,7 @@ public class Constants {
      **/
     public static final int WS_KEY_ELIMINAR_CONSULTORIOS = 10;
     public static final int WS_KEY_ELIMINAR_DOCTORES = 20;
+    public static final int WS_KEY_ELIMINAR_DIAS = 30;
 
     /**
      * Tipos de usuarios - todos en singular
