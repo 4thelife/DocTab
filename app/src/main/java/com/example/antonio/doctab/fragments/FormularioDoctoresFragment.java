@@ -178,7 +178,7 @@ public class FormularioDoctoresFragment extends Fragment {
         _doctorActual.setCedulaProfesional(data.getCedulaProfesional());
         _doctorActual.setCorreoElectronico(data.getCorreoElectronico());
         _doctorActual.setSexo(data.getSexo());
-        _doctorActual.setFotoPerfil(data.getFotoPerfil());
+        _doctorActual.setTelefono(data.getTelefono());
         _doctorActual.setTipoDeUsuario(data.getTipoDeUsuario());
         /**Se declaran valores que el sistema debe llenar**/
         _doctorActual.setFirebaseId(data.getFirebaseId());
