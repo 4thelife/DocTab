@@ -79,6 +79,9 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
                 break;
         }
 
+        drCitasInfo = database.getReference(Constants.FB_KEY_MAIN_CITAS)
+                .child(String.valueOf(drCitas));
+
         return view;
     }
 
@@ -103,12 +106,18 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
         listenerCitasInfo = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+            adapter = new CitasAdapter();
+            dataList = new ArrayList<>();
 
-                adapter = new CitasAdapter();
-                dataList = new ArrayList<>();
+            Citas citas = dataSnapshot.getValue(Citas.class);
 
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-
+                switch (citas.getEstatus()) {
+                    case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                    case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                        dataList.add(citas);
+                        break;
+                    default:
+                        break;
                 }
 
             }
