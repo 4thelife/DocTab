@@ -36,11 +36,9 @@ public class CitasAdapter extends RecyclerView.Adapter<CitasAdapter.ViewHolder> 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txtDoctor = (TextView) itemView.findViewById(R.id.item_citas_doctor);
-            txtPaciente = (TextView) itemView.findViewById(R.id.item_citas_paciente);
+            txtDoctor = (TextView) itemView.findViewById(R.id.item_citas_nombre);
             txtFecha = (TextView) itemView.findViewById(R.id.item_citas_fecha);
             txtHora = (TextView) itemView.findViewById(R.id.item_citas_horario);
-            txtEstadoCita = (TextView) itemView.findViewById(R.id.item_citas_estado_cita);
             txtAsunto = (TextView) itemView.findViewById(R.id.item_citas_asunto);
 
 
@@ -79,9 +77,6 @@ public class CitasAdapter extends RecyclerView.Adapter<CitasAdapter.ViewHolder> 
         decodeItem.setItemModel(item);
         decodeItem.setPosition(position);
 
-        holder.txtDoctor.setText(item.getDoctor());
-
-        holder.txtPaciente.setText(item.getPaciente());
         holder.txtFecha.setText(item.getFecha());
         holder.txtHora.setText(item.getHora());
         holder.txtEstadoCita.setText(item.getEstadoCita());

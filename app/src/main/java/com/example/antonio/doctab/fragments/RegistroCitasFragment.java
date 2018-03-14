@@ -42,7 +42,7 @@ public class RegistroCitasFragment extends Fragment {
         mainFragment.replace(R.id.fragment_registro_citas_doctor_container, new FormularioCitasFragment(), Constants.FORMULARIO_CITAS_FRAGMENT);
 
 
-        mainFragment.replace(R.id.fragment_acciones_citas_doctor_container, new AccionesCitasFragment(), Constants.FORMULARIO_CITAS_ACCIONES_FRAGMENT);
+        mainFragment.replace(R.id.fragment_acciones_citas_doctor_container, new AccionesCitasFragment(), Constants.FORMULARIO_ACCIONES_CITAS_FRAGMENT);
         mainFragment.commit();
         return view;
 
