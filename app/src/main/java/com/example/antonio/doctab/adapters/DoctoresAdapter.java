@@ -25,8 +25,6 @@ import java.util.List;
 
 public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHolder> {
 
-    private static Usuarios _SESSION_USER;
-
 
     View.OnClickListener onClickListener;
     List<Doctores> dataList = new ArrayList<>();
@@ -43,7 +41,6 @@ public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHo
 
         public ViewHolder(View itemView) {
             super(itemView);
-            _SESSION_USER = SharedPreferencesService.getUsuarioActual();
 
             txtNombres = (TextView) itemView.findViewById(R.id.item_doctores_nombres);
             txtEspecialidad= (TextView) itemView.findViewById(R.id.item_doctores_especialidad);
@@ -53,14 +50,7 @@ public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHo
             btnEditar = (Button)itemView.findViewById(R.id.item_btn_editar_doctores);
             btnEliminar =(Button)itemView.findViewById(R.id.item_btn_editar_doctores);
 
-            switch (_SESSION_USER.getTipoDeUsuario()){
-                case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
-                    btnEditar.setVisibility(View.VISIBLE);
-                    btnEliminar.setVisibility(View.VISIBLE);
-                    break;
-                case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
-                    break;
-            }
+
 
         }
     }
