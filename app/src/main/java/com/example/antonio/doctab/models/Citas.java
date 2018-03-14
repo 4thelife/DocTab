@@ -6,47 +6,37 @@ package com.example.antonio.doctab.models;
 
 public class Citas {
 
-
-
-
-    private String firebaseIdDoctor;
-    private String firebaseIdPaciente;
+    private String nombre;
     private String fecha;
     private String hora;
-    private String estadoCita;
     private String asunto;
+
     private String fireBaseId;
+    private String firebaseIdDoctor;
+    private String firebaseIdPaciente;
     private String estatus;
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
 
-    public Citas(String firebaseIdDoctor, String firebaseIdPaciente, String fecha, String hora, String estadoCita, String asunto, String fireBaseId, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
-        this.firebaseIdDoctor = firebaseIdDoctor;
-        this.firebaseIdPaciente = firebaseIdPaciente;
+    public Citas(String nombre, String fecha, String hora, String asunto, String fireBaseId, String firebaseIdDoctor, String firebaseIdPaciente, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
+        this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;
-        this.estadoCita = estadoCita;
         this.asunto = asunto;
         this.fireBaseId = fireBaseId;
+        this.firebaseIdDoctor = firebaseIdDoctor;
+        this.firebaseIdPaciente = firebaseIdPaciente;
         this.estatus = estatus;
         this.fechaDeCreacion = fechaDeCreacion;
         this.fechaDeEdicion = fechaDeEdicion;
     }
 
-    public String getFirebaseIdDoctor() {
-        return firebaseIdDoctor;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setFirebaseIdDoctor(String firebaseIdDoctor) {
-        this.firebaseIdDoctor = firebaseIdDoctor;
-    }
-
-    public String getFirebaseIdPaciente() {
-        return firebaseIdPaciente;
-    }
-
-    public void setFirebaseIdPaciente(String firebaseIdPaciente) {
-        this.firebaseIdPaciente = firebaseIdPaciente;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getFecha() {
@@ -65,14 +55,6 @@ public class Citas {
         this.hora = hora;
     }
 
-    public String getEstadoCita() {
-        return estadoCita;
-    }
-
-    public void setEstadoCita(String estadoCita) {
-        this.estadoCita = estadoCita;
-    }
-
     public String getAsunto() {
         return asunto;
     }
@@ -87,6 +69,22 @@ public class Citas {
 
     public void setFireBaseId(String fireBaseId) {
         this.fireBaseId = fireBaseId;
+    }
+
+    public String getFirebaseIdDoctor() {
+        return firebaseIdDoctor;
+    }
+
+    public void setFirebaseIdDoctor(String firebaseIdDoctor) {
+        this.firebaseIdDoctor = firebaseIdDoctor;
+    }
+
+    public String getFirebaseIdPaciente() {
+        return firebaseIdPaciente;
+    }
+
+    public void setFirebaseIdPaciente(String firebaseIdPaciente) {
+        this.firebaseIdPaciente = firebaseIdPaciente;
     }
 
     public String getEstatus() {
