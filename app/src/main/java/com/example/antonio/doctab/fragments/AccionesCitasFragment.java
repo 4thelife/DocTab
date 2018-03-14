@@ -89,8 +89,8 @@ public class AccionesCitasFragment extends Fragment implements View.OnClickListe
                         this.showQuestion();
                         break;
                     case Constants.ACCION_REGISTRAR:
-                        if (FormularioConsultorioFragment.validarDatosRegistro())
-                            registrar();
+                       // if (FormularioCitasFragment.validarDatosRegistro())
+                         //   registrar();
                         break;
                 }
                 break;
