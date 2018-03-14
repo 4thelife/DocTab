@@ -38,7 +38,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="monospace"
-                    android:hint="@string/dato_cita_doctor" />
+                    android:hint="@string/dato_cita_doctor"
+                    android:editable="false"
+                    android:text="Doctor Facil"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
