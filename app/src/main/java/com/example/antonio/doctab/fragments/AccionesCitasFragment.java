@@ -84,7 +84,7 @@ public class AccionesCitasFragment extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_accion_consultorios:
+            case R.id.btn_accion_citas:
                 switch (_MAIN_DECODE.getAccionFragmento()) {
                     case Constants.ACCION_EDITAR:
                         this.showQuestion();
