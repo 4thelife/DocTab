@@ -58,7 +58,8 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
         adapter.setOnClickListener(this);
 
         database = FirebaseDatabase.getInstance();
-        drCitasDoctor = database.getReference(Constants.FB_KEY_MAIN_DOCTORES);
+        drCitasDoctor = database.getReference(Constants.FB_KEY_MAIN_CITAS)
+        ;
 
         return view;
     }

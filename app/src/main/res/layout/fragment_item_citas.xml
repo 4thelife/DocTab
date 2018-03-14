@@ -10,31 +10,13 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_citas_doctor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:text="Nombre del doctor"
-            android:textColor="@color/bootstrap_brand_secondary_text"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/menu_item_citas_paciente"
+            android:id="@+id/menu_item_citas_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="monospace"
             android:text="Nombre del Paciente"
             android:textColor="@color/bootstrap_brand_secondary_text" />
-
-        <TextView
-            android:id="@+id/item_citas_paciente"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:text="Nombre del doctor"
-            android:textColor="@color/bootstrap_brand_secondary_text"
-            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_citas_asunto"
@@ -54,16 +36,6 @@
             android:text="Fecha de cita"
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
-    <!--
-        <TextView
-            android:id="@+id/item_citas_doctor_consultorio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="monospace"
-            android:text="Consultorio de cita"
-            android:textColor="@color/bootstrap_brand_secondary_text" />
-    -->
         <TextView
             android:id="@+id/item_citas_horario"
             android:layout_width="match_parent"
@@ -73,36 +45,6 @@
             android:text="Horario de cita"
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
-        <TextView
-            android:id="@+id/item_citas_estado_cita"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="monospace"
-            android:text="Estado de cita"
-            android:textColor="@color/bootstrap_brand_secondary_text" />
-
-
-        <!--
-        <TextView
-            android:id="@+id/item_citas_doctor_comentario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="monospace"
-            android:text="Comentario del paciente"
-            android:textColor="@color/bootstrap_brand_secondary_text" />
-
-        <TextView
-            android:id="@+id/item_citas_doctor_retroalimentacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="monospace"
-            android:text="Retroalimentacion"
-            android:textColor="@color/bootstrap_brand_secondary_text" />
-
-        -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -9,8 +9,8 @@ public class Citas {
 
 
 
-    private String doctor;
-    private String paciente;
+    private String firebaseIdDoctor;
+    private String firebaseIdPaciente;
     private String fecha;
     private String hora;
     private String estadoCita;
@@ -19,15 +19,10 @@ public class Citas {
     private String estatus;
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
-    /**private String retroalimentacionCita;*/
-    /**private String comentarioPaciente;*/
-    /**private String consultorio;*/
 
-    public Citas(String doctor, String paciente, String fecha, String hora, String estadoCita,
-                 String asunto, String fireBaseId, String estatus, Long fechaDeCreacion,
-                 Long fechaDeEdicion) {
-        this.doctor = doctor;
-        this.paciente = paciente;
+    public Citas(String firebaseIdDoctor, String firebaseIdPaciente, String fecha, String hora, String estadoCita, String asunto, String fireBaseId, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
+        this.firebaseIdDoctor = firebaseIdDoctor;
+        this.firebaseIdPaciente = firebaseIdPaciente;
         this.fecha = fecha;
         this.hora = hora;
         this.estadoCita = estadoCita;
@@ -38,21 +33,20 @@ public class Citas {
         this.fechaDeEdicion = fechaDeEdicion;
     }
 
-
-    public String getDoctor() {
-        return doctor;
+    public String getFirebaseIdDoctor() {
+        return firebaseIdDoctor;
     }
 
-    public void setDoctor(String doctor) {
-        this.doctor = doctor;
+    public void setFirebaseIdDoctor(String firebaseIdDoctor) {
+        this.firebaseIdDoctor = firebaseIdDoctor;
     }
 
-    public String getPaciente() {
-        return paciente;
+    public String getFirebaseIdPaciente() {
+        return firebaseIdPaciente;
     }
 
-    public void setPaciente(String paciente) {
-        this.paciente = paciente;
+    public void setFirebaseIdPaciente(String firebaseIdPaciente) {
+        this.firebaseIdPaciente = firebaseIdPaciente;
     }
 
     public String getFecha() {
@@ -118,5 +112,4 @@ public class Citas {
     public void setFechaDeEdicion(Long fechaDeEdicion) {
         this.fechaDeEdicion = fechaDeEdicion;
     }
-
 }
