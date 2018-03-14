@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.example.antonio.doctab.MainRegisterActivity;
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
+import com.example.antonio.doctab.helpers.CitasHelper;
 import com.example.antonio.doctab.helpers.ConsultoriosHelper;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 
@@ -89,8 +90,8 @@ public class AccionesCitasFragment extends Fragment implements View.OnClickListe
                         this.showQuestion();
                         break;
                     case Constants.ACCION_REGISTRAR:
-                       // if (FormularioCitasFragment.validarDatosRegistro())
-                         //   registrar();
+                       if (FormularioCitasFragment.obtenerCita())
+                         registrar();
                         break;
                 }
                 break;
@@ -121,10 +122,10 @@ public class AccionesCitasFragment extends Fragment implements View.OnClickListe
     private void registrar()
     {
         /**Transporta la información del objeto a la actividad de registro**/
-        ConsultoriosHelper helper = new ConsultoriosHelper();
-        helper.setConsultorio(FormularioConsultorioFragment._consultorioActual);
+        CitasHelper helper = new CitasHelper();
+        helper.setCitas(FormularioCitasFragment._citaActual);
 
-        activityInterface.registrarConsultorio(helper);
+        activityInterface.registrarCita(helper);
     }
 
     private void editar() {

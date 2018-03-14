@@ -16,12 +16,14 @@ import android.widget.Toast;
 import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.Utils.DateTimeUtils;
 import com.example.antonio.doctab.fragments.interfaces.MainRegisterInterface;
+import com.example.antonio.doctab.helpers.CitasHelper;
 import com.example.antonio.doctab.helpers.ConsultoriosHelper;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.helpers.DoctoresHelper;
 import com.example.antonio.doctab.helpers.HorarioDeAtencionHelper;
 import com.example.antonio.doctab.helpers.PacientesHelper;
+import com.example.antonio.doctab.models.Citas;
 import com.example.antonio.doctab.models.Consultorios;
 import com.example.antonio.doctab.models.Doctores;
 import com.example.antonio.doctab.models.HorariosDeAtencion;
@@ -507,6 +509,58 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
         }
     }
 
+    @Override
+    public void registrarCita(CitasHelper helper) {
+        pDialog = new ProgressDialog(MainRegisterActivity.this);
+        pDialog.setMessage(getString(R.string.default_loading_msg));
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        webServiceRegistrarCita(helper);
+
+    }
+
+    private void webServiceRegistrarCita(CitasHelper helper) {
+        /**Se obtiene el objeto principal**/
+        Citas data = helper.getCitas();
+
+        /**Se crea la conexion con los nodos a utilizar**/
+        final DatabaseReference dbCitas =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_PACIENTES)
+                        .child(helper.getCitas().getFirebaseIdPaciente());
+
+        /**Se crea el firebaseID en el futuro nodo**/
+        String firebaseIDCita = dbCitas.child(Constants.FB_KEY_ITEM_CITAS).push().getKey();
+
+        /**Se agregan los ultimos objetos del sistema**/
+        data.setFireBaseId(firebaseIDCita);
+        data.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ACTIVO);
+        data.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
+        data.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+        try {
+            /**Se crea la conexion para guadar el objeto**/
+            dbCitas.child(Constants.FB_KEY_ITEM_CITAS).child(data.getFireBaseId())
+                    .setValue(data, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                            pDialog.dismiss();
+                            if (databaseError == null) {
+                                finish();
+                                Toast.makeText(getApplicationContext(),
+                                        "Registrado correctamente...", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            pDialog.dismiss();
+            Toast.makeText(getApplicationContext(),
+                    "Intente mas tarde...", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+    }
 
 
 

@@ -16,6 +16,12 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import com.example.antonio.doctab.R;
+import com.example.antonio.doctab.Utils.Constants;
+import com.example.antonio.doctab.Utils.ValidationUtils;
+import com.example.antonio.doctab.helpers.DecodeExtraHelper;
+import com.example.antonio.doctab.models.Citas;
+import com.example.antonio.doctab.models.Usuarios;
+import com.example.antonio.doctab.services.SharedPreferencesService;
 
 import java.util.Calendar;
 
@@ -25,23 +31,31 @@ import java.util.Calendar;
 
 public class FormularioCitasFragment extends Fragment implements View.OnClickListener {
 
+    private static final String TAG = FormularioCitasFragment.class.getSimpleName();
 
-    private static TextInputLayout tilCitasFecha, tilCitasHora;
+    private static DecodeExtraHelper _MAIN_DECODE;
+    private static Usuarios _SESSION_USER;
+
+    private static TextInputLayout tilCitasFecha, tilCitasHora,tilCitasAsunto;
     Calendar currentDate,currentTime;
     EditText fecha,hora;
     int dia, mes, year,hour, minuto;
 
+    public static Citas _citaActual;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_formulario_citas,container,false);
 
+        _MAIN_DECODE = (DecodeExtraHelper) getActivity().getIntent().getExtras().getSerializable(Constants.KEY_MAIN_DECODE);
+        _SESSION_USER = SharedPreferencesService.getUsuarioActual(getContext());
+
         /**
          * Seleccionar la fecha
          */
         tilCitasFecha = (TextInputLayout) view.findViewById(R.id.til_citas_fecha);
-
+        tilCitasAsunto=(TextInputLayout) view.findViewById(R.id.til_citas_asunto);
         fecha = (EditText)view.findViewById(R.id.ed_citas_fecha);
         currentDate = Calendar.getInstance();
         dia = currentDate.get(Calendar.DAY_OF_MONTH);
@@ -75,6 +89,58 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     public void onStart() {
         super.onStart();
     }
+
+
+    private void onPreRender() {
+        switch (_MAIN_DECODE.getAccionFragmento()) {
+            case Constants.ACCION_EDITAR:
+            case Constants.ACCION_VER:
+                this.obtenerCita();
+                break;
+            case Constants.ACCION_REGISTRAR:
+                _citaActual = new Citas();
+                break;
+            default:
+                break;
+        }
+    }
+
+
+
+    public static boolean obtenerCita() {
+        boolean valido = false;
+
+        String fecha = tilCitasFecha.getEditText().getText().toString();
+        String hora = tilCitasHora.getEditText().getText().toString();
+        String asunto = tilCitasAsunto.getEditText().getText().toString();
+
+        Citas data = new Citas();
+        data.setAsunto(asunto);
+        data.setFecha(fecha);
+        data.setHora(hora);
+
+        data.setFirebaseIdDoctor(Constants.USUARIO_DOCTOR);
+        data.setFirebaseIdPaciente(_SESSION_USER.getFirebaseId());
+
+        setCita(data);
+        valido = true;
+
+
+
+        return valido;
+    }
+
+
+    public static void setCita(Citas data) {
+        _citaActual.setFecha(data.getFecha());
+        _citaActual.setHora(data.getHora());
+        _citaActual.setAsunto(data.getAsunto());
+        _citaActual.setFirebaseIdPaciente(data.getFirebaseIdPaciente());
+        _citaActual.setFirebaseIdDoctor(Constants.USUARIO_DOCTOR);
+        _citaActual.setFireBaseId(data.getFireBaseId());
+        _citaActual.setEstatus(data.getEstatus());
+    }
+
 
     @Override
     public void onStop() {

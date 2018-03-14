@@ -18,7 +18,7 @@ public class Citas {
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
 
-    public Citas(String nombre, String fecha, String hora, String asunto, String fireBaseId, String firebaseIdDoctor, String firebaseIdPaciente, String estatus, Long fechaDeCreacion, Long fechaDeEdicion) {
+    public Citas() {
         this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;

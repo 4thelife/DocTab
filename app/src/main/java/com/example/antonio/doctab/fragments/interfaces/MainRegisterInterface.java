@@ -1,5 +1,6 @@
 package com.example.antonio.doctab.fragments.interfaces;
 
+import com.example.antonio.doctab.helpers.CitasHelper;
 import com.example.antonio.doctab.helpers.ConsultoriosHelper;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.helpers.DoctoresHelper;
@@ -33,4 +34,6 @@ public interface MainRegisterInterface {
     void registrarHorariosDeAtencion(HorarioDeAtencionHelper helper);
 
     void editarHorariosDeAtencion(HorarioDeAtencionHelper helper);
+
+    void registrarCita(CitasHelper helper);
 }

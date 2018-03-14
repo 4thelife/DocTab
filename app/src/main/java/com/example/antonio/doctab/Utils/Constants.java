@@ -71,8 +71,10 @@ public class Constants {
     /**
      * Nodos?
      */
-    public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
     public static final String FB_KEY_MAIN_CITAS = "citas";
+
+    public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
+    public static final String FB_KEY_ITEM_CITAS = "citas";
     public static final String FB_KEY_ITEM_CONSULTORIOS = "consultorios";//No modifico este pues es para la bd
     public static final String FB_KEY_ITEM_HORARIOS_DE_ATENCION = "HorariosDeAtencion";
     public static final String FB_KEY_ITEM_CONSULTORIO_HORARIOS = "horarios";
