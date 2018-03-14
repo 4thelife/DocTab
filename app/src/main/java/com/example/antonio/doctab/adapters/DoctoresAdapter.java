@@ -1,20 +1,19 @@
 package com.example.antonio.doctab.adapters;
 
-import android.content.Context;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import com.example.antonio.doctab.Utils.Constants;
+
 
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 
 import com.example.antonio.doctab.models.Doctores;
-import com.example.antonio.doctab.models.Usuarios;
-import com.example.antonio.doctab.services.SharedPreferencesService;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +23,6 @@ import java.util.List;
  */
 
 public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHolder> {
-
 
     View.OnClickListener onClickListener;
     List<Doctores> dataList = new ArrayList<>();
@@ -50,9 +48,9 @@ public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHo
             btnEditar = (Button)itemView.findViewById(R.id.item_btn_editar_doctores);
             btnEliminar =(Button)itemView.findViewById(R.id.item_btn_editar_doctores);
 
-
-
         }
+
+
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -74,6 +72,7 @@ public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_doctores, parent, false);
+
         return new ViewHolder(view);
     }
 
@@ -87,13 +86,12 @@ public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHo
         decodeItem.setPosition(position);
 
         holder.txtNombres.setText(item.getNombreCompleto());
-        //holder.txtApellidos.setText(item.getApeliidos());
         holder.txtCedula.setText(item.getCedulaProfesional());
         holder.txtEspecialidad.setText(item.getEspecialidad());
         holder.txtSexo.setText(item.getSexo());
         holder.txtTelefono.setText(item.getTelefono());
 
-        holder.btnEditar.setOnClickListener(new View.OnClickListener() {
+        /**holder.btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 decodeItem.setIdView(v.getId());
@@ -106,7 +104,7 @@ public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHo
                 decodeItem.setIdView(v.getId());
                 //PromotoresFragment.onListenerAction(decodeItem);
             }
-        });
+        });*/
     }
 
     @Override

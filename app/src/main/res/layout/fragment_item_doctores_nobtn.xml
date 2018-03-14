@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_doctores_nombres"
+            android:id="@+id/item_doctores_nombres_nobtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -31,7 +31,7 @@
          -->
 
         <TextView
-            android:id="@+id/item_doctores_especialidad"
+            android:id="@+id/item_doctores_especialidad_nobtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -40,7 +40,7 @@
             android:text="Especialidad(s)" />
 
         <TextView
-            android:id="@+id/item_doctores_cedula"
+            android:id="@+id/item_doctores_cedula_nobtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -49,7 +49,7 @@
             android:text="Cedula Profesional" />
 
         <TextView
-            android:id="@+id/item_doctores_sexo"
+            android:id="@+id/item_doctores_sexo_nobtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -58,7 +58,7 @@
             android:text="Sexo" />
 
         <TextView
-            android:id="@+id/item_doctores_telefono"
+            android:id="@+id/item_doctores_telefono_nobtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -66,40 +66,12 @@
             android:fontFamily="monospace"
             android:text="@string/form_telefono" />
 
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/item_btn_editar_doctores"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/bootstrap_brand_primary"
-                android:fontFamily="monospace"
-                android:text="@string/button_editar"
-                android:textColor="@color/bootstrap_brand_secondary_fill"
-                />
-
-            <Button
-                android:id="@+id/item_btn_eliminar_doctores"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/bootstrap_brand_danger"
-                android:fontFamily="monospace"
-                android:text="@string/button_eliminar"
-                android:textColor="@color/bootstrap_brand_secondary_fill" />
-
-
-        </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/bootstrap_dropdown_divider" />
+
+
 
     </LinearLayout>
 
