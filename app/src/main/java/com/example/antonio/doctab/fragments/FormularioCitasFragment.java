@@ -67,8 +67,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         tilCitasHora.getEditText().setText(hour+":"+minuto);
         hora.setOnClickListener(this);
 
-
-
         return view;
     }
     @Override
