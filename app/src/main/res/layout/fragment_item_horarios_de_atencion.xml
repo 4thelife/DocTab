@@ -7,6 +7,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginBottom="2dp"
         android:orientation="vertical">
         <LinearLayout
@@ -22,6 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
+                android:textColor="@color/bootstrap_brand_secondary_text"
                 android:textStyle="bold"
                 android:layout_marginEnd="10dp"
                 android:text="Lunes"
@@ -31,6 +34,7 @@
                 android:id="@+id/item_horarios_de_atencion_hora_inicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/bootstrap_brand_secondary_text"
                 android:fontFamily="monospace"
                 android:layout_marginEnd="10dp"
                 android:text="7:00 AM"/>
@@ -40,6 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
+                android:textColor="@color/bootstrap_brand_secondary_text"
                 android:layout_marginEnd="10dp"
 
                 android:text="9:00 PM"/>
@@ -48,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
+            android:textColor="@color/bootstrap_brand_secondary_text"
             android:text="15"/>
 
         </LinearLayout>
@@ -77,6 +83,10 @@
                 android:textColor="@color/bootstrap_brand_secondary_fill" />
 
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bootstrap_dropdown_divider" />
     </LinearLayout>
 
 </FrameLayout>

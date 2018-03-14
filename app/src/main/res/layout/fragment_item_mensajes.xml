@@ -9,6 +9,7 @@
         android:layout_height="match_parent"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginBottom="2dp"
         android:orientation="vertical">
 
         <TextView
@@ -18,6 +19,7 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:fontFamily="monospace"
+            android:textColor="@color/bootstrap_brand_secondary_text"
             android:text="Nombre del remitente" />
 
         <TextView
@@ -27,6 +29,7 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:fontFamily="monospace"
+            android:textColor="@color/bootstrap_brand_secondary_text"
             android:text="Asunto del mensaje" />
         <TextView
             android:id="@+id/item_mensajes_contenido"
@@ -35,6 +38,7 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:fontFamily="monospace"
+            android:textColor="@color/bootstrap_brand_secondary_text"
             android:text="Contenido del mensaje" />
 
         <LinearLayout
@@ -65,6 +69,10 @@
 
 
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bootstrap_dropdown_divider" />
 
     </LinearLayout>
 

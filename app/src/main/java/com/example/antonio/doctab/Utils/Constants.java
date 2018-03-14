@@ -203,6 +203,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.menu_item_perfil_doctor, FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO);
         /** Menu Paciente*/
         ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_INICIO_PACIENTE);
+        ITEM_FRAGMENT.put(R.id.menu_item_citas_paciente,FRAGMENT_CITAS);
         ITEM_FRAGMENT.put(R.id.menu_item_mi_doctor, FRAGMENT_LISTADO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.menu_item_perfil_paciente, FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO);
 

@@ -9,6 +9,7 @@
         android:layout_height="match_parent"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginBottom="2dp"
         android:orientation="vertical">
 
         <TextView
@@ -16,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
+            android:textColor="@color/bootstrap_brand_secondary_text"
             android:layout_weight="1"
             android:textSize="18sp"
             android:text="Especialidad" />
@@ -27,6 +29,7 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:fontFamily="monospace"
+            android:textColor="@color/bootstrap_brand_secondary_text"
             android:text="Subespecialidad" />
 
         <TextView
@@ -36,6 +39,7 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:fontFamily="monospace"
+            android:textColor="@color/bootstrap_brand_secondary_text"
             android:text="Universidad" />
 
         <TextView
@@ -45,6 +49,7 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:fontFamily="monospace"
+            android:textColor="@color/bootstrap_brand_secondary_text"
             android:text="Año de Egreso" />
 
 
@@ -77,6 +82,10 @@
 
 
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bootstrap_dropdown_divider" />
 
     </LinearLayout>
 

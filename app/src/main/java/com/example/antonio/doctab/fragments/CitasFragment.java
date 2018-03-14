@@ -49,8 +49,7 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
 
     private FirebaseDatabase database;
     private DatabaseReference drCitas;
-    private DatabaseReference drCitasInfo;
-    private ValueEventListener listenerCitasInfo;
+    private ValueEventListener listenerCitas;
 
     @Nullable
     @Override
@@ -66,21 +65,12 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
 
         database = FirebaseDatabase.getInstance();
 
-        switch (_SESSION_USER.getTipoDeUsuario()){
-            case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
-                drCitas = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
-                    .child(_SESSION_USER.getFirebaseId())
-                    .child(Constants.FB_KEY_MAIN_CITAS);
-                break;
-            case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
-                drCitas = database.getReference(Constants.FB_KEY_MAIN_PACIENTES)
-                    .child(_SESSION_USER.getFirebaseId())
-                    .child(Constants.FB_KEY_MAIN_CITAS);
-                break;
-        }
 
-        drCitasInfo = database.getReference(Constants.FB_KEY_MAIN_CITAS)
-                .child(String.valueOf(drCitas));
+        drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS);
+
+
+
+
 
         return view;
     }
@@ -103,23 +93,29 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
     }
 
     private void listadoCitasDoctor() {
-        listenerCitasInfo = new ValueEventListener() {
+        listenerCitas = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-            adapter = new CitasAdapter();
-            dataList = new ArrayList<>();
+                adapter = new CitasAdapter();
+                dataList = new ArrayList<>();
 
-            Citas citas = dataSnapshot.getValue(Citas.class);
 
-                switch (citas.getEstatus()) {
-                    case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
-                    case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
-                        dataList.add(citas);
-                        break;
-                    default:
-                        break;
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                     Citas citas = postSnapshot.getValue(Citas.class);
+
+                     if (null == citas.getEstatus()) break;
+
+                     switch (citas.getEstatus()){
+                        case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                        case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                            dataList.add(citas);
+                            break;
+                        default:
+                            break;
+                     }
+
                 }
-
+                onPreRenderListadoCitas();
             }
 
             @Override
@@ -128,14 +124,20 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
             }
         };
 
-        drCitas.addValueEventListener(listenerCitasInfo);
+        drCitas.addValueEventListener(listenerCitas);
     }
 
+    private void onPreRenderListadoCitas() {
+        adapter.addAll(dataList);
+        recyclerView.setAdapter(adapter);
 
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(recyclerView.getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+    }
 
     public void onStop() {
         super.onStop();
-        drCitas.removeEventListener(listenerCitasInfo);
+        drCitas.removeEventListener(listenerCitas);
     }
 
 
