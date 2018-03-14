@@ -27,7 +27,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
 
     private static TextInputLayout tilCitasFecha, tilCitasHora;
-    Spinner sp_hora,sp_minuto;
     Calendar currentDate,currentTime;
     EditText fecha,hora;
     int dia, mes, year,hour, minuto;
@@ -50,8 +49,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         year = currentDate.get(Calendar.YEAR);
         tilCitasFecha.getEditText().setText(dia+"/"+mes+"/"+year);
 
-        sp_hora = (Spinner)view.findViewById(R.id.sp_hora);
-        sp_minuto = (Spinner)view.findViewById(R.id.sp_minutos);
+
 
         fecha.setOnClickListener(this);
 

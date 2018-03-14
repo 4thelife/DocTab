@@ -30,11 +30,11 @@ public class AccionesCitasFragment extends Fragment implements View.OnClickListe
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_formulario_consultorios_acciones, container, false);
+        view = inflater.inflate(R.layout.fragment_formulario_citas_acciones, container, false);
 
         _MAIN_DECODE = (DecodeExtraHelper) getActivity().getIntent().getExtras().getSerializable(Constants.KEY_MAIN_DECODE);
 
-        btnRegistrar = (Button) view.findViewById(R.id.btn_accion_consultorios);
+        btnRegistrar = (Button) view.findViewById(R.id.btn_accion_citas);
         btnRegistrar.setOnClickListener(this);
 
         return view;
@@ -54,10 +54,10 @@ public class AccionesCitasFragment extends Fragment implements View.OnClickListe
     private void onPreRender() {
         switch (_MAIN_DECODE.getAccionFragmento()) {
             case Constants.ACCION_EDITAR:
-                btnRegistrar.setText("EDITAR CONSULTORIO");
+                btnRegistrar.setText("EDITAR CITA");
                 break;
             case Constants.ACCION_REGISTRAR:
-                btnRegistrar.setText("REGISTRAR CONSULTORIO");
+                btnRegistrar.setText("REGISTRAR CITA");
                 break;
             default:
                 view.setVisibility(View.GONE);

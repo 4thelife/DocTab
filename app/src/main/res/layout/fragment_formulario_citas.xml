@@ -67,27 +67,6 @@
                     android:hint="@string/dato_cita_hora" />
             </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Spinner
-                    android:id="@+id/sp_hora"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/lista_horas">
-
-                </Spinner>
-                <Spinner
-                    android:id="@+id/sp_minutos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:entries="@array/lista_15m">
-
-                </Spinner>
-
-            </LinearLayout>
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/til_citas_asunto"
                 android:layout_width="match_parent"
