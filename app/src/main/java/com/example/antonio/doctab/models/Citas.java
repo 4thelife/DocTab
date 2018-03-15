@@ -1,10 +1,12 @@
 package com.example.antonio.doctab.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Ricardo on 13/02/2018.
  */
 
-public class Citas {
+public class Citas implements Serializable {
 
     private String nombre;
     private String fecha;
@@ -18,18 +20,10 @@ public class Citas {
     private Long fechaDeCreacion;
     private Long fechaDeEdicion;
 
-    public Citas() {
-        this.nombre = nombre;
-        this.fecha = fecha;
-        this.hora = hora;
-        this.asunto = asunto;
-        this.fireBaseId = fireBaseId;
-        this.firebaseIdDoctor = firebaseIdDoctor;
-        this.firebaseIdPaciente = firebaseIdPaciente;
-        this.estatus = estatus;
-        this.fechaDeCreacion = fechaDeCreacion;
-        this.fechaDeEdicion = fechaDeEdicion;
-    }
+    public Citas(){}
+
+
+
 
     public String getNombre() {
         return nombre;
