@@ -77,9 +77,6 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
                 drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS)
                         .child(_SESSION_USER.getFirebaseId());
                 break;
-            case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
-
-                break;
         }
 
 
