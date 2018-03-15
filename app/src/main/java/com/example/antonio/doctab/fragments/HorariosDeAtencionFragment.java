@@ -172,10 +172,12 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
 
         switch (decodeItem.getIdView()) {
             case R.id.item_btn_editar_dia:
-                activityInterface.openExternalActivity(Constants.ACCION_EDITAR, MainRegisterActivity.class);
+                activityInterface.openExternalActivity(Constants.ACCION_EDITAR,
+                        MainRegisterActivity.class);
                 break;
             case R.id.item_btn_eliminar_dia:
-                activityInterface.showQuestion("Eliminar", "¿Esta seguro que desea eliminar?");
+                activityInterface.showQuestion("Eliminar",
+                        "¿Esta seguro que desea eliminar?");
                 break;
         }
     }

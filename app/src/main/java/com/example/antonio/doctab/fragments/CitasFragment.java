@@ -11,10 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.antonio.doctab.MainRegisterActivity;
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.adapters.CitasAdapter;
 import com.example.antonio.doctab.fragments.interfaces.NavigationDrawerInterface;
+import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.models.Citas;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
@@ -36,9 +38,13 @@ import java.util.List;
 public class CitasFragment extends Fragment implements View.OnClickListener{
 
     private Usuarios _SESSION_USER;
+
     private static NavigationDrawerInterface activityInterface;
     public static LinearLayout linearLayout;
 
+    /**
+     * Declaracion de los elementos de la vista
+     */
     private static List<Citas> dataList;
     private static RecyclerView recyclerView;
     public static CitasAdapter adapter;
@@ -60,17 +66,16 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
 
         linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_citas);
+
         adapter = new CitasAdapter();
         adapter.setOnClickListener(this);
 
         database = FirebaseDatabase.getInstance();
 
 
-        drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS);
-
-
-
-
+        drCitas = database.getReference(Constants.FB_KEY_MAIN_PACIENTES)
+                .child(_SESSION_USER.getFirebaseId())
+                .child(Constants.FB_KEY_MAIN_CITAS);
 
         return view;
     }
@@ -85,7 +90,6 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
         super.onCreate(savedInstanceState);
     }
 
-
     @Override
     public void onStart() {
         super.onStart();
@@ -99,8 +103,8 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
                 adapter = new CitasAdapter();
                 dataList = new ArrayList<>();
 
-
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+
                      Citas citas = postSnapshot.getValue(Citas.class);
 
                      if (null == citas.getEstatus()) break;
@@ -128,6 +132,14 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
     }
 
     private void onPreRenderListadoCitas() {
+
+        Collections.sort(dataList, new Comparator<Citas>() {
+            @Override
+            public int compare(Citas o1, Citas o2) {
+                return  (o1.getFechaDeCreacion().compareTo(o2.getFechaDeCreacion()));
+            }
+        });
+
         adapter.addAll(dataList);
         recyclerView.setAdapter(adapter);
 
@@ -154,6 +166,23 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+
+    }
+
+    public  static void onListenerAction(DecodeItemHelper decodeItem){
+        /**Inicializa DecodeItem en la activity principal*/
+        activityInterface.setDecodeItem(decodeItem);
+
+        switch (decodeItem.getIdView()){
+            case  R.id.item_btn_editar_citas:
+                activityInterface.openExternalActivity(Constants.ACCION_REGISTRAR,
+                        MainRegisterActivity.class);
+                break;
+            case R.id.item_btn_eliminar_citas:
+                activityInterface.showQuestion("Eliminar",
+                        "¿Esta seguro que desea eliminar?");
+                break;
+        }
 
     }
 
