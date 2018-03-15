@@ -155,20 +155,20 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     public static boolean validarCita() {
         boolean valido = false;
 
-        String fecha = tilCitasFecha.getEditText().getText().toString();
+        //String fecha = tilCitasFecha.getEditText().getText().toString();
+        String fecha = "15/02/2018";
         String hora = tilCitasHora.getEditText().getText().toString();
+
         String asunto = tilCitasAsunto.getEditText().getText().toString();
 
         boolean a = ValidationUtils.esTextoValido(tilCitasAsunto, asunto);
         if (a){
 
 
-
         Citas data = new Citas();
         data.setAsunto(asunto);
         data.setFecha(fecha);
         data.setHora(hora);
-
         data.setFirebaseIdDoctor(Constants.USUARIO_DOCTOR);
         data.setFirebaseIdPaciente(_SESSION_USER.getFirebaseId());
 
