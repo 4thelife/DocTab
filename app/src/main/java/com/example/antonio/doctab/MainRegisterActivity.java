@@ -527,9 +527,9 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
         /**Se crea la conexion con los nodos a utilizar**/
         final DatabaseReference dbCitas =
-                FirebaseDatabase.getInstance().getReference()
-                        .child(Constants.FB_KEY_MAIN_PACIENTES)
-                        .child(helper.getCitas().getFirebaseIdPaciente());
+                FirebaseDatabase.getInstance().getReference();
+                        //.child(Constants.FB_KEY_MAIN_CITAS);
+                        //.child(data.getFireBaseId());
 
         /**Se crea el firebaseID en el futuro nodo**/
         String firebaseIDCita = dbCitas.child(Constants.FB_KEY_ITEM_CITAS).push().getKey();
@@ -560,6 +560,9 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
                     "Intente mas tarde...", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
+
+
+
     }
 
 
