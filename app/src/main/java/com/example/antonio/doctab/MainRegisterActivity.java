@@ -544,7 +544,7 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
         try {
             /**Se crea la conexion para guadar el objeto**/
-            dbCitas.child(Constants.FB_KEY_ITEM_CITAS).child(data.getFireBaseId())
+            dbCitas.child(data.getFireBaseId())
                     .setValue(data, new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
