@@ -524,14 +524,14 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
     private void webServiceRegistrarCita(CitasHelper helper) {
         /**Se obtiene el objeto principal**/
-        Citas data = helper.getCitas();
+        final Citas data = helper.getCitas();
 
         /**Se crea la conexion con los nodos a utilizar**/
         final DatabaseReference dbCitas =
                 FirebaseDatabase.getInstance().getReference()
                         .child(Constants.FB_KEY_MAIN_CITAS)
                         .child(data.getFirebaseIdPaciente());
-                        //.child(data.getFireBaseId());
+                        //.child(Constants.FB_KEY_ITEM_CITAS);
 
         /**Se crea el firebaseID en el futuro nodo**/
         String firebaseIDCita = dbCitas.child(Constants.FB_KEY_ITEM_CITAS).push().getKey();
@@ -552,7 +552,7 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
                             if (databaseError == null) {
                                 finish();
                                 Toast.makeText(getApplicationContext(),
-                                        "Registrado correctamente...", Toast.LENGTH_LONG).show();
+                                     "Registrado correctamente...", Toast.LENGTH_LONG).show();
                             }
                         }
                     });
@@ -562,10 +562,8 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
                     "Intente mas tarde...", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
-
-
-
     }
+
 
 
 
