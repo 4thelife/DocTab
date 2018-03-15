@@ -72,7 +72,7 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
 
         database = FirebaseDatabase.getInstance();
 
-        /**switch (_SESSION_USER.getTipoDeUsuario()){
+        switch (_SESSION_USER.getTipoDeUsuario()){
             case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
                 drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS)
                         .child(_SESSION_USER.getFirebaseId());
@@ -80,9 +80,9 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
             case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
 
                 break;
-        }*/
+        }
 
-        drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS);
+
 
         return view;
     }
