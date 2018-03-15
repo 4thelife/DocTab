@@ -74,7 +74,7 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
 
         switch (_SESSION_USER.getTipoDeUsuario()){
             case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
-
+                drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS);
                 break;
             case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
                 drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS)
@@ -115,18 +115,40 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
 
-                     Citas citas = postSnapshot.getValue(Citas.class);
+                    switch (_SESSION_USER.getTipoDeUsuario()){
+                        case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                            for(DataSnapshot postSnapshot2 : postSnapshot.getChildren()){
 
-                     if (null == citas.getEstatus()) break;
+                                Citas citas2 = postSnapshot2.getValue(Citas.class);
+                                if (null== citas2.getEstatus()) break;
+                                switch (citas2.getEstatus()){
+                                    case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                                    case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                        dataList.add(citas2);
+                                        break;
+                                    default:
+                                        break;
+                                }
 
-                     switch (citas.getEstatus()){
-                        case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
-                        case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
-                            dataList.add(citas);
+                            }
                             break;
-                        default:
+                        case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                            Citas citas = postSnapshot.getValue(Citas.class);
+
+                            if (null == citas.getEstatus()) break;
+
+                            switch (citas.getEstatus()){
+                                case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                                case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                    dataList.add(citas);
+                                    break;
+                                default:
+                                    break;
+                            }
                             break;
-                     }
+                    }
+
+
 
                 }
                 onPreRenderListadoCitas();
