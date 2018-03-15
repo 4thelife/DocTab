@@ -158,6 +158,7 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
         webServiceRegistrarDoctor(helper);
 
+
     }
 
     private void webServiceRegistrarDoctor(DoctoresHelper helper) {
@@ -527,8 +528,9 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
         /**Se crea la conexion con los nodos a utilizar**/
         final DatabaseReference dbCitas =
-                FirebaseDatabase.getInstance().getReference();
-                        //.child(Constants.FB_KEY_MAIN_CITAS);
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_CITAS)
+                        .child(data.getFirebaseIdPaciente());
                         //.child(data.getFireBaseId());
 
         /**Se crea el firebaseID en el futuro nodo**/
