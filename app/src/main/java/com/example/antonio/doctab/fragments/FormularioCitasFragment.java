@@ -1,11 +1,13 @@
 package com.example.antonio.doctab.fragments;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,11 @@ import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.models.Citas;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
@@ -105,14 +112,57 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         }
     }
 
+    private void obtenerCita(){
+        final Citas citas = (Citas) _MAIN_DECODE.getDecodeItem().getItemModel();
+
+        DatabaseReference drCita = FirebaseDatabase.getInstance()
+                .getReference(Constants.FB_KEY_MAIN_PACIENTES)
+                .child(_SESSION_USER.getFirebaseId())
+                .child(Constants.FB_KEY_ITEM_CITAS)
+                .child(citas.getFireBaseId());
+        final ProgressDialog pDialogRender = new ProgressDialog(getContext());
+        pDialogRender.setMessage(getString(R.string.default_loading_msg));
+        pDialogRender.setIndeterminate(false);
+        pDialogRender.setCancelable(false);
+        pDialogRender.show();
+
+        drCita.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Citas citas = dataSnapshot.getValue(Citas.class);
+
+                _citaActual = citas;
+
+                tilCitasHora.getEditText().setText(citas.getHora());
+                tilCitasFecha.getEditText().setText(citas.getFecha());
+                tilCitasAsunto.getEditText().setText(citas.getAsunto());
+
+                pDialogRender.dismiss();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "Error intentando obtener datos ...");
+                pDialogRender.dismiss();
+            }
+        });
 
 
-    public static boolean obtenerCita() {
+    }
+
+
+
+    public static boolean validarCita() {
         boolean valido = false;
 
         String fecha = tilCitasFecha.getEditText().getText().toString();
         String hora = tilCitasHora.getEditText().getText().toString();
         String asunto = tilCitasAsunto.getEditText().getText().toString();
+
+        boolean a = ValidationUtils.esTextoValido(tilCitasAsunto, asunto);
+        if (a){
+
+
 
         Citas data = new Citas();
         data.setAsunto(asunto);
@@ -124,7 +174,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
         setCita(data);
         valido = true;
-
+        }
 
 
         return valido;

@@ -90,7 +90,7 @@ public class AccionesCitasFragment extends Fragment implements View.OnClickListe
                         this.showQuestion();
                         break;
                     case Constants.ACCION_REGISTRAR:
-                       if (FormularioCitasFragment.obtenerCita())
+                       if (FormularioCitasFragment.validarCita())
                          registrar();
                         break;
                 }
