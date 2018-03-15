@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.antonio.doctab.R;
+import com.example.antonio.doctab.fragments.CitasFragment;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.models.Citas;
 
@@ -81,6 +82,20 @@ public class CitasAdapter extends RecyclerView.Adapter<CitasAdapter.ViewHolder> 
         holder.txtHora.setText(item.getHora());
         holder.txtAsunto.setText(item.getAsunto());
 
+        holder.btn_editar_cita.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                decodeItem.setIdView(v.getId());
+              CitasFragment.onListenerAction(decodeItem);
+            }
+        });
+        holder.btn_eliminar_cita.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                decodeItem.setIdView(v.getId());
+               CitasFragment.onListenerAction(decodeItem);
+            }
+        });
 
     }
 
