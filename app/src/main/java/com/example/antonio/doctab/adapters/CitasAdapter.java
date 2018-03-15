@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.antonio.doctab.R;
@@ -29,6 +30,8 @@ public class CitasAdapter extends RecyclerView.Adapter<CitasAdapter.ViewHolder> 
         TextView txtHora;
         TextView txtAsunto;
 
+        Button btn_editar_cita,btn_eliminar_cita;
+
         public ViewHolder(View itemView) {
             super(itemView);
 
@@ -36,7 +39,8 @@ public class CitasAdapter extends RecyclerView.Adapter<CitasAdapter.ViewHolder> 
             txtFecha = (TextView) itemView.findViewById(R.id.item_citas_fecha);
             txtHora = (TextView) itemView.findViewById(R.id.item_citas_horario);
             txtAsunto = (TextView) itemView.findViewById(R.id.item_citas_asunto);
-
+            btn_editar_cita =(Button) itemView.findViewById(R.id.item_btn_editar_citas);
+            btn_eliminar_cita =(Button) itemView.findViewById(R.id.item_btn_eliminar_citas);
         }
 
     }
