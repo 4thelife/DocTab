@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="monospace"
+            android:textStyle="bold"
             android:text="Nombre del Paciente"
             android:textColor="@color/bootstrap_brand_secondary_text" />
 
