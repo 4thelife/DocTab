@@ -96,6 +96,13 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         //agregar_hora_entrada.setText(hour+":"+minute);
         //agregar_hora_fin.setText(hour+":"+minute);
 
+        bandera[0] = false;
+        bandera[1] = false;
+        bandera[2] = false;
+        bandera[3] = false;
+        bandera[4] = false;
+        bandera[5] = false;
+        bandera[6] = false;
 
 
 
@@ -147,7 +154,6 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
             }
         });
 
-
         return view;
     }
 
@@ -159,7 +165,6 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
     @Override
     public void onClick(View view)
     {
-
         switch (view.getId()) {
             case R.id.tv_agregar_hora_entrada:
                 TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
@@ -182,9 +187,6 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                 timePickerDialog1.show();
                 break;
         }
-
-
-
     }
 
     @Override
