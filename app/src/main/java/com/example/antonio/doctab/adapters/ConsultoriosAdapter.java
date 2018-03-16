@@ -26,9 +26,8 @@ public class ConsultoriosAdapter extends RecyclerView.Adapter<ConsultoriosAdapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txtNombre;
-        TextView txtTelefono;
-        TextView txtCalle,txtNumExt,txtColonia;
+
+        TextView txtCalle;
 
         Button btnEditar;
         Button btnEliminar;
@@ -38,10 +37,6 @@ public class ConsultoriosAdapter extends RecyclerView.Adapter<ConsultoriosAdapte
             super(itemView);
 
             txtCalle = (TextView)itemView.findViewById(R.id.item_consultorios_calle);
-            txtNumExt = (TextView)itemView.findViewById(R.id.item_consultorios_num_ext);
-            txtColonia= (TextView)itemView.findViewById(R.id.item_consultorios_colonia);
-            //txtNombre = (TextView) itemView.findViewById(R.id.item_consultorios_nombre);
-            //txtTelefono = (TextView) itemView.findViewById(R.id.item_consultorios_telefono);
             btnEditar = (Button) itemView.findViewById(R.id.item_btn_editar_consultorios);
             btnEliminar = (Button) itemView.findViewById(R.id.item_btn_eliminar_consultorios);
         }
@@ -80,7 +75,7 @@ public class ConsultoriosAdapter extends RecyclerView.Adapter<ConsultoriosAdapte
 
         //holder.txtNombre.setText(item.getNombreConsultorio());
         //TODO HACER UN METODO PARA CONCATENAR SIN NULL
-        holder.txtCalle.setText(item.getCalle() +" #"+item.getNumeroExt() + " " + item.getColonia());
+        holder.txtCalle.setText("Calle "+item.getCalle() +" #"+item.getNumeroExt() + " Col. " + item.getColonia());
         //holder.txtNumExt.setText(item.getNumeroExt());
         //holder.txtColonia.setText(item.getColonia());
         //holder.txtDireccion.setText(item.getCalle() + " " + item.getColonia() + " " + item.getCodPostal()

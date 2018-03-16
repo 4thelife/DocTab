@@ -98,6 +98,7 @@
                 android:backgroundTint="@color/bootstrap_brand_danger"
                 android:fontFamily="monospace"
                 android:text="@string/button_eliminar"
+                android:visibility="gone"
                 android:textColor="@color/bootstrap_brand_secondary_fill" />
 
 

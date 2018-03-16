@@ -35,8 +35,7 @@ public class ConsultoriosAdapterVP extends RecyclerView.Adapter<ConsultoriosAdap
             super(itemView);
             /**Inicializa los elementos de la vista del item*/
             txtCalle = (TextView)itemView.findViewById(R.id.item_consultorios_calle_nbtn);
-            txtNumExt = (TextView)itemView.findViewById(R.id.item_consultorios_num_ext_nbtn);
-            txtColonia= (TextView)itemView.findViewById(R.id.item_consultorios_colonia_nbtn);
+
         }
     }
 
@@ -73,7 +72,7 @@ public class ConsultoriosAdapterVP extends RecyclerView.Adapter<ConsultoriosAdap
 
 
         //TODO HACER UN METODO PARA CONCATENAR SIN NULL
-        holder.txtCalle.setText(item.getCalle() +" #"+item.getNumeroExt() + " " + item.getColonia());
+        holder.txtCalle.setText("Calle "+item.getCalle() +" #"+item.getNumeroExt() + " Col." + item.getColonia());
 
 
 

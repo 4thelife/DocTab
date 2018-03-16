@@ -18,20 +18,7 @@
             android:layout_weight="1"
             android:fontFamily="monospace"
             android:textColor="@color/bootstrap_brand_secondary_text" />
-        <TextView
-            android:id="@+id/item_consultorios_num_ext_nbtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="monospace"
-            android:textColor="@color/bootstrap_brand_secondary_text" />
-        <TextView
-            android:id="@+id/item_consultorios_colonia_nbtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="monospace"
-            android:textColor="@color/bootstrap_brand_secondary_text" />
+
 
         <View
             android:layout_width="match_parent"
