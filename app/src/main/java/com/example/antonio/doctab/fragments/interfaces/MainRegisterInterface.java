@@ -36,4 +36,6 @@ public interface MainRegisterInterface {
     void editarHorariosDeAtencion(HorarioDeAtencionHelper helper);
 
     void registrarCita(CitasHelper helper);
+
+    void editarCita(CitasHelper helper);
 }

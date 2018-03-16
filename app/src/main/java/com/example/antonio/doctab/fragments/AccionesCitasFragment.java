@@ -113,7 +113,7 @@ public class AccionesCitasFragment extends Fragment implements View.OnClickListe
     public void onClick(DialogInterface dialog, int which) {
         switch (which) {
             case DialogInterface.BUTTON_POSITIVE:
-                if (FormularioConsultorioFragment.validarDatosEdicion())
+                if (FormularioCitasFragment.validarCita())
                     editar();
                 break;
         }
@@ -130,10 +130,10 @@ public class AccionesCitasFragment extends Fragment implements View.OnClickListe
 
     private void editar() {
         /**Transporta la información del objeto a la actividad de registro**/
-        ConsultoriosHelper helper = new ConsultoriosHelper();
-        helper.setConsultorio(FormularioConsultorioFragment._consultorioActual);
+        CitasHelper helper = new CitasHelper();
+        helper.setCitas(FormularioCitasFragment._citaActual);
 
-        activityInterface.editarConsultorio(helper);
+        activityInterface.editarCita(helper);
     }
 
 }

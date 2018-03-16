@@ -564,7 +564,54 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
         }
     }
 
+    @Override
+    public void editarCita(CitasHelper helper) {
+        pDialog = new ProgressDialog(MainRegisterActivity.this);
+        pDialog.setMessage(getString(R.string.default_loading_msg));
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
 
+        webServiceEditarCita(helper);
+
+    }
+
+    private void webServiceEditarCita(CitasHelper helper) {
+        /**Se obtiene el objeto principal**/
+        Citas data = helper.getCitas();
+
+        /**Se crea la conexion con los nodos a utilizar**/
+        final DatabaseReference dbCitas =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_CITAS)
+                        .child(data.getFirebaseIdPaciente())
+                        .child(helper.getCitas().getFirebaseIdPaciente());
+
+
+        data.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ACTIVO);
+        data.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+        try {
+            /**Se crea la conexion para actualizar el objeto apuntando al firebaseID a modificar**/
+            dbCitas.child(data.getFireBaseId())
+                    .setValue(data, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                            pDialog.dismiss();
+                            if (databaseError == null) {
+                                finish();
+                                Toast.makeText(getApplicationContext(),
+                                        "Actualizado correctamente...", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            pDialog.dismiss();
+            Toast.makeText(getApplicationContext(),
+                    "Intente mas tarde...", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+    }
 
 
 }

@@ -207,7 +207,7 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
 
         switch (decodeItem.getIdView()){
             case  R.id.item_btn_editar_citas:
-                activityInterface.openExternalActivity(Constants.ACCION_REGISTRAR,
+                activityInterface.openExternalActivity(Constants.ACCION_EDITAR,
                         MainRegisterActivity.class);
                 break;
             case R.id.item_btn_eliminar_citas:
