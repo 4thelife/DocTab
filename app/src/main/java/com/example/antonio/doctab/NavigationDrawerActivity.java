@@ -436,7 +436,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         DatabaseReference dbcita =
                 FirebaseDatabase.getInstance().getReference()
                         .child(Constants.FB_KEY_MAIN_CITAS)
-                        .child(_SESSION_USER.getFirebaseId())
+                        .child(cita.getFirebaseIdPaciente())
                         .child(cita.getFireBaseId());
 
         cita.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ELIMINADO);
