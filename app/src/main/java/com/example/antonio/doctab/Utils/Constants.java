@@ -304,6 +304,7 @@ public class Constants {
     public static final int WS_KEY_ELIMINAR_CONSULTORIOS = 10;
     public static final int WS_KEY_ELIMINAR_DOCTORES = 20;
     public static final int WS_KEY_ELIMINAR_DIAS = 30;
+    public static final int WS_KEY_ELIMINAR_CITAS = 40;
 
     /**
      * Tipos de usuarios - todos en singular

@@ -26,6 +26,7 @@ import com.example.antonio.doctab.Utils.DateTimeUtils;
 import com.example.antonio.doctab.fragments.interfaces.NavigationDrawerInterface;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
+import com.example.antonio.doctab.models.Citas;
 import com.example.antonio.doctab.models.Consultorios;
 import com.example.antonio.doctab.models.Doctores;
 import com.example.antonio.doctab.models.HorariosDeAtencion;
@@ -339,6 +340,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
                     case R.id.item_btn_eliminar_dia:
                         operation = Constants.WS_KEY_ELIMINAR_DIAS;
                         break;
+                    case R.id.item_btn_eliminar_citas:
+                        operation = Constants.WS_KEY_ELIMINAR_CITAS;
+                        break;
                 }
 
                 this.webServiceOperations(operation);
@@ -358,6 +362,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
                 break;
             case Constants.WS_KEY_ELIMINAR_DIAS:
                 this.webServiceDeleteDias();
+                break;
+            case Constants.WS_KEY_ELIMINAR_CITAS:
+                this.webServiceDeleteCitas();
                 break;
         }
     }
@@ -421,6 +428,33 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
     }
 
+    private void webServiceDeleteCitas() {
+
+        final Citas cita = (Citas) _decodeItem.getItemModel();
+
+        /**obtiene la instancia del elemento**/
+        DatabaseReference dbcita =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_CITAS)
+                        .child(_SESSION_USER.getFirebaseId())
+                        .child(cita.getFireBaseId());
+
+        cita.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ELIMINADO);
+        cita.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+
+        dbcita.setValue(cita, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+                pDialog.dismiss();
+                if (databaseError == null) {
+                    Toast.makeText(getApplicationContext(),
+                            "Eliminado correctamente...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
 
 
 }
