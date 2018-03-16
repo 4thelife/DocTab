@@ -370,7 +370,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         DatabaseReference dbdia =
                 FirebaseDatabase.getInstance().getReference()
                         .child(Constants.FB_KEY_MAIN_DOCTORES)
-                        .child(dia.getFireBaseIdDoctor())
+                        .child(Constants.USUARIO_DOCTOR)
                         .child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION)
                         .child(dia.getFireBaseId());
 
