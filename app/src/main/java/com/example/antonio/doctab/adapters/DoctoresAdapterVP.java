@@ -25,14 +25,12 @@ public class DoctoresAdapterVP extends RecyclerView.Adapter<DoctoresAdapterVP.Vi
     List<Doctores> dataList = new ArrayList<>();
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
+        /**Declara los elementos*/
         TextView txtNombres;
         TextView txtEspecialidad;
         TextView txtTelefono;
         TextView txtCedula;
         TextView txtSexo;
-
-
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -43,9 +41,7 @@ public class DoctoresAdapterVP extends RecyclerView.Adapter<DoctoresAdapterVP.Vi
             txtSexo = (TextView) itemView.findViewById(R.id.item_doctores_sexo_nobtn);
             txtTelefono = (TextView) itemView.findViewById(R.id.item_doctores_telefono_nobtn);
 
-
         }
-
 
     }
 

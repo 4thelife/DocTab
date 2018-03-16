@@ -17,6 +17,7 @@ import com.example.antonio.doctab.MainRegisterActivity;
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.adapters.ConsultoriosAdapter;
+import com.example.antonio.doctab.adapters.ConsultoriosAdapterVP;
 import com.example.antonio.doctab.fragments.interfaces.NavigationDrawerInterface;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.models.Consultorios;
@@ -46,6 +47,8 @@ public class ConsultoriosFragment extends Fragment implements View.OnClickListen
 
     private static List<Consultorios> dataList;
     private static RecyclerView recyclerView;
+    /**Declaracion de los dos Adapatadores*/
+    private static ConsultoriosAdapterVP adapterVP;
     private static ConsultoriosAdapter adapter;
 
     /**
@@ -65,8 +68,20 @@ public class ConsultoriosFragment extends Fragment implements View.OnClickListen
         linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_consultorios);
 
-        adapter = new ConsultoriosAdapter();
-        adapter.setOnClickListener(this);
+        switch (_SESSION_USER.getTipoDeUsuario()){
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                /**Inicializacion de los adaptadores dependiendo del usuario*/
+                adapter = new ConsultoriosAdapter();
+                adapter.setOnClickListener(this);
+                break;
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                /**Inicializacion de los adaptadores dependiendo del usuario*/
+                adapterVP = new ConsultoriosAdapterVP();
+                adapterVP.setOnClickListener(this);
+                break;
+        }
+
+
 
         database = FirebaseDatabase.getInstance();
         /**Se crea la instancia para acceder a la consulta**/
@@ -97,25 +112,53 @@ public class ConsultoriosFragment extends Fragment implements View.OnClickListen
         listenerConsultorios = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                switch (_SESSION_USER.getTipoDeUsuario()){
+                    case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                        /**Se utilizan los adaptadores creados para cada usuario*/
+                        adapter = new ConsultoriosAdapter();
+                        dataList = new ArrayList<>();
 
-                adapter = new ConsultoriosAdapter();
-                dataList = new ArrayList<>();
+                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                            /**Se crea un objeto con una variable distinta para ser usado en el caso*/
+                            Consultorios consultorio = postSnapshot.getValue(Consultorios.class);
 
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                            if (null == consultorio.getEstatus()) break;
 
-                    Consultorios consultorio = postSnapshot.getValue(Consultorios.class);
+                            switch (consultorio.getEstatus()) {
+                                case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                                case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                    /**Se agrega la variable del objeto a la lista*/
+                                    dataList.add(consultorio);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
+                    case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                        /**Se utilizan los adaptadores creados para cada usuario*/
+                        adapterVP = new ConsultoriosAdapterVP();
+                        dataList = new ArrayList<>();
 
-                    if (null == consultorio.getEstatus()) break;
+                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                            /**Se crea un objeto con una variable distinta para ser usado en el caso*/
+                            Consultorios consultorio2 = postSnapshot.getValue(Consultorios.class);
 
-                    switch (consultorio.getEstatus()) {
-                        case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
-                        case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
-                            dataList.add(consultorio);
-                            break;
-                        default:
-                            break;
-                    }
+                            if (null == consultorio2.getEstatus()) break;
+
+                            switch (consultorio2.getEstatus()) {
+                                case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                                case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                    /**Se agrega la variable del objeto a la lista*/
+                                    dataList.add(consultorio2);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
                 }
+
 
                 onPreRenderListadoConsultorios();
 
@@ -138,9 +181,17 @@ public class ConsultoriosFragment extends Fragment implements View.OnClickListen
                 return (o1.getColonia().compareTo(o2.getColonia()));
             }
         });
-
-        adapter.addAll(dataList);
-        recyclerView.setAdapter(adapter);
+        /**Se rellena la vista del listado dependiendo del usuario y se manda a llamar al item*/
+        switch (_SESSION_USER.getTipoDeUsuario()){
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                adapter.addAll(dataList);
+                recyclerView.setAdapter(adapter);
+                break;
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                adapterVP.addAll(dataList);
+                recyclerView.setAdapter(adapterVP);
+                break;
+        }
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(recyclerView.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);

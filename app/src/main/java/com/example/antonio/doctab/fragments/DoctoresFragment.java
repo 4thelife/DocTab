@@ -47,6 +47,7 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
 
     private static List<Doctores> dataList;
     private static RecyclerView recyclerView;
+    /**Declaracion de los dos Adapatadores*/
     private static DoctoresAdapter adapter;
     private static DoctoresAdapterVP adapterVP;
 
@@ -73,6 +74,7 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
         database = FirebaseDatabase.getInstance();
         switch (_SESSION_USER.getTipoDeUsuario()){
             case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                /**Inicializacion de los adaptadores dependiendo del usuario*/
                 adapter = new DoctoresAdapter();
                 adapter.setOnClickListener(this);
                 drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
@@ -81,6 +83,7 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
                         .child(_SESSION_USER.getFirebaseId());
                 break;
             case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                /**Inicializacion de los adaptadores dependiendo del usuario*/
                 adapterVP = new DoctoresAdapterVP();
                 adapterVP.setOnClickListener(this);
                 drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
@@ -114,17 +117,19 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
         listenerDoctores = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                /**Se crea el listado dependiendo del usuario*/
                 switch (_SESSION_USER.getTipoDeUsuario()){
                     case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                        /**Se utilizan los adaptadores creados para cada usuario*/
                         adapter = new DoctoresAdapter();
                         dataList = new ArrayList<>();
-
+                        /**Se crea un objeto con una variable distinta para ser usado en el caso*/
                         Doctores doctores = dataSnapshot.getValue(Doctores.class);
 
                         switch (doctores.getEstatus()){
                             case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
                             case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                /**Se agrega la variable del objeto a la lista*/
                                 dataList.add(doctores);
                                 break;
                             default:
@@ -132,14 +137,16 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
                         }
                         break;
                     case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                        /**Se utilizan los adaptadores creados para cada usuario*/
                         adapterVP = new DoctoresAdapterVP();
                         dataList = new ArrayList<>();
-
+                        /**Se crea un objeto con una variable distinta para ser usado en el caso*/
                         Doctores doctores2 = dataSnapshot.getValue(Doctores.class);
 
                         switch (doctores2.getEstatus()){
                             case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
                             case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                /**Se agrega la variable del objeto a la lista*/
                                 dataList.add(doctores2);
                                 break;
                             default:
@@ -167,6 +174,7 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
                 return (o1.getCedulaProfesional().compareTo(o2.getCedulaProfesional()));
             }
         });
+        /**Se rellena la vista del listado dependiendo del usuario y se manda a llamar al item*/
         switch (_SESSION_USER.getTipoDeUsuario()){
             case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
                 adapter.addAll(dataList);

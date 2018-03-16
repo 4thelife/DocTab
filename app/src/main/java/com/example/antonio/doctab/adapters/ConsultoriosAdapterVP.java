@@ -26,19 +26,17 @@ public class ConsultoriosAdapterVP extends RecyclerView.Adapter<ConsultoriosAdap
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-
+        /**Declara los elementos */
         TextView txtCalle,txtNumExt,txtColonia;
 
 
 
         public ViewHolder(View itemView) {
             super(itemView);
-
-            txtCalle = (TextView)itemView.findViewById(R.id.item_consultorios_calle);
-            txtNumExt = (TextView)itemView.findViewById(R.id.item_consultorios_num_ext);
-            txtColonia= (TextView)itemView.findViewById(R.id.item_consultorios_colonia);
-
-
+            /**Inicializa los elementos de la vista del item*/
+            txtCalle = (TextView)itemView.findViewById(R.id.item_consultorios_calle_nbtn);
+            txtNumExt = (TextView)itemView.findViewById(R.id.item_consultorios_num_ext_nbtn);
+            txtColonia= (TextView)itemView.findViewById(R.id.item_consultorios_colonia_nbtn);
         }
     }
 

@@ -26,21 +26,20 @@ public class HorariosDeAtencionAdapterVP extends RecyclerView.Adapter<HorariosDe
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-
+        /**Declaracion de los elementos*/
         TextView txtDia;
         TextView txtHoraInicio;
         TextView txtHoraFin;
-        TextView txtDuracionDeCita;/**Duracion de la cita*/
-
+        TextView txtDuracionDeCita;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-
-             txtDia = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_dia);
-             txtHoraInicio = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_hora_inicio);
-             txtHoraFin = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_hora_fin);
-             txtDuracionDeCita=(TextView)itemView.findViewById(R.id.item_horarios_de_atencion_duracion);
+            /**Inicializar los elementos*/
+             txtDia = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_dia_nbtn);
+             txtHoraInicio = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_hora_inicio_nbtn);
+             txtHoraFin = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_hora_fin_nbtn);
+             txtDuracionDeCita=(TextView)itemView.findViewById(R.id.item_horarios_de_atencion_duracion_nbtn);
 
         }
     }
