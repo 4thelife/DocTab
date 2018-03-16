@@ -17,6 +17,7 @@ import com.example.antonio.doctab.MainRegisterActivity;
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.adapters.DoctoresAdapter;
+import com.example.antonio.doctab.adapters.DoctoresAdapterVP;
 import com.example.antonio.doctab.fragments.interfaces.NavigationDrawerInterface;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.models.Doctores;
@@ -47,6 +48,8 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
     private static List<Doctores> dataList;
     private static RecyclerView recyclerView;
     private static DoctoresAdapter adapter;
+    private static DoctoresAdapterVP adapterVP;
+
 
     /**
      * Declaraciones de firebase
@@ -65,22 +68,26 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
         linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_doctores);
 
-        adapter = new DoctoresAdapter();
-        adapter.setOnClickListener(this);
+
 
         database = FirebaseDatabase.getInstance();
         switch (_SESSION_USER.getTipoDeUsuario()){
             case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                adapter = new DoctoresAdapter();
+                adapter.setOnClickListener(this);
                 drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
                         .child(_SESSION_USER.getFirebaseId())
                         .child(Constants.FB_KEY_ITEM_DOCTOR)
                         .child(_SESSION_USER.getFirebaseId());
                 break;
             case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                adapterVP = new DoctoresAdapterVP();
+                adapterVP.setOnClickListener(this);
                 drDoctores = database.getReference(Constants.FB_KEY_MAIN_DOCTORES)
                         .child(Constants.USUARIO_DOCTOR)
                         .child(Constants.FB_KEY_ITEM_DOCTOR)
                         .child(Constants.USUARIO_DOCTOR);
+                break;
         }
 
 
@@ -107,36 +114,40 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
         listenerDoctores = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                adapter = new DoctoresAdapter();
-                dataList = new ArrayList<>();
 
-                Doctores doctores = dataSnapshot.getValue(Doctores.class);
+                switch (_SESSION_USER.getTipoDeUsuario()){
+                    case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                        adapter = new DoctoresAdapter();
+                        dataList = new ArrayList<>();
 
-                switch (doctores.getEstatus()){
-                    case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
-                    case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
-                        dataList.add(doctores);
+                        Doctores doctores = dataSnapshot.getValue(Doctores.class);
+
+                        switch (doctores.getEstatus()){
+                            case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                            case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                dataList.add(doctores);
+                                break;
+                            default:
+                                break;
+                        }
                         break;
-                    default:
-                        break;
+                    case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                        adapterVP = new DoctoresAdapterVP();
+                        dataList = new ArrayList<>();
+
+                        Doctores doctores2 = dataSnapshot.getValue(Doctores.class);
+
+                        switch (doctores2.getEstatus()){
+                            case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                            case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                dataList.add(doctores2);
+                                break;
+                            default:
+                                break;
+                        }
+                       break;
                 }
 
-                /**for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-
-                    Doctores doctores = postSnapshot.getValue(Doctores.class);
-
-                    if(null == doctores.getEstatus()) break;
-
-                    switch (doctores.getEstatus()){
-                        case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
-                        case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
-                            dataList.add(doctores);
-                            break;
-                        default:
-                            break;
-                    }
-
-                }*/
                 onPreRenderListadoDoctores();
             }
 
@@ -156,9 +167,17 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
                 return (o1.getCedulaProfesional().compareTo(o2.getCedulaProfesional()));
             }
         });
+        switch (_SESSION_USER.getTipoDeUsuario()){
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                adapter.addAll(dataList);
+                recyclerView.setAdapter(adapter);
+                break;
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                adapterVP.addAll(dataList);
+                recyclerView.setAdapter(adapterVP);
+                break;
+        }
 
-        adapter.addAll(dataList);
-        recyclerView.setAdapter(adapter);
 
         LinearLayoutManager linearLayoutManager =
                 new LinearLayoutManager(recyclerView.getContext());
