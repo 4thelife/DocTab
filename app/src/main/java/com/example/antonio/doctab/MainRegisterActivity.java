@@ -584,8 +584,7 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
         final DatabaseReference dbCitas =
                 FirebaseDatabase.getInstance().getReference()
                         .child(Constants.FB_KEY_MAIN_CITAS)
-                        .child(data.getFirebaseIdPaciente())
-                        .child(helper.getCitas().getFirebaseIdPaciente());
+                        .child(data.getFirebaseIdPaciente());
 
 
         data.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ACTIVO);

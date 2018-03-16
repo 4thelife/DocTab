@@ -115,9 +115,8 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         final Citas citas = (Citas) _MAIN_DECODE.getDecodeItem().getItemModel();
 
         DatabaseReference drCita = FirebaseDatabase.getInstance()
-                .getReference(Constants.FB_KEY_MAIN_PACIENTES)
+                .getReference(Constants.FB_KEY_MAIN_CITAS)
                 .child(_SESSION_USER.getFirebaseId())
-                .child(Constants.FB_KEY_ITEM_CITAS)
                 .child(citas.getFireBaseId());
         final ProgressDialog pDialogRender = new ProgressDialog(getContext());
         pDialogRender.setMessage(getString(R.string.default_loading_msg));
@@ -135,7 +134,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                 tilCitasHora.getEditText().setText(citas.getHora());
                 tilCitasFecha.getEditText().setText(citas.getFecha());
                 tilCitasAsunto.getEditText().setText(citas.getAsunto());
-
                 pDialogRender.dismiss();
             }
 
