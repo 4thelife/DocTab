@@ -15,6 +15,7 @@ import com.example.antonio.doctab.MainRegisterActivity;
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.adapters.HorariosDeAtencionAdapter;
+import com.example.antonio.doctab.adapters.HorariosDeAtencionAdapterVP;
 import com.example.antonio.doctab.fragments.interfaces.NavigationDrawerInterface;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 import com.example.antonio.doctab.models.HorariosDeAtencion;
@@ -44,7 +45,9 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
 
     private static List<HorariosDeAtencion> dataList;
     private static RecyclerView recyclerView;
+    /**Declaracion de los dos Adapatadores*/
     private static HorariosDeAtencionAdapter adapter;
+    private static HorariosDeAtencionAdapterVP adapterVP;
 
     /**
      * Declaraciones de firebase
@@ -63,8 +66,18 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
         linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_horarios_de_atencion);
 
-        adapter = new HorariosDeAtencionAdapter();
-        adapter.setOnClickListener(this);
+        switch (_SESSION_USER.getTipoDeUsuario()){
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                /**Inicializacion de los adaptadores dependiendo del usuario*/
+                adapter = new HorariosDeAtencionAdapter();
+                adapter.setOnClickListener(this);
+                break;
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                /**Inicializacion de los adaptadores dependiendo del usuario*/
+                adapterVP = new HorariosDeAtencionAdapterVP();
+                adapterVP.setOnClickListener(this);
+                break;
+        }
 
         database = FirebaseDatabase.getInstance();
 
@@ -96,25 +109,57 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
         listenerHorariosDeAtencion = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                adapter = new HorariosDeAtencionAdapter();
-                dataList = new ArrayList<>();
+                /**Se crea el listado dependiendo del usuario*/
+                switch (_SESSION_USER.getTipoDeUsuario()) {
+                    case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                        /**Se utilizan los adaptadores creados para cada usuario*/
+                        adapter = new HorariosDeAtencionAdapter();
+                        dataList = new ArrayList<>();
 
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                            /**Se crea un objeto con una variable distinta para ser usado en el caso*/
+                            HorariosDeAtencion horariosDeAtencion = postSnapshot.getValue(HorariosDeAtencion.class);
 
-                    HorariosDeAtencion horariosDeAtencion = postSnapshot.getValue(HorariosDeAtencion.class);
+                            if (null == horariosDeAtencion.getEstatus())break;
 
-                    if (null == horariosDeAtencion.getEstatus())break;
+                            switch (horariosDeAtencion.getEstatus()) {
+                                case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                                case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                    /**Se agrega la variable del objeto a la lista*/
+                                    dataList.add(horariosDeAtencion);
+                                    break;
+                                default:
+                                    break;
+                            }
 
-                    switch (horariosDeAtencion.getEstatus()) {
-                        case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
-                        case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
-                            dataList.add(horariosDeAtencion);
-                            break;
-                        default:
-                            break;
-                    }
+                        }
+                        break;
+                    case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                        /**Se utilizan los adaptadores creados para cada usuario*/
+                        adapterVP = new HorariosDeAtencionAdapterVP();
+                        dataList = new ArrayList<>();
+
+                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                            /**Se crea un objeto con una variable distinta para ser usado en el caso*/
+                            HorariosDeAtencion horariosDeAtencion2 = postSnapshot.getValue(HorariosDeAtencion.class);
+
+                            if (null == horariosDeAtencion2.getEstatus())break;
+
+                            switch (horariosDeAtencion2.getEstatus()) {
+                                case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                                case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                    /**Se agrega la variable del objeto a la lista*/
+                                    dataList.add(horariosDeAtencion2);
+                                    break;
+                                default:
+                                    break;
+                            }
+
+                        }
+                        break;
 
                 }
+
                 onPreRenderListadoHorariosDeAtencion();
             }
 
@@ -135,9 +180,17 @@ public class HorariosDeAtencionFragment extends Fragment implements View.OnClick
                 return (o1.getDia().compareTo(o2.getDia()));
             }
         });
-
-        adapter.addAll(dataList);
-        recyclerView.setAdapter(adapter);
+        /**Se rellena la vista del listado dependiendo del usuario y se manda a llamar al item*/
+        switch (_SESSION_USER.getTipoDeUsuario()){
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
+                adapter.addAll(dataList);
+                recyclerView.setAdapter(adapter);
+                break;
+            case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
+                adapterVP.addAll(dataList);
+                recyclerView.setAdapter(adapterVP);
+                break;
+        }
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(recyclerView.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);

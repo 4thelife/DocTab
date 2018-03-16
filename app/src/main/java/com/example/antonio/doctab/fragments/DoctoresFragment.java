@@ -93,7 +93,6 @@ public class DoctoresFragment extends Fragment implements View.OnClickListener{
                 break;
         }
 
-
         return view;
     }
 
