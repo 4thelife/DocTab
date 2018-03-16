@@ -195,7 +195,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
             data.setFirebaseIdDoctor(Constants.USUARIO_DOCTOR);
             data.setFireBaseId(_citaActual.getFireBaseId());
-            data.setFirebaseIdPaciente(_SESSION_USER.getFirebaseId());
+            data.setFirebaseIdPaciente(_citaActual.getFirebaseIdPaciente());
 
             setCita(data);
             valido = true;
