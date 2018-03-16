@@ -113,7 +113,7 @@ public class AccionesCitasFragment extends Fragment implements View.OnClickListe
     public void onClick(DialogInterface dialog, int which) {
         switch (which) {
             case DialogInterface.BUTTON_POSITIVE:
-                if (FormularioCitasFragment.validarCita())
+                if (FormularioCitasFragment.validarCitaEdicion())
                     editar();
                 break;
         }

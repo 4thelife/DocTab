@@ -116,7 +116,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
         DatabaseReference drCita = FirebaseDatabase.getInstance()
                 .getReference(Constants.FB_KEY_MAIN_CITAS)
-                .child(_SESSION_USER.getFirebaseId())
+                .child(citas.getFirebaseIdPaciente())
                 .child(citas.getFireBaseId());
         final ProgressDialog pDialogRender = new ProgressDialog(getContext());
         pDialogRender.setMessage(getString(R.string.default_loading_msg));
@@ -134,6 +134,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                 tilCitasHora.getEditText().setText(citas.getHora());
                 tilCitasFecha.getEditText().setText(citas.getFecha());
                 tilCitasAsunto.getEditText().setText(citas.getAsunto());
+
                 pDialogRender.dismiss();
             }
 
@@ -170,6 +171,34 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
         setCita(data);
         valido = true;
+        }
+
+
+        return valido;
+    }
+    public static boolean validarCitaEdicion() {
+        boolean valido = false;
+
+        String fecha = tilCitasFecha.getEditText().getText().toString();
+        String hora = tilCitasHora.getEditText().getText().toString();
+
+        String asunto = tilCitasAsunto.getEditText().getText().toString();
+
+        boolean a = ValidationUtils.esTextoValido(tilCitasAsunto, asunto);
+        if (a){
+
+
+            Citas data = new Citas();
+            data.setAsunto(asunto);
+            data.setFecha(fecha);
+            data.setHora(hora);
+
+            data.setFirebaseIdDoctor(Constants.USUARIO_DOCTOR);
+            data.setFireBaseId(_citaActual.getFireBaseId());
+            data.setFirebaseIdPaciente(_SESSION_USER.getFirebaseId());
+
+            setCita(data);
+            valido = true;
         }
 
 
