@@ -31,7 +31,6 @@ import com.example.antonio.doctab.fragments.ListadoSeleccionIndefinidoFragment;
 import com.example.antonio.doctab.fragments.ListadoServiciosFragment;
 import com.example.antonio.doctab.fragments.MensajesFragment;
 import com.example.antonio.doctab.fragments.MiPerfilDoctorPrivadoFragment;
-import com.example.antonio.doctab.fragments.MiPerfilGeneralDoctorPrivadoFragment;
 import com.example.antonio.doctab.fragments.MiPerfilPacientePrivadoFragment;
 import com.example.antonio.doctab.fragments.PacientesFragment;
 import com.example.antonio.doctab.fragments.RegistroCitasFragment;
@@ -97,6 +96,7 @@ public class Constants {
     public static final String KEY_PREF_CREDENCIALS_TIPO_USUARIO = "key_pref_credencials_tipo_usuario";
     public static final String KEY_PREF_CREDENCIALS_FIREBASE_ID = "key_pref_credencials_firebase_id";
     public static final String KEY_PREF_CREDENCIALS_SESSION = "key_pref_credencials_session";
+    public static final String KEY_PREF_CREDENCIALS_NOMBRE = "key_pref_credencials_nombre";
 
     /**
      * Fragmentos principales de lista
@@ -271,7 +271,6 @@ public class Constants {
         TAG_FRAGMENT.put(FRAGMENT_SERVICIOS, new ServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_MENSAJES, new MensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_HORARIOS_DE_ATENCION, new HorariosDeAtencionFragment());
-        TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_GENERAL_DOCTOR_PRIVADO, new MiPerfilGeneralDoctorPrivadoFragment());
 
 
     }

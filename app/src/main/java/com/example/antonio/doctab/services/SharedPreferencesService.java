@@ -17,7 +17,9 @@ public class SharedPreferencesService {
         SharedPreferences credenciales = context.getSharedPreferences(Constants.KEY_PREF_CREDENCIALS, Context.MODE_PRIVATE);
         String firebaseId = credenciales.getString(Constants.KEY_PREF_CREDENCIALS_FIREBASE_ID, "");
         String tipoDeUsuario = credenciales.getString(Constants.KEY_PREF_CREDENCIALS_TIPO_USUARIO, "");
+        String nombre = credenciales.getString(Constants.KEY_PREF_CREDENCIALS_NOMBRE,"");
 
+        usuario.setNombre(nombre);
         usuario.setFirebaseId(firebaseId);
         usuario.setTipoDeUsuario(tipoDeUsuario);
 

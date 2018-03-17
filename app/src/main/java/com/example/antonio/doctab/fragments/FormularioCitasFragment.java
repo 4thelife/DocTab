@@ -151,6 +151,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
 
     public static boolean validarCita() {
+        Usuarios usuarios =new Usuarios();
         boolean valido = false;
 
         String fecha = tilCitasFecha.getEditText().getText().toString();
@@ -168,7 +169,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         data.setHora(hora);
         data.setFirebaseIdDoctor(Constants.USUARIO_DOCTOR);
         data.setFirebaseIdPaciente(_SESSION_USER.getFirebaseId());
-
+        data.setNombre(usuarios.getNombre());
         setCita(data);
         valido = true;
         }
@@ -193,6 +194,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
             data.setFecha(fecha);
             data.setHora(hora);
 
+            data.setNombre(_citaActual.getNombre());
             data.setFirebaseIdDoctor(Constants.USUARIO_DOCTOR);
             data.setFireBaseId(_citaActual.getFireBaseId());
             data.setFirebaseIdPaciente(_citaActual.getFirebaseIdPaciente());
@@ -210,6 +212,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         _citaActual.setFecha(data.getFecha());
         _citaActual.setHora(data.getHora());
         _citaActual.setAsunto(data.getAsunto());
+        _citaActual.setNombre(_SESSION_USER.getNombre());
         _citaActual.setFirebaseIdPaciente(data.getFirebaseIdPaciente());
         _citaActual.setFirebaseIdDoctor(Constants.USUARIO_DOCTOR);
         _citaActual.setFireBaseId(data.getFireBaseId());

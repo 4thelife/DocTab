@@ -235,6 +235,7 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
         final Usuarios usuario = new Usuarios();
         usuario.setFirebaseId(data.getFirebaseId());
         usuario.setTipoDeUsuario(data.getTipoDeUsuario());
+        usuario.setNombre((data.getNombreCompleto()));
 
         try {
             /**Se crea la conexion para guadar el objeto**/

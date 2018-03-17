@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         credencials.putString(Constants.KEY_PREF_CREDENCIALS_FIREBASE_ID, usuario.getFirebaseId());
         credencials.putString(Constants.KEY_PREF_CREDENCIALS_TIPO_USUARIO, usuario.getTipoDeUsuario());
         credencials.putBoolean(Constants.KEY_PREF_CREDENCIALS_SESSION, true);
+        credencials.putString(Constants.KEY_PREF_CREDENCIALS_NOMBRE, usuario.getNombre());
         credencials.commit();
     }
 

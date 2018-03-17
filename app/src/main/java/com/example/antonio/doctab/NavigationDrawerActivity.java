@@ -144,6 +144,9 @@ public class NavigationDrawerActivity extends AppCompatActivity
                         Pacientes paciente = dataSnapshot.getValue(Pacientes.class);
                         txtNombrePerfil.setText(paciente.getNombreCompleto());
                         txtEmail.setText(paciente.getCorreoElectronico());
+                        Usuarios user = SharedPreferencesService.getUsuarioActual(getApplicationContext());
+                        user.setNombre(paciente.getNombreCompleto());
+
                         break;
                     case Constants.FB_KEY_ITEM_ADMINISTRADOR:
                         break;
