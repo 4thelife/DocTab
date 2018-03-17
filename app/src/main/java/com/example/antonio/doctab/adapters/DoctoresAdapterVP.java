@@ -14,7 +14,7 @@ import com.example.antonio.doctab.models.Doctores;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//Adaptador creado para que el paciente vea los datos del doctor
 /**
  * Created by Ricardo on 13/02/2018.
  */
