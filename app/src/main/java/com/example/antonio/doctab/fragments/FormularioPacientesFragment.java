@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.antonio.doctab.R;
@@ -42,6 +43,7 @@ public class FormularioPacientesFragment extends Fragment {
      **/
     private static TextInputLayout tilNombrePaciente, tilCorreoElectronico, tilEdad, tilTelefono;
     private static Spinner spinnerSexo;
+    EditText correo;
 
     /**
      * Se declaran las variables para uso en memoria
@@ -63,7 +65,7 @@ public class FormularioPacientesFragment extends Fragment {
         tilEdad = (TextInputLayout) view.findViewById(R.id.til_edad_paciente);
         tilTelefono = (TextInputLayout) view.findViewById(R.id.til_telefono_paciente);
         spinnerSexo = (Spinner) view.findViewById(R.id.spinner_sexo_paciente);
-
+        tilCorreoElectronico.setEnabled(false);
         return view;
     }
 
@@ -152,7 +154,7 @@ public class FormularioPacientesFragment extends Fragment {
 
                 tilCorreoElectronico.getEditText().setText(pacientes.getCorreoElectronico());
                 tilEdad.getEditText().setText(pacientes.getEdad());
-                tilNombrePaciente.getEditText().setText(pacientes.getEdad());
+                tilNombrePaciente.getEditText().setText(pacientes.getNombreCompleto());
                 tilTelefono.getEditText().setText(pacientes.getTelefono());
                 spinnerSexo.getSelectedItem();
 
