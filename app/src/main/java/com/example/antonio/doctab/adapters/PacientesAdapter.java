@@ -4,9 +4,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.antonio.doctab.R;
+import com.example.antonio.doctab.fragments.PacientesFragment;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 
 import com.example.antonio.doctab.models.Pacientes;
@@ -24,7 +26,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
     List<Pacientes> dataList = new ArrayList<>();
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
+        Button btnEditar,btnEliminar;
         TextView txtNombres;
         TextView txtTelefono;
         TextView txtEdad;
@@ -38,7 +40,8 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
             txtEdad = (TextView) itemView.findViewById(R.id.item_pacientes_edad);
             txtSexo = (TextView) itemView.findViewById(R.id.item_pacientes_sexo);
             txtTelefono = (TextView) itemView.findViewById(R.id.item_pacientes_telefono);
-
+            btnEditar = (Button)itemView.findViewById(R.id.item_btn_editar_paciente);
+            btnEliminar = (Button)itemView.findViewById(R.id.item_btn_eliminar_paciente);
 
         }
     }
@@ -82,14 +85,14 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
         holder.txtSexo.setText(item.getSexo());
         holder.txtTelefono.setText(item.getTelefono());
 
-        /*holder.btnEditar.setOnClickListener(new View.OnClickListener() {
+        holder.btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 decodeItem.setIdView(v.getId());
-                //PromotoresFragment.onListenerAction(decodeItem);
+                PacientesFragment.onListenerAction(decodeItem);
             }
         });
-        holder.btnEliminar.setOnClickListener(new View.OnClickListener() {
+        /*holder.btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 decodeItem.setIdView(v.getId());

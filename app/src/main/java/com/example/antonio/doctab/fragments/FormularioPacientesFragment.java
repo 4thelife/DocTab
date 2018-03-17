@@ -82,6 +82,7 @@ public class FormularioPacientesFragment extends Fragment {
         switch (_MAIN_DECODE.getAccionFragmento()) {
             case Constants.ACCION_EDITAR:
             case Constants.ACCION_VER:
+                this.obtenerPaciente();
                 break;
             case Constants.ACCION_REGISTRAR:
                 obtenerUsuarioIndefinido();
@@ -127,6 +128,45 @@ public class FormularioPacientesFragment extends Fragment {
             }
         });
     }
+    private void obtenerPaciente(){
+    //Obtencion del item seleccionado ( el perfil del paciente)
+        Pacientes pacientes = (Pacientes) _MAIN_DECODE.getDecodeItem().getItemModel();
+
+        DatabaseReference drPaciente = FirebaseDatabase.getInstance()
+                .getReference(Constants.FB_KEY_MAIN_PACIENTES)
+                .child(_SESSION_USER.getFirebaseId())
+                .child(Constants.FB_KEY_ITEM_PACIENTE)
+                .child(pacientes.getFirebaseId());
+
+        final ProgressDialog pDialogRender = new ProgressDialog(getContext());
+        pDialogRender.setMessage(getString(R.string.default_loading_msg));
+        pDialogRender.setIndeterminate(false);
+        pDialogRender.setCancelable(false);
+        pDialogRender.show();
+
+        drPaciente.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Pacientes pacientes = dataSnapshot.getValue(Pacientes.class);
+                _pacienteActual = pacientes;
+
+                tilCorreoElectronico.getEditText().setText(pacientes.getCorreoElectronico());
+                tilEdad.getEditText().setText(pacientes.getEdad());
+                tilNombrePaciente.getEditText().setText(pacientes.getEdad());
+                tilTelefono.getEditText().setText(pacientes.getTelefono());
+                spinnerSexo.getSelectedItem();
+
+                pDialogRender.dismiss();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "Error intentando obtener datos ...");
+                pDialogRender.dismiss();
+            }
+        });
+
+    }
 
     public static boolean validarDatosRegistro() {
         boolean valido = false;
@@ -164,7 +204,40 @@ public class FormularioPacientesFragment extends Fragment {
     }
 
     public static boolean validarDatosEdicion() {
-        return false;
+        boolean valido = false;
+
+        String nombrePaciente = tilNombrePaciente.getEditText().getText().toString();
+        String correo = tilCorreoElectronico.getEditText().getText().toString();
+        String edad = tilEdad.getEditText().getText().toString();
+        String telefono = tilTelefono.getEditText().getText().toString();
+
+        /**Se acceden a las validaciones de los campos requeridos**/
+        boolean a = ValidationUtils.esTextoValido(tilNombrePaciente, nombrePaciente);
+        boolean b = ValidationUtils.esEmailValido(tilCorreoElectronico, correo);
+        boolean d = ValidationUtils.esTelefonoValido(tilTelefono, telefono);
+        boolean e = ValidationUtils.esSpinnerValido(spinnerSexo);
+
+        if (a && b  && d && e) {
+            /**Se agregan los campos que el cliente captura**/
+            Pacientes data = new Pacientes();
+
+            data.setNombreCompleto(nombrePaciente);
+            data.setCorreoElectronico(correo);
+            data.setTelefono(telefono);
+            data.setEdad(edad);/**No esta agregando la edad*/
+            data.setSexo(spinnerSexo.getSelectedItem().toString());
+            data.setTipoDeUsuario(Constants.FB_KEY_ITEM_PACIENTE);
+
+            /**Se agregan los datos de sistema que ya existen**/
+            /**FirebaseIDDoctor de agrega del usuario en session debido a que el admin no agrega consultorios**/
+            data.setFirebaseId(_SESSION_USER.getFirebaseId());
+            data.setEstatus(_pacienteActual.getEstatus());
+
+            setPaciente(data);
+            valido = true;
+        }
+
+        return valido;
     }
 
     public static void setPaciente(Pacientes data) {

@@ -218,6 +218,7 @@ public class Constants {
         ITEM_FRAGMENT.put(R.id.btn_agregar_mensajes, FRAGMENT_LISTADO_MENSAJES);
         ITEM_FRAGMENT.put(R.id.btn_agregar_horarios_de_atencion, FRAGMENT_REGISTRO_HORARIOS_DE_ATENCION);
         ITEM_FRAGMENT.put(R.id.item_btn_editar_consultorios, FRAGMENT_REGISTRO_CONSULTORIOS);
+        ITEM_FRAGMENT.put(R.id.item_btn_editar_paciente,FRAGMENT_REGISTRO_PACIENTES);
         ITEM_FRAGMENT.put(R.id.item_btn_editar_doctores, FRAGMENT_REGISTRO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.item_btn_editar_citas,FRAGMENT_REGISTRO_CITAS);
     }
@@ -286,6 +287,7 @@ public class Constants {
         TITLE_ACTIVITY.put(R.id.btn_agregar_citas, R.string.default_title_activity_citas_doctor);
         TITLE_ACTIVITY.put(R.id.btn_agregar_horarios_de_atencion, R.string.default_title_activity_horarios_de_atencion);
         TITLE_ACTIVITY.put(R.id.item_btn_editar_consultorios, R.string.default_title_activity_consultorios);
+        TITLE_ACTIVITY.put(R.id.item_btn_editar_paciente,R.string.default_title_activity_doctores);
         TITLE_ACTIVITY.put(R.id.item_btn_editar_doctores, R.string.default_title_activity_doctores);
         TITLE_ACTIVITY.put(R.id.item_btn_editar_citas,R.string.default_title_activity_citas_doctor);
     }

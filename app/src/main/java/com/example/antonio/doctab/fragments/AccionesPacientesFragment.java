@@ -17,6 +17,7 @@ import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.helpers.DoctoresHelper;
 import com.example.antonio.doctab.helpers.PacientesHelper;
+import com.example.antonio.doctab.models.Pacientes;
 
 /**
  * Created by Ricardo on 12/02/2018.
@@ -130,5 +131,9 @@ public class AccionesPacientesFragment extends Fragment implements View.OnClickL
 
     private void editar() {
         /**Transporta la información del objeto a la actividad de registro**/
+        PacientesHelper helper = new PacientesHelper();
+        helper.setPaciente((FormularioPacientesFragment._pacienteActual));
+
+        activityInterface.editarPaciente(helper);
     }
 }

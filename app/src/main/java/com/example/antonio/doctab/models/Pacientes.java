@@ -1,10 +1,12 @@
 package com.example.antonio.doctab.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Ricardo on 13/02/2018.
  */
 
-public class Pacientes {
+public class Pacientes implements Serializable {
 
 
     private String nombreCompleto;

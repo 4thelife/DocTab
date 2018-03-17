@@ -112,12 +112,15 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
         ad.setPositiveButton(getString(R.string.default_alert_dialog_aceptar), this);
         ad.show();
     }
-
+    // ESTE
+    // APARTADO ES PARA
+    // MANDAR LA ACCION DE EDITAR
+    // EL HORARIO DE ATENCION DEL DOCTOR :
     public void onClick(DialogInterface dialog, int which){
         switch (which){
             case DialogInterface.BUTTON_POSITIVE:
-                if (FormularioConsultorioFragment.validarDatosEdicion())
-                    editar();
+                //if (FormularioHorariosDeAtencionFragment.validarDatosEdicion())
+                  //  editar();
                 break;
         }
     }
