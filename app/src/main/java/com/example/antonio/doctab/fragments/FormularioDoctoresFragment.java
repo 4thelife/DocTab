@@ -17,6 +17,7 @@ import com.example.antonio.doctab.Utils.ValidationUtils;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.models.Doctores;
 import com.example.antonio.doctab.models.Indefinido;
+import com.example.antonio.doctab.models.Pacientes;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
 import com.google.firebase.database.DataSnapshot;
@@ -63,6 +64,7 @@ public class FormularioDoctoresFragment extends Fragment {
         tilCedulaProfesional = (TextInputLayout) view.findViewById(R.id.til_cedula_doctor);
         tilTelefono = (TextInputLayout) view.findViewById(R.id.til_telefono_doctor);
         spinnerSexo = (Spinner) view.findViewById(R.id.spinner_sexo_doctor);
+        tilCorreoElectronico.setEnabled(false);
 
         return view;
     }
@@ -82,6 +84,7 @@ public class FormularioDoctoresFragment extends Fragment {
         switch (_MAIN_DECODE.getAccionFragmento()) {
             case Constants.ACCION_EDITAR:
             case Constants.ACCION_VER:
+                this.obtenerDoctor();
                 break;
             case Constants.ACCION_REGISTRAR:
                 obtenerUsuarioIndefinido();
@@ -128,6 +131,8 @@ public class FormularioDoctoresFragment extends Fragment {
         });
     }
 
+
+
     public static boolean validarDatosRegistro() {
         boolean valido = false;
 
@@ -167,10 +172,83 @@ public class FormularioDoctoresFragment extends Fragment {
 
         return valido;
     }
+    private void obtenerDoctor(){
+        //Obtencion del item seleccionado ( el perfil del paciente)
+        Doctores doctores = (Doctores) _MAIN_DECODE.getDecodeItem().getItemModel();
 
-    public static boolean validarDatosEdicion() {
-        return false;
+        DatabaseReference drDoctor = FirebaseDatabase.getInstance()
+                .getReference(Constants.FB_KEY_MAIN_DOCTORES)
+                .child(_SESSION_USER.getFirebaseId())
+                .child(Constants.FB_KEY_ITEM_DOCTOR)
+                .child(doctores.getFirebaseId());
+
+        final ProgressDialog pDialogRender = new ProgressDialog(getContext());
+        pDialogRender.setMessage(getString(R.string.default_loading_msg));
+        pDialogRender.setIndeterminate(false);
+        pDialogRender.setCancelable(false);
+        pDialogRender.show();
+
+        drDoctor.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Doctores doctores = dataSnapshot.getValue(Doctores.class);
+                _doctorActual = doctores;
+
+                tilNombreDoctor.getEditText().setText(doctores.getNombreCompleto());
+                tilCorreoElectronico.getEditText().setText(doctores.getCorreoElectronico());
+                tilEspecialidad.getEditText().setText(doctores.getEspecialidad());
+                tilCedulaProfesional.getEditText().setText(doctores.getCedulaProfesional());
+                tilTelefono.getEditText().setText(doctores.getTelefono());
+                spinnerSexo.getSelectedItem();
+
+                pDialogRender.dismiss();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "Error intentando obtener datos ...");
+                pDialogRender.dismiss();
+            }
+        });
     }
+    public static boolean validarDatosEdicion() {
+        boolean valido = false;
+
+        String nombreDoctor = tilNombreDoctor.getEditText().getText().toString();
+        String correo = tilCorreoElectronico.getEditText().getText().toString();
+        String especialidad = tilEspecialidad.getEditText().getText().toString();
+        String cedulaProfesional = tilCedulaProfesional.getEditText().getText().toString();
+        String telefono = tilTelefono.getEditText().getText().toString();
+
+        /**Se acceden a las validaciones de los campos requeridos**/
+        boolean a = ValidationUtils.esTextoValido(tilNombreDoctor, nombreDoctor);
+        boolean b = ValidationUtils.esEmailValido(tilCorreoElectronico, correo);
+        boolean c = ValidationUtils.esTextoValido(tilEspecialidad, especialidad);
+        boolean d = ValidationUtils.esTextoValido(tilCedulaProfesional, cedulaProfesional);
+        boolean e = ValidationUtils.esTelefonoValido(tilTelefono, telefono);
+        boolean f = ValidationUtils.esSpinnerValido(spinnerSexo);
+
+        if (a && b && c && d && e && f) {
+            /**Se agregan los campos que el cliente captura**/
+            Doctores data = new Doctores();
+            data.setNombreCompleto(nombreDoctor);
+            data.setCorreoElectronico(correo);
+            data.setEspecialidad(especialidad);
+            data.setCedulaProfesional(cedulaProfesional);
+            data.setTelefono(telefono);
+            data.setSexo(spinnerSexo.getSelectedItem().toString());
+            data.setTipoDeUsuario(Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR);
+
+            /**Se agregan los datos de sistema que ya existen**/
+            /**FirebaseIDDoctor de agrega del usuario en session debido a que el admin no agrega consultorios**/
+            data.setFirebaseId(_SESSION_USER.getFirebaseId());
+            data.setEstatus(_doctorActual.getEstatus());
+
+            setDoctor(data);
+            valido = true;
+        }
+
+        return valido;    }
 
     public static void setDoctor(Doctores data) {
         _doctorActual.setNombreCompleto(data.getNombreCompleto());

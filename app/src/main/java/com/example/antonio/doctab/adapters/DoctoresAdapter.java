@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 
 import com.example.antonio.doctab.R;
+import com.example.antonio.doctab.fragments.DoctoresFragment;
 import com.example.antonio.doctab.helpers.DecodeItemHelper;
 
 import com.example.antonio.doctab.models.Doctores;
@@ -91,14 +92,14 @@ public class DoctoresAdapter extends RecyclerView.Adapter<DoctoresAdapter.ViewHo
         holder.txtSexo.setText(item.getSexo());
         holder.txtTelefono.setText(item.getTelefono());
 
-        /**holder.btnEditar.setOnClickListener(new View.OnClickListener() {
+        holder.btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 decodeItem.setIdView(v.getId());
-                //PromotoresFragment.onListenerAction(decodeItem);
+                DoctoresFragment.onListenerAction(decodeItem);
             }
         });
-        holder.btnEliminar.setOnClickListener(new View.OnClickListener() {
+        /*holder.btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 decodeItem.setIdView(v.getId());

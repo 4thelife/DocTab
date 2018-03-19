@@ -49,7 +49,7 @@ import java.util.HashMap;
  * Created by Antonio on 19/12/2017.
  */
 
-public class Constants {
+public class  Constants {
 
     public static final int TIPO_COMPILACION = Constants.USUARIO_COMPILACION_PACIENTE;
     public static final int USUARIO_COMPILACION_DOCTOR = 0;
