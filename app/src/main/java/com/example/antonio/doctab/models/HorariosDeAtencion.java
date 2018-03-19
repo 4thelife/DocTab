@@ -1,10 +1,12 @@
 package com.example.antonio.doctab.models;
 
+import java.io.Serializable;
+
 /**
  * Created by GIGABYTE on 20/12/2017.
  */
 
-public class HorariosDeAtencion {
+public class HorariosDeAtencion implements Serializable{
 
     private String dia;
     private String horaInicio;
