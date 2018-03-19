@@ -18,13 +18,12 @@ import com.example.antonio.doctab.fragments.FormularioMensajesFragment;
 import com.example.antonio.doctab.fragments.FormularioPacientesFragment;
 import com.example.antonio.doctab.fragments.FormularioServiciosFragment;
 import com.example.antonio.doctab.fragments.HorariosDeAtencionFragment;
-import com.example.antonio.doctab.fragments.InicioPacienteFragment;
+import com.example.antonio.doctab.fragments.InicioFragment;
 import com.example.antonio.doctab.fragments.ListadoCitasFragment;
 import com.example.antonio.doctab.fragments.ListadoConsultoriosFragment;
 import com.example.antonio.doctab.fragments.ListadoDoctoresFragment;
 import com.example.antonio.doctab.fragments.ListadoEspecialidadesFragment;
 import com.example.antonio.doctab.fragments.ListadoHorariosDeAtencionFragment;
-import com.example.antonio.doctab.fragments.ListadoInicioFragment;
 import com.example.antonio.doctab.fragments.ListadoMensajesFragment;
 import com.example.antonio.doctab.fragments.ListadoPacientesFragment;
 import com.example.antonio.doctab.fragments.ListadoSeleccionIndefinidoFragment;
@@ -68,10 +67,9 @@ public class  Constants {
     public static final String FB_KEY_ITEM_ESTATUS_ELIMINADO = "eliminado";
 
     /**
-     * Nodos?
+     * Nodos
      */
     public static final String FB_KEY_MAIN_CITAS = "citas";
-
     public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
     public static final String FB_KEY_ITEM_CITAS = "citas";
     public static final String FB_KEY_ITEM_CONSULTORIOS = "consultorios";//No modifico este pues es para la bd
@@ -81,7 +79,6 @@ public class  Constants {
     public static final String FB_KEY_ITEM_PERFILES_ACADEMICOS = "perfilesAcademicos";
     public static final String FB_KEY_ITEM_TIPO_USUARIO = "tipoDeUsuario";
     public static final String FB_KEY_ITEM_FIREBASE_ID = "firebaseId";
-
 
     /**
      * Key Extras
@@ -105,18 +102,17 @@ public class  Constants {
     public static final String FRAGMENT_LISTADO_CONSULTORIOS = "fragment_listado_consultorios";
     public static final String FRAGMENT_LISTADO_DOCTORES = "fragment_listado_doctores";
     public static final String FRAGMENT_LISTADO_ESPECIALIDADES = "fragment_listado_especialidades";
-    public static final String FRAGMENT_LISTADO_INICIO = "fragment_listado_inicio";
     public static final String FRAGMENT_LISTADO_PACIENTES = "fragment_listado_pacientes";
     public static final String FRAGMENT_LISTADO_SERVICIOS = "fragment_listado_servicios";
     public static final String FRAGMENT_LISTADO_MENSAJES = "fragment_listado_mensajes";
     public static final String FRAGMENT_LISTADO_HORARIOS_DE_ATENCION = "fragment_listado_horarios_de_atencion";
     public static final String FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO = "fragment_miperfil_doctor_privado";
     public static final String FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO = "fragment_miperfil_paciente_privado";
-    public static final String FRAGMENT_INICIO_PACIENTE = "fragment_inicio_paciente";
+    public static final String FRAGMENT_INICIO = "fragment_inicio";
+
     /**
      * Fragmentos segundarios
      **/
-    public static final String FRAGMENT_INICIOS = "fragment_inicios";
     public static final String FRAGMENT_CONSULTORIOS = "fragment_consultorios";
     public static final String FRAGMENT_DOCTOR = "fragment_doctor";
     public static final String FRAGMENT_CITAS = "fragment_citas";
@@ -125,13 +121,10 @@ public class  Constants {
     public static final String FRAGMENT_PACIENTES = "fragment_pacientes";
     public static final String FRAGMENT_MENSAJES = "fragment_mensajes";
     public static final String FRAGMENT_HORARIOS_DE_ATENCION = "fragment_horarios_de_atencion";
-    public static final String FRAGMENT_MI_PERFIL_GENERAL_DOCTOR_PRIVADO = "fragment_miperfil_general_doctor_privado";
-
 
     /***
      * Fragmentos Formularios
      */
-
     public static final String FORMULARIO_DOCTORES_FRAGMENT = "formulario_doctores_fragment";
     public static final String FORMULARIO_PACIENTES_FRAGMENT = "formulario_pacientes_fragment";
     public static final String FORMULARIO_CONSULTORIOS_FRAGMENT = "formulario_consultorios_fragment";
@@ -143,14 +136,12 @@ public class  Constants {
 
     /**
      * Fragmentos acciones Formularios
-     *
      */
     public static final String FORMULARIO_ACCIONES_DOCTORES_FRAGMENT = "fragment_acciones_doctores_fragment";
     public static final String FORMULARIO_ACCIONES_PACIENTES_FRAGMENT = "fragment_acciones_pacientes_fragment";
     public static final String FORMULARIO_ACCIONES_HORARIOS_DE_ATENCION_FRAGMENT = "fragment_formulario_horarios_de_atencion_acciones";
     public static final String FORMULARIO_ACCIONES_CONSULTORIOS_FRAGMENT = "fragment_acciones_consultorios_fragment";
     public static final String FORMULARIO_ACCIONES_CITAS_FRAGMENT =    "formulario_citas_acciones_fragment";
-
 
     /**
      * Fragmentos de Registro
@@ -182,12 +173,10 @@ public class  Constants {
      **/
     public static final String FRAGMENT_MAIN_PANEL = "fragment_main_panel";
 
-
     /**
      * Contenido del FRAGMENT_MAIN_PANEL
      **/
     public static final String PANEL_PERFIL_GENERAL_CONTAINER = "panel_perfil_general_container";
-
 
     public static final HashMap<Integer, String> ITEM_FRAGMENT;
 
@@ -196,20 +185,30 @@ public class  Constants {
         ITEM_FRAGMENT.put(View.NO_ID, FRAGMENT_REGISTRO_INDEFINIDOS);
         ITEM_FRAGMENT.put(R.id.linear_registro_doctor, FRAGMENT_REGISTRO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.linear_registro_paciente, FRAGMENT_REGISTRO_PACIENTES);
-        /**Menu Doctor*/
-        ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_LISTADO_INICIO);
+
+        /**
+         * Menu inicio
+         **/
+        ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_INICIO);
+
+        /**
+         * Menu Doctor
+         **/
         ITEM_FRAGMENT.put(R.id.menu_item_horarios_de_atencion, FRAGMENT_LISTADO_HORARIOS_DE_ATENCION);
         ITEM_FRAGMENT.put(R.id.menu_item_consultorios_doctor, FRAGMENT_LISTADO_CONSULTORIOS);
-        //ITEM_FRAGMENT.put(R.id.menu_item_doctor, FRAGMENT_LISTADO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.menu_item_citas, FRAGMENT_LISTADO_CITAS);
         ITEM_FRAGMENT.put(R.id.menu_item_perfil_doctor, FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO);
-        /** Menu Paciente*/
-        ITEM_FRAGMENT.put(R.id.menu_item_inicio, FRAGMENT_INICIO_PACIENTE);
+
+        /**
+         * Menu Paciente
+         **/
         ITEM_FRAGMENT.put(R.id.menu_item_citas_paciente,FRAGMENT_CITAS);
         ITEM_FRAGMENT.put(R.id.menu_item_mi_doctor, FRAGMENT_LISTADO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.menu_item_perfil_paciente, FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO);
 
-        /**Botones*/
+        /**
+         * Botones
+         **/
         ITEM_FRAGMENT.put(R.id.btn_agregar_consultorio, FRAGMENT_REGISTRO_CONSULTORIOS);
         ITEM_FRAGMENT.put(R.id.btn_agregar_citas, FRAGMENT_REGISTRO_CITAS);
         ITEM_FRAGMENT.put(R.id.btn_agregar_especialidades, FRAGMENT_LISTADO_ESPECIALIDADES);
@@ -221,6 +220,7 @@ public class  Constants {
         ITEM_FRAGMENT.put(R.id.item_btn_editar_paciente,FRAGMENT_REGISTRO_PACIENTES);
         ITEM_FRAGMENT.put(R.id.item_btn_editar_doctores, FRAGMENT_REGISTRO_DOCTORES);
         ITEM_FRAGMENT.put(R.id.item_btn_editar_citas,FRAGMENT_REGISTRO_CITAS);
+
     }
 
     public static final HashMap<String, Fragment> TAG_FRAGMENT;
@@ -229,21 +229,25 @@ public class  Constants {
         TAG_FRAGMENT = new HashMap<>();
 
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_INDEFINIDOS, new ListadoSeleccionIndefinidoFragment());
-        /**Listado*/
+
+        /**
+         * Listado
+         **/
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_CITAS, new ListadoCitasFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_CONSULTORIOS, new ListadoConsultoriosFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_DOCTORES, new ListadoDoctoresFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_ESPECIALIDADES, new ListadoEspecialidadesFragment());
-        TAG_FRAGMENT.put(FRAGMENT_LISTADO_INICIO, new ListadoInicioFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_PACIENTES, new ListadoPacientesFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_SERVICIOS, new ListadoServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_MENSAJES, new ListadoMensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_LISTADO_HORARIOS_DE_ATENCION, new ListadoHorariosDeAtencionFragment());
         TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_DOCTOR_PRIVADO, new MiPerfilDoctorPrivadoFragment());
         TAG_FRAGMENT.put(FRAGMENT_MI_PERFIL_PACIENTE_PRIVADO, new MiPerfilPacientePrivadoFragment());
-        TAG_FRAGMENT.put(FRAGMENT_INICIO_PACIENTE, new InicioPacienteFragment());
+        TAG_FRAGMENT.put(FRAGMENT_INICIO, new InicioFragment());
 
-        /**Formulario*/
+        /**
+         * Formulario
+         **/
         TAG_FRAGMENT.put(FORMULARIO_CITAS_FRAGMENT, new FormularioCitasFragment());
         TAG_FRAGMENT.put(FORMULARIO_CONSULTORIOS_FRAGMENT, new FormularioConsultorioFragment());//VERIFICAR LA CLASE Y SUS CAMBIOS
         TAG_FRAGMENT.put(FORMULARIO_DOCTORES_FRAGMENT, new FormularioDoctoresFragment());
@@ -253,7 +257,9 @@ public class  Constants {
         TAG_FRAGMENT.put(FORMULARIO_MENSAJES_FRAGMENT, new FormularioMensajesFragment());
         TAG_FRAGMENT.put(FORMULARIO_HORARIOS_DE_ATENCION_FRAGMENT, new FormularioHorariosDeAtencionFragment());
 
-        /**Registro*/
+        /**
+         * Registro
+         **/
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CITAS, new RegistroCitasFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_CONSULTORIOS, new RegistroConsultoriosFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_DOCTORES, new RegistroDoctoresFragment());
@@ -262,8 +268,10 @@ public class  Constants {
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_SERVICIOS, new RegistroServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_MENSAJES, new RegistroMensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_REGISTRO_HORARIOS_DE_ATENCION, new RegistroHorariosDeAtencionFragment());
-        /**Objecto*/ //Fragmentos "Secundarios"
 
+        /**
+         * Objecto
+         **/ //Fragmentos "Secundarios"
         TAG_FRAGMENT.put(FRAGMENT_CITAS, new CitasFragment());
         TAG_FRAGMENT.put(FRAGMENT_CONSULTORIOS, new ConsultoriosFragment());
         TAG_FRAGMENT.put(FRAGMENT_DOCTOR, new DoctoresFragment());
@@ -272,7 +280,6 @@ public class  Constants {
         TAG_FRAGMENT.put(FRAGMENT_SERVICIOS, new ServiciosFragment());
         TAG_FRAGMENT.put(FRAGMENT_MENSAJES, new MensajesFragment());
         TAG_FRAGMENT.put(FRAGMENT_HORARIOS_DE_ATENCION, new HorariosDeAtencionFragment());
-
 
     }
 
@@ -290,6 +297,7 @@ public class  Constants {
         TITLE_ACTIVITY.put(R.id.item_btn_editar_paciente,R.string.default_title_activity_doctores);
         TITLE_ACTIVITY.put(R.id.item_btn_editar_doctores, R.string.default_title_activity_doctores);
         TITLE_ACTIVITY.put(R.id.item_btn_editar_citas,R.string.default_title_activity_citas_doctor);
+
     }
 
     public static final HashMap<Integer, Integer> TITLE_FORM_ACTION;
@@ -298,6 +306,7 @@ public class  Constants {
         TITLE_FORM_ACTION = new HashMap<>();
         TITLE_FORM_ACTION.put(Constants.ACCION_REGISTRAR, R.string.default_form_title_new);
         TITLE_FORM_ACTION.put(Constants.ACCION_EDITAR, R.string.default_form_title_edit);
+
     }
 
     /**

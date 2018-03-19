@@ -1,7 +1,6 @@
 package com.example.antonio.doctab.fragments;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
  * Created by GIGABYTE on 06/03/2018.
  */
 
-public class InicioPacienteFragment extends Fragment {
+public class InicioFragment extends Fragment {
 
     private static Usuarios _SESSION_USER;
 
@@ -39,7 +38,7 @@ public class InicioPacienteFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_inicio_paciente, container, false);
+        View view = inflater.inflate(R.layout.fragment_inicio, container, false);
 
         _SESSION_USER = SharedPreferencesService.getUsuarioActual(getContext());
         database = FirebaseDatabase.getInstance();
