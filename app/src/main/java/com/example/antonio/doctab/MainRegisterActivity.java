@@ -511,20 +511,23 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
         final DatabaseReference dbHorariosDeAtencion =
                 FirebaseDatabase.getInstance().getReference()
                         .child(Constants.FB_KEY_MAIN_DOCTORES)
-                        .child(helper.getHorariosDeAtencion().getFireBaseId());
+                        .child(_SESSION_USER.getFirebaseId())
+                        .child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION);
+                        //.child(helper.getHorariosDeAtencion().getFireBaseId());
 
         /**Se crea el firebaseID en el futuro nodo**/
-        String firebaseIDHorarioDeAtencion = dbHorariosDeAtencion.child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION).push().getKey();
+        //String firebaseIDHorarioDeAtencion = dbHorariosDeAtencion.child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION).push().getKey();
 
         /**Se agregan los ultimos objetos del sistema**/
-        data.setFireBaseId(firebaseIDHorarioDeAtencion);
+        data.setFireBaseId(helper.getHorariosDeAtencion().getFireBaseId());
         data.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ACTIVO);
         data.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
         data.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
 
         try {
             /**Se crea la conexion para guadar el objeto**/
-            dbHorariosDeAtencion.child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION).child(data.getFireBaseId())
+            //dbHorariosDeAtencion.child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION).child(data.getFireBaseId())
+            dbHorariosDeAtencion.child(data.getFireBaseId())
                     .setValue(data, new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {

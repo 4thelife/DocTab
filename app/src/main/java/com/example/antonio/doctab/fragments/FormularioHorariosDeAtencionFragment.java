@@ -249,6 +249,8 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         for (int i=0; i<7; i++)
         {
             if (bandera[i]== true){
+                String id = "";
+                id = String.valueOf(i);
 
                 HorariosDeAtencion data = new HorariosDeAtencion();
                 data.setHoraInicio(horaini);
@@ -256,7 +258,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                 data.setDuracionDeCita(sp_duracion_cita.getSelectedItem().toString());
                 data.setDia(String.valueOf(i));
 
-                data.setFireBaseId(_SESSION_USER.getFirebaseId());
+                data.setFireBaseId(id);
                 data.setEstatus(_horarioDeATencionActual.getEstatus());
                 data.setFireBaseIdDoctor(_horarioDeATencionActual.getFireBaseIdDoctor());
                 setHorariosDeAtencion(data);
