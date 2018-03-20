@@ -609,6 +609,9 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
     }
 
     private void webServiceRegistrarCita(CitasHelper helper) {
+
+
+
         /**Se obtiene el objeto principal**/
         final Citas data = helper.getCitas();
 
@@ -621,6 +624,7 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
         /**Se crea el firebaseID en el futuro nodo**/
         String firebaseIDCita = dbCitas.child(Constants.FB_KEY_ITEM_CITAS).push().getKey();
+
 
         /**Se agregan los ultimos objetos del sistema**/
         data.setFireBaseId(firebaseIDCita);
