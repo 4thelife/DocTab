@@ -90,11 +90,12 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         currentTime = Calendar.getInstance();
 
         hour = currentTime.get(Calendar.HOUR_OF_DAY);
-
         minute =currentTime.get(Calendar.MINUTE);
 
 
-
+        /**
+         * Inicializacion de las banderas
+         */
         bandera[0] = false;
         bandera[1] = false;
         bandera[2] = false;
@@ -102,15 +103,13 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         bandera[4] = false;
         bandera[5] = false;
         bandera[6] = false;
-
-
-        agregar_hora_entrada.setOnClickListener(this);
-        agregar_hora_fin.setOnClickListener(this);
+        /**
+         * Se envia la hora actual a los textView
+         */
         agregar_hora_entrada.setText(hour+":"+minute);
         agregar_hora_fin.setText(hour+":"+minute);
-
-        //horaini = agregar_hora_entrada.getText().toString();
-        //horafin = agregar_hora_fin.getText().toString();
+        agregar_hora_entrada.setOnClickListener(this);
+        agregar_hora_fin.setOnClickListener(this);
 
         tgb0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -155,6 +154,8 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
             }
         });
 
+
+
         return view;
     }
 
@@ -171,23 +172,24 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                 TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-
-                        agregar_hora_entrada.setText(hour+":"+minute);
+                        agregar_hora_entrada.setText(String.valueOf(hour)+":"+String.valueOf(minute));
+                        horaini = agregar_hora_entrada.getText().toString();
                     }
                 },hour,minute,true);
                 timePickerDialog.show();
-                horaini=agregar_hora_entrada.getText().toString();
+
                 break;
             case R.id.tv_agregar_hora_salida:
                 TimePickerDialog timePickerDialog1 = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
 
-                        agregar_hora_fin.setText(hour+":"+minute);
+                        agregar_hora_fin.setText(String.valueOf(hour)+":"+String.valueOf(minute));
+                        horafin = agregar_hora_fin.getText().toString();
                     }
                 },hour,minute,true);
                 timePickerDialog1.show();
-                horafin = agregar_hora_fin.getText().toString();
+
                 break;
         }
     }
