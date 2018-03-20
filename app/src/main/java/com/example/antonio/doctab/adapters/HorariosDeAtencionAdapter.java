@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.antonio.doctab.R;
@@ -32,7 +33,7 @@ public class HorariosDeAtencionAdapter extends RecyclerView.Adapter<HorariosDeAt
         TextView txtHoraFin;
         TextView txtDuracionDeCita;/**Duracion de la cita*/
         Button btnEditar;
-        Button btnEliminar;
+        ImageButton btnEliminar;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -43,7 +44,7 @@ public class HorariosDeAtencionAdapter extends RecyclerView.Adapter<HorariosDeAt
              txtHoraFin = (TextView)itemView.findViewById(R.id.item_horarios_de_atencion_hora_fin);
              txtDuracionDeCita=(TextView)itemView.findViewById(R.id.item_horarios_de_atencion_duracion);
              btnEditar = (Button) itemView.findViewById(R.id.item_btn_editar_dia);
-             btnEliminar=(Button)itemView.findViewById(R.id.item_btn_eliminar_dia);
+             btnEliminar=(ImageButton) itemView.findViewById(R.id.item_btn_eliminar_dia);
         }
     }
 

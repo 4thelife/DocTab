@@ -93,8 +93,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
 
         minute =currentTime.get(Calendar.MINUTE);
 
-        //agregar_hora_entrada.setText(hour+":"+minute);
-        //agregar_hora_fin.setText(hour+":"+minute);
+
 
         bandera[0] = false;
         bandera[1] = false;
@@ -104,10 +103,14 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
         bandera[5] = false;
         bandera[6] = false;
 
-        horaini = agregar_hora_entrada.getText().toString();
-        horafin = agregar_hora_fin.getText().toString();
+
         agregar_hora_entrada.setOnClickListener(this);
         agregar_hora_fin.setOnClickListener(this);
+        agregar_hora_entrada.setText(hour+":"+minute);
+        agregar_hora_fin.setText(hour+":"+minute);
+
+        //horaini = agregar_hora_entrada.getText().toString();
+        //horafin = agregar_hora_fin.getText().toString();
 
         tgb0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -173,6 +176,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                     }
                 },hour,minute,true);
                 timePickerDialog.show();
+                horaini=agregar_hora_entrada.getText().toString();
                 break;
             case R.id.tv_agregar_hora_salida:
                 TimePickerDialog timePickerDialog1 = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
@@ -183,6 +187,7 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
                     }
                 },hour,minute,true);
                 timePickerDialog1.show();
+                horafin = agregar_hora_fin.getText().toString();
                 break;
         }
     }
@@ -271,15 +276,6 @@ public class FormularioHorariosDeAtencionFragment extends Fragment implements Vi
     public void editar(){
 
 
-    }
-
-    public static void ArrayDias(){
-
-        HorariosDeAtencion arrayDias[]= new HorariosDeAtencion[7];
-        for (int i = 0; i<7; i++){
-            arrayDias[i] = new HorariosDeAtencion();
-
-        }
     }
 
     public static void setHorariosDeAtencion(HorariosDeAtencion data){
