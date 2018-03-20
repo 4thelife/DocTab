@@ -77,7 +77,7 @@ public class CitasAdapter extends RecyclerView.Adapter<CitasAdapter.ViewHolder> 
         decodeItem.setItemModel(item);
         decodeItem.setPosition(position);
 
-        holder.txtNombre.setText("Dr Fulanito Hernandez");
+        holder.txtNombre.setText(item.getNombre());
         holder.txtFecha.setText(item.getFecha());
         holder.txtHora.setText(item.getHora());
         holder.txtAsunto.setText(item.getAsunto());

@@ -82,12 +82,8 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
                 break;
         }
 
-
-
-
-
-
         return view;
+
     }
 
     @Override
@@ -148,10 +144,9 @@ public class CitasFragment extends Fragment implements View.OnClickListener{
                             break;
                     }
 
-
-
                 }
                 onPreRenderListadoCitas();
+
             }
 
             @Override
