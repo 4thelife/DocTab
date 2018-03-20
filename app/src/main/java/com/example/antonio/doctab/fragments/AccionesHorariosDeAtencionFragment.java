@@ -93,7 +93,6 @@ public class AccionesHorariosDeAtencionFragment extends Fragment implements View
                         break;
                     case Constants.ACCION_REGISTRAR:
                         FormularioHorariosDeAtencionFragment formularioHorariosDeAtencionFragment = new FormularioHorariosDeAtencionFragment();
-
                         formularioHorariosDeAtencionFragment.registrar();
 
                         break;
