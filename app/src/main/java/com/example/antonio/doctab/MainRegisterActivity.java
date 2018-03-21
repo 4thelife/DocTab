@@ -46,6 +46,7 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
     private Usuarios _SESSION_USER;
     private static DecodeItemHelper _decodeItem;
     public static ProgressDialog pDialog;
+    public static Citas _citaActual;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -609,13 +610,12 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
     }
 
     private void webServiceRegistrarCita(CitasHelper helper) {
-
-
-
         /**Se obtiene el objeto principal**/
         final Citas data = helper.getCitas();
 
+
         /**Se crea la conexion con los nodos a utilizar**/
+
         final DatabaseReference dbCitas =
                 FirebaseDatabase.getInstance().getReference()
                         .child(Constants.FB_KEY_MAIN_CITAS)
@@ -624,13 +624,14 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
 
         /**Se crea el firebaseID en el futuro nodo**/
         String firebaseIDCita = dbCitas.child(Constants.FB_KEY_ITEM_CITAS).push().getKey();
-
+        //String firebaseIDCita = data.getHora();
 
         /**Se agregan los ultimos objetos del sistema**/
         data.setFireBaseId(firebaseIDCita);
         data.setEstatus(Constants.FB_KEY_ITEM_ESTATUS_ACTIVO);
         data.setFechaDeCreacion(DateTimeUtils.getTimeStamp());
         data.setFechaDeEdicion(DateTimeUtils.getTimeStamp());
+        _citaActual = data;
 
         try {
             /**Se crea la conexion para guadar el objeto**/
@@ -640,9 +641,9 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                             pDialog.dismiss();
                             if (databaseError == null) {
-                                finish();
-                                Toast.makeText(getApplicationContext(),
-                                     "Registrado correctamente...", Toast.LENGTH_LONG).show();
+                                //finish();
+                                calendarioCitas();
+
                             }
                         }
                     });
@@ -653,6 +654,43 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
             e.printStackTrace();
         }
     }
+
+    private void calendarioCitas() {
+
+        String hora = _citaActual.getHora();
+        String[] nodos =_citaActual.getFecha().split("/");
+
+        final DatabaseReference dbCitas =
+                FirebaseDatabase.getInstance().getReference()
+                        .child(Constants.FB_KEY_MAIN_CALENDARIO)
+                        .child(nodos[2])
+                        .child(nodos[1])
+                        .child(nodos[0]);
+        String firebaseIDCita = _citaActual.getFireBaseId();
+        try {
+            /**Se crea la conexion para guadar el objeto**/
+            dbCitas.child(hora)
+                    .setValue(_citaActual.getFireBaseId(), new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                            pDialog.dismiss();
+                            if (databaseError == null) {
+                                finish();
+                                calendarioCitas();
+                                Toast.makeText(getApplicationContext(),
+                                        "Registrado correctamente...", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            pDialog.dismiss();
+            Toast.makeText(getApplicationContext(),
+                    "Intente mas tarde...", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+
+    }
+
 
     @Override
     public void editarCita(CitasHelper helper) {

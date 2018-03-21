@@ -69,6 +69,7 @@ public class  Constants {
     /**
      * Nodos
      */
+    public static final String FB_KEY_MAIN_CALENDARIO = "calendario";
     public static final String FB_KEY_MAIN_CITAS = "citas";
     public static final String FB_KEY_MAIN_USUARIOS = "usuarios";
     public static final String FB_KEY_ITEM_CITAS = "citas";
