@@ -11,8 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import com.example.antonio.doctab.R;
@@ -28,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -41,6 +44,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     private static DecodeExtraHelper _MAIN_DECODE;
     private static Usuarios _SESSION_USER;
 
+    Spinner horasSpinner;
     private static TextInputLayout tilCitasFecha, tilCitasHora,tilCitasAsunto;
     Calendar currentDate,currentTime;
     EditText fecha,hora;
@@ -59,6 +63,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         /**
          * Seleccionar la fecha
          */
+
         tilCitasFecha = (TextInputLayout) view.findViewById(R.id.til_citas_fecha);
         tilCitasAsunto=(TextInputLayout) view.findViewById(R.id.til_citas_asunto);
         fecha = (EditText)view.findViewById(R.id.ed_citas_fecha);
@@ -67,6 +72,13 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         mes = currentDate.get(Calendar.MONTH);
         year = currentDate.get(Calendar.YEAR);
         tilCitasFecha.getEditText().setText(dia+"/"+mes+"/"+year);
+
+        horasSpinner = (Spinner)view.findViewById(R.id.spiner_horas);
+
+
+
+
+
 
 
 
@@ -237,6 +249,21 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                                 month = month+1;
 
                                 tilCitasFecha.getEditText().setText(dayOfMonth+"/"+month+"/"+year);
+                                //mi intento  de rellenar el spinner
+                                ArrayList<String> horasList = new ArrayList<String>();
+                                //así se agregan los datos al spinner
+                                //horasList.add("qaqwe");
+
+                                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                DatabaseReference ref = database.getReference(Constants.FB_KEY_MAIN_CALENDARIO+"/"+year+"/"+month+"/"+dayOfMonth);
+
+
+
+
+                                ArrayAdapter<CharSequence> adapter =  new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasList);
+
+                                horasSpinner.setAdapter(adapter);
+
                             }
                         },year,mes,dia);
                 datePickerDialog.show();
@@ -251,6 +278,11 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                 timePickerDialog.show();
                 break;
         }
+
+    }
+
+    public void rellenarSpinner(){
+
 
     }
 
