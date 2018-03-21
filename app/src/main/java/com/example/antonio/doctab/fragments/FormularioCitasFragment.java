@@ -256,17 +256,22 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                                 horasList.add(""+year);
 
                                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                DatabaseReference ref = database.getReference(Constants.FB_KEY_MAIN_CALENDARIO+"/"+year+"/"+month+"/"+dayOfMonth);
+                                //DatabaseReference ref = database.getReference(Constants.FB_KEY_MAIN_CALENDARIO+"/"+year+"/"+month+"/"+dayOfMonth);
+                                DatabaseReference ref = database.getReference(Constants.FB_KEY_MAIN_CITAS)
+                                .child(_SESSION_USER.getFirebaseId());
+                                ref.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        Citas citas = dataSnapshot.getValue(Citas.class);
+                                        horasList.add(citas.getHora());
 
+                                    }
 
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
 
-
-
-
-
-
-
-
+                                    }
+                                });
 
                                 ArrayAdapter<CharSequence> adapter =  new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasList);
 
