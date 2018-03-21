@@ -49,6 +49,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     Calendar currentDate,currentTime;
     EditText fecha,hora;
     int dia, mes, year,hour, minuto;
+    private ValueEventListener listenerCitas;
 
     public static Citas _citaActual;
 
@@ -250,12 +251,19 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
                                 tilCitasFecha.getEditText().setText(dayOfMonth+"/"+month+"/"+year);
                                 //mi intento  de rellenar el spinner
-                                ArrayList<String> horasList = new ArrayList<String>();
+                                final ArrayList<String> horasList = new ArrayList<String>();
                                 //así se agregan los datos al spinner
-                                //horasList.add("qaqwe");
+                                horasList.add(""+year);
 
                                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 DatabaseReference ref = database.getReference(Constants.FB_KEY_MAIN_CALENDARIO+"/"+year+"/"+month+"/"+dayOfMonth);
+
+
+
+
+
+
+
 
 
 

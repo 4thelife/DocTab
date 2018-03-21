@@ -670,13 +670,12 @@ public class MainRegisterActivity extends AppCompatActivity implements MainRegis
         try {
             /**Se crea la conexion para guadar el objeto**/
             dbCitas.child(hora)
-                    .setValue(_citaActual.getFireBaseId(), new DatabaseReference.CompletionListener() {
+                    .setValue(_citaActual.getHora(), new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                             pDialog.dismiss();
                             if (databaseError == null) {
                                 finish();
-                                calendarioCitas();
                                 Toast.makeText(getApplicationContext(),
                                         "Registrado correctamente...", Toast.LENGTH_LONG).show();
                             }
