@@ -26,6 +26,7 @@
                         android:fontFamily="monospace"
                         android:text="@string/form_title_especialidades"
                         android:textAlignment="center"
+
                         android:textSize="18sp" />
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"

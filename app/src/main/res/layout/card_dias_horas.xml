@@ -28,12 +28,14 @@
                     android:id="@+id/mostrarDia"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:fontFamily="monospace"
                     android:text="dia" />
 
                 <TextView
                     android:id="@+id/MostrarHoras"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:fontFamily="monospace"
                     android:text="dia" />
 
             </LinearLayout>
@@ -51,6 +53,7 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="monospace"
                 android:layout_weight="1"
                 android:drawableLeft="@android:drawable/btn_star_big_off"
                 android:text="ME gusta" />
@@ -60,6 +63,7 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="monospace"
                 android:layout_weight="1"
                 android:drawableLeft="?android:attr/fingerprintAuthDrawable"
                 android:text="Favoritos" />

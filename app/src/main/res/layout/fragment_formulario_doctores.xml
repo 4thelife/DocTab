@@ -67,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
+                android:fontFamily="monospace"
                 android:text="Sexo"
                 android:textSize="18sp" />
 
@@ -74,6 +75,7 @@
                 android:id="@+id/spinner_sexo_doctor"
                 style="@style/Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="match_parent"
+                android:fontFamily="monospace"
                 android:layout_height="40dp"
                 android:entries="@array/sexos"
                 android:spinnerMode="dropdown" />

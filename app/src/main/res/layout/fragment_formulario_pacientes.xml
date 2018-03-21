@@ -63,6 +63,7 @@
                 style="@style/Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:fontFamily="monospace"
                 android:entries="@array/sexos"
                 android:spinnerMode="dropdown" />
 
