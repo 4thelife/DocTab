@@ -50,10 +50,12 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     EditText fecha,hora;
     int dia, mes, year,hour, minuto;
 
-    /**Declaraciones de Firebase **/
     private FirebaseDatabase database;
     private DatabaseReference drCitas;
     private ValueEventListener listenerCitas;
+
+
+
     /**Declaro el objeto para usarlo ?**/
     public static Citas _citaActual;
 
@@ -91,6 +93,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         tilCitasHora.getEditText().setText(hour+":"+minuto);
         hora.setOnClickListener(this);
 
+        database = FirebaseDatabase.getInstance();
 
 
         return view;
@@ -103,6 +106,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     public void onStart() {
         super.onStart();
         onPreRender();
+        rellenarSpinner();
     }
 
     private void onPreRender() {
@@ -239,37 +243,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                                 month = month+1;
                                 tilCitasFecha.getEditText().setText(dayOfMonth+"/"+month+"/"+year);
-                                final ArrayList<String> horasList = new ArrayList<String>();//Lista
-                                ArrayAdapter<CharSequence> adapter = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasList);
-                                //mi intento  de rellenar el spinner
-                                //Database
-                                database = FirebaseDatabase.getInstance();
-                                drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS).child(_SESSION_USER.getFirebaseId());
-                                //drCitas = database.getReference(Constants.FB_KEY_MAIN_CALENDARIO).child(""+year).child(""+month).child(""+dayOfMonth);
-
-                                listenerCitas = new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(DataSnapshot dataSnapshot) {
-                                        for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                                            Citas citas = postSnapshot.getValue(Citas.class);
-                                            if (null == citas.getEstatus()) break;
-                                            switch (citas.getEstatus()){
-                                                case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
-                                                case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
-                                                    horasList.add(citas.getHora());
-                                                    horasList.add("Entra?");
-                                                    break;
-                                                default:
-                                                break;
-                                            }
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onCancelled(DatabaseError databaseError) {
-                                    }
-                                };
-                                horasSpinner.setAdapter(adapter);
+                                //rellenarSpinner();
                             }
                         },year,mes,dia);
                 datePickerDialog.show();
@@ -285,7 +259,40 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                 break;
         }
     }
+    public void rellenarSpinner(){
+        final ArrayList<String> horasList = new ArrayList<String>();//Lista
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasList);
 
+        drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS);
+        listenerCitas = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
+                 for (DataSnapshot postSnapshot2:postSnapshot.getChildren()){
+                     Citas citas = postSnapshot2.getValue(Citas.class);
+
+                     if (null == citas.getEstatus())break;
+                     switch (citas.getEstatus()){
+                         case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                         case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                             horasList.add(citas.getHora());
+                             break;
+                         default:
+                             break;
+                     }
+                 }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        drCitas.addValueEventListener(listenerCitas);
+        horasSpinner.setAdapter(adapter);
+    }
 }
 
 
