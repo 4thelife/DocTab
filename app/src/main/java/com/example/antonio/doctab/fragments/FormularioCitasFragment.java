@@ -49,8 +49,12 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     Calendar currentDate,currentTime;
     EditText fecha,hora;
     int dia, mes, year,hour, minuto;
-    private ValueEventListener listenerCitas;
 
+    /**Declaraciones de Firebase **/
+    private FirebaseDatabase database;
+    private DatabaseReference drCitas;
+    private ValueEventListener listenerCitas;
+    /**Declaro el objeto para usarlo ?**/
     public static Citas _citaActual;
 
 
@@ -75,19 +79,9 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         tilCitasFecha.getEditText().setText(dia+"/"+mes+"/"+year);
 
         horasSpinner = (Spinner)view.findViewById(R.id.spiner_horas);
-
-
-
-
-
-
-
-
         fecha.setOnClickListener(this);
 
-        /**
-         * Seleccionar la hora
-         */
+        /*Seleccionar la hora*/
         tilCitasHora = (TextInputLayout) view.findViewById(R.id.til_citas_hora);
         hora = (EditText)view.findViewById(R.id.ed_citas_hora);
         currentTime = Calendar.getInstance();
@@ -96,6 +90,8 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
         tilCitasHora.getEditText().setText(hour+":"+minuto);
         hora.setOnClickListener(this);
+
+
 
         return view;
     }
@@ -108,7 +104,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         super.onStart();
         onPreRender();
     }
-
 
     private void onPreRender() {
         switch (_MAIN_DECODE.getAccionFragmento()) {
@@ -161,8 +156,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
     }
 
-
-
     public static boolean validarCita() {
         Usuarios usuarios =new Usuarios();
         boolean valido = false;
@@ -190,6 +183,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
         return valido;
     }
+
     public static boolean validarCitaEdicion() {
         boolean valido = false;
 
@@ -220,7 +214,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         return valido;
     }
 
-
     public static void setCita(Citas data) {
         _citaActual.setFecha(data.getFecha());
         _citaActual.setHora(data.getHora());
@@ -232,12 +225,10 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         _citaActual.setEstatus(data.getEstatus());
     }
 
-
     @Override
     public void onStop() {
         super.onStop();
     }
-
 
     public void onClick(View v) {
         switch (v.getId()){
@@ -246,37 +237,39 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
                                 month = month+1;
-
                                 tilCitasFecha.getEditText().setText(dayOfMonth+"/"+month+"/"+year);
+                                final ArrayList<String> horasList = new ArrayList<String>();//Lista
+                                ArrayAdapter<CharSequence> adapter = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasList);
                                 //mi intento  de rellenar el spinner
-                                final ArrayList<String> horasList = new ArrayList<String>();
-                                //así se agregan los datos al spinner
-                                horasList.add(""+year);
+                                //Database
+                                database = FirebaseDatabase.getInstance();
+                                drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS).child(_SESSION_USER.getFirebaseId());
+                                //drCitas = database.getReference(Constants.FB_KEY_MAIN_CALENDARIO).child(""+year).child(""+month).child(""+dayOfMonth);
 
-                                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                //DatabaseReference ref = database.getReference(Constants.FB_KEY_MAIN_CALENDARIO+"/"+year+"/"+month+"/"+dayOfMonth);
-                                DatabaseReference ref = database.getReference(Constants.FB_KEY_MAIN_CITAS)
-                                .child(_SESSION_USER.getFirebaseId());
-                                ref.addValueEventListener(new ValueEventListener() {
+                                listenerCitas = new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
-                                        Citas citas = dataSnapshot.getValue(Citas.class);
-                                        horasList.add(citas.getHora());
-
+                                        for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
+                                            Citas citas = postSnapshot.getValue(Citas.class);
+                                            if (null == citas.getEstatus()) break;
+                                            switch (citas.getEstatus()){
+                                                case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                                                case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                                    horasList.add(citas.getHora());
+                                                    horasList.add("Entra?");
+                                                    break;
+                                                default:
+                                                break;
+                                            }
+                                        }
                                     }
 
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {
-
                                     }
-                                });
-
-                                ArrayAdapter<CharSequence> adapter =  new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasList);
-
+                                };
                                 horasSpinner.setAdapter(adapter);
-
                             }
                         },year,mes,dia);
                 datePickerDialog.show();
@@ -291,12 +284,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                 timePickerDialog.show();
                 break;
         }
-
-    }
-
-    public void rellenarSpinner(){
-
-
     }
 
 }

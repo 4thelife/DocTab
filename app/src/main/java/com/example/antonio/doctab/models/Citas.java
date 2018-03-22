@@ -12,7 +12,7 @@ public class Citas implements Serializable {
     private String fecha;
     private String hora;
     private String asunto;
-
+    private String fHAgendada;
     private String fireBaseId;
     private String firebaseIdDoctor;
     private String firebaseIdPaciente;
@@ -24,6 +24,13 @@ public class Citas implements Serializable {
 
 
 
+    public String getfHAgendada(){
+        return fHAgendada;
+    }
+
+    public void setfHAgendada(String fHAgendada){
+        this.fHAgendada = fHAgendada;
+    }
 
     public String getNombre() {
         return nombre;
