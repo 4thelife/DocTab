@@ -3,6 +3,7 @@ package com.example.antonio.doctab.fragments;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.provider.ContactsContract;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ import com.example.antonio.doctab.Utils.Constants;
 import com.example.antonio.doctab.Utils.ValidationUtils;
 import com.example.antonio.doctab.helpers.DecodeExtraHelper;
 import com.example.antonio.doctab.models.Citas;
+import com.example.antonio.doctab.models.Doctores;
+import com.example.antonio.doctab.models.HorariosDeAtencion;
 import com.example.antonio.doctab.models.Usuarios;
 import com.example.antonio.doctab.services.SharedPreferencesService;
 import com.google.firebase.database.DataSnapshot;
@@ -49,10 +52,11 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     Calendar currentDate,currentTime;
     EditText fecha,hora;
     int dia, mes, year,hour, minuto;
+    String laFecha,laFecha2;
 
     private FirebaseDatabase database;
-    private DatabaseReference drCitas;
-    private ValueEventListener listenerCitas;
+    private DatabaseReference drCitas,drHorario;
+    private ValueEventListener listenerCitas,listenerHorario;
 
 
 
@@ -105,7 +109,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     @Override
     public void onStart() {
         super.onStart();
-        onPreRender();
+        //onPreRender();
         rellenarSpinner();
     }
 
@@ -243,10 +247,79 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                                 month = month+1;
                                 tilCitasFecha.getEditText().setText(dayOfMonth+"/"+month+"/"+year);
-                                //rellenarSpinner();
+
+
+
+                                laFecha2 = dayOfMonth+"/"+month+"/"+year;
+
+
+                                final ArrayList<String> horai = new ArrayList<String>();
+                                final ArrayList<String> horaf = new ArrayList<String>();
+                                final ArrayList<String> eldia = new ArrayList<String>();
+
+                                final ArrayList<String> horasOcupadas = new ArrayList<String>();
+                                final ArrayList<String> horasLibres = new ArrayList<String>();
+
+                                ArrayAdapter<CharSequence> adapter = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasOcupadas);
+                                ArrayAdapter<CharSequence> adapterHorasLibres= new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasLibres);
+
+                                drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS);
+                                listenerCitas = new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                        for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
+                                            for (DataSnapshot postSnapshot2:postSnapshot.getChildren()){
+                                                Citas citas = postSnapshot2.getValue(Citas.class);
+                                                if (null == citas.getEstatus())break;
+                                                switch (citas.getEstatus()){
+                                                    case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                                                    case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                                        laFecha = citas.getFecha();
+                                                        if (laFecha.equals(laFecha2 )) {
+                                                            horasOcupadas.add(citas.getHora());
+
+
+                                                        }
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                    }
+                                };
+                                drCitas.addValueEventListener(listenerCitas);
+                                drHorario = database.getReference(Constants.FB_KEY_MAIN_DOCTORES).child(Constants.USUARIO_DOCTOR);
+                                listenerHorario = new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        for (DataSnapshot postSnapshot:dataSnapshot.getChildren()){
+                                            HorariosDeAtencion jornada = postSnapshot.getValue(HorariosDeAtencion.class);
+                                            horai.add(jornada.getHoraInicio());
+                                            horaf.add(jornada.getHoraFin());
+                                            eldia.add(jornada.getDia());
+
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                };
+
+
+                                horasSpinner.setAdapter(adapter);
                             }
                         },year,mes,dia);
                 datePickerDialog.show();
+                //rellenarSpinner();
+
                 break;
             case R.id.ed_citas_hora:
                 TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
@@ -260,38 +333,10 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         }
     }
     public void rellenarSpinner(){
-        final ArrayList<String> horasList = new ArrayList<String>();//Lista
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasList);
 
-        drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS);
-        listenerCitas = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                 for (DataSnapshot postSnapshot2:postSnapshot.getChildren()){
-                     Citas citas = postSnapshot2.getValue(Citas.class);
 
-                     if (null == citas.getEstatus())break;
-                     switch (citas.getEstatus()){
-                         case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
-                         case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
-                             horasList.add(citas.getHora());
-                             break;
-                         default:
-                             break;
-                     }
-                 }
-                }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-        drCitas.addValueEventListener(listenerCitas);
-        horasSpinner.setAdapter(adapter);
     }
 }
 
