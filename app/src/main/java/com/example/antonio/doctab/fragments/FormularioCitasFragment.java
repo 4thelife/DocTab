@@ -289,6 +289,27 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                                         }
                                     }
 
+                                    /*
+
+                                    Calendar c = Calendar.getInstance();
+                                     c.set(año,mes,dia) // vairables int
+                                     int dia =  c.get(Calendar.DAY_OF_WEEK);
+                                     if(dia==Calendar.SUNDAY){
+                                       //Domingo
+                                     }if(dia==Calendar.MONDAY){
+                                       //Lunes
+                                     }
+                                    if(dia==Calendar.TUESDAY){
+                                       //Martes
+                                     }
+
+
+
+
+                                     */
+
+
+
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {
                                     }
@@ -303,7 +324,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                                             horai.add(jornada.getHoraInicio());
                                             horaf.add(jornada.getHoraFin());
                                             eldia.add(jornada.getDia());
-
                                         }
                                     }
 
@@ -312,8 +332,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
                                     }
                                 };
-
-
                                 horasSpinner.setAdapter(adapter);
                             }
                         },year,mes,dia);
