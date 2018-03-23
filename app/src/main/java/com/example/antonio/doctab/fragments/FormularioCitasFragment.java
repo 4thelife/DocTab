@@ -43,7 +43,6 @@ import java.util.Calendar;
 public class FormularioCitasFragment extends Fragment implements View.OnClickListener {
 
     private static final String TAG = FormularioCitasFragment.class.getSimpleName();
-
     private static DecodeExtraHelper _MAIN_DECODE;
     private static Usuarios _SESSION_USER;
 
@@ -58,11 +57,8 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     private DatabaseReference drCitas,drHorario;
     private ValueEventListener listenerCitas,listenerHorario;
 
-
-
     /**Declaro el objeto para usarlo ?**/
     public static Citas _citaActual;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,11 +66,9 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
         _MAIN_DECODE = (DecodeExtraHelper) getActivity().getIntent().getExtras().getSerializable(Constants.KEY_MAIN_DECODE);
         _SESSION_USER = SharedPreferencesService.getUsuarioActual(getContext());
-
         /**
          * Seleccionar la fecha
          */
-
         tilCitasFecha = (TextInputLayout) view.findViewById(R.id.til_citas_fecha);
         tilCitasAsunto=(TextInputLayout) view.findViewById(R.id.til_citas_asunto);
         fecha = (EditText)view.findViewById(R.id.ed_citas_fecha);
@@ -193,16 +187,13 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     }
 
     public static boolean validarCitaEdicion() {
-        boolean valido = false;
 
+        boolean valido = false;
         String fecha = tilCitasFecha.getEditText().getText().toString();
         String hora = tilCitasHora.getEditText().getText().toString();
-
         String asunto = tilCitasAsunto.getEditText().getText().toString();
-
         boolean a = ValidationUtils.esTextoValido(tilCitasAsunto, asunto);
         if (a){
-
 
             Citas data = new Citas();
             data.setAsunto(asunto);
@@ -217,8 +208,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
             setCita(data);
             valido = true;
         }
-
-
         return valido;
     }
 
@@ -244,14 +233,11 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
-                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                            public void onDateSet(DatePicker view, final int year, int month, int dayOfMonth) {
                                 month = month+1;
                                 tilCitasFecha.getEditText().setText(dayOfMonth+"/"+month+"/"+year);
 
-
-
                                 laFecha2 = dayOfMonth+"/"+month+"/"+year;
-
 
                                 final ArrayList<String> horai = new ArrayList<String>();
                                 final ArrayList<String> horaf = new ArrayList<String>();
@@ -278,8 +264,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                                                         laFecha = citas.getFecha();
                                                         if (laFecha.equals(laFecha2 )) {
                                                             horasOcupadas.add(citas.getHora());
-
-
                                                         }
                                                         break;
                                                     default:
@@ -289,25 +273,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                                         }
                                     }
 
-                                    /*
-
-                                    Calendar c = Calendar.getInstance();
-                                     c.set(año,mes,dia) // vairables int
-                                     int dia =  c.get(Calendar.DAY_OF_WEEK);
-                                     if(dia==Calendar.SUNDAY){
-                                       //Domingo
-                                     }if(dia==Calendar.MONDAY){
-                                       //Lunes
-                                     }
-                                    if(dia==Calendar.TUESDAY){
-                                       //Martes
-                                     }
-
-
-
-
-                                     */
-
 
 
                                     @Override
@@ -315,6 +280,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                                     }
                                 };
                                 drCitas.addValueEventListener(listenerCitas);
+
                                 drHorario = database.getReference(Constants.FB_KEY_MAIN_DOCTORES).child(Constants.USUARIO_DOCTOR);
                                 listenerHorario = new ValueEventListener() {
                                     @Override
@@ -351,10 +317,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         }
     }
     public void rellenarSpinner(){
-
-
-
-
     }
 }
 
