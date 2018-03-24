@@ -18,6 +18,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.antonio.doctab.R;
 import com.example.antonio.doctab.Utils.Constants;
@@ -45,7 +46,7 @@ import java.util.Locale;
  * Created by Ricardo on 13/02/2018.
  */
 
-public class FormularioCitasFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class FormularioCitasFragment extends Fragment implements View.OnClickListener {
 
     private static final String TAG = FormularioCitasFragment.class.getSimpleName();
     private static DecodeExtraHelper _MAIN_DECODE;
@@ -85,7 +86,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
         horasSpinner = (Spinner)view.findViewById(R.id.spiner_horas);
         fecha.setOnClickListener(this);
-        horasSpinner.setOnItemSelectedListener(this);
 
         /*Seleccionar la hora*/
         tilCitasHora = (TextInputLayout) view.findViewById(R.id.til_citas_hora);
@@ -95,7 +95,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         minuto = currentTime.get(Calendar.MINUTE);
 
         //tilCitasHora.getEditText().setText(hour+":"+minuto);
-        //hora.setOnClickListener(this);
+        hora.setOnClickListener(this);
 
         database = FirebaseDatabase.getInstance();
 
@@ -380,16 +380,20 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                                 horasSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                     @Override
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                        Toast.makeText(parent.getContext()," Item seleccionado"+parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show();
+                                        tilCitasHora.getEditText().setText(parent.getItemAtPosition(position).toString());
                                     }
 
                                     @Override
                                     public void onNothingSelected(AdapterView<?> parent) {
+
                                     }
                                 });
-*/
+
                             }
                         },year,mes,dia);
                 datePickerDialog.show();
+                //rellenarSpinner();
 
                 break;
             case R.id.ed_citas_hora:
@@ -397,15 +401,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                 break;
         }
     }
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        tilCitasHora.getEditText().setText(parent.getItemAtPosition(position).toString());
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
+    public void rellenarSpinner(){
     }
 }
 
