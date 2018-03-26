@@ -404,6 +404,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+                
             }
         });
 
