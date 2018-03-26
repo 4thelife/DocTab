@@ -62,9 +62,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     private FirebaseDatabase database;
     private DatabaseReference drCitas,drHorario;
     private ValueEventListener listenerCitas,listenerHorario;
-    ArrayList<String> horasOcupadas = new ArrayList<String>();
-    ArrayList<String> horasLibres = new ArrayList<String>();
-
 
     /**Declaro el objeto para usarlo ?**/
     public static Citas _citaActual;
@@ -103,10 +100,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         database = FirebaseDatabase.getInstance();
 
 
-
-
-
-
         return view;
     }
     @Override
@@ -117,7 +110,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     public void onStart() {
         super.onStart();
         //onPreRender();
-
+        rellenarSpinner();
     }
 
     private void onPreRender() {
@@ -243,18 +236,165 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ed_citas_fecha:
-
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, final int year,final int month, final int dayOfMonth) {
                                 int mecito = month+1;
                                 tilCitasFecha.getEditText().setText(dayOfMonth+"/"+mecito+"/"+year);
+                                laFecha2 = dayOfMonth+"/"+mecito+"/"+year;
+                                final ArrayList<String> horasOcupadas = new ArrayList<String>();
+                                final ArrayList<String> horasLibres = new ArrayList<String>();
+
+                                ArrayAdapter<CharSequence> adapterHorasOcupadas = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasOcupadas);
+                                ArrayAdapter<CharSequence> adapterHorasLibres= new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasLibres);
+
+
+
+                                drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS);
+                                listenerCitas = new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                        for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
+                                            for (DataSnapshot postSnapshot2:postSnapshot.getChildren()){
+                                                Citas citas = postSnapshot2.getValue(Citas.class);
+                                                if (null == citas.getEstatus())break;
+                                                switch (citas.getEstatus()){
+                                                    case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
+                                                    case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
+                                                        laFecha = citas.getFecha();
+                                                        if (laFecha.equals(laFecha2 )) {
+                                                            horasOcupadas.add(citas.getHora());
+                                                        }
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+                                            }
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                    }
+                                };
+                                drCitas.addValueEventListener(listenerCitas);
+                                drHorario = database.getReference(Constants.FB_KEY_MAIN_DOCTORES).child(Constants.USUARIO_DOCTOR).child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION);
+
+                                listenerHorario = new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                        String mes = ""+(month+1);
+                                        String nombreDia = ""+dayOfMonth;
+                                        String elanio = ""+year;
+                                        String inputDateStr = String.format("%s/%s/%s",nombreDia,mes,elanio);
+                                        String diaDeSemana="";
+                                        String horainicial,horafinal,duracion;
+                                        try {
+                                            Date inputDate = new SimpleDateFormat("dd/MM/yyyy").parse(inputDateStr);
+                                            Calendar cal = Calendar.getInstance();
+                                            cal.setTime(inputDate);
+                                            int numDia;
+                                            numDia = cal.get(Calendar.DAY_OF_WEEK)-1;
+                                            diaDeSemana = numDia+"";
+                                        }
+                                        catch (ParseException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                        for (DataSnapshot postSnapshot:dataSnapshot.getChildren()){
+                                            HorariosDeAtencion jornada = postSnapshot.getValue(HorariosDeAtencion.class);
+                                           if (jornada.getDia().equals(diaDeSemana)){
+
+                                               horainicial = jornada.getHoraInicio();
+                                               horafinal = jornada.getHoraFin();
+                                               duracion = jornada.getDuracionDeCita();
+
+                                               String[]horasMinutos1 = horainicial.split(":");
+                                               String[]horasMinutos2 = horafinal.split(":");
+
+                                               String h1 = horasMinutos1[0];
+                                               String m1 = horasMinutos1[1];
+                                               String h2 = horasMinutos2[0];
+                                               String m2 = horasMinutos2[1];
+
+                                               int h11 = 0;
+                                               int m11 = 0;
+                                               int h22 = 0;
+                                               int m22 = 0;
+                                               int duracionCita;
+                                               //variables  para el For
+                                               h11 = Integer.parseInt(h1);
+                                               h22 = Integer.parseInt(h2);
+                                               m11 = Integer.parseInt(m1);
+                                               m22 = Integer.parseInt(m2);
+                                               duracionCita = Integer.parseInt(duracion);
+
+                                               System.out.println("Hora inicial: "+h11);
+                                               System.out.println("Hora Final: "+h22);
+                                               System.out.println("Duración de la Cita: "+duracionCita);
+
+                                               int minInicial = h11*60+m11;
+                                               int minFinal = h22*60+m22;
+                                               float modulo;
+                                               int mm;
+                                               System.out.println("Minuto inicial: "+minInicial);
+                                               System.out.println("Minuto Final: "+minFinal);
+                                               int tamanio = horasLibres.size();
+                                               boolean banderita = false;
+                                               if (tamanio!=0){banderita = true;}
+                                               for (int a = minInicial; a < minFinal; a= a+duracionCita ){
+                                                   int lahora = a/60;
+
+                                                   modulo = (((float)a/60)-lahora)*60;
+                                                   mm = (int)modulo;
+
+                                                   if (banderita==true){
+
+                                                       for (int i = 0; i < tamanio; i++){
+                                                           String horita = horasLibres.get(i);
+                                                           String lis = lahora+":"+mm;
+                                                           System.out.println("Entró?" +i);
+                                                       }
+                                                   }
+                                                   else{
+                                                       horasLibres.add(lahora+":"+mm);
+                                                       System.out.println("Modulo: "+ mm);
+                                                       System.out.println("Hora: "+lahora+" Minuto:"+ mm );
+                                                   }
+                                               }
+                                           }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                    }
+                                };
+                                drHorario.addValueEventListener(listenerHorario);
+                                horasSpinner.setAdapter(adapterHorasLibres);
+                                /*
+                                horasSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    @Override
+                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                        Toast.makeText(parent.getContext()," Item seleccionado"+parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show();
+                                        tilCitasHora.getEditText().setText(parent.getItemAtPosition(position).toString());
+                                    }
+
+                                    @Override
+                                    public void onNothingSelected(AdapterView<?> parent) {
+
+                                    }
+                                });
 
                             }
                         },year,mes,dia);
                 datePickerDialog.show();
-                rellenarSpinner();
+                //rellenarSpinner();
+
                 break;
             case R.id.ed_citas_hora:
 
@@ -262,155 +402,7 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         }
     }
     public void rellenarSpinner(){
-
-
-        ArrayAdapter<CharSequence> adapterHorasOcupadas = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasOcupadas);
-        ArrayAdapter<CharSequence> adapterHorasLibres= new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasLibres);
-        final String fechaelegida = String.valueOf(tilCitasFecha.getEditText().getText());
-        //horasLibres.add("Seleccione una hora");
-        drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS);
-        listenerCitas = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                    for (DataSnapshot postSnapshot2:postSnapshot.getChildren()){
-                        Citas citas = postSnapshot2.getValue(Citas.class);
-                        if (null == citas.getEstatus())break;
-                        switch (citas.getEstatus()){
-                            case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
-                            case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
-                                laFecha = citas.getFecha();
-                                if (laFecha.equals(fechaelegida )) {
-                                    horasOcupadas.add(citas.getHora());
-                                }
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        };
-        drCitas.addValueEventListener(listenerCitas);
-        drHorario = database.getReference(Constants.FB_KEY_MAIN_DOCTORES).child(Constants.USUARIO_DOCTOR).child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION);
-
-        listenerHorario = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                String mes = "12";
-                String nombreDia = "12";
-                String elanio = "2018";
-                String inputDateStr = String.format("%s/%s/%s",nombreDia,mes,elanio);
-                String diaDeSemana="";
-                String horainicial,horafinal,duracion;
-                try {
-                    Date inputDate = new SimpleDateFormat("dd/MM/yyyy").parse(inputDateStr);
-                    Calendar cal = Calendar.getInstance();
-                    cal.setTime(inputDate);
-                    int numDia;
-                    numDia = cal.get(Calendar.DAY_OF_WEEK)-1;
-                    diaDeSemana = numDia+"";
-                }
-                catch (ParseException e) {
-                    e.printStackTrace();
-                }
-
-                for (DataSnapshot postSnapshot:dataSnapshot.getChildren()){
-                    HorariosDeAtencion jornada = postSnapshot.getValue(HorariosDeAtencion.class);
-                    if (jornada.getDia().equals(diaDeSemana)){
-
-                        horainicial = jornada.getHoraInicio();
-                        horafinal = jornada.getHoraFin();
-                        duracion = jornada.getDuracionDeCita();
-
-                        String[]horasMinutos1 = horainicial.split(":");
-                        String[]horasMinutos2 = horafinal.split(":");
-
-                        String h1 = horasMinutos1[0];
-                        String m1 = horasMinutos1[1];
-                        String h2 = horasMinutos2[0];
-                        String m2 = horasMinutos2[1];
-
-                        int h11,m11,h22,m22,duracionCita;
-
-                        //variables  para el For
-                        h11 = Integer.parseInt(h1);
-                        h22 = Integer.parseInt(h2);
-                        m11 = Integer.parseInt(m1);
-                        m22 = Integer.parseInt(m2);
-                        duracionCita = Integer.parseInt(duracion);
-
-                        System.out.println("Hora inicial: "+h11);
-                        System.out.println("Hora Final: "+h22);
-                        System.out.println("Duración de la Cita: "+duracionCita);
-
-                        int minInicial = h11*60+m11;
-                        int minFinal = h22*60+m22;
-                        float modulo;
-                        int mm;
-                        System.out.println("Minuto inicial: "+minInicial);
-                        System.out.println("Minuto Final: "+minFinal);
-
-                        int tamanio = horasOcupadas.size();
-                        boolean banderita = false;
-                        if (tamanio!=0){banderita = true;}
-
-                        for (int a = minInicial; a < minFinal; a= a+duracionCita ){
-                            int lahora = a/60;
-
-                            modulo = (((float)a/60)-lahora)*60;
-                            mm = (int)modulo;
-
-                            if (banderita==true){
-
-                                for (int i = 0; i < tamanio; i++){
-                                    String horita = horasLibres.get(i);
-                                    String lis = lahora+":"+mm;
-                                    System.out.println("Entró?" +i);
-                                }
-                            }
-                            else{
-                                horasLibres.add(lahora+":"+mm);
-                                System.out.println("Modulo: "+ mm);
-                                System.out.println("Hora: "+lahora+" Minuto:"+ mm );
-                            }
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-
-        };
-        drHorario.addValueEventListener(listenerHorario);
-
-        horasSpinner.setAdapter(adapterHorasLibres);
-
-        horasSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(parent.getContext()," Item seleccionado"+parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        horasSpinner.setAdapter(adapterHorasLibres);
-
     }
-
 }
 
 
