@@ -285,7 +285,11 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                 break;
         }
     }
-
+    // todo estaba mal, hay que volver a reestructurar.
+    // no era ni programación orientada a objetos, se perdía el contexto y no podía acceder a los valores.
+    // por eso revertí todo lo que había hecho.
+    // pero ya tengo la idea de como hacerlo, solo hay que plasmarlo en POO para que pueda atraer los valores de los objetos, si te das cuenta en realidad solo cambiaba de posicion el código
+    // escrito ( que revertí ) era lo mismo en todoslos casos
 }
 
 
