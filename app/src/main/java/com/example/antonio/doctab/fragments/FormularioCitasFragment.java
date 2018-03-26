@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -34,18 +33,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 /**
  * Created by Ricardo on 13/02/2018.
  */
 
-public class FormularioCitasFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class FormularioCitasFragment extends Fragment implements View.OnClickListener {
 
     private static final String TAG = FormularioCitasFragment.class.getSimpleName();
     private static DecodeExtraHelper _MAIN_DECODE;
@@ -85,7 +80,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
         horasSpinner = (Spinner)view.findViewById(R.id.spiner_horas);
         fecha.setOnClickListener(this);
-        horasSpinner.setOnItemSelectedListener(this);
 
         /*Seleccionar la hora*/
         tilCitasHora = (TextInputLayout) view.findViewById(R.id.til_citas_hora);
@@ -94,8 +88,8 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         hour = currentTime.get(Calendar.HOUR_OF_DAY);
         minuto = currentTime.get(Calendar.MINUTE);
 
-        //tilCitasHora.getEditText().setText(hour+":"+minuto);
-        //hora.setOnClickListener(this);
+        tilCitasHora.getEditText().setText(hour+":"+minuto);
+        hora.setOnClickListener(this);
 
         database = FirebaseDatabase.getInstance();
 
@@ -239,17 +233,21 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
-                            public void onDateSet(DatePicker view, final int year,final int month, final int dayOfMonth) {
-                                int mecito = month+1;
-                                tilCitasFecha.getEditText().setText(dayOfMonth+"/"+mecito+"/"+year);
-                                laFecha2 = dayOfMonth+"/"+mecito+"/"+year;
+                            public void onDateSet(DatePicker view, final int year, int month, int dayOfMonth) {
+                                month = month+1;
+                                tilCitasFecha.getEditText().setText(dayOfMonth+"/"+month+"/"+year);
+
+                                laFecha2 = dayOfMonth+"/"+month+"/"+year;
+
+                                final ArrayList<String> horai = new ArrayList<String>();
+                                final ArrayList<String> horaf = new ArrayList<String>();
+                                final ArrayList<String> eldia = new ArrayList<String>();
+
                                 final ArrayList<String> horasOcupadas = new ArrayList<String>();
                                 final ArrayList<String> horasLibres = new ArrayList<String>();
 
-                                ArrayAdapter<CharSequence> adapterHorasOcupadas = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasOcupadas);
+                                ArrayAdapter<CharSequence> adapter = new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasOcupadas);
                                 ArrayAdapter<CharSequence> adapterHorasLibres= new ArrayAdapter(getContext(),android.R.layout.simple_spinner_item,horasLibres);
-
-
 
                                 drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS);
                                 listenerCitas = new ValueEventListener() {
@@ -273,139 +271,52 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                                                 }
                                             }
                                         }
-
                                     }
+
+
 
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {
                                     }
                                 };
                                 drCitas.addValueEventListener(listenerCitas);
-                                drHorario = database.getReference(Constants.FB_KEY_MAIN_DOCTORES).child(Constants.USUARIO_DOCTOR).child(Constants.FB_KEY_ITEM_HORARIOS_DE_ATENCION);
 
+                                drHorario = database.getReference(Constants.FB_KEY_MAIN_DOCTORES).child(Constants.USUARIO_DOCTOR);
                                 listenerHorario = new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
-
-                                        String mes = ""+(month+1);
-                                        String nombreDia = ""+dayOfMonth;
-                                        String elanio = ""+year;
-                                        String inputDateStr = String.format("%s/%s/%s",nombreDia,mes,elanio);
-                                        String diaDeSemana="";
-                                        String horainicial,horafinal,duracion;
-                                        try {
-                                            Date inputDate = new SimpleDateFormat("dd/MM/yyyy").parse(inputDateStr);
-                                            Calendar cal = Calendar.getInstance();
-                                            cal.setTime(inputDate);
-                                            int numDia;
-                                            numDia = cal.get(Calendar.DAY_OF_WEEK)-1;
-                                            diaDeSemana = numDia+"";
-                                        }
-                                        catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
-
                                         for (DataSnapshot postSnapshot:dataSnapshot.getChildren()){
                                             HorariosDeAtencion jornada = postSnapshot.getValue(HorariosDeAtencion.class);
-                                           if (jornada.getDia().equals(diaDeSemana)){
-
-                                               horainicial = jornada.getHoraInicio();
-                                               horafinal = jornada.getHoraFin();
-                                               duracion = jornada.getDuracionDeCita();
-
-                                               String[]horasMinutos1 = horainicial.split(":");
-                                               String[]horasMinutos2 = horafinal.split(":");
-
-                                               String h1 = horasMinutos1[0];
-                                               String m1 = horasMinutos1[1];
-                                               String h2 = horasMinutos2[0];
-                                               String m2 = horasMinutos2[1];
-
-                                               int h11 = 0;
-                                               int m11 = 0;
-                                               int h22 = 0;
-                                               int m22 = 0;
-                                               int duracionCita;
-                                               //variables  para el For
-                                               h11 = Integer.parseInt(h1);
-                                               h22 = Integer.parseInt(h2);
-                                               m11 = Integer.parseInt(m1);
-                                               m22 = Integer.parseInt(m2);
-                                               duracionCita = Integer.parseInt(duracion);
-
-                                               System.out.println("Hora inicial: "+h11);
-                                               System.out.println("Hora Final: "+h22);
-                                               System.out.println("Duración de la Cita: "+duracionCita);
-
-                                               int minInicial = h11*60+m11;
-                                               int minFinal = h22*60+m22;
-                                               float modulo;
-                                               int mm;
-                                               System.out.println("Minuto inicial: "+minInicial);
-                                               System.out.println("Minuto Final: "+minFinal);
-                                               int tamanio = horasLibres.size();
-                                               boolean banderita = false;
-                                               if (tamanio!=0){banderita = true;}
-                                               for (int a = minInicial; a < minFinal; a= a+duracionCita ){
-                                                   int lahora = a/60;
-
-                                                   modulo = (((float)a/60)-lahora)*60;
-                                                   mm = (int)modulo;
-
-                                                   if (banderita==true){
-
-                                                       for (int i = 0; i < tamanio; i++){
-                                                           String horita = horasLibres.get(i);
-                                                           String lis = lahora+":"+mm;
-                                                           System.out.println("Entró?" +i);
-                                                       }
-                                                   }
-                                                   else{
-                                                       horasLibres.add(lahora+":"+mm);
-                                                       System.out.println("Modulo: "+ mm);
-                                                       System.out.println("Hora: "+lahora+" Minuto:"+ mm );
-                                                   }
-                                               }
-                                           }
+                                            horai.add(jornada.getHoraInicio());
+                                            horaf.add(jornada.getHoraFin());
+                                            eldia.add(jornada.getDia());
                                         }
                                     }
 
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {
+
                                     }
                                 };
-                                drHorario.addValueEventListener(listenerHorario);
-                                horasSpinner.setAdapter(adapterHorasLibres);
-                                /*
-                                horasSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                    @Override
-                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                    }
-
-                                    @Override
-                                    public void onNothingSelected(AdapterView<?> parent) {
-                                    }
-                                });
-*/
+                                horasSpinner.setAdapter(adapter);
                             }
                         },year,mes,dia);
                 datePickerDialog.show();
+                //rellenarSpinner();
 
                 break;
             case R.id.ed_citas_hora:
-
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        tilCitasHora.getEditText().setText(hourOfDay+":"+minute);
+                    }
+                },hour,minuto,true);
+                timePickerDialog.show();
                 break;
         }
     }
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        tilCitasHora.getEditText().setText(parent.getItemAtPosition(position).toString());
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
+    public void rellenarSpinner(){
     }
 }
 
