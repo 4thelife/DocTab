@@ -67,7 +67,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     ArrayList<String> horasOcupadas = new ArrayList<>();
     ArrayList<String> horasLibres = new ArrayList<>();
 
-    /**Declaro el objeto para usarlo ?**/
     public static Citas _citaActual;
 
     @Override
@@ -86,7 +85,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         dia = currentDate.get(Calendar.DAY_OF_MONTH);
         mes = currentDate.get(Calendar.MONTH);
         year = currentDate.get(Calendar.YEAR);
-        //tilCitasFecha.getEditText().setText(dia+"/"+mes+"/"+year);
 
         horasSpinner = (Spinner)view.findViewById(R.id.spiner_horas);
         fecha.setOnClickListener(this);
@@ -98,7 +96,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         hour = currentTime.get(Calendar.HOUR_OF_DAY);
         minuto = currentTime.get(Calendar.MINUTE);
 
-        //tilCitasHora.getEditText().setText(hour+":"+minuto);
 
         database = FirebaseDatabase.getInstance();
 
@@ -355,7 +352,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
                         int h11,m11,h22,m22,duracionCita;
 
-                        //variables  para el For
                         h11 = Integer.parseInt(h1);
                         h22 = Integer.parseInt(h2);
                         m11 = Integer.parseInt(m1);
@@ -373,7 +369,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                         System.out.println("Minuto inicial: "+minInicial);
                         System.out.println("Minuto Final: "+minFinal);
 
-
                         int tamanio = horasOcupadas.size();
                         boolean banderita;
                         switch (tamanio){
@@ -387,7 +382,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                                 break;
                         }
 
-                        //if (tamanio!=0){banderita = true;}
 
                         for (int a = minInicial; a < minFinal; a= a+duracionCita ){
                             int lahora = a/60;
