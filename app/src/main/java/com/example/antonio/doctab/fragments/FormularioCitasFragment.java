@@ -220,17 +220,14 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
         String asunto = tilCitasAsunto.getEditText().getText().toString();
         boolean a = ValidationUtils.esTextoValido(tilCitasAsunto, asunto);
         if (a){
-
             Citas data = new Citas();
             data.setAsunto(asunto);
             data.setFecha(fecha);
             data.setHora(hora);
-
             data.setNombre(_citaActual.getNombre());
             data.setFirebaseIdDoctor(Constants.USUARIO_DOCTOR);
             data.setFireBaseId(_citaActual.getFireBaseId());
             data.setFirebaseIdPaciente(_citaActual.getFirebaseIdPaciente());
-
             setCita(data);
             valido = true;
         }
@@ -264,8 +261,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
                                 int mecito = month+1;
                                 tilCitasFecha.getEditText().setText(dayOfMonth+"/"+mecito+"/"+year);
                                 if (!tilCitasFecha.getEditText().getText().equals("")){
-
-
                                 }
                             }
                         },year,mes,dia);
@@ -407,20 +402,15 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
 
                                     if (lis.equals(horita)){
                                         System.out.println("Entró?" +i);
-
                                     }
-
                                 }
 
                                 System.out.println("Entró al if Linea: 388");
-
                             }
                             else{
                                 horasLibres.add(lahora+":"+mm);
 
                                 System.out.println("Entró al Else Linea: 412");
-
-
                             }
                         }
                     }
@@ -430,7 +420,6 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
-
         };
         drHorario.addValueEventListener(listenerHorario);
 
