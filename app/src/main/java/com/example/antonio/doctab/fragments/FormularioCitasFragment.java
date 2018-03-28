@@ -250,15 +250,24 @@ public class FormularioCitasFragment extends Fragment implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.ed_citas_fecha:
+                System.out.println("Está entrando?");
+                System.out.println("Está entrando?");
+                System.out.println("Está entrando?");
+                System.out.println("Está entrando?");
+                System.out.println("Está entrando?");
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, final int year,final int month, final int dayOfMonth) {
                                 int mecito = month+1;
-                                tilCitasFecha.getEditText().setText(dayOfMonth+"/"+mecito+"/"+year);
-                                if (!tilCitasFecha.getEditText().getText().equals("")){
-                                }
+                                String fechaselec = dayOfMonth+"/"+mecito+"/"+year;
+                                tilCitasFecha.getEditText().setText(fechaselec);
+                                //if (!tilCitasFecha.getEditText().getText().equals("")){
+                                //}
+
+
+
                             }
                         },year,mes,dia);
                 datePickerDialog.show();
