@@ -28,7 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -43,14 +42,6 @@ public class InicioFragment extends Fragment implements View.OnClickListener {
 
     private static NavigationDrawerInterface activityInterface;
     public static LinearLayout linearLayout;
-
-    /**
-     * Obtener el dia actual
-     */
-    Calendar currentDate;
-    int day,month,year;
-    String diaEnCurso, fechaCita;
-
 
     /**
      * Declaracion de los elementos de la vista
@@ -71,23 +62,12 @@ public class InicioFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_inicio, container, false);
 
-
+        vista = (TextView) view.findViewById(R.id.txt_inicio);
 
         _SESSION_USER = SharedPreferencesService.getUsuarioActual(getContext());
 
         linearLayout = (LinearLayout) view.findViewById(R.id.view_no_resultados);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_inicio);
-
-        /**
-         * Obtener la fecha
-         */
-
-        currentDate = Calendar.getInstance();
-        day = currentDate.get(Calendar.DAY_OF_MONTH);
-        month = currentDate.get(Calendar.MONTH);
-        year = currentDate.get(Calendar.YEAR);
-
-        diaEnCurso = String.valueOf(day)+"/"+String.valueOf(month+1)+"/"+String.valueOf(year);
 
         adapter = new CitasAdapterVP();
 
@@ -97,12 +77,12 @@ public class InicioFragment extends Fragment implements View.OnClickListener {
         switch (_SESSION_USER.getTipoDeUsuario()){
             case Constants.FB_KEY_ITEM_TIPO_USUARIO_DOCTOR:
                 drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS);
-
+                vista.setText("Inicio en modo doctor");
                 break;
             case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
                 drCitas = database.getReference(Constants.FB_KEY_MAIN_CITAS)
                         .child(_SESSION_USER.getFirebaseId());
-
+                vista.setText("Inicio en modo paciente");
                 break;
         }
 
@@ -145,10 +125,7 @@ public class InicioFragment extends Fragment implements View.OnClickListener {
                                 switch (citas2.getEstatus()){
                                     case Constants.FB_KEY_ITEM_ESTATUS_ACTIVO:
                                     case Constants.FB_KEY_ITEM_ESTATUS_INACTIVO:
-                                        fechaCita = citas2.getFecha();
-                                        if (fechaCita.equals(diaEnCurso)){
-                                            dataList.add(citas2);
-                                        }
+                                        dataList.add(citas2);
                                         break;
                                     default:
                                         break;
@@ -157,7 +134,7 @@ public class InicioFragment extends Fragment implements View.OnClickListener {
                             }
                             break;
                         case Constants.FB_KEY_ITEM_TIPO_USUARIO_PACIENTE:
-                            Citas citas = postSnapshot.getValue(Citas.class);
+                            /**Citas citas = postSnapshot.getValue(Citas.class);
 
                             if (null == citas.getEstatus()) break;
 
@@ -168,7 +145,7 @@ public class InicioFragment extends Fragment implements View.OnClickListener {
                                     break;
                                 default:
                                     break;
-                            }
+                            }*/
                             break;
                     }
 
